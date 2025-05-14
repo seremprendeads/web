@@ -1,0 +1,23 @@
+# Bloquea todos los bots de acceder a carpetas sensibles
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /dashboard/
+Disallow: /cgi-bin/
+Disallow: /carrito/
+Disallow: /checkout/
+Disallow: /gracias/
+Disallow: /politicas/
+Disallow: /terminos/
+Disallow: /privacidad/
+Disallow: /404.html
+
+# Permitir todo lo demás
+Allow: /
+
+# Evita el acceso a archivos específicos
+Disallow: /secret.html
+Disallow: /config.php
+
+# Sitemap para mejorar el rastreo
+Sitemap: https://www.tusitio.com/sitemap.xml
