@@ -2,64 +2,74 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ser Emprende</title>
-
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar Responsive</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <!-- Alpine.js -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-  <!-- Tailwind CSS compilado -->
-  <link rel="stylesheet" href="dist/output.css" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="img/logo-plusweb.ico" type="image/x-icon"/>
 </head>
-<body class="bg-black overflow-x-hidden">
+<body class="bg-gray-100">
 
-<!-- Navbar -->
-<nav x-data="{ open: false }" class="fixed w-full shadow-md z-50 bg-black">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-wrap justify-between items-center h-16">
-      
-      <!-- Logo -->
-      <div class="flex items-center">
-        <a href="#inicio" class="flex items-center">
-          <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="Logo" class="h-10 w-10 mr-2"/>
-          <span class="font-bodoni text-lg font-bold text-white">Ser Emprende</span>
-        </a>
+  <!-- Navbar -->
+  <nav x-data="{ open: false }" class="fixed w-full shadow-md z-50 bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+
+        <!-- Logo -->
+        <div class="flex items-center">
+          <a href="#inicio" class="flex items-center">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="Logo" class="h-10 w-10 mr-2"/>
+            <span class="font-bold text-white text-lg">Ser Emprende</span>
+          </a>
+        </div>
+
+        <!-- Menú en desktop -->
+        <div class="hidden md:flex items-center space-x-6">
+          <a href="#inicio" class="text-white hover:text-yellow-400 transition">Inicio</a>
+          <a href="#nosotros" class="text-white hover:text-yellow-400 transition">Nosotros</a>
+          <a href="#servicios" class="text-white hover:text-yellow-400 transition">Servicios</a>
+          <a href="#trabajos" class="text-white hover:text-yellow-400 transition">Trabajos</a>
+          <a href="#galeria" class="text-white hover:text-yellow-400 transition">Galería</a>
+          <a href="#testimonios" class="text-white hover:text-yellow-400 transition">Testimonios</a>
+          <a href="#faq" class="text-white hover:text-yellow-400 transition">FAQ</a>
+          <a href="#contacto" class="bg-green-600 text-white font-semibold px-3 py-2 rounded-full hover:bg-green-400 transition inline-flex items-center animate-pulse">
+            Contratar Hoy
+            <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
+          </a>
+        </div>
+
+        <!-- Botón hamburguesa -->
+        <div class="md:hidden">
+          <button @click="open = !open" class="text-white focus:outline-none">
+            <svg x-show="!open" x-transition xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg x-show="open" x-transition xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
       </div>
+    </div>
 
-      <!-- Menú en desktop -->
-      <div class="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
-        <a href="#inicio" class="text-white hover:text-yellow-400 transition">Inicio</a>
-        <a href="#nosotros" class="text-white hover:text-yellow-400 transition">Nosotros</a>
-        <a href="#servicios" class="text-white hover:text-yellow-400 transition">Servicios</a>
-        <a href="#trabajos" class="text-white hover:text-yellow-400 transition">Trabajos</a>
-        <a href="#galeria" class="text-white hover:text-yellow-400 transition">Galería</a>
-        <a href="#testimonios" class="text-white hover:text-yellow-400 transition">Testimonios</a>
-        <a href="#faq" class="text-white hover:text-yellow-400 transition">FAQ</a>
-        <a href="#contacto" class="bg-green-600 text-white font-semibold px-3 py-2 rounded-full hover:bg-green-400 transition inline-flex items-center animate-pulse">
+    <!-- Menú móvil -->
+    <div x-show="open" x-transition class="md:hidden bg-black pb-4 px-4">
+      <div class="space-y-2 pt-2 pb-3">
+        <a href="#inicio" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Inicio</a>
+        <a href="#nosotros" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Nosotros</a>
+        <a href="#servicios" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Servicios</a>
+        <a href="#trabajos" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Trabajos</a>
+        <a href="#galeria" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Galería</a>
+        <a href="#testimonios" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Testimonios</a>
+        <a href="#faq" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">FAQ</a>
+        <a href="#contacto" class="block bg-green-500 text-white font-semibold px-3 py-2 rounded-full hover:bg-green-600 transition inline-flex items-center animate-pulse">
           Contratar Hoy
           <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
         </a>
       </div>
-
-      <!-- Botón hamburguesa -->
-      <div class="md:hidden flex items-center">
-        <button @click="open = !open" class="text-white focus:outline-none">
-          <svg x-show="!open" x-transition xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-          <svg x-show="open" x-transition xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
     </div>
-  </div>
+  </nav>
 
   <!-- Menú móvil -->
   <div x-show="open" x-transition class="md:hidden bg-black pb-4 px-4">
