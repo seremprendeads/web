@@ -1,0 +1,8 @@
+# Ignorar dependencias
+node_modules/
+jeryell/
+dist/
+.vscode/
+.env
+.DS_Store
+*.log
