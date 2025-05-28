@@ -3,92 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ser Emprende</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <link rel="stylesheet" href="./dist/output.css"> 
-  <link rel="icon" href="img/logo-plusweb.ico" type="image/x-icon">
+  <title>SerEmprende | Diseño web</title>
+  <meta name="description" content="Descubre el mejor spa en la ciudad con tratamientos personalizados, masajes relajantes y servicios holísticos para renovar tu cuerpo y mente.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- Mejora de rendimiento: preconexión al CDN -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Font Awesome desde CDN (o local si prefieres) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- menu haburguesa -->
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+
+  <!-- CSS compilado y minificado de Tailwind (con versión para cache busting) -->
+  <link rel="stylesheet" href="./dist/output.css?v=1.0">
 </head>
-<body class="bg-black overflow-x-hidden">
-
-  <!-- Navbar -->
-  <nav x-data="{ open: false }" class="fixed w-full shadow-md z-50 bg-black">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16 items-center">
-
-        <!-- Logo -->
-        <div class="flex items-center">
-          <a href="#inicio" class="flex items-center">
-            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="Logo" class="h-10 w-10 mr-2"/>
-            <span class="font-bold text-white text-lg">Ser Emprende</span>
-          </a>
-        </div>
-
-        <!-- Menú en desktop -->
-        <div class="hidden md:flex items-center space-x-6">
-          <a href="#inicio" class="text-white hover:text-yellow-400 transition">Inicio</a>
-          <a href="#nosotros" class="text-white hover:text-yellow-400 transition">Nosotros</a>
-          <a href="#servicios" class="text-white hover:text-yellow-400 transition">Servicios</a>
-          <a href="#trabajos" class="text-white hover:text-yellow-400 transition">Trabajos</a>
-          <a href="#galeria" class="text-white hover:text-yellow-400 transition">Galería</a>
-          <a href="#testimonios" class="text-white hover:text-yellow-400 transition">Testimonios</a>
-          <a href="#faq" class="text-white hover:text-yellow-400 transition">FAQ</a>
-          <a href="#contacto" class="bg-green-600 text-white font-semibold px-3 py-2 rounded-full hover:bg-green-400 transition inline-flex items-center animate-pulse">
-            Contratar Hoy
-            <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
-          </a>
-        </div>
-
-        <!-- Botón hamburguesa -->
-        <div class="md:hidden">
-          <button @click="open = !open" class="text-white focus:outline-none">
-            <svg x-show="!open" x-transition xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-            <svg x-show="open" x-transition xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-          </button>
-        </div>
-      </div>
+<body class="bg-stone-50 text-gray-800">
+       <!-- Navigation -->
+     <div x-data="{ mobileMenuOpen: false }" class="relative z-50">
+        <nav class="bg-white bg-opacity-95 shadow-md fixed w-full top-0 z-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-20">
+                    <div class="flex items-center">
+                        <div class="text-2xl font-bold text-teal-700">
+                            <a href="#inicio" class="flex items-center">
+                                <span class="text-3xl font-serif">
+                                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1746410381/logo-spa_y7aza1.png" alt="logo" class="h-12 w-12">
+                                </span>
+                                <span class="ml-1 text-sm uppercase tracking-wider mt-1 text-pink-400">Spa & Wellness</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#inicio" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">Inicio</a>
+                        <a href="#nosotros" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">Nosotros</a>
+                        <a href="#servicios" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">Servicios</a>
+                        <a href="#trabajos" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">Trabajos</a>
+                        <a href="#galeria" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">Galería</a>
+                        <a href="#testimonios" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">Testimonios</a>
+                        <a href="#faq" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">FAQ</a>
+                        <a href="#contacto" class="bg-pink-300 text-white font-bold px-3
+                         py-2 rounded-full hover:bg-rose-300 transition-colors duration-300 inline-flex items-center animate-pulse">
+                     RESERVAR TURNO
+                    <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
+                    </a>
+                    </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-600 hover:text-teal-700 focus:outline-none">
+                            <svg class="h-6 w-6" x-show="!mobileMenuOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                            <svg class="h-6 w-6" x-show="mobileMenuOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="mobileMenuOpen" class="md:hidden bg-white" style="display: none;">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#inicio" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+                    <a href="#nosotros" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Nosotros</a>
+                    <a href="#servicios" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Servicios</a>
+                    <a href="#trabajos" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Trabajos</a>
+                    <a href="#galeria" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Galería</a>
+                    <a href="#testimonios" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Testimonios</a>
+                    <a href="#faq" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">FAQ</a>
+                                          <a href="#contacto" class="bg-pink-300 text-white font-bold px-3
+                         py-2 rounded-full hover:bg-rose-300 transition-colors duration-300 inline-flex items-center animate-pulse">
+                     RESERVAR TURNO
+                    <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
+                    </a>
+                </div>
+            </div>
+        </nav>
     </div>
-
-    <!-- Menú móvil -->
-    <div x-show="open" x-transition class="md:hidden bg-black pb-4 px-4">
-      <div class="space-y-2 pt-2 pb-3">
-        <a href="#inicio" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Inicio</a>
-        <a href="#nosotros" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Nosotros</a>
-        <a href="#servicios" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Servicios</a>
-        <a href="#trabajos" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Trabajos</a>
-        <a href="#galeria" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Galería</a>
-        <a href="#testimonios" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Testimonios</a>
-        <a href="#faq" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">FAQ</a>
-        <a href="#contacto" class="block bg-green-500 text-white font-semibold px-3 py-2 rounded-full hover:bg-green-600 transition inline-flex items-center animate-pulse">
-          Contratar Hoy
-          <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Menú móvil -->
-  <div x-show="open" x-transition class="md:hidden bg-black pb-4 px-4">
-    <div class="space-y-2 pt-2 pb-3">
-      <a href="#inicio" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Inicio</a>
-      <a href="#nosotros" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Nosotros</a>
-      <a href="#servicios" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Servicios</a>
-      <a href="#trabajos" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Trabajos</a>
-      <a href="#galeria" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Galería</a>
-      <a href="#testimonios" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">Testimonios</a>
-      <a href="#faq" class="block px-3 py-2 text-gray-200 hover:bg-gray-800 rounded">FAQ</a>
-      <a href="#contacto" class="bg-green-500 text-white font-semibold px-3 py-2 rounded-full hover:bg-green-600 transition inline-flex items-center animate-pulse">
-        Contratar Hoy
-        <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
-      </a>
-    </div>
-  </div>
-</nav>
-
   
 <!-- Hero -->
   <section class="mx-auto max-w-screen-2xl px-4 md:px-8 mt-24">
@@ -799,6 +797,6 @@ Si pasan más de 30 días sin respuesta, el proyecto podría pausarse o requerir
       </div>
   </div>
 </footer>
-
+<script src="script/menu.js"></script>
 </body>
 </html>
