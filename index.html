@@ -1,91 +1,85 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ser Emprende</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <link rel="stylesheet" href="./dist/output.css"> 
-  <link rel="icon" href="img/logo-plusweb.ico" type="image/x-icon">
+  <title>SerEmprende | Diseño web</title>
+  <meta name="description" content="Descubre el mejor spa en la ciudad con tratamientos personalizados, masajes relajantes y servicios holísticos para renovar tu cuerpo y mente.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- Mejora de rendimiento: preconexión al CDN -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Font Awesome desde CDN (o local si prefieres) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- menu haburguesa -->
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+
+  <!-- CSS compilado y minificado de Tailwind (con versión para cache busting) -->
+  <link rel="stylesheet" href="./dist/output.css?v=1.0">
 </head>
-<body class="bg-black overflow-x-hidden">
-
-<!-- Navbar -->
-<nav x-data="{ open: false }" class="fixed w-full shadow-md z-50 bg-black">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between h-16">
-      
-      <!-- Logo -->
-      <div class="flex items-center">
-        <div class="flex-shrink-0">
-          <a href="#inicio" class="flex items-center">
-            <div class="h-10 w-10 mr-2">
-              <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="Logo">
-            </div>
-            <span class="font-bodoni text-lg font-bold text-white">Ser Emprende</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Menú horizontal para tablet y escritorio -->
-      <div class="hidden md:flex md:items-center md:space-x-8">
-        <a href="#inicio" class="nav-link text-white hover:text-dorado-legati transition duration-300">Inicio</a>
-        <a href="#nosotros" class="nav-link text-white hover:text-dorado-legati transition duration-300">Nosotros</a>
-        <a href="#servicios" class="nav-link text-white hover:text-dorado-legati transition duration-300">Servicios</a>
-        <a href="#trabajos" class="nav-link text-white hover:text-dorado-legati transition duration-300">Trabajos</a>
-        <a href="#galeria" class="nav-link text-white hover:text-dorado-legati transition duration-300">Galería</a>
-        <a href="#testimonios" class="nav-link text-white hover:text-dorado-legati transition duration-300">Testimonios</a>
-        <a href="#faq" class="nav-link text-white hover:text-dorado-legati transition duration-300">FAQ</a>
-        <a href="#contacto" class="bg-green-600 text-white font-semibold px-3 py-2 rounded-full hover:bg-azul-300 transition-colors duration-300 inline-flex items-center animate-pulse">
-          Contratar Hoy
-          <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
-        </a>
-      </div>
-
-      <!-- Menú hamburguesa para móvil -->
-      <div class="md:hidden flex items-center">
-        <button @click="open = !open" class="outline-none">
-          <!-- Ícono hamburguesa -->
-          <svg x-show="!open" x-transition xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <!-- Ícono X -->
-          <svg x-show="open" x-transition xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Menú móvil desplegable -->
-  <div x-show="open" x-transition class="md:hidden bg-black pb-4 px-4">
-    <div class="space-y-2 pt-2 pb-3">
-      <a href="#inicio" class="block px-3 py-2 rounded-md text-base text-gray-200 hover:bg-gray-900">Inicio</a>
-      <a href="#nosotros" class="block px-3 py-2 rounded-md text-base text-gray-200 hover:bg-gray-900">Nosotros</a>
-      <a href="#servicios" class="block px-3 py-2 rounded-md text-base text-gray-200 hover:bg-gray-900">Servicios</a>
-      <a href="#trabajos" class="block px-3 py-2 rounded-md text-base text-gray-200 hover:bg-gray-900">Trabajos</a>
-      <a href="#galeria" class="block px-3 py-2 rounded-md text-base text-gray-200 hover:bg-gray-900">Galería</a>
-      <a href="#testimonios" class="block px-3 py-2 rounded-md text-base text-gray-200 hover:bg-gray-900">Testimonios</a>
-      <a href="#faq" class="block px-3 py-2 rounded-md text-base text-gray-200 hover:bg-gray-900">FAQ</a>
-      <a href="#contacto" class="bg-green-500 text-white font-semibold px-3 py-2 rounded-full hover:bg-green-600 transition-colors duration-300 inline-flex items-center animate-pulse">
-        Contaratar Hoy
-        <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
-      </a>
-    </div>
-  </div>
-</nav>
+<body class="bg-black text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-black shadow-lg">
+      <nav class="container mx-auto px-4 py-3">
+          <div class="flex justify-between items-center">
+              <!-- Logo -->
+              <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="logo" class="h-14 w-14">
+        
+                
+            
+              
+              <!-- Desktop/Tablet Menu -->
+              <div class="hidden lg:flex space-x-8 items-center">
+                  <a href="#inicio" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">Inicio</a>
+                  <a href="#nosotros" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">Acerca de</a>
+                  <a href="#servicios" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">Servicios</a>
+                  <a href="#trabajos" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">Seguridad</a>
+                  <a href="#galeria" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">Diseños</a>
+                  <a href="#testimonios" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">Testimonios</a>
+                  <a href="#faq" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">FAQ</a>
+                  <a href="#contacto" class="bg-green-600 text-white font-bold px-3 py-2 rounded-full hover:bg-green-300 transition-colors duration-300 inline-flex items-center animate-pulse">
+                      Empecemos Hoy
+                        <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
+                    </a>
+              </div>
+              
+              <!-- Mobile Menu Button -->
+              <button class="lg:hidden hamburger" onclick="toggleMenu()">
+                  <span class="block w-6 h-0.5 bg-gray-200 mb-1 transition-all"></span>
+                  <span class="block w-6 h-0.5 bg-gray-200 mb-1 transition-all"></span>
+                  <span class="block w-6 h-0.5 bg-gray-200 transition-all"></span>
+              </button>
+          </div>
+          
+          <!-- Mobile Menu -->
+          <div id="mobileMenu" class="lg:hidden hidden mt-4 pb-4">
+              <a href="#inicio" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">Inicio</a>
+              <a href="#nosotros" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">Nosotros</a>
+              <a href="#servicios" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">Servicios</a>
+              <a href="#trabajos" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">Trabajos</a>
+              <a href="#galeria" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">Galería</a>
+              <a href="#testimonios" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">Testimonios</a>
+              <a href="#faq" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">FAQ</a>
+              <a href="#contacto" class="bg-green-600 text-white font-bold px-3 py-2 rounded-full hover:bg-green-300 transition-colors duration-300 inline-flex items-center animate-pulsem mt-2">
+                  Empecemos Hoy
+                    <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
+                </a>
+          </div>
+      </nav>
+  </header>
   
 <!-- Hero -->
-  <section class="mx-auto max-w-screen-2xl px-4 md:px-8 mt-24">
-    <div class="mb-8 flex flex-wrap justify-between md:mb-16">
+<section class="mx-auto max-w-screen-2xl px-4 md:px-8 mt-24  py-20 bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat bg-fixed">
+ <div class="mb-8 flex flex-wrap justify-between md:mb-16">
       <div class="mb-6 flex w-full flex-col justify-center sm:mb-12 lg:mb-0 lg:w-1/3 lg:pb-24 lg:pt-48">
         <h1 class="mb-4 font-bold text-white text-5xl ">
           <span class="text-[#f47500] ">
             Sitios Web</span><br> Modernos<br>Landing Page. <span class="text-[#f47500]">
-          </span><br><br> Más Tienda.
+          </span><br><br><span class="text-[#f47500] ">Más</span> Tienda Simple.
        </h1>
 
         <p class="max-w-md leading-relaxed text-white leading-relaxed text-2xl">
@@ -95,9 +89,12 @@
         que busquen una presencia y aumentar sus ventas.</span>
         </p>
                    
-      <div class="flex flex-col gap-2.5 sm:flex-row sm:justify-left mt-4">
-        <a href="#acercade" class="inline-block rounded-lg bg-[#f47500] px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-indigo-300 transition duration-100 hover:bg-[#FFA200] focus-visible:ring md:text-base text-shadow-gray">SABER MÁS</a>
-      </div>
+        <div class="hidden sm:flex flex-col gap-2.5 sm:flex-row sm:justify-left mt-4">
+          <a href="#acercade" class="inline-block rounded-full bg-[#f47500] px-8 py-3 text-center text-sm font-semibold text-white hover:bg-[#FFA200] focus-visible:ring md:text-base text-shadow-gray">
+            SABER MÁS
+          </a>
+        </div>
+        
       </div>
             
     
@@ -110,7 +107,13 @@
           <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585927/spa-pc-hero_ia6dmy.png" loading="lazy" alt="gym" class="h-full w-full object-cover object-center" />
         </div>
       </div>
-
+ 
+      
+    </div>
+    <div class="block sm:hidden mt-4">
+      <a href="#acercade" class="w-full inline-block rounded-full bg-[#f47500] px-8 py-3 text-center text-sm font-semibold text-white  hover:bg-[#FFA200] focus-visible:ring text-shadow-gray">
+        SABER MÁS
+      </a>
     </div>
    </div>
       <!-- social - end -->
@@ -154,7 +157,7 @@
 </section>
 
 <!-- Para quien trabajamos -->
-<div class="py-6 sm:py-8 lg:py-12">
+<div class="py-8 sm:py-8 lg:py-12  bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat bg-fixed">
   <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
     <!-- text - start -->
     <div class="mb-10 md:mb-16">
@@ -236,38 +239,124 @@
   </div>
 </div>
 
-<!-- Diseños -->
-<div class="py-6 sm:py-8 lg:py-12">
+<!-- Sevicios -->
+<div class="py-6 sm:py-8 lg:py-12 ">
   <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
     <!-- text - start -->
     <div class="mb-10 md:mb-16">
-      <h2 class="mb-4 text-center font-bold text-[#f47500] md:mb-6 text-2xl leading-relaxed p-8">
-          ¿Tienes <span class="text-white leading-relaxed"> PRODUCTOS</span>
-          que Complementen tu Servicio?</span><br>
-          ¿Necesitas una <span class="text-white leading-relaxed"> TIENDA SIMPLE,</span> Autogestinable? 
-          <br>¿Práctica y fácil de usar?
-      </h2>
- 
-    </div>
+      <h2 class="mb-4 text-center text-2xl font-bold text-[#f47500] md:mb-6 lg:text-3xl">Servicios</h2>
+  </div>
     <!-- text - end -->
 
-    <div class="grid gap-4 sm:grid-cols-2 md:gap-8 xl:grid-cols-3">
-  
+    <div class="grid gap-12 sm:grid-cols-2 xl:grid-cols-3 xl:gap-16">
+      <!-- feature - start -->
+      <div class="flex flex-col items-center">
+        <div class="mb-2 flex h-12 w-12 items-center justify-center text-white sm:mb-4 md:h-14 md:w-14">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+        </div>
 
+        <h3 class="mb-2 text-center text-lg font-semibold md:text-xl text-white">Diseño de Landing Page</h3>
+        <p class="mb-2 text-center text-gray-300 px-12">
+          Diseños enfocados en captar clientes con rapidez. Servicios o lanzamientos.
+        </p>
+     </div>
+      <!-- feature - end -->
 
+      <!-- feature - start -->
+      <div class="flex flex-col items-center">
+        <div class="mb-2 flex h-12 w-12 items-center justify-center text-white sm:mb-4 md:h-14 md:w-14">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+
+        <h3 class="mb-2 text-center text-lg font-semibold md:text-xl text-white">Diseño de Sitios Web</h3>
+        <p class="mb-2 text-center text-gray-300 px-10">
+          Estructura profesional, moderna y confiable. Mostrá tu marca con solidez y claridad.</p>
+    </div>
+      <!-- feature - end -->
+
+      <!-- feature - start -->
+      <div class="flex flex-col items-center">
+        <div class="mb-2 flex h-12 w-12 items-center justify-center text-white sm:mb-4 md:h-14 md:w-14">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+          </svg>
+        </div>
+
+        <h3 class="mb-2 text-center text-lg font-semibold md:text-xl text-white">Diseños de Simple Tiendas</h3>
+        <p class="mb-2 text-center text-gray-300 px-10">Perfectas para pocos productos. Diseño ágil, sin complicaciones ni grandes inventarios, autogestinables.</p>
+      </div>
+      <!-- feature - end -->
+
+      <!-- feature - start -->
+      <div class="flex flex-col items-center">
+        <div class="mb-2 flex h-12 w-12 items-center justify-center text-white  sm:mb-4 md:h-14 md:w-14">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+
+        <h3 class="mb-2 text-center text-lg font-semibold md:text-xl text-white">Velocidad</h3>
+        <p class="mb-2 text-center text-gray-300 px-10">Sitios que cargan rápido y mantienen la atención de tus visitantes desde el primer segundo.</p>
+    </div>
+      <!-- feature - end -->
+
+      <!-- feature - start -->
+      <div class="flex flex-col items-center">
+        <div class="mb-2 flex h-12 w-12 items-center justify-center text-white  sm:mb-4 md:h-14 md:w-14">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </div>
+
+        <h3 class="mb-2 text-center text-lg font-semibold md:text-xl text-white">Soporte</h3>
+        <p class="mb-2 text-center text-gray-300 px-10">Te acompaño antes, durante y después del diseño. Siempre que lo necesites, estoy ahí.</p>
+       
+      </div>
+      <!-- feature - end -->
+
+      <!-- feature - start -->
+      <div class="flex flex-col items-center">
+        <div class="mb-2 flex h-12 w-12 items-center justify-center text-white  sm:mb-4 md:h-14 md:w-14">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </div>
+
+        <h3 class="mb-2 text-center text-lg font-semibold md:text-xl text-white">Mantenimiento</h3>
+        <p class="mb-2 text-center text-gray-300 px-10">Actualizaciones, ajustes y seguridad para que tu web siempre funcione como debe.</p>
+    </div>
+      <!-- feature - end -->
     </div>
   </div>
 </div>
 
+   <!-- Banner Motivacional 2 -->
+   <section class="py-20 text-white text-center bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat text-white relative  bg-fixed">
+      
+    <div class="container mx-auto px-4">
+        <p class="text-4xl md:text-6xl font-bold mb-6">
+            "Estar en google maps con un sitio web<br> es tener la diferencia a la competencia"
+        </p>
+        <p class="text-xl opacity-90">
+            - Ser emprende
+        </p>
+    </div>
+</section>
+
 <!-- ¿Ya estás en Google Maps? -->
+<section class="py-12 bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat bg-fixed">
 <div class="bg-gray-900 text-white py-6 mb-8">
   <div class="max-w-6xl mx-auto px-4">
     <h1 class="text-2xl font-bold text-center">¿Ya estás en Google Maps?</h1>
   </div>
 </div>
 
- <section class="py-10 px-8 max-w-4xl mx-auto rounded-lg md:px-4 bg-gray-900">
-  <div class="p-8">
+ <div class="py-10 px-4 md:px-8 max-w-4xl mx-auto rounded-lg bg-gray-900 ">
+ 
     <h2 class="text-2xl font-semibold  mb-6 pt-2 text-gray-200">¿Por qué tener un sitio web?</h2>
     <ul class="space-y-4 text-lg text-gray-200">
       <li>✅ <i>Porque tu ficha de Google solo muestra lo básico</i></li>
@@ -285,12 +374,13 @@
         <li>✅ <i>Optimización básica para Google</i></li>
         <li>✅ <i>En línea en pocos días</i></li>
       </ul>
+   
     </div>
-    </div>
+
   </section>
 
-<!-- Servicios  -->
-<section id="servicios" class=" relative block px-6 py-10 md:py-20 md:px-10">
+<!-- Seguridad  -->
+<section id="servicios" class=" relative block px-6 py-10 md:py-20 md:px-10 ">
 
 
         <div class="relative mx-auto text-center">
@@ -376,26 +466,23 @@
 
 
 </section>
-<!-- Fin de Servicios --> 
-
-<!-- Banner -->
-<div class="flex flex-col justify-between py-[100px] banner-background">
- 
-  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-  
-   <h3 class="text-center text-3xl font-bold p-12  lg:text-4xl text-white text-shadow-gray">
-  "Diseños Web Modernos
-  Ágiles<br> Mejora Tu Presencia Online".
-   </h3>
 
 
+    <!-- Banner Motivacional 2 -->
+        <section class="py-20 text-white text-center bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat text-white relative  bg-fixed">
+      
+        <div class="container mx-auto px-4">
+            <p class="text-4xl md:text-6xl font-bold mb-6">
+                "El diseño no es solo cómo se ve,<br> es cómo funciona"
+            </p>
+            <p class="text-xl opacity-90">
+                - Steve Jobs
+            </p>
+        </div>
+    </section>
 
- 
-  </div>
-</div>
 
-
-<!-- Galería -->
+<!-- Diseños -->
 <section id="diseños" class="bg-black py-12">
   <h2 class="text-center font-bold text-3xl text-[#f47500]">
     Diseños
@@ -405,12 +492,12 @@
    
                   <div>
                      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585913/institucional_go2i10.webp" alt="Imagen 1" class="gallery-item cursor-pointer">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/barber02_h3bt02.webp" alt="Imagen 2" class="gallery-item cursor-pointer">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585905/estetica_lj0ctt.png" alt="Imagen 3" class="gallery-item cursor-pointer">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585904/ebook_h6ss1h.webp" alt="Imagen 4" class="gallery-item cursor-pointer">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/burger_hm0w8b.webp" alt="Imagen 5" class="gallery-item cursor-pointer">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/academia_okupjq.webp" alt="Imagen 6" class="gallery-item cursor-pointer">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585913/institucional_go2i10.webp" alt="Imagen 1" class="rounded-lg">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/barber02_h3bt02.webp" alt="Imagen 2" class="rounded-lg">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585905/estetica_lj0ctt.png" alt="Imagen 3" class="rounded-lg">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585904/ebook_h6ss1h.webp" alt="Imagen 4" class="rounded-lg">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/burger_hm0w8b.webp" alt="Imagen 5" class="rounded-lg">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/academia_okupjq.webp" alt="Imagen 6" class="rounded-lg">
                     </div>
                   </div>
 
@@ -421,18 +508,17 @@
                     </div>
 </section>
 
-<!-- Banner -->
-<div class="flex flex-col justify-between items-center py-40 md:py-44
- banner-background text-white text-center  md:px-12">
-  <div class="max-w-screen-xl">
-    <h3 class="text-2xl md:text-4xl font-bold leading-snug text-shadow-gray px-12">
-      "Mejora tu Presencia<br> Aumenta tu Valor Percibido"
-  </div>
-</div>
-
-
-
-
+   <!-- Banner Motivacional 3 -->
+   <section class="py-20 text-white text-center bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat text-white relative  bg-fixed">
+   <div class="container mx-auto px-4">
+       <p class="text-4xl md:text-6xl font-bold mb-6">
+        “Si tu negocio no está en internet,<br> tu negocio no existe” 
+       </p>
+       <p class="text-xl opacity-90">
+        - Bill Gates
+       </p>
+   </div>
+</section>
 
 
 <!-- DISEÑOS TIENDA LEO -->
@@ -533,7 +619,7 @@
 2️⃣ Te enviamos una propuesta con el diseño y funcionalidad recomendada.<br>
 3️⃣ Confirmas el servicio con el pago inicial y comenzamos a trabajar.<br> 
                         <button class="inline-flex items-center bg-green-600 font-bold border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-                                    <span class="ml-2 text-white ">HABLEMOS</span>&nbsp;
+                                    <span class="ml-2 text-white ">Empecemos Hoy</span>&nbsp;
                                       <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256" style="fill:#000000;">
                                       <g fill="#ffffff" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8,8)">
                                       <path d="M24.50391,7.50391c-2.25781,-2.25781 -5.25781,-3.50391 -8.45312,-3.50391c-6.58594,0 -11.94922,5.35938 -11.94922,11.94531c-0.00391,2.10547 0.54688,4.16016 1.59375,5.97266l-1.69531,6.19141l6.33594,-1.66406c1.74219,0.95313 3.71094,1.45313 5.71094,1.45703h0.00391c6.58594,0 11.94531,-5.35937 11.94922,-11.94922c0,-3.19141 -1.24219,-6.19141 -3.49609,-8.44922zM16.05078,25.88281h-0.00391c-1.78125,0 -3.53125,-0.48047 -5.05469,-1.38281l-0.36328,-0.21484l-3.76172,0.98438l1.00391,-3.66406l-0.23437,-0.375c-0.99609,-1.58203 -1.51953,-3.41016 -1.51953,-5.28516c0,-5.47266 4.45703,-9.92578 9.9375,-9.92578c2.65234,0 5.14453,1.03516 7.01953,2.91016c1.875,1.87891 2.90625,4.37109 2.90625,7.02344c0,5.47656 -4.45703,9.92969 -9.92969,9.92969zM21.49609,18.44531c-0.29687,-0.14844 -1.76562,-0.87109 -2.03906,-0.96875c-0.27344,-0.10156 -0.47266,-0.14844 -0.67187,0.14844c-0.19922,0.30078 -0.76953,0.97266 -0.94531,1.17188c-0.17187,0.19531 -0.34766,0.22266 -0.64453,0.07422c-0.30078,-0.14844 -1.26172,-0.46484 -2.40234,-1.48437c-0.88672,-0.78906 -1.48828,-1.76953 -1.66016,-2.06641c-0.17578,-0.30078 -0.01953,-0.46094 0.12891,-0.60937c0.13672,-0.13281 0.30078,-0.34766 0.44922,-0.52344c0.14844,-0.17187 0.19922,-0.29687 0.30078,-0.49609c0.09766,-0.19922 0.04688,-0.375 -0.02734,-0.52344c-0.07422,-0.14844 -0.67187,-1.62109 -0.92187,-2.21875c-0.24219,-0.58203 -0.48828,-0.5 -0.67187,-0.51172c-0.17187,-0.00781 -0.37109,-0.00781 -0.57031,-0.00781c-0.19922,0 -0.52344,0.07422 -0.79687,0.375c-0.27344,0.29688 -1.04297,1.01953 -1.04297,2.48828c0,1.46875 1.07031,2.89063 1.21875,3.08984c0.14844,0.19531 2.10547,3.21094 5.10156,4.50391c0.71094,0.30859 1.26563,0.49219 1.69922,0.62891c0.71484,0.22656 1.36719,0.19531 1.88281,0.12109c0.57422,-0.08594 1.76563,-0.72266 2.01563,-1.42187c0.24609,-0.69531 0.24609,-1.29297 0.17188,-1.41797c-0.07422,-0.125 -0.27344,-0.19922 -0.57422,-0.35156z"></path></g></g>
@@ -615,7 +701,7 @@ Si pasan más de 30 días sin respuesta, el proyecto podría pausarse o requerir
 </section>
 
 <!-- Call action -->
-<section id="contacto" class="py-12 banner-background"> 
+<section id="contacto" class="py-12 text-center bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat relative  bg-fixed"> 
   <div class="mx-auto max-w-screen-xl px-4 md:px-8">
  
    
@@ -632,11 +718,11 @@ Si pasan más de 30 días sin respuesta, el proyecto podría pausarse o requerir
     
 
           <p class="mb-4 text-center text-4xl font-bold text-[#f47500] sm:text-5xl md:mb-6">
-            COMIENZA HOY
+            Empecemos Hoy
           </p>
 
           <p class="mb-6 text-center md:mb-8 sm:text-3xl text-white leading-relaxed ">
-           <span class="text-[#f47500] ">Comienza Hoy </span>   con un Buen Diseño Web.
+           <span class="text-[#f47500] ">Empecemos Hoy </span>   con un Buen Diseño Web.
               <br>Comienza a<span class="text-[#f47500] "> DESTACARTE</span><br><span class="text-[#f47500] "> AUMENTA</span> TUS VENTAS!!!!
           </p>
           
@@ -647,21 +733,10 @@ Si pasan más de 30 días sin respuesta, el proyecto podría pausarse o requerir
           </div>
 
       </div>
-      <div class="isolate mt-8 flex items-center justify-center -space-x-2 overflow-hidden">
-  <img class="relative z-30 inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/men/34.jpg" alt="">
-  <img class="relative z-20 inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/2.jpg" alt="">
-  <img class="relative z-10 inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/3.jpg" alt="">
-  <img class="relative z-0 inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/men/4.jpg" alt="">
-      </div>
-      <div class="mt-4 text-center">
-        <span class="text-xl font-bold text-teal-500">
-          <span class="text-[#f47500]">Aumenta Tu Valor!!!</span>
-        </span>
-      </div>
-      
+       
       <div class="mt-12 flex items-center justify-center gap-x-6">
-          <button id="#contacto" class="inline-flex items-center bg-green-600 font-bold border-0  px-3  hover:bg-green-900 rounded-full text-base mt-4 md:mt-0">
-              <span class="ml-2 text-white">COMIENZA HOY</span>&nbsp;
+          <button id="#contacto" class="inline-flex items-center bg-green-600 font-bold border-0  px-3  hover:bg-green-900 rounded-full text-base mt-4 md:mt-0  animate-pulse">
+              <span class="ml-2 text-white">Empecemos Hoy</span>&nbsp;
               <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="86" height="62" viewBox="0,0,256,256" style="fill:#000000;">
                 <g fill="#ffffff" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                   <g transform="scale(8,8)">
@@ -672,20 +747,25 @@ Si pasan más de 30 días sin respuesta, el proyecto podría pausarse o requerir
             </button>
             
       </div>
+      <div class="isolate mt-8 flex items-center justify-center -space-x-2 overflow-hidden">
+        <img class="relative z-30 inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/men/34.jpg" alt="">
+        <img class="relative z-20 inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/2.jpg" alt="">
+        <img class="relative z-10 inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/3.jpg" alt="">
+        <img class="relative z-0 inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/men/4.jpg" alt="">
+            </div>
+            <div class="mt-4 text-center">
+              <span class="text-xl font-bold text-teal-500">
+                <span class="text-[#f47500]">Aumenta Tu Valor!!!</span>
+              </span>
+            </div>
 
 
 
 
      
-      </div>
-      <!-- Texto - end -->
-
-   
   </div>
-
-   
-
 </section>
+   
 
 <!-- Footer -->
 <footer class="relative  pt-4 sm:pt-10 lg:pt-12">
@@ -787,8 +867,9 @@ Si pasan más de 30 días sin respuesta, el proyecto podría pausarse o requerir
       </div>
   </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
- <script src="script/menu.js"></script>
 
+
+
+<script src="script/menu.js"></script>
 </body>
 </html>

@@ -1,9 +1,9 @@
  //menu
-  document.getElementById('menu-toggle').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            if (menu.style.display === 'none' || menu.style.display === '') {
-                menu.style.display = 'block';
-            } else {
-                menu.style.display = 'none';
-            }
-        });
+  // Mobile Menu Toggle
+  function toggleMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    
+    mobileMenu.classList.toggle('hidden');
+    hamburger.classList.toggle('active');
+}
