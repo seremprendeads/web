@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Estudio Jurídico Excellence | Abogados Expertos en Madrid</title>
+    <meta name="description" content="Estudio de abogados expertos en derecho civil, penal y mercantil. Más de 20 años defendiendo tus derechos en Madrid. Consulta gratuita.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="keywords" content="abogados Madrid, estudio jurídico, derecho civil, derecho penal, asesoría legal, abogados expertos">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+   <style>
+    body {
+    font-family: 'Montserrat', sans-serif;
+}
+.text-navy {
+    color: #1e3a8a;
+}
+.bg-navy {
+    background-color: #1e3a8a;
+}
+.text-gold {
+    color: #d4af37;
+}
+.bg-gold {
+    background-color: #d4af37;
+}
+.border-gold {
+    border-color: #d4af37;
+}
+.hover\:bg-gold:hover {
+    background-color: #d4af37;
+}
+.hover\:text-gold:hover {
+    color: #d4af37;
+}
+
+/* Separadores ondulados */
+.wave-divider {
+    position: relative;
+    background: #f8fafc;
+    padding: 0;
+}
+.wave-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60'%3E%3Cpath d='M0,0 Q300,60 600,30 T1200,0 L1200,60 L0,60 Z' fill='%23ffffff'/%3E%3C/svg%3E") center top/cover no-repeat;
+}
+
+/* Separador diagonal */
+.diagonal-divider {
+    position: relative;
+    background: #1e3a8a;
+    transform: skewY(-2deg);
+    margin: 60px 0;
+}
+.diagonal-content {
+    transform: skewY(2deg);
+    padding: 60px 0;
+}
+
+/* Separador roto */
+.broken-divider {
+    position: relative;
+    background: #f8fafc;
+}
+.broken-divider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80'%3E%3Cpath d='M0,0 L300,80 L600,20 L900,80 L1200,0 L1200,80 L0,80 Z' fill='%23ffffff'/%3E%3C/svg%3E") center top/cover no-repeat;
+}
+
+.mobile-menu {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #1e3a8a;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #d4af37;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.parallax-banner {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.parallax-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 58, 138, 0.8);
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.team-card:hover .team-overlay {
+    opacity: 1;
+}
+.team-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 58, 138, 0.9);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+}
+   </style>
+</head>
+<body class="bg-white text-gray-800">
+
+<!-- Navbar -->
+<nav x-data="{ open: false }" class="fixed w-full bg-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <div class="flex-shrink-0">
+                    <a href="#inicio" class="flex items-center">
+                        <!-- Logo con columna jónica -->
+                        <div class="h-10 w-10 mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current text-azul-legati">
+                                <path d="M5 21h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM5 5h14l.001 14H5V5z"/>
+                                <path d="M11 7.5h2v9h-2zm-3 3h2v6H8zm6 1h2v5h-2z"/>
+                            </svg>
+                        </div>
+                        <span class="font-bodoni text-2xl font-bold text-azul-legati">LEGATI</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Menú horizontal para tablet y escritorio -->
+            <div class="hidden md:flex md:items-center md:space-x-8">
+                <a href="#inicio" class="nav-link text-blue-900 hover:text-dorado-legati transition duration-300">Inicio</a>
+                <a href="#nosotros" class="nav-link text-blue-900 hover:text-dorado-legati transition duration-300">Nosotros</a>
+                <a href="#servicios" class="nav-link text-blue-900 hover:text-dorado-legati transition duration-300">Servicios</a>
+                <a href="#trabajos" class="nav-link text-blue-900 hover:text-dorado-legati transition duration-300">Trabajos</a>
+                <a href="#galeria" class="nav-link text-blue-900 hover:text-dorado-legati transition duration-300">Galería</a>
+                <a href="#testimonios" class="nav-link text-blue-900 hover:text-dorado-legati transition duration-300">Testimonios</a>
+                <a href="#faq" class="nav-link text-blue-900 hover:text-dorado-legati transition duration-300">FAQ</a>
+                <a href="#contacto" class="bg-blue-900 text-white font-semibold px-3
+                py-2 rounded-full hover:bg-azul-300 transition-colors duration-300 inline-flex items-center animate-pulse">
+           Consulta Gratis
+           <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
+           </a>
+            </div>
+            
+            <!-- Menú hamburguesa para móvil -->
+            <div class="md:hidden flex items-center">
+                <button @click="open = !open" class="outline-none">
+                    <svg class="w-6 h-6 text-azul-legati" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <div x-show="open" x-transition class="md:hidden bg-white pb-4 px-4">
+        <div class="space-y-2 pt-2 pb-3">
+            <a href="#inicio" class="block px-3 py-2 rounded-md text-base text-azul-legati hover:bg-gray-100">Inicio</a>
+            <a href="#nosotros" class="block px-3 py-2 rounded-md text-base text-azul-legati hover:bg-gray-100">Nosotros</a>
+            <a href="#servicios" class="block px-3 py-2 rounded-md text-base text-azul-legati hover:bg-gray-100">Servicios</a>
+            <a href="#trabajos" class="block px-3 py-2 rounded-md text-base text-azul-legati hover:bg-gray-100">Trabajos</a>
+            <a href="#galeria" class="block px-3 py-2 rounded-md text-base text-azul-legati hover:bg-gray-100">Galería</a>
+            <a href="#testimonios" class="block px-3 py-2 rounded-md text-base text-azul-legati hover:bg-gray-100">Testimonios</a>
+            <a href="#faq" class="block px-3 py-2 rounded-md text-base text-azul-legati hover:bg-gray-100">FAQ</a>
+            <a href="#contacto" class="bg-blue-900 text-white font-semibold px-3
+            py-2 rounded-full hover:bg-azul-300 transition-colors duration-300 inline-flex items-center animate-pulse">
+        Reservar Turno
+       <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
+       </a>
+        </div>
+    </div>
+</nav>
+    
+    <!-- Hero Section -->
+    <section
+  class="relative bg-cover bg-center bg-no-repeat h-screen flex items-center justify-center text-white"
+  style="background-image: url('https://res.cloudinary.com/dliredzt9/image/upload/v1747765342/bufe_zzr0ii.jpg'); background-attachment: fixed;"
+>
+  <!-- Capa de degradado oscuro -->
+  <div class="absolute inset-0 bg-gradient-to-t from-white/40 to-black/80"></div>
+        <div class="container mx-auto px-4 py-32 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+                <div class="animate-fade-in">
+                    <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                        <span class="text-gold">Defendemos</span><br>
+                        Tus Derechos
+                    </h1>
+                    <p class="text-xl lg:text-2xl mb-8 leading-relaxed text-gray-200">
+                        Más de 20 años de experiencia brindando asesoría legal experta y soluciones jurídicas integrales para individuos y empresas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contacto" class="bg-gold text-white px-8 py-4 rounded-full hover:bg-yellow-500 transition-all duration-300 font-semibold text-center">
+                            Consulta Gratuita
+                        </a>
+                        <a href="#servicios" class="border-2 border-gold text-gold px-8 py-4 rounded-full hover:bg-gold hover:text-white transition-all duration-300 font-semibold text-center">
+                            Nuestros Servicios
+                        </a>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        
+        <!-- Hero Bottom Wave -->
+        <div class="absolute bottom-0 left-0 w-full">
+            <svg viewBox="0 0 1200 119" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,120 Q300,60 600,90 T1200,120 L1200,120 L0,120 Z" fill="#f8fafc"/>
+            </svg>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="nosotros" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747765342/bufe_zzr0ii.jpg" alt="Oficina Excellence Legal" class="rounded-lg shadow-lg">
+                </div>
+                <div>
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-navy">
+                        Excellence Legal:<br>
+                        <span class="text-gold">Tu Aliado Jurídico</span>
+                    </h2>
+                    <p class="text-lg mb-6 text-gray-700 leading-relaxed">
+                        Fundado en 2003, Excellence Legal se ha consolidado como uno de los estudios jurídicos más prestigiosos de Madrid. Con un equipo de abogados especializados y una trayectoria impecable, hemos defendido con éxito más de 5,000 casos.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold text-gold">5,000+</h3>
+                            <p class="text-gray-600">Casos Exitosos</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold text-gold">20+</h3>
+                            <p class="text-gray-600">Años de Experiencia</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold text-gold">98%</h3>
+                            <p class="text-gray-600">Casos Ganados</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-3xl font-bold text-gold">15</h3>
+                            <p class="text-gray-600">Abogados Expertos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-navy">
+                    Servicios <span class="text-gold">Especializados</span>
+                </h2>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                    Ofrecemos asesoría legal integral con un enfoque personalizado para cada cliente y situación jurídica.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="text-gold text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-navy">Derecho Civil</h3>
+                    <p class="text-gray-700 mb-4">Contratos, herencias, propiedad y responsabilidad civil. Protegemos tus derechos patrimoniales.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Contratos y obligaciones</li>
+                        <li>• Herencias y testamentos</li>
+                        <li>• Responsabilidad civil</li>
+                        <li>• Propiedad horizontal</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="text-gold text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-navy">Derecho Penal</h3>
+                    <p class="text-gray-700 mb-4">Defensa penal especializada con abogados expertos en todas las áreas del derecho criminal.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Delitos económicos</li>
+                        <li>• Violencia de género</li>
+                        <li>• Delitos contra la salud</li>
+                        <li>• Recursos y apelaciones</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="text-gold text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-navy">Derecho Mercantil</h3>
+                    <p class="text-gray-700 mb-4">Asesoría empresarial integral para pymes y grandes corporaciones.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Constitución de sociedades</li>
+                        <li>• Fusiones y adquisiciones</li>
+                        <li>• Compliance empresarial</li>
+                        <li>• Concursal</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="text-gold text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-navy">Derecho de Familia</h3>
+                    <p class="text-gray-700 mb-4">Acompañamiento en procesos familiares con sensibilidad y profesionalismo.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Divorcios y separaciones</li>
+                        <li>• Custodia de menores</li>
+                        <li>• Pensiones alimenticias</li>
+                        <li>• Adopciones</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="text-gold text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-navy">Derecho Laboral</h3>
+                    <p class="text-gray-700 mb-4">Protección de derechos laborales tanto para trabajadores como empresarios.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Despidos y finiquitos</li>
+                        <li>• Acoso laboral</li>
+                        <li>• Convenios colectivos</li>
+                        <li>• Seguridad social</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg hover:shadow-xl transition-all duration-300 group">
+                    <div class="text-gold text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-navy">Derecho Fiscal</h3>
+                    <p class="text-gray-700 mb-4">Optimización fiscal y defensa ante Hacienda con estrategias personalizadas.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Planificación fiscal</li>
+                        <li>• Inspecciones de Hacienda</li>
+                        <li>• Recursos tributarios</li>
+                        <li>• Compliance fiscal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Banner Motivacional 1 -->
+    <section class="parallax-banner py-32 bg-top" style="background-image: url('https://res.cloudinary.com/dliredzt9/image/upload/v1747069431/right-4703925_1280_avj1xm.jpg');">
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h3 class="text-4xl lg:text-6xl font-bold text-white mb-6">
+                "La justicia es la única norma de conducta política en la vida de los Estados."
+            </h3>
+            <p class="text-xl text-gray-200">- Aristóteles</p>
+        </div>
+    </section>
+    
+    <!-- Works Section -->
+    <section id="trabajos" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-navy">
+                    Casos de <span class="text-gold">Éxito</span>
+                </h2>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                    Hemos resuelto con éxito casos complejos que han sentado precedentes legales importantes.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="text-gold text-3xl mb-4">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-navy">Caso Mercantil - $2.5M</h3>
+                    <p class="text-gray-700 mb-4">Resolución exitosa de disputa contractual entre multinacionales. Recuperación total del monto reclamado.</p>
+                    <span class="text-gold font-semibold">Resultado: 100% favorable</span>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="text-gold text-3xl mb-4">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-navy">Defensa Penal Compleja</h3>
+                    <p class="text-gray-700 mb-4">Absolución completa en caso de fraude fiscal con implicaciones internacionales.</p>
+                    <span class="text-gold font-semibold">Resultado: Absolución</span>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="text-gold text-3xl mb-4">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-navy">Herencia Millonaria</h3>
+                    <p class="text-gray-700 mb-4">Resolución de herencia compleja con múltiples beneficiarios y propiedades internacionales.</p>
+                    <span class="text-gold font-semibold">Resultado: Acuerdo satisfactorio</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section id="galeria" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-navy">
+                    Nuestras <span class="text-gold">Instalaciones</span>
+                </h2>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                    Oficinas modernas diseñadas para brindar un ambiente profesional y confortable.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="relative overflow-hidden rounded-lg group">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747069431/attorney-7236482_1280_mwewns.jpg" alt="Recepción" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0  group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
+                        <span class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-4xl lg:text-5xl bg-blue-800 p-4 rounded-lg">Sala de Juntas</span>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg group">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747069581/right-4703938_1280_miojwe.jpg" alt="Biblioteca legal" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
+                        <span class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-4xl lg:text-5xl bg-blue-800 p-4 rounded-lg">Biblioteca Legal</span>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg group">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747069431/right-4703943_1280_aawymh.jpg" alt="Oficina principal" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
+                        <span class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-4xl lg:text-5xl bg-blue-800 p-4 rounded-lg">Oficina Principal</span>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg group">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747069431/man-5806011_1280_am1iuk.jpg" alt="Sala de espera" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
+                        <span class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-4xl lg:text-5xl bg-blue-800 p-4 rounded-lg">Sala de Espera</span>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg group">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747069504/right-4944550_1280_pstflb.jpg" alt="Despacho senior" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
+                        <span class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-4xl lg:text-5xl bg-blue-800 p-4 rounded-lg">Despacho Senior</span>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg group">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747069581/right-4703938_1280_miojwe.jpg" alt="Recepción" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0  group-hover:bg-opacity-70 transition-all duration-300 flex items-center justify-center">
+                        <span class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-4xl lg:text-5xl bg-blue-800 p-4 rounded-lg">Recepción</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Banner Motivacional 2 -->
+    <section class="diagonal-divider parallax-banner " style="background-image: url('hero.jpg');">
+        <div class="diagonal-content">
+            <div class="container mx-auto px-4 text-center">
+                <h3 class="text-4xl lg:text-6xl font-bold text-white mb-6">
+                    "La ley es la razón libre de pasión."
+                </h3>
+                <p class="text-xl text-gray-200">- Aristóteles</p>
+            </div>
+        </div>
+    </section>
+    
+ <!-- Staff Section -->
+ <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-navy">
+                Nuestro <span class="text-gold">Equipo</span>
+            </h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                Abogados expertos con décadas de experiencia y especialización en diferentes áreas del derecho.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden team-card relative">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747071016/staff-abogado-1_obnx7z.webp" alt="Dr. Carlos Méndez" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-navy">Dr. Carlos Méndez</h3>
+                    <p class="text-gold font-semibold mb-2">Socio Director</p>
+                    <p class="text-gray-700 text-sm">25 años de experiencia en derecho mercantil y corporativo. Máster en Derecho Empresarial por la Universidad Complutense.</p>
+                </div>
+                <div class="team-overlay">
+                    <h4 class="text-xl font-bold mb-4">Dr. Carlos Méndez</h4>
+                    <p class="mb-4 px-6">Especialista en fusiones y adquisiciones, ha asesorado a más de 200 empresas en procesos de expansión internacional.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gold hover:text-white"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="#" class="text-gold hover:text-white"><i class="fas fa-envelope text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden team-card relative">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747071019/satff-woman_t1mi6u.png" alt="Dra. María González" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-navy">Dra. María González</h3>
+                    <p class="text-gold font-semibold mb-2">Socia - Derecho Penal</p>
+                    <p class="text-gray-700 text-sm">20 años defendiendo casos penales complejos. Especialista en delitos económicos y violencia de género.</p>
+                </div>
+                <div class="team-overlay">
+                    <h4 class="text-xl font-bold mb-4">Dra. María González</h4>
+                    <p class="mb-4 px-6">Reconocida por su trabajo en defensa de víctimas. Ha participado en más de 500 casos penales con un 95% de éxito.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gold hover:text-white"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="#" class="text-gold hover:text-white"><i class="fas fa-envelope text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden team-card relative">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747071315/staff-abogado-3_cbcomo.webp" alt="Dr. Roberto Fernández" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-navy">Dr. Roberto Fernández</h3>
+                    <p class="text-gold font-semibold mb-2">Socio - Derecho Civil</p>
+                    <p class="text-gray-700 text-sm">18 años especializándose en herencias, propiedades y contratos. Máster en Derecho Inmobiliario.</p>
+                </div>
+                <div class="team-overlay">
+                    <h4 class="text-xl font-bold mb-4">Dr. Roberto Fernández</h4>
+                    <p class="mb-4 px-6">Experto en resolución de herencias complejas y conflictos inmobiliarios. Mediador certificado en conflictos familiares.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gold hover:text-white"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="#" class="text-gold hover:text-white"><i class="fas fa-envelope text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+           <!-- <div class="bg-white rounded-lg shadow-lg overflow-hidden team-card relative">
+                <img src="/api/placeholder/400/400" alt="Dra. Ana López" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-navy">Dra. Ana López</h3>
+                    <p class="text-gold font-semibold mb-2">Asociada Senior - Derecho Laboral</p>
+                    <p class="text-gray-700 text-sm">15 años defendiendo derechos laborales. Especialista en derecho sindical y relaciones laborales.</p>
+                </div>
+                <div class="team-overlay">
+                    <h4 class="text-xl font-bold mb-4">Dra. Ana López</h4>
+                    <p class="mb-4 px-6">Ha representado tanto a trabajadores como empresas en más de 800 casos laborales con resultados excepcionales.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gold hover:text-white"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="#" class="text-gold hover:text-white"><i class="fas fa-envelope text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden team-card relative">
+                <img src="/api/placeholder/400/400" alt="Dr. Javier Ruiz" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-navy">Dr. Javier Ruiz</h3>
+                    <p class="text-gold font-semibold mb-2">Asociado Senior - Derecho Fiscal</p>
+                    <p class="text-gray-700 text-sm">12 años en asesoría fiscal. Especialista en planificación tributaria y defensa ante Hacienda.</p>
+                </div>
+                <div class="team-overlay">
+                    <h4 class="text-xl font-bold mb-4">Dr. Javier Ruiz</h4>
+                    <p class="mb-4 px-6">Experto en optimización fiscal empresarial. Ha ahorrado millones en impuestos a sus clientes de forma legal.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gold hover:text-white"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="#" class="text-gold hover:text-white"><i class="fas fa-envelope text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden team-card relative">
+                <img src="/api/placeholder/400/400" alt="Dra. Patricia Morales" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-navy">Dra. Patricia Morales</h3>
+                    <p class="text-gold font-semibold mb-2">Asociada - Derecho de Familia</p>
+                    <p class="text-gray-700 text-sm">10 años especializándose en derecho de familia. Certificada en mediación familiar y resolución de conflictos.</p>
+                </div>
+                <div class="team-overlay">
+                    <h4 class="text-xl font-bold mb-4">Dra. Patricia Morales</h4>
+                    <p class="mb-4 px-6">Comprometida con soluciones amigables en conflictos familiares. Especialista en custodia compartida y adopciones.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gold hover:text-white"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="#" class="text-gold hover:text-white"><i class="fas fa-envelope text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonios" class="broken-divider py-20">
+    <div class="container mx-auto px-4 bg-white">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-navy">
+                Lo que Dicen <span class="text-gold">Nuestros Clientes</span>
+            </h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                La satisfacción de nuestros clientes es nuestra mayor recompensa.
+            </p>
+        </div>
+        
+        <!-- Cliente Testimonials -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="flex items-center mb-4">
+                    <div class="text-gold text-xl">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-4 italic">"Excellence Legal resolvió mi caso de herencia de manera excepcional. Su profesionalismo y dedicación superaron mis expectativas. Los recomiendo sin dudarlo."</p>
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/84.jpg" alt="María García" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h4 class="font-semibold text-navy">María García</h4>
+                        <p class="text-sm text-gray-600">Empresaria</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="flex items-center mb-4">
+                    <div class="text-gold text-xl">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-4 italic">"Gracias al Dr. Méndez y su equipo, mi empresa pudo expandirse internacionalmente sin complicaciones legales. Su asesoría fue invaluable."</p>
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/men/20.jpg" alt="Carlos Rodríguez" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h4 class="font-semibold text-navy">Carlos Rodríguez</h4>
+                        <p class="text-sm text-gray-600">CEO TechStart</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="flex items-center mb-4">
+                    <div class="text-gold text-xl">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-4 italic">"La Dra. González me defendió en un caso penal complejo y logró mi absolución. Su experiencia y dedicación fueron fundamentales."</p>
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/81.jpg" alt="Ana Martínez" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h4 class="font-semibold text-navy">Ana Martínez</h4>
+                        <p class="text-sm text-gray-600">Profesional Liberal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Google Reviews -->
+        <div class="bg-white p-8 rounded-lg shadow-lg mb-16">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-navy mb-4">Reseñas de Google</h3>
+                <div class="flex justify-center items-center space-x-4">
+                    <div class="text-gold text-3xl">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-navy">4.9/5</span>
+                    <span class="text-gray-600">(127 reseñas)</span>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="border-l-4 border-gold pl-4">
+                    <p class="text-gray-700 mb-2">"Excelente atención y resultados. Muy profesionales."</p>
+                    <p class="text-sm text-gray-600">- Luis Pérez ⭐⭐⭐⭐⭐</p>
+                </div>
+                <div class="border-l-4 border-gold pl-4">
+                    <p class="text-gray-700 mb-2">"Los mejores abogados de Madrid. Totalmente recomendables."</p>
+                    <p class="text-sm text-gray-600">- Elena Vega ⭐⭐⭐⭐⭐</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video Testimonials -->
+        <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-navy mb-4">Testimonios en Video</h3>
+            <p class="text-gray-700">Escucha directamente de nuestros clientes sobre su experiencia con Excellence Legal</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="aspect-w-16 aspect-h-9 bg-gray-200 relative">
+                    
+                    <iframe src="https://res.cloudinary.com/dliredzt9/video/upload/v1747696098/glodvdrobowdkjudnbag.mp4" width="100%" height="200" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="rounded-t-lg"></iframe>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-navy">Cliente Satisfecho - Caso Mercantil</h4>
+                    <p class="text-sm text-gray-600">Testimonio sobre resolución de conflicto empresarial</p>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="aspect-w-16 aspect-h-9 bg-gray-200 relative">
+                    <iframe src="https://res.cloudinary.com/dliredzt9/video/upload/v1747696096/qy8oxx9v2flghk0jwlvj.mp4" width="100%" height="200" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="rounded-t-lg"></iframe>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-navy">Familia Reunida - Caso de Adopción</h4>
+                    <p class="text-sm text-gray-600">Historia de éxito en proceso de adopción</p>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="aspect-w-16 aspect-h-9 bg-gray-200 relative">
+                    <iframe src="https://res.cloudinary.com/dliredzt9/video/upload/v1747696086/zg5juqilj5voutzjdggu.mp4" width="100%" height="200" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="rounded-t-lg"></iframe>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-navy">Defensa Exitosa - Caso Penal</h4>
+                    <p class="text-sm text-gray-600">Testimonio de absolución en caso complejo</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-navy">
+                    Preguntas <span class="text-gold">Frecuentes</span>
+                </h2>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                    Resolvemos las dudas más comunes sobre nuestros servicios legales.
+                </p>
+            </div>
+            <div class="max-w-4xl mx-auto" x-data="{ selected: null }">
+                <div class="space-y-4">
+    
+                    <!-- Pregunta 1 -->
+                    <div class="bg-white rounded-lg shadow-lg">
+                        <button class="w-full text-left p-6 focus:outline-none"
+                            @click="selected === 1 ? selected = null : selected = 1">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold text-navy">
+                                    ¿Cuánto cuesta una consulta inicial?​</h3>
+                                    <i :class="selected === 1 ? 'fas fa-chevron-up text-gold' : 'fas fa-chevron-down text-gold'"></i>
+
+                            </div>
+                        </button>
+                        <div class="px-6 pb-6" x-show="selected === 1" x-transition>
+                            <p class="text-gray-700">
+                                La primera consulta es completamente gratuita. Durante esta reunión evaluaremos tu caso, te explicaremos tus opciones legales y te proporcionaremos un presupuesto personalizado sin compromiso.
+                            </p>
+                        </div>
+                    </div>
+    
+                    <!-- Pregunta 2 -->
+                    <div class="bg-white rounded-lg shadow-lg">
+                        <button class="w-full text-left p-6 focus:outline-none"
+                            @click="selected === 2 ? selected = null : selected = 2">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold text-navy">¿Cuánto tiempo tarda un proceso legal?</h3>
+                                <i class="fas text-gold"
+                                    :class="selected === 2 ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                            </div>
+                        </button>
+                        <div class="px-6 pb-6" x-show="selected === 2" x-transition>
+                            <p class="text-gray-700">
+                                El tiempo varía según la complejidad del caso. Un divorcio de mutuo acuerdo puede resolverse en 2-3 meses, mientras que un procedimiento civil complejo puede tomar 12-18 meses. Te mantendremos informado en cada etapa del proceso.
+                            </p>
+                        </div>
+                    </div>
+    
+                    <!-- Pregunta 3 -->
+                    <div class="bg-white rounded-lg shadow-lg">
+                        <button class="w-full text-left p-6 focus:outline-none"
+                            @click="selected === 3 ? selected = null : selected = 3">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold text-navy">¿Ofrecen planes de pago?</h3>
+                                <i class="fas text-gold"
+                                    :class="selected === 3 ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                            </div>
+                        </button>
+                        <div class="px-6 pb-6" x-show="selected === 3" x-transition>
+                            <p class="text-gray-700">
+                                Sí, ofrecemos diferentes modalidades de pago adaptadas a cada cliente: pago por horas, tarifa fija, cuota de éxito y planes de financiación personalizados. Discutiremos la mejor opción durante la consulta inicial.
+                            </p>
+                        </div>
+                    </div>
+    
+                    <!-- Pregunta 4 -->
+                    <div class="bg-white rounded-lg shadow-lg">
+                        <button class="w-full text-left p-6 focus:outline-none"
+                            @click="selected === 4 ? selected = null : selected = 4">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold text-navy">¿Pueden representarme en toda España?</h3>
+                                <i class="fas text-gold"
+                                    :class="selected === 4 ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                            </div>
+                        </button>
+                        <div class="px-6 pb-6" x-show="selected === 4" x-transition>
+                            <p class="text-gray-700">
+                                Absolutamente. Tenemos abogados colegiados en diferentes jurisdicciones y una red de corresponsales en toda España. Podemos representarte en cualquier tribunal del territorio nacional.
+                            </p>
+                        </div>
+                    </div>
+    
+                    <!-- Pregunta 5 -->
+                    <div class="bg-white rounded-lg shadow-lg">
+                        <button class="w-full text-left p-6 focus:outline-none"
+                            @click="selected === 5 ? selected = null : selected = 5">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold text-navy">;¿Qué documentos necesito para la primera consulta?</h3>
+                                <i class="fas text-gold"
+                                    :class="selected === 5 ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                            </div>
+                        </button>
+                        <div class="px-6 pb-6" x-show="selected === 5" x-transition>
+                            <p class="text-gray-700">
+                                Trae toda la documentación relevante a tu caso: contratos, correspondencia, sentencias previas, DNI, etc. Si no tienes algún documento, no te preocupes, podemos ayudarte a obtenerlo durante el proceso.
+                            </p>
+                        </div>
+                    </div>
+    
+                    <!-- Pregunta 6 -->
+                    <div class="bg-white rounded-lg shadow-lg">
+                        <button class="w-full text-left p-6 focus:outline-none"
+                            @click="selected === 6 ? selected = null : selected = 6">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg font-semibold text-navy">¿Ofrecen servicios de urgencia?</h3>
+                                <i class="fas text-gold"
+                                    :class="selected === 6 ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                            </div>
+                        </button>
+                        <div class="px-6 pb-6" x-show="selected === 6" x-transition>
+                            <p class="text-gray-700">
+                                Sí, contamos con un servicio de urgencias para casos que requieren atención inmediata: detenciones, medidas cautelares, etc. Puedes contactarnos las 24 horas a través de nuestro número de emergencia.
+                            </p>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+<!-- Contact Section -->
+<section id="contacto" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-navy">
+                <span class="text-gold">Contacta</span> con Nosotros
+            </h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                Estamos aquí para ayudarte. Contáctanos para una consulta gratuita y personalizada.
+            </p>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-navy">Información de Contacto</h3>
+                <div class="space-y-6">
+                    <div class="flex items-center">
+                        <div class="text-gold text-2xl mr-4">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-navy">Dirección</h4>
+                            <p class="text-gray-700">Calle Serrano 123, 28006 Madrid</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="text-gold text-2xl mr-4">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-navy">Teléfono</h4>
+                            <p class="text-gray-700">+34 91 123 45 67</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="text-gold text-2xl mr-4">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-navy">Email</h4>
+                            <p class="text-gray-700">info@excellencelegal.es</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="text-gold text-2xl mr-4">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-navy">Horario</h4>
+                            <p class="text-gray-700">Lunes a Viernes: 9:00 - 19:00</p>
+                            <p class="text-gray-700">Sábados: 10:00 - 14:00</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="text-gold text-2xl mr-4">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-navy">Urgencias 24h</h4>
+                            <p class="text-gray-700">+34 600 123 456</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-50 p-8 rounded-lg">
+                <h3 class="text-2xl font-bold mb-6 text-navy">Solicita tu Consulta Gratuita</h3>
+                <form class="space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Nombre completo" class="w-full p-3 border border-gray-300 rounded-lg focus:border-gold focus:outline-none">
+                        <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-lg focus:border-gold focus:outline-none">
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="tel" placeholder="Teléfono" class="w-full p-3 border border-gray-300 rounded-lg focus:border-gold focus:outline-none">
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:border-gold focus:outline-none">
+                            <option>Área de consulta</option>
+                            <option>Derecho Civil</option>
+                            <option>Derecho Penal</option>
+                            <option>Derecho Mercantil</option>
+                            <option>Derecho de Familia</option>
+                            <option>Derecho Laboral</option>
+                            <option>Derecho Fiscal</option>
+                        </select>
+                    </div>
+                    <textarea placeholder="Describe brevemente tu caso..." rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:border-gold focus:outline-none"></textarea>
+                    <a href="#contacto" class="bg-blue-900 text-white font-semibold px-3
+                    py-2 rounded-full hover:bg-azul-300 transition-colors duration-300 inline-flex items-center animate-pulse">
+             Consulta Gratis
+               <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
+               </a>
+                    <div class="flex items-center">
+                        
+                        <input type="checkbox" id="privacy" class="mr-2">
+                        <label for="privacy" class="text-sm text-gray-700">
+                            Acepto la <a href="#" class="text-gold hover:underline">política de privacidad</a> y el tratamiento de mis datos.
+                        </label>
+                    </div>
+                </form>
+                </div>
+                </div>
+                </div>
+                </section>
+
+<!-- Google Map Section -->
+<section id="ubicacion" class="w-full">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.482832496529!2d-3.688829884611988!3d40.4358342793634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4228ff40f1beeb%3A0x36fdc57816e284ee!2sCalle%20de%20Serrano%2C%20123%2C%2028006%20Madrid%2C%20España!5e0!3m2!1ses!2sar!4v1716120000000"
+      width="100%"
+      height="400"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      class="w-full"
+    ></iframe>
+  </section>
+  
+      <!-- Footer -->
+      <div class="bg-gray-900">
+        <footer class="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <div class="mb-16 grid grid-cols-2 gap-12 pt-10 md:grid-cols-4 lg:grid-cols-6 lg:gap-8 lg:pt-12">
+            <div class="col-span-full lg:col-span-2">
+              <!-- logo - start -->
+              <div class="mb-4 lg:-mt-2">
+                <a href="#inicio" class="flex items-center">
+                    <!-- Logo con columna jónica -->
+                    <div class="h-10 w-10 mr-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-current text-white">
+                            <path d="M5 21h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM5 5h14l.001 14H5V5z"/>
+                            <path d="M11 7.5h2v9h-2zm-3 3h2v6H8zm6 1h2v5h-2z"/>
+                        </svg>
+                    </div>
+                    <span class="font-bodoni text-2xl font-bold text-white">LEGATI</span>
+                </a>
+              </div>
+              <!-- logo - end -->
+      
+              <p class="mb-6 text-gray-400 sm:pr-8">Descubre un santuario de paz y rejuvenecimiento. Nuestros tratamientos personalizados te llevarán a un viaje de restauración total.</p>
+      
+              <!-- social - start -->
+              <div class="flex gap-4">
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </a>
+      
+          
+                <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+                  <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+      
+              </div>
+              <!-- social - end -->
+            </div>
+      
+            <!-- nav - start -->
+            <div>
+              <div class="mb-4 font-bold uppercase tracking-widest text-gray-100">Menú</div>
+      
+              <nav class="flex flex-col gap-4">
+                <div>
+                  <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Nosotros</a>
+                </div>
+      
+                <div>
+                  <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Servicios</a>
+                </div>
+      
+                <div>
+                  <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Galería</a>
+                </div>
+      
+       
+              </nav>
+            </div>
+            <!-- nav - end -->
+      
+            <!-- nav - start -->
+            <div>
+              <div class="mb-4 font-bold uppercase tracking-widest text-gray-100">Spa</div>
+      
+              <nav class="flex flex-col gap-4">
+                <div>
+                  <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Staff</a>
+                </div>
+      
+                <div>
+                  <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Turnos</a>
+                </div>
+      
+                <div>
+                  <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Testimonios</a>
+                </div>
+      
+      
+              </nav>
+            </div>
+            <!-- nav - end -->
+      
+            <!-- nav - start -->
+            <div>
+              <div class="mb-4 font-bold uppercase tracking-widest text-gray-100">Suporte</div>
+      
+              <nav class="flex flex-col gap-4">
+                <div>
+                  <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Contacto</a>
+                </div>
+      
+                <div>
+                  <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">FAQ</a>
+                </div>
+      
+                <div>
+                  <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Maps</a>
+                </div>
+      
+              
+              </nav>
+            </div>
+            <!-- nav - end -->
+      
+            <!-- nav - start -->
+            <div>
+              <div class="mb-4 font-bold uppercase tracking-widest text-gray-100">Legal</div>
+      
+              <nav class="flex flex-col gap-4">
+                <div>
+                  <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Condiciones de servicio</a>
+                </div>
+      
+                <div>
+                  <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Política de Privacidad</a>
+                </div>
+      
+                <div>
+                  <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Configuración de cookies</a>
+                </div>
+              </nav>
+            </div>
+            <!-- nav - end -->
+          </div>
+      
+          <div class="border-t border-gray-800 py-8 text-center text-sm text-gray-400">© 2025 - Estudio Juridico. <i>by design: seremprende.lat</i></div>
+        </footer>
+      </div>
+
+        <!-- Banner fijo inferior -->
+
+<div class="fixed bottom-0 left-0 w-full bg-green-600 text-white z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <span class="text-sm font-bold">
+        Diseño abogado Demo por 
+        <a href="https://seremprende.lat" target="_blank" class="underline hover:text-gold transition text-blue-800">
+          SerEmprende.lat
+        </a>
+      </span>
+      <a href="https://seremprende.lat" class="bg-yellow-300 text-blue-800 px-4 py-2 rounded-md text-sm font-semibold hover:bg-yellow-400 transition font-bold">
+        Ir al inicio
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
