@@ -1,868 +1,655 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SerEmprende | Diseño web</title>
-  <meta name="description" content="Diseñamos y creamos, Diseño de landinpage, paginas web responsives, modernas.">
-
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
-  <!-- Mejora de rendimiento: preconexión al CDN -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-  <!-- Font Awesome desde CDN (o local si prefieres) -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
- 
-  <!-- CSS compilado y minificado de Tailwind (con versión para cache busting) -->
-  <link rel="stylesheet" href="/dist/output.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SerEmprende | Diseño web</title>
+    <meta name="description" content="Sitios Web Modernos, Landing Pages y Tiendas Simples para profesionales, pymes y emprendimientos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-black text-gray-800">
+<body>
     <!-- Header/Navigation -->
-    <header class="fixed w-full top-0 z-50 bg-black shadow-lg">
-      <nav class="container mx-auto px-4 py-3">
-          <div class="flex justify-between items-center">
-              <!-- Logo -->
-              <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="logo" class="h-14 w-14">
-        
-                
+    <header class="header">
+        <nav class="nav container">
+            <!-- Logo -->
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="logo" class="logo">
             
-              
-              <!-- Desktop/Tablet Menu -->
-              <div class="hidden lg:flex space-x-8 items-center">
-                  <a href="#inicio" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">Inicio</a>
-                  <a href="#acercade" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">Acerca de</a>
-                  <a href="#servicios" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">Servicios</a>
-                  <a href="#seguridad" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">Seguridad</a>
-                  <a href="#diseños" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">Diseños</a>
-                  <a href="#testimonios" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">Testimonios</a>
-                  <a href="#faq" class="text-gray-200 hover:text-orange-500 font-bold transition-colors">FAQ</a>
-                  <a href="#contacto" class="bg-green-600 text-white font-bold px-3 py-2 rounded-full hover:bg-green-300 transition-colors duration-300 inline-flex items-center animate-pulse">
-                      Empecemos Hoy
-                        <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
-                    </a>
-              </div>
-              
-              <!-- Mobile Menu Button -->
-              <button class="lg:hidden hamburger" onclick="toggleMenu()">
-                  <span class="block w-6 h-0.5 bg-gray-200 mb-1 transition-all"></span>
-                  <span class="block w-6 h-0.5 bg-gray-200 mb-1 transition-all"></span>
-                  <span class="block w-6 h-0.5 bg-gray-200 transition-all"></span>
-              </button>
-          </div>
-          
-          <!-- Mobile Menu -->
-          <div id="mobileMenu" class="lg:hidden hidden mt-4 pb-4">
-              <a href="#inicio" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">Inicio</a>
-              <a href="#nosotros" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">Nosotros</a>
-              <a href="#servicios" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">Servicios</a>
-              <a href="#trabajos" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">Trabajos</a>
-              <a href="#galeria" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">Galería</a>
-              <a href="#testimonios" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">Testimonios</a>
-              <a href="#faq" class="block py-2 text-gray-200 hover:text-orange-600 font-bold hover:bg-slate-800  p-2 mt-2 rounded-lg">FAQ</a>
-              <a href="#contacto" class="bg-green-600 text-white font-bold px-3 py-2 rounded-full hover:bg-green-300 transition-colors duration-300 inline-flex items-center animate-pulsem mt-2">
-                  Empecemos Hoy
-                    <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
+            <!-- Desktop/Tablet Menu -->
+            <div class="nav-menu">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#acercade" class="nav-link">Acerca de</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#seguridad" class="nav-link">Seguridad</a>
+                <a href="#diseños" class="nav-link">Diseños</a>
+                <a href="#testimonios" class="nav-link">Testimonios</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#contacto" class="cta-button">
+                    Empecemos Hoy
+                    <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="whatsapp-icon"/>
                 </a>
-          </div>
-      </nav>
-  </header>
-  
-<!-- Hero -->
-<section class="mx-auto max-w-screen-2xl px-4 md:px-8 mt-24  py-20 bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat bg-fixed">
- <div class="mb-8 flex flex-wrap justify-between md:mb-16">
-      <div class="mb-6 flex w-full flex-col justify-center sm:mb-12 lg:mb-0 lg:w-1/3 lg:pb-24 lg:pt-48">
-        <h1 class="mb-4 font-bold text-white text-5xl ">
-          <span class="text-[#f47500] ">
-            Sitios Web</span><br> Modernos<br>Landing Page. <span class="text-[#f47500]">
-          </span><br><br><span class="text-[#f47500] ">Más</span> Tienda Simple.
-       </h1>
-
-        <p class="max-w-md leading-relaxed text-white leading-relaxed text-2xl">
-          <strong><span style="text-decoration: underline; color: #f47500;">
-            Diseños enfocados en:</span></strong><br>
-       <span style="text-white">Servicios, Profesionales, Pymes, Emprendimientos<br>
-        que busquen una presencia y aumentar sus ventas.</span>
-        </p>
-                   
-        <div class="hidden sm:flex flex-col gap-2.5 sm:flex-row sm:justify-left mt-4">
-          <a href="#acercade" class="inline-block rounded-full bg-[#f47500] px-8 py-3 text-center text-sm font-semibold text-white hover:bg-[#FFA200] focus-visible:ring md:text-base text-shadow-gray">
-            SABER MÁS
-          </a>
-        </div>
-        
-      </div>
+            </div>
             
-    
-      <div class="mb-12 flex w-full md:mb-16 lg:w-2/3">
-        <div class="relative left-12 top-12 z-10 -ml-12 overflow-hidden rounded-lg  md:left-16 md:top-16 lg:ml-0">
-          <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585927/gym-force-hero_rethug.png" loading="lazy" alt="baber" class="h-full w-full object-cover object-center" />
+            <!-- Mobile Menu Button -->
+            <button class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu container">
+            <a href="#inicio">Inicio</a>
+            <a href="#acercade">Acerca de</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#seguridad">Seguridad</a>
+            <a href="#diseños">Diseños</a>
+            <a href="#testimonios">Testimonios</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contacto" class="cta-button">
+                Empecemos Hoy
+                <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="whatsapp-icon"/>
+            </a>
         </div>
+    </header>
 
-        <div class="overflow-hidden rounded-lg ">
-          <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585927/spa-pc-hero_ia6dmy.png" loading="lazy" alt="gym" class="h-full w-full object-cover object-center" />
-        </div>
-      </div>
- 
-      
-    </div>
-    <div class="block sm:hidden mt-4">
-      <a href="#acercade" class="w-full inline-block rounded-full bg-[#f47500] px-8 py-3 text-center text-sm font-semibold text-white  hover:bg-[#FFA200] focus-visible:ring text-shadow-gray">
-        SABER MÁS
-      </a>
-    </div>
-   </div>
-      <!-- social - end -->
-    </div>
-  </section>
+    <!-- Hero -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="hero-highlight">Sitios Web</span><br> 
+                        Modernos<br>
+                        Landing Page. 
+                    </h1>
 
-<!-- Nosotros1 -->
-<section id="acercade" class="py-12 sm:py-8 lg:py-12">
-  
-  <div class="mx-auto max-w-screen-xl px-4 md:px-8">
-    <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
-        <div class="md:pt-8">
-        <p class="text-center font-bold text-gray-400 leading-relaxed md:text-left pt-14">A cerca de mi</p>
-
-        <h2 class="mb-4 text-center text-[#f47500] leading-relaxed md:mb-6 md:text-left text-4xl font-bold">
-           ¿Por qué elegir mis servicios?</h2>
-
-          <div class="mb-6 text-center md:mb-8 md:text-left">
-           <b class="text-gray-400 leading-relaxed text-xl">Misión:</b><br>
-             <p class="text-white leading-relaxed text-xl">Facilito a Profesionales, Pymes y Emprendimientos a potenciar su presencia online con Sitios web, LandingPage Estratégicas, complemento con tiendas simples, autogestinobles. Practicas de fácil gestión usando desde tu hoja de calculo de google drive. 
-             <br> 
-
-             </p>
-            </div>
-        </div>
-          <!-- Texto - start -->
-    
-       <div class="md:pt-8">
-         <!-- Imagen con borde personalizado - start -->
-      <div class="flex justify-center items-center">
-       <img class="w-[400px]" src="https://res.cloudinary.com/dliredzt9/image/upload/e_gradient_fade:symmetric:5,x_0.2,y_0.4/v1744385825/nosotros-leo_e2ql50.png" alt="leo">
-      </div>
-        </div>
-      </div>
-      <!-- Texto - end -->
-
-
-
-  </div>
-</section>
-
-<!-- Para quien trabajamos -->
-<div class="py-8 sm:py-8 lg:py-12  bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat bg-fixed">
-  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <!-- text - start -->
-    <div class="mb-10 md:mb-16">
-      <h2 class="mb-4 text-center font-bold text-[#f47500] md:mb-6 text-3xl">
-        ¿Tienes un Negocio Físico<br> Pero Quieres Destacar en el Mundo Digital?
-      </h2>
-      <p class="mx-auto max-w-screen-md text-center text-gray-300 md:text-lg">
-         Geolocalización, integración con redes sociales y diseño optimizado para captar clientes de tu zona.
-        ¡Hagamos que tu espacio físico brille online!
-      </p>
-    </div>
-    <!-- text - end -->
-
-    <div class="grid gap-4 sm:grid-cols-2 md:gap-8 xl:grid-cols-3">
-  
-      
-  <!-- feature - start -->
-  <div class="flex flex-col items-center text-center p-4 md:p-6">
-    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/salon-de-eventos_nkposp.png" alt="Salón de Eventos" class="w-20 h-20">
-    <h2 class="mb-2 font-semibold text-[#f47500] text-2xl">Salones de Eventos</h2>
-    <p class="text-gray-300 px-8">
-            Galerías cautivadoras, reservas online.
-    </p>
-  </div>
-
-    <!-- feature - start -->
-  <div class="flex flex-col items-center text-center p-4 md:p-6">
-    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/public-service_qjujsp.png" alt="Salón de Eventos" class="w-20 h-20">
-    <h2 class="mb-2 font-semibold text-[#f47500] text-2xl">Servicios Profesionales</h2>
-    <p class="text-gray-300 px-8">
-         Convierte visitantes en clientes fieles.
-    </p>
-  </div>
-
-  <!-- feature - start -->
-  <div class="flex flex-col items-center text-center p-4 md:p-6">
-    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/ipo_krjhtr.png" alt="Salón de Eventos" class="w-20 h-20">
-    <h2 class="mb-2 font-semibold text-[#f47500] text-2xl">Pymes, Emprendimientos</h2>
-    <p class="text-gray-300 px-8">
-           Ventas rápidas con WhatsApp Business.
- 
-    </p>
-  </div>
-
- <!-- feature - start -->
-  <div class="flex flex-col items-center text-center p-4 md:p-6">
-    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/libro-electronico_mnysvt.png" alt="Salón de Eventos" class="w-20 h-20">
-    <h2 class="mb-2 font-semibold text-[#f47500] text-2xl">Membresías</h2>
-    <p class="text-gray-300 leading-relaxed px-8">
-            Un diseño que refleja tu valor.
-      
-    </p>
-  </div>
-
- <!-- feature - start -->
-  <div class="flex flex-col items-center text-center p-4 md:p-6">
-    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/consultor_cs1mjw.png" alt="Salón de Eventos" class="w-20 h-20">
-    <h2 class="mb-2 font-semibold text-[#f47500] text-2xl">Couching, Consultoría</h2>
-    <p class="text-gray-300 leading-relaxed px-8">
-            Agenda, blog para autoridad, y landing para eventos.
-      
-    </p>
-  </div>
- <!-- feature - start -->
-  <div class="flex flex-col items-center text-center p-4 md:p-6">
-    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/artista_nj5zzs.png" alt="Salón de Eventos" class="w-20 h-20">
-    <h2 class="mb-2 font-semibold text-[#f47500] text-2xl">Artistas, Músicos</h2>
-    <p class="text-gray-300 leading-relaxed px-8">
-         Diseño portfolios, tienda, booking y un estilo único.
-    
-    </p>
-  </div>
-  
-    </div>
-  </div>
-</div>
-
-<!-- Sevicios -->
-<div id="servicios" class="py-6 sm:py-8 lg:py-12 ">
-  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <!-- text - start -->
-    <div class="mb-10 md:mb-16">
-      <h2 class="mb-4 text-center text-2xl font-bold text-[#f47500] md:mb-6 lg:text-3xl">Servicios</h2>
-  </div>
-    <!-- text - end -->
-
-    <div class="grid gap-12 sm:grid-cols-2 xl:grid-cols-3 xl:gap-16">
-      <!-- feature - start -->
-      <div class="flex flex-col items-center">
-        <div class="mb-2 flex h-12 w-12 items-center justify-center text-white sm:mb-4 md:h-14 md:w-14">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-          </svg>
-        </div>
-
-        <h3 class="mb-2 text-center text-lg font-semibold md:text-xl text-white">Diseño de Landing Page</h3>
-        <p class="mb-2 text-center text-gray-300 px-12">
-          Diseños enfocados en captar clientes con rapidez. Servicios o lanzamientos.
-        </p>
-     </div>
-      <!-- feature - end -->
-
-      <!-- feature - start -->
-      <div class="flex flex-col items-center">
-        <div class="mb-2 flex h-12 w-12 items-center justify-center text-white sm:mb-4 md:h-14 md:w-14">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-          </svg>
-        </div>
-
-        <h3 class="mb-2 text-center text-lg font-semibold md:text-xl text-white">Diseño de Sitios Web</h3>
-        <p class="mb-2 text-center text-gray-300 px-10">
-          Estructura profesional, moderna y confiable. Mostrá tu marca con solidez y claridad.</p>
-    </div>
-      <!-- feature - end -->
-
-      <!-- feature - start -->
-      <div class="flex flex-col items-center">
-        <div class="mb-2 flex h-12 w-12 items-center justify-center text-white sm:mb-4 md:h-14 md:w-14">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-          </svg>
-        </div>
-
-        <h3 class="mb-2 text-center text-lg font-semibold md:text-xl text-white">Diseños de Simple Tiendas</h3>
-        <p class="mb-2 text-center text-gray-300 px-10">Perfectas para pocos productos. Diseño ágil, sin complicaciones ni grandes inventarios, autogestinables.</p>
-      </div>
-      <!-- feature - end -->
-
-      <!-- feature - start -->
-      <div class="flex flex-col items-center">
-        <div class="mb-2 flex h-12 w-12 items-center justify-center text-white  sm:mb-4 md:h-14 md:w-14">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-        </div>
-
-        <h3 class="mb-2 text-center text-lg font-semibold md:text-xl text-white">Velocidad</h3>
-        <p class="mb-2 text-center text-gray-300 px-10">Sitios que cargan rápido y mantienen la atención de tus visitantes desde el primer segundo.</p>
-    </div>
-      <!-- feature - end -->
-
-      <!-- feature - start -->
-      <div class="flex flex-col items-center">
-        <div class="mb-2 flex h-12 w-12 items-center justify-center text-white  sm:mb-4 md:h-14 md:w-14">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-        </div>
-
-        <h3 class="mb-2 text-center text-lg font-semibold md:text-xl text-white">Soporte</h3>
-        <p class="mb-2 text-center text-gray-300 px-10">Te acompaño antes, durante y después del diseño. Siempre que lo necesites, estoy ahí.</p>
-       
-      </div>
-      <!-- feature - end -->
-
-      <!-- feature - start -->
-      <div class="flex flex-col items-center">
-        <div class="mb-2 flex h-12 w-12 items-center justify-center text-white  sm:mb-4 md:h-14 md:w-14">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-          </svg>
-        </div>
-
-        <h3 class="mb-2 text-center text-lg font-semibold md:text-xl text-white">Mantenimiento</h3>
-        <p class="mb-2 text-center text-gray-300 px-10">Actualizaciones, ajustes y seguridad para que tu web siempre funcione como debe.</p>
-    </div>
-      <!-- feature - end -->
-    </div>
-  </div>
-</div>
-
-   <!-- Banner Motivacional 2 -->
-   <section class="py-20 text-white text-center bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat text-white relative  bg-fixed">
-      
-    <div class="container mx-auto px-4">
-        <p class="text-4xl md:text-6xl font-bold mb-6">
-            "Estar en google maps con un sitio web<br> es tener la diferencia a la competencia"
-        </p>
-        <p class="text-xl opacity-90">
-            - Ser emprende
-        </p>
-    </div>
-</section>
-
-<!-- ¿Ya estás en Google Maps? -->
-<section class="py-12 bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat bg-fixed">
-<div class="bg-gray-900 text-white py-6 mb-8">
-  <div class="max-w-6xl mx-auto px-4">
-    <h1 class="text-2xl font-bold text-center">¿Ya estás en Google Maps?</h1>
-  </div>
-</div>
-
- <div class="py-10 px-4 md:px-8 max-w-4xl mx-auto rounded-lg bg-gray-900 ">
- 
-    <h2 class="text-2xl font-semibold  mb-6 pt-2 text-gray-200">¿Por qué tener un sitio web?</h2>
-    <ul class="space-y-4 text-lg text-gray-200">
-      <li>✅ <i>Porque tu ficha de Google solo muestra lo básico</i></li>
-      <li>✅ <i>Porque una web bien hecha transmite confianza y profesionalismo</i></li>
-      <li>✅ <i>Porque podés mostrar quién sos, qué hacés y cómo contactarte</i></li>
-      <li>✅ <i>Porque cada vez más clientes buscan ver más antes de decidir</i></li>
-    </ul>
- 
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl font-semibold  mb-6 pt-12 text-gray-200">Tu web sin complicaciones</h2>
-      <p class="text-lg  mb-4 font-bold text-gray-200">"Diseñada para Profesionales, Comercios y Pymes que Quieren Resultados Reales"</p>
-      <ul class="space-y-2 text-lg text-gray-200">
-        <li>✅ <i>Diseño moderno y adaptable a celulares</i></li>
-        <li>✅ <i>Botón de WhatsApp directo</i></li>
-        <li>✅ <i>Optimización básica para Google</i></li>
-        <li>✅ <i>En línea en pocos días</i></li>
-      </ul>
-   
-    </div>
-
-  </section>
-
-<!-- Seguridad  -->
-<section id="seguridad" class=" relative block px-6 py-10 md:py-20 md:px-10 ">
-
-
-        <div class="relative mx-auto text-center">
-            <h2 class="text-center font-bold text-[#f47500] text-3xl">Seguridad</h2>
-
-        </div>
-
-
-        <div class="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
-            <div class="rounded-md border border-neutral-800 bg-gray-900 p-8 text-center shadow">
-                <div class="button-text mx-auto flex items-center justify-center  ">
+                    <p class="hero-description">
+                        <strong><span style="text-decoration: underline; color: #f47500;">
+                            Diseños enfocados en:</span></strong><br>
+                        <span style="color: white;">Servicios, Profesionales, Pymes, Emprendimientos<br>
+                        que busquen una presencia y aumentar sus ventas.</span>
+                    </p>
                     
-                    <img class="w-28 h-28" src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/device_pslq3a.png" alt="adaptables">
+                    <div style="display: none;" class="hero-button-desktop">
+                        <a href="#acercade" class="btn-primary">SABER MÁS</a>
+                    </div>
                 </div>
-                <h2 class="mt-6 text-[#f47500]  leading-relaxed">Adaptable a: Pc, Tablet y Moviles</h2>
-                <p class="my-4 mb-0 text-white leading-relaxed">
-                  Hoy en día el 70% de las persona navegan por celulares,
-                  tener un Diseño Web que se adapte a Pc, Tablet y móviles es fundamental para ser confiables.
-                </p>
-            </div>
+                
+                <div class="hero-images">
+                    <div class="hero-image-1">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755010895/hero-img_g2jgdv.webp" loading="lazy" alt="gym" />
+                    </div>
 
-
-            <div class="rounded-md border border-neutral-800 bg-gray-900 p-8 text-center shadow">
-               <div class="button-text mx-auto flex items-center justify-center  ">
-                    
-                    <img class="w-28 h-28" src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/ssl_hgk0yd.png" alt="adaptables">
                 </div>
-                 <h2 class="mt-6 text-[#f47500]  leading-relaxed">Adaptable a: Pc, Tablet y Moviles</h2>
-                <p class="my-4 mb-0 text-white leading-relaxed">
-                  Es muy importante contar con un dominio y candado de seguridad que indique que su web es un sitio confiable para dar confianza.
-                </p>
             </div>
-
-
-            <div class="rounded-md border border-neutral-800 bg-gray-900 p-8 text-center shadow">
-               <div class="button-text mx-auto flex items-center justify-center  ">
-                    
-                    <img class="w-28 h-28" src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/anti-virus-software_ezl97z.png" alt="adaptables">
-                </div> 
-                <h2 class="mt-6 text-[#f47500]  leading-relaxed">Adaptable a: Pc, Tablet y Moviles</h2>
-                <p class="my-4 mb-0 text-white leading-relaxed">
-                  Seguridad, Anti-Virus tu Web las 24hs funcionando en la web.
-                </p>
+            
+            <div class="hero-button-mobile">
+                <a href="#acercade" class="btn-primary" style="width: 100%;">SABER MÁS</a>
             </div>
-        </div>
-
-          <div class="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
-            <div class="rounded-md border border-neutral-800 bg-gray-900 p-8 text-center shadow">
-                <div class="button-text mx-auto flex items-center justify-center  ">
-                    
-                    <img class="w-28 h-28" src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/back-up_fo5ezy.png" alt="adaptables">
-                </div>
-                <h2 class="mt-6 text-[#f47500]  leading-relaxed">Adaptable a: Pc, Tablet y Moviles</h2>
-                <p class="my-4 mb-0 text-white leading-relaxed">
-                 Amigable a los buscadores, facilidad de búsqueda de los usuarios que te encuentren de una manera fácil.
-                </p>
-            </div>
-
-
-            <div class="rounded-md border border-neutral-800 bg-gray-900 p-8 text-center shadow">
-               <div class="button-text mx-auto flex items-center justify-center  ">
-                    
-                    <img class="w-28 h-28" src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/seo_ojobiz.png" alt="adaptables">
-                </div>
-                 <h2 class="mt-6 text-[#f47500]  leading-relaxed">Adaptable a: Pc, Tablet y Moviles</h2>
-                <p class="my-4 mb-0 text-white leading-relaxed">
-                  Back Up semanal para que nunca pierdas tu web y datos.
-                </p>
-            </div>
-
-
-        <div class="rounded-md border border-neutral-800 bg-gray-900 p-8 text-center shadow">
-               <div class="button-text mx-auto flex items-center justify-center  ">
-                    
-                    <img class="w-28 h-28" src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/cloud_ilznz4.png" alt="adaptables">
-                </div> 
-                 <h2 class="mt-6 text-[#f47500]  leading-relaxed">Adaptable a: Pc, Tablet y Moviles</h2>
-                <p class="my-4 mb-0 text-white leading-relaxed">
-                  Te administramos el alojamiento web para garantizar una mejora en seguridad y agilidad de carga en el sitio.
-                </p>
-            </div>
-        </div>
-
-
-</section>
-
-
-    <!-- Banner Motivacional 2 -->
-        <section class="py-20 text-white text-center bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat text-white relative  bg-fixed">
-      
-        <div class="container mx-auto px-4">
-            <p class="text-4xl md:text-6xl font-bold mb-6">
-                "El diseño no es solo cómo se ve,<br> es cómo funciona"
-            </p>
-            <p class="text-xl opacity-90">
-                - Steve Jobs
-            </p>
         </div>
     </section>
 
-
-<!-- Diseños -->
-<section id="diseños" class="bg-black py-12">
-  <h2 class="text-center font-bold text-3xl text-[#f47500]">
-    Diseños
-  </h2>
-           
-        <div class="container mx-auto px-4 py-8 rounded-lg  flex items-center justify-center min-h-screen">
-   
-                  <div>
-                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585913/institucional_go2i10.webp" alt="Imagen 1" class="rounded-lg">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/barber02_h3bt02.webp" alt="Imagen 2" class="rounded-lg">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585905/estetica_lj0ctt.png" alt="Imagen 3" class="rounded-lg">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585904/ebook_h6ss1h.webp" alt="Imagen 4" class="rounded-lg">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/burger_hm0w8b.webp" alt="Imagen 5" class="rounded-lg">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/academia_okupjq.webp" alt="Imagen 6" class="rounded-lg">
+    <!-- About -->
+    <section id="acercade" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="section-subtitle">A cerca de mi</p>
+                    <h2 class="section-title">¿Por qué elegir mis servicios?</h2>
+                    
+                    <div class="about-description">
+                        <b>Misión:</b><br>
+                        <p>Facilito a Profesionales, Pymes y Emprendimientos a potenciar su presencia online con Sitios web, LandingPage Estratégicas. Complento con Automatizaciones de Chatbot WhatsApp con IA. Atención 24/7.</p>
                     </div>
-                  </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1754963766/nosotros-leo_e2ql50_ez2i0u.webp" alt="leo">
+                </div>
+            </div>
+        </div>
+    </section>
 
-                      <div id="lightbox" class="lightbox">
-                          <span class="close">&times;</span>
-                          <img class="lightbox-content" id="lightbox-img">
-                      </div>
-                    </div>
-</section>
+    <!-- Target Section -->
+    <div class="target-section">
+        <div class="container">
+            <div style="margin-bottom: 2.5rem;">
+                <h2 class="target-title">
+                    ¿Tienes un Negocio Físico<br> Pero Quieres Destacar en el Mundo Digital?
+                </h2>
+                <p class="target-description">
+                    Geolocalización, integración con redes sociales y diseño optimizado para captar clientes de tu zona.
+                    ¡Hagamos que tu espacio físico brille online!
+                </p>
+            </div>
 
-   <!-- Banner Motivacional 3 -->
-   <section class="py-20 text-white text-center bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat text-white relative  bg-fixed">
-   <div class="container mx-auto px-4">
-       <p class="text-4xl md:text-6xl font-bold mb-6">
-        “Si tu negocio no está en internet,<br> tu negocio no existe” 
-       </p>
-       <p class="text-xl opacity-90">
-        - Bill Gates
-       </p>
-   </div>
-</section>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/salon-de-eventos_nkposp.png" alt="Salón de Eventos" class="feature-icon">
+                    <h2 class="feature-title">Salones de Eventos</h2>
+                    <p class="feature-description">Galerías cautivadoras, reservas online.</p>
+                </div>
 
+                <div class="feature-card">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/public-service_qjujsp.png" alt="Servicios Profesionales" class="feature-icon">
+                    <h2 class="feature-title">Servicios Profesionales</h2>
+                    <p class="feature-description">Convierte visitantes en clientes fieles.</p>
+                </div>
 
-<!-- DISEÑOS TIENDA LEO -->
-<div id="diseños" class="py-6 sm:py-8 lg:py-12">
-  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-         
-    <h2 class="text-center font-bold text-3xl text-[#f47500] p-8">
-      Tiendas Simples Autogestionables
-    </h2>
-  
+                <div class="feature-card">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/ipo_krjhtr.png" alt="Pymes" class="feature-icon">
+                    <h2 class="feature-title">Pymes, Emprendimientos</h2>
+                    <p class="feature-description">Ventas rápidas con WhatsApp Business.</p>
+                </div>
 
-    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-6">
-      <!-- review - start -->
-    
-      <!-- review - start -->
-      <div class="flex flex-col gap-3 rounded-lg border p-4 md:p-6 bg-gray-900">
-        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1745423979/Tienda-gym_fd0jlp.png" alt="gym">
-      </div>
-            <!-- review - end -->
+                <div class="feature-card">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/libro-electronico_mnysvt.png" alt="Membresías" class="feature-icon">
+                    <h2 class="feature-title">Membresías</h2>
+                    <p class="feature-description">Un diseño que refleja tu valor.</p>
+                </div>
 
+                <div class="feature-card">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/consultor_cs1mjw.png" alt="Coaching" class="feature-icon">
+                    <h2 class="feature-title">Couching, Consultoría</h2>
+                    <p class="feature-description">Agenda, blog para autoridad, y landing para eventos.</p>
+                </div>
 
-      <!-- review - start -->
-      <div class="flex flex-col gap-3 rounded-lg border p-4 md:p-6 bg-gray-900">
-        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1745423984/Tienda-Spa_gk0qn1.png" alt="spa">
-      </div>
-            <!-- review - end -->
-
-      <!-- review - start -->
-      <div class="flex flex-col gap-3 rounded-lg border p-4 md:p-6 bg-gray-900">
-        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1745423971/Tienda-baber_scdhu7.png" alt="baber-shop">
-      </div>
-         <!-- review - end -->
+                <div class="feature-card">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/artista_nj5zzs.png" alt="Artistas" class="feature-icon">
+                    <h2 class="feature-title">Artistas, Músicos</h2>
+                    <p class="feature-description">Diseño portfolios, tienda, booking y un estilo único.</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<!-- Testimonios -->
-<div id="testimonios" class="py-4 sm:py-6 lg:py-4">
-        <div class="mx-auto max-w-screen-xl px-4 md:px-8">
-          <h3 class="text-center font-bold text-3xl text-[#f47500] p-8">Testimonios</h3>
+    <!-- Services -->
+    <div id="servicios" class="services">
+        <div class="container">
+            <div style="margin-bottom: 2.5rem;">
+                <h2 class="section-title">Servicios</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755021739/landingpage_yytrcr.png" alt="landingpage" style="width: 48px;height: 48px;">
+                    </div>
+                    <h3 class="service-title">Diseño de Landing Page</h3>
+                    <p class="service-description">Diseños enfocados en captar clientes con rapidez. Servicios o lanzamientos.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                         <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755021743/candado_pasmgq.png" alt="candado" style="width: 48px;height: 48px;">
+                    </div>
+                    <h3 class="service-title">Diseño de Sitios Web</h3>
+                    <p class="service-description">Estructura profesional, moderna y confiable. Mostrá tu marca con solidez y claridad.</p>
+                </div>
+
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755021759/rayo_yhoziu.png" alt="velocidad" style="width: 48px;height: 48px;">
+                    </div>
+                    <h3 class="service-title">Velocidad</h3>
+                    <p class="service-description">Sitios que cargan rápido y mantienen la atención de tus visitantes desde el primer segundo.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                         <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755021752/soporte_mubuwa.png" alt="soporte" style="width: 48px;height: 48px;">
+                    </div>
+                    <h3 class="service-title">Soporte</h3>
+                    <p class="service-description">Te acompaño antes, durante y después del diseño. Siempre que lo necesites, estoy ahí.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                         <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755021743/candado_pasmgq.png" alt="mantenimiento" style="width: 48px;height: 48px;">
+                    </div>
+                    <h3 class="service-title">Mantenimiento</h3>
+                    <p class="service-description">Actualizaciones, ajustes y seguridad para que tu web siempre funcione como debe.</p>
+                </div>
+
+                        <div class="service-card">
+                    <div class="service-icon">
+                         <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755021747/hosting_lwtv34.png" alt="hosting" style="width: 48px;height: 48px;">
+                    </div>
+                    <h3 class="service-title">Alojamiento Web</h3>
+                    <p class="service-description">el servicio incluye Alojamiento Web Mensual 100% optimizado.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Motivational Banner 1 -->
+    <section class="motivational-banner">
+        <div class="container">
+            <p class="banner-quote">
+                "Estar en google maps con un sitio web<br> es tener la diferencia a la competencia"
+            </p>
+            <p class="banner-author">- Ser emprende</p>
+        </div>
+    </section>
+
+    <!-- Google Maps Section -->
+    <section class="google-maps-section">
+        <div class="maps-header">
+            <div class="container">
+                <h1 class="maps-title">¿Ya estás en Google Maps?</h1>
+            </div>
+        </div>
+
+        <div class="maps-content">
+            <h2 class="maps-subtitle">¿Por qué tener un sitio web?</h2>
+            <ul class="maps-list">
+                <li>✅ <i>Porque tu ficha de Google solo muestra lo básico</i></li>
+                <li>✅ <i>Porque una web bien hecha transmite confianza y profesionalismo</i></li>
+                <li>✅ <i>Porque podés mostrar quién sos, qué hacés y cómo contactarte</i></li>
+                <li>✅ <i>Porque cada vez más clientes buscan ver más antes de decidir</i></li>
+            </ul>
+
+            <div class="maps-benefits">
+                <h2 class="maps-benefits-title">Tu web sin complicaciones</h2>
+                <p class="maps-benefits-description">"Diseñada para Profesionales, Comercios y Pymes que Quieren Resultados Reales"</p>
+                <ul class="maps-benefits-list">
+                    <li>✅ <i>Diseño moderno y adaptable a celulares</i></li>
+                    <li>✅ <i>Botón de WhatsApp directo</i></li>
+                    <li>✅ <i>Optimización básica para Google</i></li>
+                    <li>✅ <i>En línea en pocos días</i></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section id="seguridad" class="security">
+        <div class="container">
+            <h2 class="security-title">Seguridad</h2>
+
+            <div class="security-grid">
+                <div class="security-card">
+                    <div class="security-icon">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/device_pslq3a.png" alt="adaptables">
+                    </div>
+                    <h2 class="security-card-title">Adaptable a: Pc, Tablet y Móviles</h2>
+                    <p class="security-card-description">
+                        Hoy en día el 70% de las personas navegan por celulares,
+                        tener un Diseño Web que se adapte a Pc, Tablet y móviles es fundamental para ser confiables.
+                    </p>
+                </div>
+
+                <div class="security-card">
+                    <div class="security-icon">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/ssl_hgk0yd.png" alt="ssl">
+                    </div>
+                    <h2 class="security-card-title">Certificado SSL</h2>
+                    <p class="security-card-description">
+                        Es muy importante contar con un dominio y candado de seguridad que indique que su web es un sitio confiable para dar confianza.
+                    </p>
+                </div>
+
+                <div class="security-card">
+                    <div class="security-icon">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/anti-virus-software_ezl97z.png" alt="antivirus">
+                    </div>
+                    <h2 class="security-card-title">Protección Antivirus</h2>
+                    <p class="security-card-description">
+                        Seguridad, Anti-Virus tu Web las 24hs funcionando en la web.
+                    </p>
+                </div>
+
+                <div class="security-card">
+                    <div class="security-icon">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/back-up_fo5ezy.png" alt="backup">
+                    </div>
+                    <h2 class="security-card-title">Respaldo Automático</h2>
+                    <p class="security-card-description">
+                        Back Up semanal para que nunca pierdas tu web y datos.
+                    </p>
+                </div>
+
+                <div class="security-card">
+                    <div class="security-icon">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/seo_ojobiz.png" alt="seo">
+                    </div>
+                    <h2 class="security-card-title">Optimización SEO</h2>
+                    <p class="security-card-description">
+                        Amigable a los buscadores, facilidad de búsqueda de los usuarios que te encuentren de una manera fácil.
+                    </p>
+                </div>
+
+                <div class="security-card">
+                    <div class="security-icon">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/cloud_ilznz4.png" alt="cloud">
+                    </div>
+                    <h2 class="security-card-title">Hosting Administrado</h2>
+                    <p class="security-card-description">
+                        Te administramos el alojamiento web para garantizar una mejora en seguridad y agilidad de carga en el sitio.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motivational Banner 2 -->
+    <section class="motivational-banner">
+        <div class="container">
+            <p class="banner-quote">
+                "El diseño no es solo cómo se ve,<br> es cómo funciona"
+            </p>
+            <p class="banner-author">- Steve Jobs</p>
+        </div>
+    </section>
+
+    <!-- Designs -->
+    <section id="diseños" class="designs">
+        <h2 class="designs-title">Diseños</h2>
+        
+        <div class="designs-container">
+            <div class="designs-grid">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585913/institucional_go2i10.webp" alt="Imagen 1">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755018321/barberia-hero_ozd3wn_xgl6vd.webp" alt="Imagen 2">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585912/imobiliaria_ueumql.webp" alt="Imagen 3">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755011441/dentista_noyngr_2_pplppg.webp" alt="Imagen 4">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755011264/dentista_noyngr_1_s6achk.webp" alt="Imagen 5">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/academia_okupjq.webp" alt="Imagen 6">
+            </div>
+        </div>
+    </section>
+
+    <!-- Motivational Banner 3 -->
+    <section class="motivational-banner">
+        <div class="container">
+            <p class="banner-quote">
+                "Si tu negocio no está en internet,<br> tu negocio no existe"
+            </p>
+            <p class="banner-author">- Bill Gates</p>
+        </div>
+    </section>
+
+    <!-- Sección de Cards -->
+<section class="cards-section">
+       <h2 class="designs-title">Diseños Adaptables</h2>
+  <div class="container-cards">
+      <div class="card">
+      <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1745425010/baber-responsive_dt6ldm.png" alt="Servicio 1">
+      <h3>Babería</h3>
+     </div>
+    
+    <div class="card">
+      <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1745425003/spa-responsive_l797cn.png" alt="Servicio 2">
+      <h3>Spa</h3>
+    </div>
+    
+    <div class="card">
+      <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1745424976/gym-responsive_lw8dpi.png" alt="Servicio 3">
+      <h3>Gym</h3>
+    </div>
+  
+  </div>
+</section>
+
+
+
+
+    <!-- Testimonials -->
+    <div id="testimonios" class="testimonials">
+        <div class="container">
+            <h3 class="testimonials-title">Testimonios</h3>
             <div class="slider">
                 <div class="slides">
                     <!-- Testimonio 1 -->
-                    <div class="slide flex flex-col items-center gap-4 sm:px-4 md:gap-6 lg:px-8">
-                        <div class="text-center text-gray-300">“Excdelente calidad, diseño eficaz bien dirigido, gracias.”</div>
-                        <div class="flex flex-col items-center gap-2 sm:flex-row md:gap-3">
-                            <div class="h-12 w-12 overflow-hidden rounded-full bg-gray-100 shadow-lg md:h-14 md:w-14">
-                                <img src="https://randomuser.me/api/portraits/women/31.jpg" loading="lazy" alt="Testimonio 1" class="h-full w-full object-cover object-center" />
+                    <div class="slide">
+                        <div class="testimonial-text">"Excelente calidad, diseño eficaz bien dirigido, gracias."</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/31.jpg" loading="lazy" alt="Testimonio 1" />
                             </div>
                             <div>
-                                <div class="text-center text-sm font-bold text-gray-200 sm:text-left md:text-base">Amalia Costa</div>
-                                <p class="text-center text-sm text-gray-300 sm:text-left md:text-sm">Pymes</p>
+                                <div class="testimonial-name">Amalia Costa</div>
+                                <p class="testimonial-role">Pymes</p>
                             </div>
                         </div>
                     </div>
                     <!-- Testimonio 2 -->
-                    <div class="slide flex flex-col items-center gap-4 sm:px-4 md:gap-6 lg:px-8">
-                        <div class="text-center text-gray-300">“Superaron mis expetativas, muy atento, gracias.”</div>
-                        <div class="flex flex-col items-center gap-2 sm:flex-row md:gap-3">
-                            <div class="h-12 w-12 overflow-hidden rounded-full bg-gray-100 shadow-lg md:h-14 md:w-14">
-                                <img src="https://randomuser.me/api/portraits/women/84.jpg" loading="lazy" alt="Testimonio 2" class="h-full w-full object-cover object-center" />
+                    <div class="slide">
+                        <div class="testimonial-text">"Superaron mis expectativas, muy atento, gracias."</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/84.jpg" loading="lazy" alt="Testimonio 2" />
                             </div>
                             <div>
-                                <div class="text-center text-sm font-bold text-gray-200 sm:text-left md:text-base">Karina Lopez</div>
-                                <p class="text-center text-sm text-gray-300 sm:text-left md:text-sm">Spa</p>
+                                <div class="testimonial-name">Karina Lopez</div>
+                                <p class="testimonial-role">Spa</p>
                             </div>
                         </div>
                     </div>
                     <!-- Testimonio 3 -->
-                    <div class="slide flex flex-col items-center gap-4 sm:px-4 md:gap-6 lg:px-8">
-                        <div class="text-center text-gray-300">“Muy buen trabajo, excelente atención, gracias.”</div>
-                        <div class="flex flex-col items-center gap-2 sm:flex-row md:gap-3">
-                            <div class="h-12 w-12 overflow-hidden rounded-full bg-gray-100 shadow-lg md:h-14 md:w-14">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" loading="lazy" alt="Testimonio 3" class="h-full w-full object-cover object-center" />
+                    <div class="slide">
+                        <div class="testimonial-text">"Muy buen trabajo, excelente atención, gracias."</div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" loading="lazy" alt="Testimonio 3" />
                             </div>
                             <div>
-                                <div class="text-center text-sm font-bold text-gray-200 sm:text-left md:text-base">Carlos García</div>
-                                <p class="text-center text-sm text-gray-300 sm:text-left md:text-sm">Baber</p>
+                                <div class="testimonial-name">Carlos García</div>
+                                <p class="testimonial-role">Barber</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-</div>
-
-
-<!-- PREGUNTAS -->
-<section id="faq" class="bg-black text-gray-100 py-32 min-h-screen">
-  <div class="container flex flex-col justify-center p-4 mx-auto md:p-8">
-    <h2 class="mb-12 text-3xl font-bold leadi text-center sm:text-5xl text-[#f47500]">Preguntas Frecuentes?</h2>
-    <div class="flex flex-col  sm:px-8 lg:px-12 xl:px-32 p-2">
-      <details>
-        <summary class="py-2 outline-none cursor-pointer text-gray-200 text-xl">¿Cómo contrato mi diseño web o tienda online?</summary>
-        <div class="px-4 pb-4">
-          <p class="text-gray-300">El proceso es simple:<br>
-1️⃣ Contáctanos y cuéntanos sobre tu negocio y necesidades.<br>
-2️⃣ Te enviamos una propuesta con el diseño y funcionalidad recomendada.<br>
-3️⃣ Confirmas el servicio con el pago inicial y comenzamos a trabajar.<br> 
-                        <button class="inline-flex items-center bg-green-600 font-bold border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-                                    <span class="ml-2 text-white ">Empecemos Hoy</span>&nbsp;
-                                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256" style="fill:#000000;">
-                                      <g fill="#ffffff" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8,8)">
-                                      <path d="M24.50391,7.50391c-2.25781,-2.25781 -5.25781,-3.50391 -8.45312,-3.50391c-6.58594,0 -11.94922,5.35938 -11.94922,11.94531c-0.00391,2.10547 0.54688,4.16016 1.59375,5.97266l-1.69531,6.19141l6.33594,-1.66406c1.74219,0.95313 3.71094,1.45313 5.71094,1.45703h0.00391c6.58594,0 11.94531,-5.35937 11.94922,-11.94922c0,-3.19141 -1.24219,-6.19141 -3.49609,-8.44922zM16.05078,25.88281h-0.00391c-1.78125,0 -3.53125,-0.48047 -5.05469,-1.38281l-0.36328,-0.21484l-3.76172,0.98438l1.00391,-3.66406l-0.23437,-0.375c-0.99609,-1.58203 -1.51953,-3.41016 -1.51953,-5.28516c0,-5.47266 4.45703,-9.92578 9.9375,-9.92578c2.65234,0 5.14453,1.03516 7.01953,2.91016c1.875,1.87891 2.90625,4.37109 2.90625,7.02344c0,5.47656 -4.45703,9.92969 -9.92969,9.92969zM21.49609,18.44531c-0.29687,-0.14844 -1.76562,-0.87109 -2.03906,-0.96875c-0.27344,-0.10156 -0.47266,-0.14844 -0.67187,0.14844c-0.19922,0.30078 -0.76953,0.97266 -0.94531,1.17188c-0.17187,0.19531 -0.34766,0.22266 -0.64453,0.07422c-0.30078,-0.14844 -1.26172,-0.46484 -2.40234,-1.48437c-0.88672,-0.78906 -1.48828,-1.76953 -1.66016,-2.06641c-0.17578,-0.30078 -0.01953,-0.46094 0.12891,-0.60937c0.13672,-0.13281 0.30078,-0.34766 0.44922,-0.52344c0.14844,-0.17187 0.19922,-0.29687 0.30078,-0.49609c0.09766,-0.19922 0.04688,-0.375 -0.02734,-0.52344c-0.07422,-0.14844 -0.67187,-1.62109 -0.92187,-2.21875c-0.24219,-0.58203 -0.48828,-0.5 -0.67187,-0.51172c-0.17187,-0.00781 -0.37109,-0.00781 -0.57031,-0.00781c-0.19922,0 -0.52344,0.07422 -0.79687,0.375c-0.27344,0.29688 -1.04297,1.01953 -1.04297,2.48828c0,1.46875 1.07031,2.89063 1.21875,3.08984c0.14844,0.19531 2.10547,3.21094 5.10156,4.50391c0.71094,0.30859 1.26563,0.49219 1.69922,0.62891c0.71484,0.22656 1.36719,0.19531 1.88281,0.12109c0.57422,-0.08594 1.76563,-0.72266 2.01563,-1.42187c0.24609,-0.69531 0.24609,-1.29297 0.17188,-1.41797c-0.07422,-0.125 -0.27344,-0.19922 -0.57422,-0.35156z"></path></g></g>
-                                    </svg>
-                                </button></p>
-        </div>
-      </details>
-     
-    
-      <details>
-        <summary class="py-2 outline-none cursor-pointer text-gray-200 text-xl sm:text-lx">¿Cuál es el proceso de diseño web?</summary>
-        <div class="px-4 pb-4">
-          <p class="text-gray-300">
-           ✔️ <b>Recopilamos:</b> información sobre tu negocio y objetivos.<br>
-           ✔️ <b>Diseño:</b> Creamos la estructura y apariencia de la web.<br>
-           ✔️ <b>Desarrollo:</b> Programamos y optimizamos el sitio.<br>
-           ✔️ <b>Pruebas & Ajustes:</b> Revisamos y afinamos detalles antes del lanzamiento.<br>
-           ✔️ <b>Entrega & Publicación:</b> Subimos la web y te entregamos accesos.</p>
-        </div>
-      </details>
-     
-   
-      <details>
-        <summary class="py-2 outline-none cursor-pointer text-gray-200 text-xl sm:text-lx">¿Cuanto tiempo tarda?</summary>
-        <div class="px-4 pb-4">
-          <p class="text-gray-300">Depende del tipo de página:<br>
-            📌 Landing Page: 5-10 días hábiles.<br>
-            📌 Web Corporativa: 10-20 días hábiles.<br>
-            📌 Tienda Online: 15-30 días hábiles.<br>             </p>
-        </div>
-      </details>
-     
-    
-      <details>
-        <summary class="py-2 outline-none cursor-pointer text-gray-200 text-xl sm:text-lx">¿Cuál es el producto final a recibir?</summary>
-        <div class="px-4 pb-4">
-          <p class="text-gray-300">
-             📂 Una web 100% funcional con:<br>
-              ✅ Diseño profesional y adaptable a todos los dispositivos.<br>
-              ✅ Optimización SEO y velocidad de carga.<br>
-              ✅ Integración con WhatsApp, formularios y herramientas que necesites.<br>
-              ✅ Accesos y archivos necesarios para administrar tu sitio.<br>              </p>
-        </div>
-      </details>
-    
-     
-      <details>
-        <summary class="py-2 outline-none cursor-pointer text-gray-200 text-xl sm:text-lx">¿Cuánto tiempo tardan en entregar mi página web?</summary>
-        <div class="px-4 pb-4">
-          <p class="text-gray-300">
-            Depende del tipo de página y la rapidez con la que nos envíes la información. Una vez aprobado el diseño, la entrega suele ser en 5 a 30 días hábiles.
-          </p>
-        </div>
-      </details>
-     
-     
-      <details>
-        <summary class="py-2 outline-none cursor-pointer text-gray-200 text-xl sm:text-lx">¿Qué sucede si no entrego información de mi web a tiempo?</summary>
-        <div class="px-4 pb-4">
-          <p class="text-gray-300">
-        <b>IMPORTANTE:</b>El tiempo de entrega puede retrasarse. Sin contenido, no podemos avanzar, por lo que recomendamos enviar textos, imágenes y datos lo antes posible.
-
-Si pasan más de 30 días sin respuesta, el proyecto podría pausarse o requerir costos adicionales para retomarlo.
-
-.</p>
-        </div>
-      </details>
-     
-     
-      <details>
-        <summary class="py-2 outline-none cursor-pointer focus:underline text-gray-200 text-xl sm:text-lx">
-         ¿Cuál es la forma de pago para contratar los servicios?</summary>
-        <div class="px-4 pb-4">
-          <p class="text-gray-300 font-normal">Si aceptas nuestro presupuesto, <b>deberás pagar el 50% por adelantado</b> y el resto al finalizar el proyecto contra factura. Para ciertos casos el pago es total o en cuotas. Aceptamos tarjetas de crédito/débito,  PayPal o transferencias/depósitos bancarios.</p>
-        </div>
-      </details>
     </div>
-  </div>
-</section>
 
-<!-- Call action -->
-<section id="contacto" class="py-12 text-center bg-[url(https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp)] bg-cover bg-center bg-no-repeat relative  bg-fixed"> 
-  <div class="mx-auto max-w-screen-xl px-4 md:px-8">
- 
-   
-      <!-- Texto - start -->
-      <div>
-           <!-- Imagen con borde personalizado - start -->
-      <div class="flex justify-center items-center">
-        <div class="h-36 w-36 bg-cover bg-center my-6">
-         <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt=""></div>
-        <!-- <div class="h-36 w-36 bg-cover bg-center my-6">
-            <img src="img/seremprende-hero.png" alt="seremprende">
-        </div> -->
-      </div>
-    
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="faq-container container">
+            <h2 class="faq-title">Preguntas Frecuentes?</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cómo contrato mi diseño web o tienda online?</summary>
+                    <div class="faq-answer">
+                        <p>El proceso es simple:<br>
+                        1️⃣ Contáctanos y cuéntanos sobre tu negocio y necesidades.<br>
+                        2️⃣ Te enviamos una propuesta con el diseño y funcionalidad recomendada.<br>
+                        3️⃣ Confirmas el servicio con el pago inicial y comenzamos a trabajar.<br>
+                        <a href="#contacto" class="whatsapp-button">
+                            <span>Empecemos Hoy</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="whatsapp-svg">
+                                <path fill="currentColor" d="M24.50391,7.50391c-2.25781,-2.25781 -5.25781,-3.50391 -8.45312,-3.50391c-6.58594,0 -11.94922,5.35938 -11.94922,11.94531c-0.00391,2.10547 0.54688,4.16016 1.59375,5.97266l-1.69531,6.19141l6.33594,-1.66406c1.74219,0.95313 3.71094,1.45313 5.71094,1.45703h0.00391c6.58594,0 11.94531,-5.35937 11.94922,-11.94922c0,-3.19141 -1.24219,-6.19141 -3.49609,-8.44922zM16.05078,25.88281h-0.00391c-1.78125,0 -3.53125,-0.48047 -5.05469,-1.38281l-0.36328,-0.21484l-3.76172,0.98438l1.00391,-3.66406l-0.23437,-0.375c-0.99609,-1.58203 -1.51953,-3.41016 -1.51953,-5.28516c0,-5.47266 4.45703,-9.92578 9.9375,-9.92578c2.65234,0 5.14453,1.03516 7.01953,2.91016c1.875,1.87891 2.90625,4.37109 2.90625,7.02344c0,5.47656 -4.45703,9.92969 -9.92969,9.92969zM21.49609,18.44531c-0.29687,-0.14844 -1.76562,-0.87109 -2.03906,-0.96875c-0.27344,-0.10156 -0.47266,-0.14844 -0.67187,0.14844c-0.19922,0.30078 -0.76953,0.97266 -0.94531,1.17188c-0.17187,0.19531 -0.34766,0.22266 -0.64453,0.07422c-0.30078,-0.14844 -1.26172,-0.46484 -2.40234,-1.48437c-0.88672,-0.78906 -1.48828,-1.76953 -1.66016,-2.06641c-0.17578,-0.30078 -0.01953,-0.46094 0.12891,-0.60937c0.13672,-0.13281 0.30078,-0.34766 0.44922,-0.52344c0.14844,-0.17187 0.19922,-0.29687 0.30078,-0.49609c0.09766,-0.19922 0.04688,-0.375 -0.02734,-0.52344c-0.07422,-0.14844 -0.67187,-1.62109 -0.92187,-2.21875c-0.24219,-0.58203 -0.48828,-0.5 -0.67187,-0.51172c-0.17187,-0.00781 -0.37109,-0.00781 -0.57031,-0.00781c-0.19922,0 -0.52344,0.07422 -0.79687,0.375c-0.27344,0.29688 -1.04297,1.01953 -1.04297,2.48828c0,1.46875 1.07031,2.89063 1.21875,3.08984c0.14844,0.19531 2.10547,3.21094 5.10156,4.50391c0.71094,0.30859 1.26563,0.49219 1.69922,0.62891c0.71484,0.22656 1.36719,0.19531 1.88281,0.12109c0.57422,-0.08594 1.76563,-0.72266 2.01563,-1.42187c0.24609,-0.69531 0.24609,-1.29297 0.17188,-1.41797c-0.07422,-0.125 -0.27344,-0.19922 -0.57422,-0.35156z"/>
+                            </svg>
+                        </a>
+                        </p>
+                    </div>
+                </details>
 
-          <p class="mb-4 text-center text-4xl font-bold text-[#f47500] sm:text-5xl md:mb-6">
-            Empecemos Hoy
-          </p>
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cuál es el proceso de diseño web?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            ✔️ <b>Recopilamos:</b> información sobre tu negocio y objetivos.<br>
+                            ✔️ <b>Diseño:</b> Creamos la estructura y apariencia de la web.<br>
+                            ✔️ <b>Desarrollo:</b> Programamos y optimizamos el sitio.<br>
+                            ✔️ <b>Pruebas & Ajustes:</b> Revisamos y afinamos detalles antes del lanzamiento.<br>
+                            ✔️ <b>Entrega & Publicación:</b> Subimos la web y te entregamos accesos.
+                        </p>
+                    </div>
+                </details>
 
-          <p class="mb-6 text-center md:mb-8 sm:text-3xl text-white leading-relaxed ">
-           <span class="text-[#f47500] ">Empecemos Hoy </span>   con un Buen Diseño Web.
-              <br>Comienza a<span class="text-[#f47500] "> DESTACARTE</span><br><span class="text-[#f47500] "> AUMENTA</span> TUS VENTAS!!!!
-          </p>
-          
-          <div class="flex justify-center items-center">
-            <img
-              class="h-48 sm:h-64 w-auto object-contain"
-              src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585979/garantia_qb0z2i.png" alt="garantia">
-          </div>
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cuánto tiempo tarda?</summary>
+                    <div class="faq-answer">
+                        <p>Depende del tipo de página:<br>
+                            📌 Landing Page: 5-10 días hábiles.<br>
+                            📌 Web Corporativa: 10-20 días hábiles.<br>
+                           
+                        </p>
+                    </div>
+                </details>
 
-      </div>
-       
-      <div class="mt-12 flex items-center justify-center gap-x-6">
-          <button id="#contacto" class="inline-flex items-center bg-green-600 font-bold border-0  px-3  hover:bg-green-900 rounded-full text-base mt-4 md:mt-0  animate-pulse">
-              <span class="ml-2 text-white">Empecemos Hoy</span>&nbsp;
-              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="86" height="62" viewBox="0,0,256,256" style="fill:#000000;">
-                <g fill="#ffffff" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                  <g transform="scale(8,8)">
-                    <path d="M24.50391,7.50391c-2.25781,-2.25781 -5.25781,-3.50391 -8.45312,-3.50391c-6.58594,0 -11.94922,5.35938 -11.94922,11.94531c-0.00391,2.10547 0.54688,4.16016 1.59375,5.97266l-1.69531,6.19141l6.33594,-1.66406c1.74219,0.95313 3.71094,1.45313 5.71094,1.45703h0.00391c6.58594,0 11.94531,-5.35937 11.94922,-11.94922c0,-3.19141 -1.24219,-6.19141 -3.49609,-8.44922zM16.05078,25.88281h-0.00391c-1.78125,0 -3.53125,-0.48047 -5.05469,-1.38281l-0.36328,-0.21484l-3.76172,0.98438l1.00391,-3.66406l-0.23437,-0.375c-0.99609,-1.58203 -1.51953,-3.41016 -1.51953,-5.28516c0,-5.47266 4.45703,-9.92578 9.9375,-9.92578c2.65234,0 5.14453,1.03516 7.01953,2.91016c1.875,1.87891 2.90625,4.37109 2.90625,7.02344c0,5.47656 -4.45703,9.92969 -9.92969,9.92969zM21.49609,18.44531c-0.29687,-0.14844 -1.76562,-0.87109 -2.03906,-0.96875c-0.27344,-0.10156 -0.47266,-0.14844 -0.67187,0.14844c-0.19922,0.30078 -0.76953,0.97266 -0.94531,1.17188c-0.17187,0.19531 -0.34766,0.22266 -0.64453,0.07422c-0.30078,-0.14844 -1.26172,-0.46484 -2.40234,-1.48437c-0.88672,-0.78906 -1.48828,-1.76953 -1.66016,-2.06641c-0.17578,-0.30078 -0.01953,-0.46094 0.12891,-0.60937c0.13672,-0.13281 0.30078,-0.34766 0.44922,-0.52344c0.14844,-0.17187 0.19922,-0.29687 0.30078,-0.49609c0.09766,-0.19922 0.04688,-0.375 -0.02734,-0.52344c-0.07422,-0.14844 -0.67187,-1.62109 -0.92187,-2.21875c-0.24219,-0.58203 -0.48828,-0.5 -0.67187,-0.51172c-0.17187,-0.00781 -0.37109,-0.00781 -0.57031,-0.00781c-0.19922,0 -0.52344,0.07422 -0.79687,0.375c-0.27344,0.29688 -1.04297,1.01953 -1.04297,2.48828c0,1.46875 1.07031,2.89063 1.21875,3.08984c0.14844,0.19531 2.10547,3.21094 5.10156,4.50391c0.71094,0.30859 1.26563,0.49219 1.69922,0.62891c0.71484,0.22656 1.36719,0.19531 1.88281,0.12109c0.57422,-0.08594 1.76563,-0.72266 2.01563,-1.42187c0.24609,-0.69531 0.24609,-1.29297 0.17188,-1.41797c-0.07422,-0.125 -0.27344,-0.19922 -0.57422,-0.35156z"></path>
-                  </g>
-                </g>
-              </svg>
-            </button>
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cuál es el producto final a recibir?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            📂 Una web 100% funcional con:<br>
+                            ✅ Diseño profesional y adaptable a todos los dispositivos.<br>
+                            ✅ Optimización SEO y velocidad de carga.<br>
+                            ✅ Integración con WhatsApp, formularios y herramientas que necesites.<br>
+                            ✅ Accesos y archivos necesarios para administrar tu sitio.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cuánto tiempo tardan en entregar mi página web?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Depende del tipo de página y la rapidez con la que nos envíes la información. Una vez aprobado el diseño, la entrega suele ser en 5 a 30 días hábiles.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">¿Qué sucede si no entrego información de mi web a tiempo?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            <b>IMPORTANTE:</b> El tiempo de entrega puede retrasarse. Sin contenido, no podemos avanzar, por lo que recomendamos enviar textos, imágenes y datos lo antes posible.
+
+                            Si pasan más de 30 días sin respuesta, el proyecto podría pausarse o requerir costos adicionales para retomarlo.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cuál es la forma de pago para contratar los servicios?</summary>
+                    <div class="faq-answer">
+                        <p>Si aceptas nuestro presupuesto, <b>deberás pagar el 50% por adelantado</b> y el resto al finalizar el proyecto contra factura. Para ciertos casos el pago es total o en cuotas. Aceptamos MercadoPago, PayPal o transferencias/depósitos bancarios.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="contact-logo">
+                <div class="contact-logo-img">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="SerEmprende">
+                </div>
+            </div>
+
+            <p class="contact-title">Empecemos Hoy</p>
+
+            <p class="contact-description">
+                <span class="highlight">Empecemos Hoy</span> con un Buen Diseño Web.<br>
+                Comienza a <span class="highlight">DESTACARTE</span><br>
+                <span class="highlight">AUMENTA</span> TUS VENTAS!!!!
+            </p>
             
-      </div>
-      <div class="isolate mt-8 flex items-center justify-center -space-x-2 overflow-hidden">
-        <img class="relative z-30 inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/men/34.jpg" alt="">
-        <img class="relative z-20 inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/2.jpg" alt="">
-        <img class="relative z-10 inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/women/3.jpg" alt="">
-        <img class="relative z-0 inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://randomuser.me/api/portraits/men/4.jpg" alt="">
-            </div>
-            <div class="mt-4 text-center">
-              <span class="text-xl font-bold text-teal-500">
-                <span class="text-[#f47500]">Aumenta Tu Valor!!!</span>
-              </span>
+            <div class="guarantee-image">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585979/garantia_qb0z2i.png" alt="garantia">
             </div>
 
+            <div class="contact-button-container">
+                <a href="https://wa.me/1234567890" class="contact-button">
+                    <span>Empecemos Hoy</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="86" height="62">
+                        <path fill="currentColor" d="M24.50391,7.50391c-2.25781,-2.25781 -5.25781,-3.50391 -8.45312,-3.50391c-6.58594,0 -11.94922,5.35938 -11.94922,11.94531c-0.00391,2.10547 0.54688,4.16016 1.59375,5.97266l-1.69531,6.19141l6.33594,-1.66406c1.74219,0.95313 3.71094,1.45313 5.71094,1.45703h0.00391c6.58594,0 11.94531,-5.35937 11.94922,-11.94922c0,-3.19141 -1.24219,-6.19141 -3.49609,-8.44922zM16.05078,25.88281h-0.00391c-1.78125,0 -3.53125,-0.48047 -5.05469,-1.38281l-0.36328,-0.21484l-3.76172,0.98438l1.00391,-3.66406l-0.23437,-0.375c-0.99609,-1.58203 -1.51953,-3.41016 -1.51953,-5.28516c0,-5.47266 4.45703,-9.92578 9.9375,-9.92578c2.65234,0 5.14453,1.03516 7.01953,2.91016c1.875,1.87891 2.90625,4.37109 2.90625,7.02344c0,5.47656 -4.45703,9.92969 -9.92969,9.92969zM21.49609,18.44531c-0.29687,-0.14844 -1.76562,-0.87109 -2.03906,-0.96875c-0.27344,-0.10156 -0.47266,-0.14844 -0.67187,0.14844c-0.19922,0.30078 -0.76953,0.97266 -0.94531,1.17188c-0.17187,0.19531 -0.34766,0.22266 -0.64453,0.07422c-0.30078,-0.14844 -1.26172,-0.46484 -2.40234,-1.48437c-0.88672,-0.78906 -1.48828,-1.76953 -1.66016,-2.06641c-0.17578,-0.30078 -0.01953,-0.46094 0.12891,-0.60937c0.13672,-0.13281 0.30078,-0.34766 0.44922,-0.52344c0.14844,-0.17187 0.19922,-0.29687 0.30078,-0.49609c0.09766,-0.19922 0.04688,-0.375 -0.02734,-0.52344c-0.07422,-0.14844 -0.67187,-1.62109 -0.92187,-2.21875c-0.24219,-0.58203 -0.48828,-0.5 -0.67187,-0.51172c-0.17187,-0.00781 -0.37109,-0.00781 -0.57031,-0.00781c-0.19922,0 -0.52344,0.07422 -0.79687,0.375c-0.27344,0.29688 -1.04297,1.01953 -1.04297,2.48828c0,1.46875 1.07031,2.89063 1.21875,3.08984c0.14844,0.19531 2.10547,3.21094 5.10156,4.50391c0.71094,0.30859 1.26563,0.49219 1.69922,0.62891c0.71484,0.22656 1.36719,0.19531 1.88281,0.12109c0.57422,-0.08594 1.76563,-0.72266 2.01563,-1.42187c0.24609,-0.69531 0.24609,-1.29297 0.17188,-1.41797c-0.07422,-0.125 -0.27344,-0.19922 -0.57422,-0.35156z"/>
+                    </svg>
+                </a>
+            </div>
 
+            <div class="contact-avatars">
+                <img class="contact-avatar" src="https://randomuser.me/api/portraits/men/34.jpg" alt="">
+                <img class="contact-avatar" src="https://randomuser.me/api/portraits/women/2.jpg" alt="">
+                <img class="contact-avatar" src="https://randomuser.me/api/portraits/women/3.jpg" alt="">
+                <img class="contact-avatar" src="https://randomuser.me/api/portraits/men/4.jpg" alt="">
+            </div>
 
-
-     
-  </div>
-</section>
-   
-
-<!-- Footer -->
-<footer class="relative  pt-4 sm:pt-10 lg:pt-12">
-  <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <div class="mb-16 grid grid-cols-2 gap-12  pt-10 md:grid-cols-4 lg:grid-cols-6 lg:gap-8 lg:pt-12">
-      <div class="col-span-full lg:col-span-2">
-        <!-- logo - start -->
-        <div class="mb-4 lg:-mt-2">
-          <img alt="Lirena SPA &amp; Wellness Center Logo"
-           class="h-12" src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png"/>
-            <span class="text-1xl text-[#ce9263]">Ser Emprende</span><br>
-            <span class="text-sm text-gray-200">Diseño &amp; Tiendas Simples</span>
-         
+            <div class="contact-value">
+                <span>Aumenta Tu Valor!!!</span>
+            </div>
         </div>
-        <!-- logo - end -->
-     
+    </section>
 
-        <p class="mb-6 text-gray-300 sm:pr-8 text-xs">
-         <i>"Tu tiempo vale,<br> mi servicio te lo merece".</i>
-        </p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img alt="SerEmprende Logo" src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png"/>
+                    <br> <span> Ser Emprende <br>  Diseño Web </span>
+                            
+                    </div>
 
-        <!-- social - start -->
-        <div class="flex gap-4">
-          <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
-            <img src="img/facebook.png" alt="">
-          </a>
+                    <p class="footer-description">
+                        <i>"Tu tiempo vale,<br> mi servicio te lo merece".</i>
+                    </p>
 
-          <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
-            <img src="img/icon-instagram.png" alt="">
-          </a>
+                    <div class="footer-social">
+                        <a href="#" target="_blank">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#9ca3af">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" target="_blank">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#9ca3af">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="footer-nav-title">Menu</span>
+                    <nav class="footer-nav">
+                        <a href="#acercade">Nosotros</a>
+                        <a href="#servicios">Servicios</a>
+                        <a href="#diseños">Galería</a>
+                        <a href="#contacto">Contacto</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <span class="footer-nav-title">General</span>
+                    <nav class="footer-nav">
+                        <a href="#seguridad">Seguridad</a>
+                        <a href="#testimonios">Testimonios</a>
+                        <a href="#diseños">Diseños</a>
+                        <a href="#faq">FAQ</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <span class="footer-nav-title">Legal</span>
+                    <nav class="footer-nav">
+                        <a href="http://127.0.0.1:5500/legal.html">Términos y Servicios</a>
+                        <a href="http://127.0.0.1:5500/legal.html">Política de Privacidad</a>
+                        <a href="http://127.0.0.1:5500/legal.html">Créditos</a>
+                        <a href="http://127.0.0.1:5500/legal.html">Cookies</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy;<span id="currentYear"></span>,
+                SerEmprende - Diseño por: <a href="https://seremprende.lat">www.seremprende.lat</a>
+            </div>
         </div>
-        <!-- social - end -->
-      </div>
-
-      <!-- nav - start -->
-      <div>
-        <span class="mb-4 font-bold uppercase tracking-widest text-gray-200">Menu</span>
-        <nav class="flex flex-col gap-4">
-          <div>
-            <a href="#nosotros" class="text-gray-400 hover:text-indigo-500">Nosotros</a>
-          </div>
-          <div>
-            <a href="#servicios" class="text-gray-400 hover:text-indigo-500">Servicios</a>
-          </div>
-          <div>
-            <a href="#galeria" class="text-gray-400 hover:text-indigo-500">Galería</a>
-          </div>
-          <div>
-            <a href="#contato" class="text-gray-400 hover:text-indigo-500">Contacto</a>
-          </div>
-        </nav>
-      </div>
-      <!-- nav - end -->
-
-      <!-- nav - start -->
-      <div>
-        <span class="mb-4 font-bold uppercase tracking-widest text-gray-200">General</span>
-        <nav class="flex flex-col gap-4">
-          <div>
-            <a href="#staff" class="text-gray-400 hover:text-indigo-500">staff</a>
-          </div>
-          <div>
-            <a href="#testimonios" class="text-gray-400 hover:text-indigo-500">Testimonios</a>
-          </div>
-          <div>
-            <a href="#horarios" class="text-gray-400 hover:text-indigo-500">Horarios</a>
-          </div>
-          <div>
-            <a href="#faq" class="text-gray-400 hover:text-indigo-500">FAQ</a>
-          </div>
-        </nav>
-      </div>
-      <!-- nav - end -->
-
-      <!-- nav - start -->
-      <div>
-        <span class="mb-4 font-bold uppercase tracking-widest text-gray-200">Legal</span>
-        <nav class="flex flex-col gap-4">
-          <div>
-            <a href="https://gym-cq5.pages.dev/" class="text-gray-400 hover:text-indigo-500">Terminos y Servicios</a>
-          </div>
-          <div>
-            <a href="https://gym-cq5.pages.dev/" class="text-gray-400 hover:text-indigo-500">Politica de Privacidad</a>
-          </div>
-          <div>
-            <a href="https://gym-cq5.pages.dev/" class="text-gray-400 hover:text-indigo-500">Créditos</a>
-          </div>
-          <div>
-            <a href="https://gym-cq5.pages.dev/" class="text-gray-400 hover:text-indigo-500">Cookeis</a>
-          </div>
-        </nav>
-      </div>
-      <!-- nav - end -->
-    </div>
-
-       <div class="py-8 text-center text-sm text-gray-400">&copy;&nbsp;<script>new Date().getFullYear()>2017&&document.write("-"+new Date().getFullYear());</script>,
-      SerEmprende - Diseño por: <i class="text-gray-200">
-        <i><a href="https://seremprende.lat">www.seremprende.lat</a></i>
-      </div>
-  </div>
-</footer>
-
-
-
-<script src="script/menu.js"></script>
+    </footer>
+<script src="script/auto-update-copyright-year.js"></script>
+<script src="script/close-mobile-menu.js"></script>
+<script src="script/desktop-hero-button.js"></script>
+<script src="script/mobile-menu-toggle.js"></script>
+<script src="script/scrolling.js"></script>
 </body>
 </html>
-
