@@ -1492,10 +1492,7 @@
         padding: 15px;
     }
     
-    .card img {
-        height: 180px;
-    }
-    
+ 
     .card h3 {
         font-size: 1.2rem;
         margin: 10px 0 5px;
@@ -2259,5 +2256,6 @@
         padding: 0.5rem;
     }
 }
+
 
 
