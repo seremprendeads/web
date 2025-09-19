@@ -20,4 +20,5 @@ Disallow: /secret.html
 Disallow: /config.php
 
 # Sitemap para mejorar el rastreo
-Sitemap: https://www.tusitio.com/sitemap.xml
+Sitemap: https://seremprende.com/sitemap.xml
+
