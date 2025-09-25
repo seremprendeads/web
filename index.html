@@ -3,669 +3,534 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SerEmprende | Diseño web</title>
-    <meta name="description" content="Sitios Web Modernos, Landing Pages y Tiendas Simples para profesionales, pymes y emprendimientos.">
+    <title>SerEmprende | Diseño Web Moderno</title>
+    <meta name="description" content="Diseños web modernos que convierten visitantes en clientes. Landing pages optimizadas para profesionales, pymes y emprendimientos.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-    <!-- Header/Navigation -->
-    <header class="header">
-        <nav class="nav container">
-            <!-- Logo -->
-            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="logo" class="logo">
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="SerEmprende" class="logo">
             
-            <!-- Desktop/Tablet Menu -->
             <div class="nav-menu">
                 <a href="#inicio" class="nav-link">Inicio</a>
-                <a href="#acercade" class="nav-link">Acerca de</a>
                 <a href="#servicios" class="nav-link">Servicios</a>
-                <a href="#seguridad" class="nav-link">Seguridad</a>
-                <a href="#diseños" class="nav-link">Diseños</a>
-                <a href="#testimonios" class="nav-link">Testimonios</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-                <a href="#contacto" class="cta-button">
-                    Empecemos Hoy
-                    <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="whatsapp-icon"/>
+                <a href="#portafolio" class="nav-link">Portafolio</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+                <a href="#contacto" class="cta-btn">
+                    Empezar Ahora
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
                 </a>
             </div>
-            
-            <!-- Mobile Menu Button -->
-           <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú de navegación"></button>
 
+            <button class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </nav>
-        
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="mobile-menu container">
+
+        <div class="mobile-menu" id="mobileMenu">
             <a href="#inicio">Inicio</a>
-            <a href="#acercade">Acerca de</a>
             <a href="#servicios">Servicios</a>
-            <a href="#seguridad">Seguridad</a>
-            <a href="#diseños">Diseños</a>
-            <a href="#testimonios">Testimonios</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contacto" class="cta-button">
-                Empecemos Hoy
-                <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="whatsapp-icon"/>
-            </a>
+            <a href="#portafolio">Portafolio</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#contacto" class="cta-btn" style="margin-top: 2rem; background:orange;">Empezar Ahora</a>
         </div>
     </header>
 
-    <!-- Hero -->
-    <section id="inicio" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="hero-highlight">Sitios Web</span><br> 
-                        Modernos<br>
-                        Landing Page. 
-                    </h1>
-
-                    <p class="hero-description">
-                        <strong><span style="text-decoration: underline; color: #f47500;">
-                            Diseños enfocados en:</span></strong><br>
-                        <span style="color: white;">Servicios, Profesionales, Pymes, Emprendimientos<br>
-                        que busquen una presencia y aumentar sus ventas.</span>
-                    </p>
-                    
-                    <div style="display: none;" class="hero-button-desktop">
-                        <a href="#acercade" class="btn-primary">SABER MÁS</a>
-                    </div>
-                </div>
-                
-                <div class="hero-images">
-                    <div class="hero-image-1">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755010895/hero-img_g2jgdv.webp" loading="lazy" alt="gym" />
-                    </div>
-
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-subtitle">Diseño Web Profesional</div>
+                <h1 class="hero-title">Sitios Web que Convierten Visitantes en Clientes</h1>
+                <p class="hero-description">
+                    Diseños modernos optimizados para profesionales, pymes y emprendimientos. 
+                    Aumenta tus ventas con una presencia digital impactante y efectiva.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contacto" class="btn-primary">
+                        Comenzar Proyecto
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                        </svg>
+                    </a>
+                    <a href="#servicios" class="btn-secondary">
+                        Ver Servicios
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
-            
-            <div class="hero-button-mobile">
-                <a href="#acercade" class="btn-primary" style="width: 100%;">SABER MÁS</a>
+
+            <div class="hero-visual">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755010895/hero-img_g2jgdv.webp" alt="Diseño Web Moderno" class="hero-image">
+                
+                <div class="floating-element top-right">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 12px; height: 12px; background: #00d984; border-radius: 50%;"></div>
+                        <div>
+                            <div style="font-size: 0.9rem; font-weight: 600; color: #00d984;">100% Online</div>
+                            <div style="font-size: 0.8rem; color: #a1a1aa;">Disponible 24/7</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="floating-element bottom-left">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="background: var(--gradient-primary); padding: 8px; border-radius: 8px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.9rem; font-weight: 600;">5.0 Estrellas</div>
+                            <div style="font-size: 0.8rem; color: #a1a1aa;">Clientes satisfechos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+            <div class="custom-shape-divider-bottom-1757696437">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
             </div>
         </div>
     </section>
+	
+	
+	
 
-    <!-- About -->
-    <section id="acercade" class="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text">
-                    <p class="section-subtitle">A cerca de mi</p>
-                    <h2 class="section-title">¿Por qué elegir mis servicios?</h2>
-                    
-                    <div class="about-description">
-                        <b>Misión:</b><br>
-                        <p>Facilito a Profesionales, Pymes y Emprendimientos a potenciar su presencia online con Sitios web, LandingPage Estratégicas. Complento con Automatizaciones de Chatbot WhatsApp con IA. Atención 24/7.</p>
-                    </div>
-                </div>
-                
-                <div class="about-image">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1754963766/nosotros-leo_e2ql50_ez2i0u.webp" alt="leo">
-                </div>
-            </div>
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="section-header">
+            <div class="section-subtitle">Nuestros Servicios</div>
+            <h2 class="section-title">Servicios que potencia tu Presencia</h2>
         </div>
-    </section>
 
-    <!-- Target Section -->
-    <div class="target-section">
-        <div class="container">
-            <div style="margin-bottom: 2.5rem;">
-                <h2 class="target-title">
-                    ¿Tienes un Negocio Físico<br> Pero Quieres Destacar en el Mundo Digital?
-                </h2>
-                <p class="target-description">
-                    Geolocalización, integración con redes sociales y diseño optimizado para captar clientes de tu zona.
-                    ¡Hagamos que tu espacio físico brille online!
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="img/landingpage.png" alt="landingpage">
+                </div>
+                <h3 class="service-title">Landing Pages de Alto Impacto</h3>
+                <p class="service-description">
+                    Páginas optimizadas para conversión con diseño persuasivo, llamadas a la acción efectivas 
+                    y elementos que guían al usuario hacia la compra o contacto.
                 </p>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/salon-de-eventos_nkposp.png" alt="Salón de Eventos" class="feature-icon">
-                    <h2 class="feature-title">Salones de Eventos</h2>
-                    <p class="feature-description">Galerías cautivadoras, reservas online.</p>
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="img/sitios-web-corporativos.png" alt="corporativo">
                 </div>
+                <h3 class="service-title">Sitios Web Corporativos</h3>
+                <p class="service-description">
+                    Presencia profesional completa con estructura sólida, navegación intuitiva 
+                    y contenido estratégico que transmite confianza y autoridad en tu sector.
+                </p>
+            </div>
 
-                <div class="feature-card">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/public-service_qjujsp.png" alt="Servicios Profesionales" class="feature-icon">
-                    <h2 class="feature-title">Servicios Profesionales</h2>
-                    <p class="feature-description">Convierte visitantes en clientes fieles.</p>
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="img/velocidad.png" alt="velocidad">
                 </div>
+                <h3 class="service-title">Optimización de Velocidad</h3>
+                <p class="service-description">
+                    Sitios que cargan en menos de 3 segundos, optimizados para motores de búsqueda 
+                    y experiencia de usuario superior en todos los dispositivos.
+                </p>
+            </div>
 
-                <div class="feature-card">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/ipo_krjhtr.png" alt="Pymes" class="feature-icon">
-                    <h2 class="feature-title">Pymes, Emprendimientos</h2>
-                    <p class="feature-description">Ventas rápidas con WhatsApp Business.</p>
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="img/serguridad.png" alt="seguridad">
                 </div>
+                <h3 class="service-title">Seguridad & Mantenimiento</h3>
+                <p class="service-description">
+                    Protección completa con certificados SSL, respaldos automáticos, 
+                    actualizaciones regulares y monitoreo 24/7 para máxima tranquilidad.
+                </p>
+            </div>
 
-                <div class="feature-card">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/libro-electronico_mnysvt.png" alt="Membresías" class="feature-icon">
-                    <h2 class="feature-title">Membresías</h2>
-                    <p class="feature-description">Un diseño que refleja tu valor.</p>
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="img/integracion-whastapp.png" alt="whatsapp">
                 </div>
+                <h3 class="service-title">Integración WhatsApp Business</h3>
+                <p class="service-description">
+                    Conecta directamente con tus clientes mediante botones estratégicos, 
+                    chatbots automatizados y formularios que envían consultas instantáneas.
+                </p>
+            </div>
 
-                <div class="feature-card">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/consultor_cs1mjw.png" alt="Coaching" class="feature-icon">
-                    <h2 class="feature-title">Couching, Consultoría</h2>
-                    <p class="feature-description">Agenda, blog para autoridad, y landing para eventos.</p>
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="img/responsive.png" alt="responsive">
                 </div>
-
-                <div class="feature-card">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/artista_nj5zzs.png" alt="Artistas" class="feature-icon">
-                    <h2 class="feature-title">Artistas, Músicos</h2>
-                    <p class="feature-description">Diseño portfolios, tienda, booking y un estilo único.</p>
+                <h3 class="service-title">Diseño Responsive</h3>
+                <p class="service-description">
+                    Adaptación perfecta a móviles, tablets y escritorio. El 70% de tus clientes 
+                    navegan desde celular, garantizamos una experiencia impecable.
+                </p>
+            </div>
+        </div>
+    </section>
+	
+    <!-- Socios Slider -->
+    <section>
+        <div class="socios-wrapper">
+            <div class="socios-slider">
+                <div class="socios-track">
+                    <!-- Logos originales -->
+                    <div class="socios-slide"><img src="img/png/codigo.webp" alt="html5"></div>
+                    <div class="socios-slide"><img src="img/png/chatgtp.webp" alt="chatgpt"></div>
+                    <div class="socios-slide"><img src="img/png/manychat.webp" alt="manychat"></div>
+                    <div class="socios-slide"><img src="img/png/tiendanube.webp" alt="tiendanube"></div>
+                    <div class="socios-slide"><img src="img/png/shopify.webp" alt="shopify"></div>
+                    <div class="socios-slide"><img src="img/png/whatsapp.webp" alt="chatbot"></div>
+                    <div class="socios-slide"><img src="img/png/google-maps.webp" alt="google maps"></div>
+                    <div class="socios-slide"><img src="img/png/google-reviews.webp" alt="google reviews"></div>
+                    <div class="socios-slide"><img src="img/png/meta.webp" alt="meta"></div>
+                    <div class="socios-slide"><img src="img/png/google-analytics.webp" alt="google analytics"></div>
+                    <div class="socios-slide"><img src="img/png/google-ads.webp" alt="google ads"></div>
+                    <div class="socios-slide"><img src="img/png/crm.webp" alt="crm"></div>
+                
+                    <!-- Logos duplicados para el loop -->
+                    <div class="socios-slide"><img src="img/png/codigo.webp" alt="html5"></div>
+                    <div class="socios-slide"><img src="img/png/chatgtp.webp" alt="chatgpt"></div>
+                    <div class="socios-slide"><img src="img/png/manychat.webp" alt="manychat"></div>
+                    <div class="socios-slide"><img src="img/png/tiendanube.webp" alt="tiendanube"></div>
+                    <div class="socios-slide"><img src="img/png/shopify.webp" alt="shopify"></div>
+                    <div class="socios-slide"><img src="img/png/whatsapp.webp" alt="chatbot"></div>
+                    <div class="socios-slide"><img src="img/png/google-maps.webp" alt="google maps"></div>
+                    <div class="socios-slide"><img src="img/png/google-reviews.webp" alt="google reviews"></div>
+                    <div class="socios-slide"><img src="img/png/meta.webp" alt="meta"></div>
+                    <div class="socios-slide"><img src="img/png/google-analytics.webp" alt="google analytics"></div>
+                    <div class="socios-slide"><img src="img/png/google-ads.webp" alt="google ads"></div>
+                    <div class="socios-slide"><img src="img/png/crm.webp" alt="crm"></div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Services -->
-    <div id="servicios" class="services">
-        <div class="container">
-            <div style="margin-bottom: 2.5rem;">
-                <h2 class="section-title">Servicios</h2>
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="stats-grid">
+            <div class="stat-card" data-delay="0">
+                <div class="stat-number" data-target="100" data-suffix="%">0%</div>
+                <div class="stat-label">Clientes Satisfechos</div>
             </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755021739/landingpage_yytrcr.png" alt="landingpage" style="width: 48px;height: 48px;">
-                    </div>
-                    <h3 class="service-title">Diseño de Landing Page</h3>
-                    <p class="service-description">Diseños enfocados en captar clientes con rapidez. Servicios o lanzamientos.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                         <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755021743/candado_pasmgq.png" alt="candado" style="width: 48px;height: 48px;">
-                    </div>
-                    <h3 class="service-title">Diseño de Sitios Web</h3>
-                    <p class="service-description">Estructura profesional, moderna y confiable. Mostrá tu marca con solidez y claridad.</p>
-                </div>
-
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755021759/rayo_yhoziu.png" alt="velocidad" style="width: 48px;height: 48px;">
-                    </div>
-                    <h3 class="service-title">Velocidad</h3>
-                    <p class="service-description">Sitios que cargan rápido y mantienen la atención de tus visitantes desde el primer segundo.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                         <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755021752/soporte_mubuwa.png" alt="soporte" style="width: 48px;height: 48px;">
-                    </div>
-                    <h3 class="service-title">Soporte</h3>
-                    <p class="service-description">Te acompaño antes, durante y después del diseño. Siempre que lo necesites, estoy ahí.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                         <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755021743/candado_pasmgq.png" alt="mantenimiento" style="width: 48px;height: 48px;">
-                    </div>
-                    <h3 class="service-title">Mantenimiento</h3>
-                    <p class="service-description">Actualizaciones, ajustes y seguridad para que tu web siempre funcione como debe.</p>
-                </div>
-
-                        <div class="service-card">
-                    <div class="service-icon">
-                         <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755021747/hosting_lwtv34.png" alt="hosting" style="width: 48px;height: 48px;">
-                    </div>
-                    <h3 class="service-title">Alojamiento Web</h3>
-                    <p class="service-description">el servicio incluye Alojamiento Web Mensual 100% optimizado.</p>
-                </div>
+            <div class="stat-card" data-delay="200">
+                <div class="stat-number" data-target="7" data-suffix="">0</div>
+                <div class="stat-label">Días Promedio Entrega</div>
+            </div>
+            <div class="stat-card" data-delay="400">
+                <div class="stat-number" data-target="24" data-suffix="/7">0/7</div>
+                <div class="stat-label">Soporte Disponible</div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Motivational Banner 1 -->
-    <section class="motivational-banner">
-        <div class="container">
-            <p class="banner-quote">
-                "Estar en google maps con un sitio web<br> es tener la diferencia a la competencia"
+ 
+
+    <!-- Galería Section -->
+    <section class="services" id="portafolio">
+        <div class="section-header">
+            <div class="section-subtitle">Diseños</div>
+            <h2 class="section-title">Diseños que Impulsan tu Negocio</h2>
+            <p class="section-description">
+                Creamos experiencias digitales que conectan con tu audiencia y generan resultados reales. 
+                Cada proyecto está diseñado estratégicamente para maximizar conversiones.
             </p>
-            <p class="banner-author">- Ser emprende</p>
         </div>
-    </section>
 
-    <!-- Google Maps Section -->
-    <section class="google-maps-section">
-        <div class="maps-header">
-            <div class="container">
-                <h1 class="maps-title">¿Ya estás en Google Maps?</h1>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="img-galeri">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/barber02_h3bt02.webp" alt="baber-shop" width="500" height="600">
+                </div>
+                <h3 class="service-title">Barber Shop</h3>
+                <p class="service-description">
+                    Landing page moderna para barbería con sistema de reservas en línea y galería de trabajos.
+                </p>
             </div>
-        </div>
 
-        <div class="maps-content">
-            <h2 class="maps-subtitle">¿Por qué tener un sitio web?</h2>
-            <ul class="maps-list">
-                <li>✅ <i>Porque tu ficha de Google solo muestra lo básico</i></li>
-                <li>✅ <i>Porque una web bien hecha transmite confianza y profesionalismo</i></li>
-                <li>✅ <i>Porque podés mostrar quién sos, qué hacés y cómo contactarte</i></li>
-                <li>✅ <i>Porque cada vez más clientes buscan ver más antes de decidir</i></li>
-            </ul>
-
-            <div class="maps-benefits">
-                <h2 class="maps-benefits-title">Tu web sin complicaciones</h2>
-                <p class="maps-benefits-description">"Diseñada para Profesionales, Comercios y Pymes que Quieren Resultados Reales"</p>
-                <ul class="maps-benefits-list">
-                    <li>✅ <i>Diseño moderno y adaptable a celulares</i></li>
-                    <li>✅ <i>Botón de WhatsApp directo</i></li>
-                    <li>✅ <i>Optimización básica para Google</i></li>
-                    <li>✅ <i>En línea en pocos días</i></li>
-                </ul>
+            <div class="service-card">
+                <div class="img-galeri">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585921/servicos_dvkkud.webp" alt="servicios" width="500" height="600">
+                </div>
+                <h3 class="service-title">Servicios Profesionales</h3>
+                <p class="service-description">
+                    Sitio web corporativo con diseño limpio y profesional para empresa de servicios.
+                </p>
             </div>
-        </div>
-    </section>
 
-    <!-- Security Section -->
-    <section id="seguridad" class="security">
-        <div class="container">
-            <h2 class="security-title">Seguridad</h2>
-
-            <div class="security-grid">
-                <div class="security-card">
-                    <div class="security-icon">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585984/device_pslq3a.png" alt="adaptables">
-                    </div>
-                    <h2 class="security-card-title">Adaptable a: Pc, Tablet y Móviles</h2>
-                    <p class="security-card-description">
-                        Hoy en día el 70% de las personas navegan por celulares,
-                        tener un Diseño Web que se adapte a Pc, Tablet y móviles es fundamental para ser confiables.
-                    </p>
+            <div class="service-card">
+                <div class="img-galeri">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/academia_okupjq.webp" alt="Academia" width="500" height="600">
                 </div>
+                <h3 class="service-title">Academia de Fitness</h3>
+                <p class="service-description">
+                    Landing page energética con sistema de membresías y horarios de clases integrado.
+                </p>
+            </div>
 
-                <div class="security-card">
-                    <div class="security-icon">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/ssl_hgk0yd.png" alt="ssl">
-                    </div>
-                    <h2 class="security-card-title">Certificado SSL</h2>
-                    <p class="security-card-description">
-                        Es muy importante contar con un dominio y candado de seguridad que indique que su web es un sitio confiable para dar confianza.
-                    </p>
+            <div class="service-card">
+                <div class="img-galeri">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585904/construtora_exkn6l.webp" alt="Constructora" width="500" height="600">
                 </div>
+                <h3 class="service-title">Constructora</h3>
+                <p class="service-description">
+                    Sitio web robusto para empresa constructora con portafolio de proyectos y cotizaciones.
+                </p>
+            </div>
 
-                <div class="security-card">
-                    <div class="security-icon">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/anti-virus-software_ezl97z.png" alt="antivirus">
-                    </div>
-                    <h2 class="security-card-title">Protección Antivirus</h2>
-                    <p class="security-card-description">
-                        Seguridad, Anti-Virus tu Web las 24hs funcionando en la web.
-                    </p>
+            <div class="service-card">
+                <div class="img-galeri">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585921/seguranca_g20usz.webp" alt="Seguridad" width="500" height="600">
                 </div>
+                <h3 class="service-title">Empresa de Seguridad</h3>
+                <p class="service-description">
+                    Sitio web confiable y seguro para empresa de vigilancia y seguridad privada.
+                </p>
+            </div>
 
-                <div class="security-card">
-                    <div class="security-icon">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/back-up_fo5ezy.png" alt="backup">
-                    </div>
-                    <h2 class="security-card-title">Respaldo Automático</h2>
-                    <p class="security-card-description">
-                        Back Up semanal para que nunca pierdas tu web y datos.
-                    </p>
+            <div class="service-card">
+                <div class="img-galeri">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585905/estetica_lj0ctt.png" alt="Estética" width="500" height="600">
                 </div>
-
-                <div class="security-card">
-                    <div class="security-icon">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/seo_ojobiz.png" alt="seo">
-                    </div>
-                    <h2 class="security-card-title">Optimización SEO</h2>
-                    <p class="security-card-description">
-                        Amigable a los buscadores, facilidad de búsqueda de los usuarios que te encuentren de una manera fácil.
-                    </p>
-                </div>
-
-                <div class="security-card">
-                    <div class="security-icon">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/cloud_ilznz4.png" alt="cloud">
-                    </div>
-                    <h2 class="security-card-title">Hosting Administrado</h2>
-                    <p class="security-card-description">
-                        Te administramos el alojamiento web para garantizar una mejora en seguridad y agilidad de carga en el sitio.
-                    </p>
-                </div>
+                <h3 class="service-title">Centro de Estética</h3>
+                <p class="service-description">
+                    Landing page elegante para centro de belleza con sistema de citas y tratamientos.
+                </p>
             </div>
         </div>
     </section>
-
-    <!-- Motivational Banner 2 -->
-    <section class="motivational-banner">
-        <div class="container">
-            <p class="banner-quote">
-                "El diseño no es solo cómo se ve,<br> es cómo funciona"
-            </p>
-            <p class="banner-author">- Steve Jobs</p>
-        </div>
-    </section>
-
-    <!-- Designs -->
-    <section id="diseños" class="designs">
-        <h2 class="designs-title">Diseños</h2>
+	
+	 <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <h2 class="testimonials-title">Lo que dicen nuestros clientes</h2>
         
-        <div class="designs-container">
-            <div class="designs-grid">
-                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585913/institucional_go2i10.webp" alt="Imagen 1">
-                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755018321/barberia-hero_ozd3wn_xgl6vd.webp" alt="Imagen 2">
-                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755011441/dentista_noyngr_2_pplppg.webp" alt="Imagen 3">
-                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755577699/moldesa_toigxp.webp" alt="Imagen 4">
-                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755011264/dentista_noyngr_1_s6achk.webp" alt="Imagen 5">
-                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/academia_okupjq.webp" alt="Imagen 6">
-            </div>
-        </div>
-    </section>
+        <div class="testimonials-wrapper">
+            <div class="testimonials-slider">
+                <!-- Primera serie de testimonios -->
+                <div class="testimonial-card">
+            
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b1c5?w=100&h=100&fit=crop&crop=face" alt="María García" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "Increíble trabajo. Mi landing page aumentó las conversiones un 300%. El diseño es moderno y la integración con WhatsApp funciona perfecto."
+                    </p>
+                    <div class="testimonial-author">María García</div>
+                    <div class="testimonial-role">Coach de Vida</div>
+                </div>
 
-    <!-- Motivational Banner 3 -->
-    <section class="motivational-banner">
-        <div class="container">
-            <p class="banner-quote">
-                "Si tu negocio no está en internet,<br> tu negocio no existe"
-            </p>
-            <p class="banner-author">- Bill Gates</p>
-        </div>
-    </section>
+                <div class="testimonial-card">
+              
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Carlos Mendoza" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "Profesional y eficiente. Mi sitio corporativo transmite la seriedad que necesitaba. Los clientes ahora me ven como una empresa consolidada."
+                    </p>
+                    <div class="testimonial-author">Carlos Mendoza</div>
+                    <div class="testimonial-role">Consultor Financiero</div>
+                </div>
 
-    <!-- Sección de Cards -->
-<section class="cards-section">
-       <h2 class="designs-title">Diseños Adaptables</h2>
-  <div class="container-cards">
-      <div class="card">
-      <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1745425010/baber-responsive_dt6ldm.png" alt="Servicio 1">
-      <h3>Babería</h3>
-     </div>
-    
-    <div class="card">
-      <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1745425003/spa-responsive_l797cn.png" alt="Servicio 2">
-      <h3>Spa</h3>
-    </div>
-    
-    <div class="card">
-      <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1745424976/gym-responsive_lw8dpi.png" alt="Servicio 3">
-      <h3>Gym</h3>
-    </div>
-  
-  </div>
-</section>
+                <div class="testimonial-card">
+             
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Ana Rodríguez" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "El mejor diseñador web que he contratado. Entendió perfectamente mi visión y la llevó a la realidad. Mi negocio creció un 200%."
+                    </p>
+                    <div class="testimonial-author">Ana Rodríguez</div>
+                    <div class="testimonial-role">Spa & Wellness</div>
+                </div>
 
+                <div class="testimonial-card">
+              
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Roberto Silva" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "Excelente servicio y soporte post-entrega. Mi sitio web carga súper rápido y se ve increíble en todos los dispositivos."
+                    </p>
+                    <div class="testimonial-author">Roberto Silva</div>
+                    <div class="testimonial-role">Arquitecto</div>
+                </div>
 
+                <!-- Segunda serie duplicada para loop infinito -->
+                <div class="testimonial-card">
+              
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b1c5?w=100&h=100&fit=crop&crop=face" alt="María García" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "Increíble trabajo. Mi landing page aumentó las conversiones un 300%. El diseño es moderno y la integración con WhatsApp funciona perfecto."
+                    </p>
+                    <div class="testimonial-author">María García</div>
+                    <div class="testimonial-role">Coach de Vida</div>
+                </div>
 
+                <div class="testimonial-card">
+              
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Carlos Mendoza" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "Profesional y eficiente. Mi sitio corporativo transmite la seriedad que necesitaba. Los clientes ahora me ven como una empresa consolidada."
+                    </p>
+                    <div class="testimonial-author">Carlos Mendoza</div>
+                    <div class="testimonial-role">Consultor Financiero</div>
+                </div>
 
-    <!-- Testimonials -->
-    <div id="testimonios" class="testimonials">
-        <div class="container">
-            <h3 class="testimonials-title">Testimonios</h3>
-            <div class="slider">
-                <div class="slides">
-                    <!-- Testimonio 1 -->
-                    <div class="slide">
-                        <div class="testimonial-text">"Excelente calidad, diseño eficaz bien dirigido, gracias."</div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <img src="https://randomuser.me/api/portraits/women/31.jpg" loading="lazy" alt="Testimonio 1" />
-                            </div>
-                            <div>
-                                <div class="testimonial-name">Amalia Costa</div>
-                                <p class="testimonial-role">Pymes</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimonio 2 -->
-                    <div class="slide">
-                        <div class="testimonial-text">"Superaron mis expectativas, muy atento, gracias."</div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <img src="https://randomuser.me/api/portraits/women/84.jpg" loading="lazy" alt="Testimonio 2" />
-                            </div>
-                            <div>
-                                <div class="testimonial-name">Karina Lopez</div>
-                                <p class="testimonial-role">Spa</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimonio 3 -->
-                    <div class="slide">
-                        <div class="testimonial-text">"Muy buen trabajo, excelente atención, gracias."</div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" loading="lazy" alt="Testimonio 3" />
-                            </div>
-                            <div>
-                                <div class="testimonial-name">Carlos García</div>
-                                <p class="testimonial-role">Barber</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="testimonial-card">
+
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Ana Rodríguez" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "El mejor diseñador web que he contratado. Entendió perfectamente mi visión y la llevó a la realidad. Mi negocio creció un 200%."
+                    </p>
+                    <div class="testimonial-author">Ana Rodríguez</div>
+                    <div class="testimonial-role">Spa & Wellness</div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
 
     <!-- FAQ Section -->
-    <section id="faq" class="faq">
-        <div class="faq-container container">
-            <h2 class="faq-title">Preguntas Frecuentes?</h2>
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary class="faq-question">¿Cómo contrato mi diseño web o tienda online?</summary>
-                    <div class="faq-answer">
-                        <p>El proceso es simple:<br>
-                        1️⃣ Contáctanos y cuéntanos sobre tu negocio y necesidades.<br>
-                        2️⃣ Te enviamos una propuesta con el diseño y funcionalidad recomendada.<br>
-                        3️⃣ Confirmas el servicio con el pago inicial y comenzamos a trabajar.<br>
-                        <a href="#contacto" class="whatsapp-button">
-                            <span>Empecemos Hoy</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="whatsapp-svg">
-                                <path fill="currentColor" d="M24.50391,7.50391c-2.25781,-2.25781 -5.25781,-3.50391 -8.45312,-3.50391c-6.58594,0 -11.94922,5.35938 -11.94922,11.94531c-0.00391,2.10547 0.54688,4.16016 1.59375,5.97266l-1.69531,6.19141l6.33594,-1.66406c1.74219,0.95313 3.71094,1.45313 5.71094,1.45703h0.00391c6.58594,0 11.94531,-5.35937 11.94922,-11.94922c0,-3.19141 -1.24219,-6.19141 -3.49609,-8.44922zM16.05078,25.88281h-0.00391c-1.78125,0 -3.53125,-0.48047 -5.05469,-1.38281l-0.36328,-0.21484l-3.76172,0.98438l1.00391,-3.66406l-0.23437,-0.375c-0.99609,-1.58203 -1.51953,-3.41016 -1.51953,-5.28516c0,-5.47266 4.45703,-9.92578 9.9375,-9.92578c2.65234,0 5.14453,1.03516 7.01953,2.91016c1.875,1.87891 2.90625,4.37109 2.90625,7.02344c0,5.47656 -4.45703,9.92969 -9.92969,9.92969zM21.49609,18.44531c-0.29687,-0.14844 -1.76562,-0.87109 -2.03906,-0.96875c-0.27344,-0.10156 -0.47266,-0.14844 -0.67187,0.14844c-0.19922,0.30078 -0.76953,0.97266 -0.94531,1.17188c-0.17187,0.19531 -0.34766,0.22266 -0.64453,0.07422c-0.30078,-0.14844 -1.26172,-0.46484 -2.40234,-1.48437c-0.88672,-0.78906 -1.48828,-1.76953 -1.66016,-2.06641c-0.17578,-0.30078 -0.01953,-0.46094 0.12891,-0.60937c0.13672,-0.13281 0.30078,-0.34766 0.44922,-0.52344c0.14844,-0.17187 0.19922,-0.29687 0.30078,-0.49609c0.09766,-0.19922 0.04688,-0.375 -0.02734,-0.52344c-0.07422,-0.14844 -0.67187,-1.62109 -0.92187,-2.21875c-0.24219,-0.58203 -0.48828,-0.5 -0.67187,-0.51172c-0.17187,-0.00781 -0.37109,-0.00781 -0.57031,-0.00781c-0.19922,0 -0.52344,0.07422 -0.79687,0.375c-0.27344,0.29688 -1.04297,1.01953 -1.04297,2.48828c0,1.46875 1.07031,2.89063 1.21875,3.08984c0.14844,0.19531 2.10547,3.21094 5.10156,4.50391c0.71094,0.30859 1.26563,0.49219 1.69922,0.62891c0.71484,0.22656 1.36719,0.19531 1.88281,0.12109c0.57422,-0.08594 1.76563,-0.72266 2.01563,-1.42187c0.24609,-0.69531 0.24609,-1.29297 0.17188,-1.41797c-0.07422,-0.125 -0.27344,-0.19922 -0.57422,-0.35156z"/>
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <h2 class="faq-title">Preguntas Frecuentes</h2>
+            
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFAQ(this)">
+                        ¿Cuánto tiempo toma desarrollar un sitio web?
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                             </svg>
-                        </a>
-                        </p>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <p>El tiempo de desarrollo varía según la complejidad del proyecto. Una landing page simple puede estar lista en 3-5 días, mientras que un sitio web completo puede tomar entre 7-14 días. Siempre proporcionamos un cronograma detallado antes de comenzar.</p>
                     </div>
-                </details>
+                </div>
 
-                <details class="faq-item">
-                    <summary class="faq-question">¿Cuál es el proceso de diseño web?</summary>
-                    <div class="faq-answer">
-                        <p>
-                            ✔️ <b>Recopilamos:</b> información sobre tu negocio y objetivos.<br>
-                            ✔️ <b>Diseño:</b> Creamos la estructura y apariencia de la web.<br>
-                            ✔️ <b>Desarrollo:</b> Programamos y optimizamos el sitio.<br>
-                            ✔️ <b>Pruebas & Ajustes:</b> Revisamos y afinamos detalles antes del lanzamiento.<br>
-                            ✔️ <b>Entrega & Publicación:</b> Subimos la web y te entregamos accesos.
-                        </p>
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFAQ(this)">
+                        ¿Incluyen hosting y dominio?
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <p>Ofrecemos hosting gratuito por el primer año y te ayudamos con el registro del dominio. También podemos trabajar con tu hosting existente si lo prefieres. Incluimos certificado SSL y respaldos automáticos.</p>
                     </div>
-                </details>
+                </div>
 
-                <details class="faq-item">
-                    <summary class="faq-question">¿Cuánto tiempo tarda?</summary>
-                    <div class="faq-answer">
-                        <p>Depende del tipo de página:<br>
-                            📌 Landing Page: 5-10 días hábiles.<br>
-                            📌 Web Corporativa: 10-20 días hábiles.<br>
-                           
-                        </p>
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFAQ(this)">
+                        ¿Los sitios son responsivos para móviles?
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <p>Absolutamente. Todos nuestros diseños son 100% responsivos y se adaptan perfectamente a móviles, tablets y escritorio. Considerando que el 70% del tráfico web es móvil, esta característica es fundamental en todos nuestros proyectos.</p>
                     </div>
-                </details>
+                </div>
 
-                <details class="faq-item">
-                    <summary class="faq-question">¿Cuál es el producto final a recibir?</summary>
-                    <div class="faq-answer">
-                        <p>
-                            📂 Una web 100% funcional con:<br>
-                            ✅ Diseño profesional y adaptable a todos los dispositivos.<br>
-                            ✅ Optimización SEO y velocidad de carga.<br>
-                            ✅ Integración con WhatsApp, formularios y herramientas que necesites.<br>
-                            ✅ Accesos y archivos necesarios para administrar tu sitio.
-                        </p>
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFAQ(this)">
+                        ¿Ofrecen garantía en sus trabajos?
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <p>Sí, ofrecemos garantía de 30 días en todos nuestros trabajos. Además, brindamos soporte técnico gratuito durante los primeros 3 meses para resolver cualquier inconveniente o hacer ajustes menores.</p>
                     </div>
-                </details>
+                </div>
 
-                <details class="faq-item">
-                    <summary class="faq-question">¿Cuánto tiempo tardan en entregar mi página web?</summary>
-                    <div class="faq-answer">
-                        <p>
-                            Depende del tipo de página y la rapidez con la que nos envíes la información. Una vez aprobado el diseño, la entrega suele ser en 5 a 30 días hábiles.
-                        </p>
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFAQ(this)">
+                        ¿Puedo hacer cambios después de terminado el sitio?
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <p>Por supuesto. Incluimos hasta 3 revisiones durante el desarrollo y después de la entrega ofrecemos paquetes de mantenimiento mensual para actualizaciones de contenido, cambios menores y mejoras continuas.</p>
                     </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary class="faq-question">¿Qué sucede si no entrego información de mi web a tiempo?</summary>
-                    <div class="faq-answer">
-                        <p>
-                            <b>IMPORTANTE:</b> El tiempo de entrega puede retrasarse. Sin contenido, no podemos avanzar, por lo que recomendamos enviar textos, imágenes y datos lo antes posible.
-
-                            Si pasan más de 30 días sin respuesta, el proyecto podría pausarse o requerir costos adicionales para retomarlo.
-                        </p>
-                    </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary class="faq-question">¿Cuál es la forma de pago para contratar los servicios?</summary>
-                    <div class="faq-answer">
-                        <p>Si aceptas nuestro presupuesto, <b>deberás pagar el 50% por adelantado</b> y el resto al finalizar el proyecto contra factura. Para ciertos casos el pago es total o en cuotas. Aceptamos MercadoPago, PayPal o transferencias/depósitos bancarios.</p>
-                    </div>
-                </details>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <div class="contact-logo">
-                <div class="contact-logo-img">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="SerEmprende">
-                </div>
+
+ 
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contacto">
+        <div class="cta-content">
+            <div class="guarantee-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+                Garantía de Satisfacción 100%
             </div>
-
-            <p class="contact-title">Empecemos Hoy</p>
-
-            <p class="contact-description">
-                <span class="highlight">Empecemos Hoy</span> con un Buen Diseño Web.<br>
-                Comienza a <span class="highlight">DESTACARTE</span><br>
-                <span class="highlight">AUMENTA</span> TUS VENTAS!!!!
-            </p>
             
-            <div class="guarantee-image">
-                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585979/garantia_qb0z2i.png" alt="garantia">
-            </div>
+            <h2 class="cta-title">¿Listo para Transformar tu Presencia Digital?</h2>
+            <p class="cta-description">
+                Comienza hoy mismo tu proyecto y obtén un diseño web que realmente genere resultados. 
+                Consultoría gratuita incluida.
+            </p>
 
-            <div class="contact-button-container">
-                <a href="https://wa.me/1234567890" class="contact-button">
-                    <span>Empecemos Hoy</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="86" height="62">
-                        <path fill="currentColor" d="M24.50391,7.50391c-2.25781,-2.25781 -5.25781,-3.50391 -8.45312,-3.50391c-6.58594,0 -11.94922,5.35938 -11.94922,11.94531c-0.00391,2.10547 0.54688,4.16016 1.59375,5.97266l-1.69531,6.19141l6.33594,-1.66406c1.74219,0.95313 3.71094,1.45313 5.71094,1.45703h0.00391c6.58594,0 11.94531,-5.35937 11.94922,-11.94922c0,-3.19141 -1.24219,-6.19141 -3.49609,-8.44922zM16.05078,25.88281h-0.00391c-1.78125,0 -3.53125,-0.48047 -5.05469,-1.38281l-0.36328,-0.21484l-3.76172,0.98438l1.00391,-3.66406l-0.23437,-0.375c-0.99609,-1.58203 -1.51953,-3.41016 -1.51953,-5.28516c0,-5.47266 4.45703,-9.92578 9.9375,-9.92578c2.65234,0 5.14453,1.03516 7.01953,2.91016c1.875,1.87891 2.90625,4.37109 2.90625,7.02344c0,5.47656 -4.45703,9.92969 -9.92969,9.92969zM21.49609,18.44531c-0.29687,-0.14844 -1.76562,-0.87109 -2.03906,-0.96875c-0.27344,-0.10156 -0.47266,-0.14844 -0.67187,0.14844c-0.19922,0.30078 -0.76953,0.97266 -0.94531,1.17188c-0.17187,0.19531 -0.34766,0.22266 -0.64453,0.07422c-0.30078,-0.14844 -1.26172,-0.46484 -2.40234,-1.48437c-0.88672,-0.78906 -1.48828,-1.76953 -1.66016,-2.06641c-0.17578,-0.30078 -0.01953,-0.46094 0.12891,-0.60937c0.13672,-0.13281 0.30078,-0.34766 0.44922,-0.52344c0.14844,-0.17187 0.19922,-0.29687 0.30078,-0.49609c0.09766,-0.19922 0.04688,-0.375 -0.02734,-0.52344c-0.07422,-0.14844 -0.67187,-1.62109 -0.92187,-2.21875c-0.24219,-0.58203 -0.48828,-0.5 -0.67187,-0.51172c-0.17187,-0.00781 -0.37109,-0.00781 -0.57031,-0.00781c-0.19922,0 -0.52344,0.07422 -0.79687,0.375c-0.27344,0.29688 -1.04297,1.01953 -1.04297,2.48828c0,1.46875 1.07031,2.89063 1.21875,3.08984c0.14844,0.19531 2.10547,3.21094 5.10156,4.50391c0.71094,0.30859 1.26563,0.49219 1.69922,0.62891c0.71484,0.22656 1.36719,0.19531 1.88281,0.12109c0.57422,-0.08594 1.76563,-0.72266 2.01563,-1.42187c0.24609,-0.69531 0.24609,-1.29297 0.17188,-1.41797c-0.07422,-0.125 -0.27344,-0.19922 -0.57422,-0.35156z"/>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="https://wa.me/1234567890" class="btn-primary" style="font-size: 1.1rem; padding: 1.2rem 3rem;">
+                   Empezar Ahora - WhatsApp                  
+				  <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                     </svg>
+              
                 </a>
             </div>
 
-            <div class="contact-avatars">
-                <img class="contact-avatar" src="https://randomuser.me/api/portraits/men/34.jpg" alt="">
-                <img class="contact-avatar" src="https://randomuser.me/api/portraits/women/2.jpg" alt="">
-                <img class="contact-avatar" src="https://randomuser.me/api/portraits/women/3.jpg" alt="">
-                <img class="contact-avatar" src="https://randomuser.me/api/portraits/men/4.jpg" alt="">
+            <div style="display: flex; justify-content: center; margin-top: 2rem; gap: 1rem;">
+                <img src="https://randomuser.me/api/portraits/women/31.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 3px solid var(--primary-orange);" alt="Cliente 1">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 3px solid var(--primary-orange); margin-left: -10px;" alt="Cliente 2">
+                <img src="https://randomuser.me/api/portraits/women/84.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 3px solid var(--primary-orange); margin-left: -10px;" alt="Cliente 3">
+                <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.9rem; margin-left: -10px;">+47</div>
             </div>
-
-            <div class="contact-value">
-                <span>Aumenta Tu Valor!!!</span>
-            </div>
+            <p style="color: var(--text-gray); margin-top: 1rem; font-size: 0.9rem;">
+                Únete a más de 50 clientes satisfechos que ya transformaron su negocio
+            </p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img alt="SerEmprende Logo" src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png"/>
-                    <br> <span> Ser Emprende <br>  Diseño Web </span>
-                            
-                    </div>
-
-                    <p class="footer-description">
-                        <i>"Tu tiempo vale,<br> mi servicio te lo merece".</i>
-                    </p>
-
-                    <div class="footer-social">
-                        <a href="#" target="_blank">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#9ca3af">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                        <a href="#" target="_blank">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#9ca3af">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div>
-                    <span class="footer-nav-title">Menu</span>
-                    <nav class="footer-nav">
-                        <a href="#acercade">Nosotros</a>
-                        <a href="#servicios">Servicios</a>
-                        <a href="#diseños">Galería</a>
-                        <a href="#contacto">Contacto</a>
-                    </nav>
-                </div>
-
-                <div>
-                    <span class="footer-nav-title">General</span>
-                    <nav class="footer-nav">
-                        <a href="#seguridad">Seguridad</a>
-                        <a href="#testimonios">Testimonios</a>
-                        <a href="#diseños">Diseños</a>
-                        <a href="#faq">FAQ</a>
-                    </nav>
-                </div>
-
-                <div>
-                    <span class="footer-nav-title">Legal</span>
-                    <nav class="footer-nav">
-                        <a href="http://127.0.0.1:5500/legal.html">Términos y Servicios</a>
-                        <a href="http://127.0.0.1:5500/legal.html">Política de Privacidad</a>
-                        <a href="http://127.0.0.1:5500/legal.html">Créditos</a>
-                        <a href="http://127.0.0.1:5500/legal.html">Cookies</a>
-                    </nav>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                &copy;<span id="currentYear"></span>,
-                SerEmprende - Diseño por: <a href="https://seremprende.lat">www.seremprende.com</a>
-            </div>
+            <p>&copy; 2024 SerEmprende - Diseño Web. Todos los derechos reservados.</p>
+            <p>Diseñado con ❤️ por <a href="https://seremprende.lat">SerEmprende</a></p>
         </div>
-   
     </footer>
-<script src="script/auto-update-copyright-year.js"></script>
-<script src="script/close-mobile-menu.js"></script>
-<script src="script/desktop-hero-button.js"></script>
-<script src="script/mobile-menu-toggle.js"></script>
-<script src="script/scrolling.js"></script>
 
+<script src="script/script.js"></script>
+
+
+
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
