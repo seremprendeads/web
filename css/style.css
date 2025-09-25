@@ -974,23 +974,22 @@
 
         /* CTA Section */
         .cta-section {
-            padding: 8rem 0;
+            padding: 2rem 0;
             background: var(--secondary-dark);
             position: relative;
         }
 
         .cta-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            text-align: center;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glass);
-            border-radius: 30px;
-            padding: 4rem 3rem;
-            box-shadow: var(--shadow-glass);
+                margin: 0 10px;
+    padding: 0 2rem;
+    text-align: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glass);
+    border-radius: 30px;
+    padding: 4rem 3rem;
+    box-shadow: var(--shadow-glass);
         }
 
         .cta-title {
@@ -1106,4 +1105,5 @@
                 padding: 3rem 2rem;
             }
         }
+
 
