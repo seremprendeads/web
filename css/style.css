@@ -205,7 +205,7 @@
             transform: translateX(-50px);
             opacity: 0;
 			background: black;
-			border-radius:24px;
+			border-radius:39px;
 			margin-top:05px;
         }
 
@@ -221,8 +221,8 @@
         .mobile-menu a:nth-child(5) { transition-delay: 0.3s; }
 
         .mobile-menu a:hover {
-            color: var(--primary-orange);
-            background: gray;
+            color: #fff;
+            background: #ff7c43;
 			
         }
 
@@ -1106,3 +1106,4 @@
                 padding: 3rem 2rem;
             }
         }
+
