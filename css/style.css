@@ -471,7 +471,7 @@
     justify-content: center;
 }
 
-        .main-offer h2 span {
+        .main-offer  span {
             font-size: 40px;
         }
 
@@ -1365,5 +1365,6 @@ ease;
                 padding: 3rem 2rem;
             }
         }
+
 
 
