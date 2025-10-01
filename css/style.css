@@ -461,7 +461,7 @@
             background: linear-gradient(90deg, #ff6b35 0%, #ff8c42 100%);
         }
 
-        .main-offer h3 {
+        .main-offer h2 {
     font-size: 32px;
     margin-bottom: 20px;
     color: #fff;
@@ -471,7 +471,7 @@
     justify-content: center;
 }
 
-        .main-offer h3 span {
+        .main-offer h2 span {
             font-size: 40px;
         }
 
@@ -560,11 +560,11 @@ ease;
                 grid-template-columns: 1fr;
             }
 
-            .main-offer h3 {
+            .main-offer h2 {
                 font-size: 26px;
             }
 
-            .flexibility-header h3 {
+            .flexibility-header h2 {
                 font-size: 26px;
             }
         }
@@ -1365,3 +1365,4 @@ ease;
                 padding: 3rem 2rem;
             }
         }
+
