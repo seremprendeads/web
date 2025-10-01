@@ -461,7 +461,7 @@
             background: linear-gradient(90deg, #ff6b35 0%, #ff8c42 100%);
         }
 
-        .main-offer h2 {
+        .main-offer {
     font-size: 32px;
     margin-bottom: 20px;
     color: #fff;
@@ -1365,4 +1365,5 @@ ease;
                 padding: 3rem 2rem;
             }
         }
+
 
