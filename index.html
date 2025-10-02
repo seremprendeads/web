@@ -7,369 +7,309 @@
     <meta name="description" content="Diseños web modernos que convierten visitantes en clientes. Landing pages optimizadas para profesionales, pymes y emprendimientos.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">  
-  
-
+   <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- ✅ CSS compilado de Tailwind + estilos personalizados -->
+    <link href="dist/style.min.css" rel="stylesheet">
 </head>
-<body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="nav">
-            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="SerEmprende" class="logo">
+<body class="overflow-x-hidden bg-white text-text-dark">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 py-3 md:py-4 shadow-lg transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="#inicio" class="transition-transform hover:scale-105">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985122/logo_jc7zzn.png" alt="logo" class="w-10 h-10 md:w-12 md:h-12 rounded-full">
+            </a>
             
-            <div class="nav-menu">
-                <a href="#inicio" class="nav-link">Inicio</a>
-				<a href="#acercade" class="nav-link">Acerca de</a>
-                <a href="#servicios" class="nav-link">Servicios</a>
-                <a href="#portafolio" class="nav-link">Trabajos</a>
-                <a href="#contacto" class="nav-link">Contacto</a>
-                <a href="#contacto" class="cta-btn">
-                    Empezar Ahora
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                </a>
+            <!-- Desktop Menu -->
+            <ul class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                <li><a href="#inicio" class="nav-link relative font-medium text-sm xl:text-base hover:text-pink-300 transition-colors">Inicio</a></li>
+                <li><a href="#sobre-mi" class="nav-link relative font-medium text-sm xl:text-base hover:text-pink-300 transition-colors">Sobre Mí</a></li>
+                <li><a href="#servicios" class="nav-link relative font-medium text-sm xl:text-base hover:text-pink-300 transition-colors">Servicios</a></li>
+                <li><a href="#trabajos" class="nav-link relative font-medium text-sm xl:text-base hover:text-pink-300 transition-colors">Trabajos</a></li>
+                <li><a href="#galeria" class="nav-link relative font-medium text-sm xl:text-base hover:text-pink-300 transition-colors">Galería</a></li>
+                <li><a href="#testimonios" class="nav-link relative font-medium text-sm xl:text-base hover:text-pink-300 transition-colors">Testimonios</a></li>
+                <li><a href="#faq" class="nav-link relative font-medium text-sm xl:text-base hover:text-pink-300 transition-colors">FAQ</a></li>
+                <li>
+                    <a href="#reserva" class="cta-button-nav inline-block px-5 py-2.5 xl:px-7 xl:py-3 text-white font-bold text-sm xl:text-base rounded-full shadow-lg hover:scale-105 hover:-translate-y-1 transition-all whitespace-nowrap">
+                        Reservar Turno <i class="fab fa-whatsapp ml-2"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="menu-toggle lg:hidden flex flex-col cursor-pointer p-1 z-50">
+                <span class="w-6 h-0.5 bg-black my-0.5"></span>
+                <span class="w-6 h-0.5 bg-black my-0.5"></span>
+                <span class="w-6 h-0.5 bg-black my-0.5"></span>
             </div>
 
-            <button class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-
-        <div class="mobile-menu" id="mobileMenu">
-               <a href="#inicio" class="nav-link">Inicio</a>
-				<a href="#acercade" class="nav-link">Acerca de</a>
-                <a href="#servicios" class="nav-link">Servicios</a>
-                <a href="#portafolio" class="nav-link">Trabajos</a>
-                <a href="#contacto" class="cta-btn">
-                    Empezar Ahora
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                </a>
+            <!-- Mobile Menu -->
+            <ul class="nav-menu fixed top-0 -left-full w-full h-screen bg-white backdrop-blur-xl flex flex-col justify-center items-center space-y-6 transition-all duration-300 z-40 lg:hidden">
+                <li><a href="#inicio" class="nav-link text-xl font-medium hover:text-pink-300">Inicio</a></li>
+                <li><a href="#sobre-mi" class="nav-link text-xl font-medium hover:text-pink-300">Sobre Mí</a></li>
+                <li><a href="#servicios" class="nav-link text-xl font-medium hover:text-pink-300">Servicios</a></li>
+                <li><a href="#trabajos" class="nav-link text-xl font-medium hover:text-pink-300">Trabajos</a></li>
+                <li><a href="#galeria" class="nav-link text-xl font-medium hover:text-pink-300">Galería</a></li>
+                <li><a href="#testimonios" class="nav-link text-xl font-medium hover:text-pink-300">Testimonios</a></li>
+                <li><a href="#faq" class="nav-link text-xl font-medium hover:text-pink-300">FAQ</a></li>
+                <li>
+                    <a href="#reserva" class="cta-button-hambuerguesa inline-block px-6 py-3 text-white font-bold rounded-full shadow-lg">
+                        Reservar Turno <i class="fab fa-whatsapp ml-2"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="hero-subtitle">Diseño Web Profesional</div>
-                <h1 class="hero-title">Sitios Web que Convierten Visitantes en Clientes</h1>
-                <p class="hero-description">
-                    Diseños modernos optimizados para profesionales, pymes y emprendimientos. 
-                    Aumenta tus ventas con una presencia digital impactante y efectiva.
+    <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden pt-20 md:pt-24">
+        <video class="absolute top-0 left-0 w-full h-full object-cover object-center -z-20" autoplay muted loop playsinline>
+            <source src="https://res.cloudinary.com/dliredzt9/video/upload/v1758914092/mp4_ysqhfz.mp4" type="video/mp4">
+        </video>
+       
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
+            <div class="text-center lg:text-left space-y-4 md:space-y-6 animate-fadeInUp">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985122/logo_jc7zzn.png" 
+                     alt="logo" class="w-36 md:w-24 lg:w-28 mx-auto lg:mx-0 rounded-full">
+                <h1 class="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                    Centro de <span class="hero-highlight block">Estética y Belleza</span>
+                </h1>
+                <p class="text-lg sm:text-xl md:text-xl text-white drop-shadow-lg max-w-2xl mx-auto lg:mx-0">
+                    Tratamientos faciales y corporales profesionales en Villa Ballester. Realzamos tu belleza natural con técnicas avanzadas y productos de primera calidad.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#contacto" class="btn-primary">
-                        Comenzar Proyecto
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
-                        </svg>
-                    </a>
-                    <a href="#servicios" class="btn-secondary">
-                        Ver Servicios
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-            <div class="hero-visual">
-                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755010895/hero-img_g2jgdv.webp" alt="Diseño Web Moderno" class="hero-image">
                 
-                <div class="floating-element top-right">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <div style="width: 12px; height: 12px; background: #00d984; border-radius: 50%;"></div>
+                <!-- CTA Desktop -->
+                <div class="hidden md:flex justify-center lg:justify-start">
+                    <a href="#reserva" class="cta-button inline-block px-6 md:px-8 lg:px-10 py-3 md:py-4 text-white font-bold text-base md:text-lg rounded-full shadow-lg hover:scale-105 hover:-translate-y-1 transition-all">
+                        Reservar Turno <i class="fab fa-whatsapp ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative px-4 lg:px-0 lg:pl-20 animate-fadeInUp">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985709/hero-imgen_oyb2ug.png" 
+                     alt="imagen hero" 
+                     class="rounded-3xl w-full max-w-md mx-auto lg:max-w-none">
+                
+                <!-- Floating Elements -->
+                <div class="hidden sm:block absolute top-5 right-5 bg-white/10 backdrop-blur-xl rounded-2xl p-4 shadow-xl animate-float">
+                    <div class="flex items-center gap-3">
+                        <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
                         <div>
-                            <div style="font-size: 0.9rem; font-weight: 600; color: #00d984;">100% Online</div>
-                            <div style="font-size: 0.8rem; color: #a1a1aa;">Disponible 24/7</div>
+                            <div class="text-sm font-semibold text-yellow-400">Reserva tu Turno</div>
+                            <div class="text-xs text-white">Hablemos por whatsapp</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="floating-element bottom-left">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <div style="background: var(--gradient-primary); padding: 8px; border-radius: 8px;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
+                <div class="hidden sm:block absolute bottom-10 left-5 bg-white/10 backdrop-blur-xl rounded-2xl p-4 shadow-xl animate-float" style="animation-delay: 1.5s">
+                    <div class="flex items-center gap-3">
+                        <div class="flex">
+                            <i class="fas fa-star text-yellow-400 text-lg"></i>
+                            <i class="fas fa-star text-yellow-400 text-lg"></i>
+                            <i class="fas fa-star text-yellow-400 text-lg"></i>
+                            <i class="fas fa-star text-yellow-400 text-lg"></i>
+                            <i class="fas fa-star text-yellow-400 text-lg"></i>
                         </div>
                         <div>
-                            <div style="font-size: 0.9rem; font-weight: 600;">5.0 Estrellas</div>
-                            <div style="font-size: 0.8rem; color: #a1a1aa;">Clientes satisfechos</div>
+                            <div class="text-sm font-semibold text-yellow-400">5.0 Estrellas</div>
+                            <div class="text-xs text-white">Clientes satisfechos</div>
                         </div>
                     </div>
                 </div>
             </div>
-			
-            <div class="custom-shape-divider-bottom-1757696437">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-                </svg>
+
+            <!-- CTA Mobile -->
+            <div class="md:hidden flex justify-center">
+                <a href="#reserva" class="cta-button-movil inline-block px-6 py-3 text-white font-bold text-base rounded-full shadow-lg">
+                    Reservar Turno <i class="fab fa-whatsapp ml-2"></i>
+                </a>
             </div>
         </div>
     </section>
-	
-	
+
+    <!-- Socios Slider -->
+    <section class="bg-[#feabde] overflow-hidden">
+        <div class="flex logo-slider" style="width: max-content;">
+            <!-- Original logos -->
+            <div class="flex space-x-8 md:space-x-12">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985341/criolipolisis_g6jbi3.png" alt="criolipolisis" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985339/velaslimplus_trkm1g.webp" alt="velaslimplus" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985337/presoterapia_qdtx1j.png" alt="presoterapia" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985337/mesoterapia_vaguao.png" alt="mesoterapia" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985334/himfu_d69xdr.png" alt="himfu" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985333/dermapen_gxd7xt.webp" alt="dermapen" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985330/criofrecuencia_crhez1.png" alt="criofrecuencia" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985328/bodyup_ctlbfa.webp" alt="bodyup" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+            </div>
+            <!-- Duplicate logos -->
+            <div class="flex space-x-8 md:space-x-12 ml-8 md:ml-12">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985341/criolipolisis_g6jbi3.png" alt="criolipolisis" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985339/velaslimplus_trkm1g.webp" alt="velaslimplus" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985337/presoterapia_qdtx1j.png" alt="presoterapia" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985337/mesoterapia_vaguao.png" alt="mesoterapia" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985334/himfu_d69xdr.png" alt="himfu" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985333/dermapen_gxd7xt.webp" alt="dermapen" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985330/criofrecuencia_crhez1.png" alt="criofrecuencia" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985328/bodyup_ctlbfa.webp" alt="bodyup" class="w-16 h-16 md:w-24 md:h-24 object-contain">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-mi" class="py-12 md:py-20 lg:py-24 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl lg:text-5xl font-bold text-pink-300 mb-4 relative">
+                    Sobre CIRB Estética
+                </h2>
+                <p class="text-lg md:text-xl lg:text-xl text-text-light max-w-2xl mx-auto">
+                    Tu centro de confianza para tratamientos de belleza en Villa Ballester
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <div class="fade-in space-y-4 md:space-y-6">
+                    <h3 class="text-3xl md:text-4xl font-bold text-pink-300">Profesionalismo y Calidad</h3>
+                    <p class="text-lg md:text-xl text-text-light leading-relaxed">
+                        En CIRB Estética nos especializamos en tratamientos faciales y corporales de alta calidad. Nuestro compromiso es brindarte la mejor experiencia en cuidado personal, utilizando técnicas avanzadas y productos profesionales.
+                    </p>
+                    <p class="text-lg md:text-xl text-text-light leading-relaxed">
+                        Ubicados en Villa Ballester, Buenos Aires, somos tu centro de confianza para todos tus tratamientos de belleza y bienestar.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-[#44dbe4] text-2xl"></i>
+                            <span class="text-base md:text-lg">Tratamientos Profesionales</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-heart text-[#44dbe4] text-2xl"></i>
+                            <span class="text-base md:text-lg">Atención Personalizada</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-star text-[#44dbe4] text-2xl"></i>
+                            <span class="text-base md:text-lg">Productos de Calidad</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-shield-alt text-[#44dbe4] text-2xl"></i>
+                            <span class="text-base md:text-lg">Ambiente Seguro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1757985281/nosotros_fvmyls.webp" 
+                         alt="nosotros" 
+                         class="rounded-3xl w-full shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
-    <section class="services" id="servicios">
-        <div class="section-header">
-            <div class="section-subtitle">Nuestros Servicios</div>
-            <h2 class="section-title">Servicios que potencia tu Presencia</h2>
-        </div>
-	
-	    <section class="solution-section">
-             <!-- Oferta Principal -->
-        <div class="main-offer">
-		
-		   <div class="section-header">
-            <span class="section-tag">Tu Solución Digital</span>
-            <h2 class="section-title">Landing Page + CRM Personalizado</h2>
-            <p class="section-subtitle">
-                Una plataforma completa diseñada para centralizar tu comunicación y convertir visitantes en clientes
-            </p>
-        </div>
-            <h3>¿Qué Incluye Mi Servicio?</h3>
-            <p class="description">
-                Te ofrezco una herramienta personalizada que centraliza todos tus canales de comunicación en un solo lugar, permitiéndote gestionar mensajes de WhatsApp, Instagram y Facebook Messenger de manera eficiente. Esta plataforma también automatiza respuestas a consultas frecuentes y permite que varios agentes atiendan conversaciones simultáneamente, mejorando la atención al cliente. Además, la interfaz está completamente personalizada con tu marca, brindando una experiencia coherente para tus usuarios.
-            </p>
-
-            <div class="features-grid">
-                <div class="feature-item">
-                    <h2>🌐 Landing Page Profesional</h2>
-                    <p>Diseño optimizado para convertir visitantes en leads con formularios estratégicos y llamados a la acción efectivos</p>
-                </div>
-                <div class="feature-item">
-                    <h2>💬 Mensajería Unificada</h2>
-                    <p>WhatsApp, Instagram y Facebook Messenger en una sola bandeja de entrada para gestionar todo desde un lugar</p>
-                </div>
-                <div class="feature-item">
-                    <h2>🤖 Automatizaciones Inteligentes</h2>
-                    <p>Respuestas automáticas a consultas frecuentes que ahorran tiempo y mejoran la experiencia del cliente</p>
-                </div>
-                <div class="feature-item">
-                    <h2>👥 Multiagente</h2>
-                    <p>Permite que varios miembros de tu equipo atiendan conversaciones al mismo tiempo de forma coordinada</p>
-                </div>
-                <div class="feature-item">
-                    <h2>📊 Seguimiento de Leads</h2>
-                    <p>Sistema organizado para no perder ninguna oportunidad y dar seguimiento efectivo a cada contacto</p>
-                </div>
-                <div class="feature-item">
-                    <h2>💬🤖👥 <br>Integración de IA 24/7</h2>
-                    <p>Conversación amigalble no respuestas genericas, seguimiento de contacto.</p>
-                </div>
+    <section id="servicios" class="py-12 md:py-20 lg:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl lg:text-5xl font-bold text-pink-300 mb-4 relative">
+                    Nuestros Servicios
+                </h2>
+                <p class="text-lg md:text-xl lg:text-xl text-text-light max-w-2xl mx-auto">
+                    Tratamientos especializados para tu belleza y bienestar
+                </p>
             </div>
-        </div>
 
-    </section>
-	
-	<!-- Sección Acerca de Mí -->
-            <div class="about-me-text">
-	
-	<div class="about-me-subtitle">Acerca de mí</div>
-                <h2 class="about-me-title">¿Por qué elegir mis servicios?</h2>
-       </div>         
-<section class="about-me-section" id="acercade">
-    <div class="about-me-container">
-        <div class="about-me-grid">
-            <div class="about-me-text">
-             
-                <div class="mission-box">
-                    <h3 class="mission-title">Misión:</h3>
-                    <p class="mission-text">
-                       <b> Facilito</b> a Profesionales, Pymes y Emprendimientos a potenciar su presencia online con Sitios web y Landing Pages Estratégicas. Complemento con Automatizaciones de Chatbot WhatsApp con IA. Atención 24/7.
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="fade-in bg-white rounded-3xl p-6 md:p-8 lg:p-10 text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-pink-300group">
+                    <div class="w-16 h-16 md:w-20 md:h-20 text-pink-300 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-spa text-2xl md:text-3xl text-primary-pink"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 font-bold text-pink-300">Tratamientos corporales</h3>
+                    <p class="text-base md:text-lg text-text-light leading-relaxed">
+                        Masajes, exfoliaciones y tratamientos reductores, anticeluliticos y reafirmantes para el cuidado integral de tu piel.
                     </p>
                 </div>
 
-                <div class="about-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Diseños que Convierten</h4>
-                            <p>Cada elemento está pensado para guiar al usuario hacia la acción deseada</p>
-                        </div>
+                <div class="fade-in bg-white rounded-3xl p-6 md:p-8 lg:p-10 text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-pink-300group">
+                    <div class="w-16 h-16 md:w-20 md:h-20 text-pink-300 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-tint text-2xl md:text-3xl text-primary-pink"></i>
                     </div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 font-bold text-pink-300">Mesoterapia facial y Corporal</h3>
+                    <p class="text-base md:text-lg text-text-light leading-relaxed">
+                        Técnica estética contra la celulitis y flacidez de la piel. Rejuvenecimiento y glow up facial.
+                    </p>
+                </div>
 
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Chatbots con IA 24/7</h4>
-                            <p>Automatización inteligente para atender a tus clientes las 24 horas</p>
-                        </div>
+                <div class="fade-in bg-white rounded-3xl p-6 md:p-8 lg:p-10 text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-pink-300group">
+                    <div class="w-16 h-16 md:w-20 md:h-20 text-pink-300 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-magic text-2xl md:text-3xl text-primary-pink"></i>
                     </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0013 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>Entrega Rápida</h4>
-                            <p>Landing pages en 7 días, sitios completos en máximo 14 días</p>
-                        </div>
-                    </div>
-                </div>
-				
-				
-            </div>
-			            <div class="about-me-image-wrapper">
-                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1754963766/nosotros-leo_e2ql50_ez2i0u.webp" alt="Diseñador Web" class="about-me-image">
-                <div class="about-badge">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <div style="background: var(--gradient-primary); padding: 8px; border-radius: 8px;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <div style="font-size: 0.9rem; font-weight: 600;">Asesoramiento</div>
-                            <div style="font-size: 0.8rem; color: #a1a1aa;">Garantia Personalizada</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-	
-
-
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828517/landingpage_lcquuq.png" alt="landingpage">
-                </div>
-                <h3 class="service-title">Landing Pages de Alto Impacto</h3>
-                <p class="service-description">
-                    Páginas optimizadas para conversión con diseño persuasivo, llamadas a la acción efectivas 
-                    y elementos que guían al usuario hacia la compra o contacto.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828533/sitios-web-corporativos_v1pztp.png" alt="corporativo">
-                </div>
-                <h3 class="service-title">Sitios Web Corporativos</h3>
-                <p class="service-description">
-                    Presencia profesional completa con estructura sólida, navegación intuitiva 
-                    y contenido estratégico que transmite confianza y autoridad en tu sector.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828632/velocidad_uvczb2.png" alt="velocidad">
-                </div>
-                <h3 class="service-title">Optimización de Velocidad</h3>
-                <p class="service-description">
-                    Sitios que cargan en menos de 3 segundos, optimizados para motores de búsqueda 
-                    y experiencia de usuario superior en todos los dispositivos.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828528/serguridad_afihac.png" alt="seguridad">
-                </div>
-                <h3 class="service-title">Seguridad & Mantenimiento</h3>
-                <p class="service-description">
-                    Protección completa con certificados SSL, respaldos automáticos, 
-                    actualizaciones regulares y monitoreo 24/7 para máxima tranquilidad.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758829210/integracion-whastapp_wedqof.png" alt="whatsapp">
-                </div>
-                <h3 class="service-title">Integración WhatsApp  Chatbot IA</h3>
-                <p class="service-description">
-                    Conecta directamente con tus clientes mediante botones estratégicos, 
-                    chatbots automatizados y formularios que envían consultas instantáneas.
-                </p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758829184/responsive_er3nwf.png" alt="responsive">
-                </div>
-                <h3 class="service-title">Diseño Responsive</h3>
-                <p class="service-description">
-                    Adaptación perfecta a móviles, tablets y escritorio. El 70% de tus clientes 
-                    navegan desde celular, garantizamos una experiencia impecable.
-                </p>
-            </div>
-        </div>
-    </section>
-	
-    <!-- Socios Slider -->
-    <section>
-        <div class="socios-wrapper">
-            <div class="socios-slider">
-                <div class="socios-track">
-                    <!-- Logos originales -->
-                                      <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/codigo_p1ivbv.webp" alt="html5"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828225/whatsapp_scu3rh.webp" alt="chatgpt"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/manychat_jpd2vo.webp" alt="manychat"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/chatgtp_t49wgo.webp" alt="chatbot"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/google-maps_pb7deo.webp" alt="google maps"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828212/google-reviews_b0fdh3.webp" alt="google reviews"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828225/meta_rgfiiq.webp" alt="meta"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828212/google-analytics_jny4ff.webp" alt="google analytics"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828212/google-ads_g7qoru.webp" alt="google ads"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828219/crm_dnhle0.webp" alt="crm"></div>
-                
-                    <!-- Logos duplicados para el loop -->
-                                     <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/codigo_p1ivbv.webp" alt="html5"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828225/whatsapp_scu3rh.webp" alt="chatgpt"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/manychat_jpd2vo.webp" alt="manychat"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/chatgtp_t49wgo.webp" alt="chatbot"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/google-maps_pb7deo.webp" alt="google maps"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828212/google-reviews_b0fdh3.webp" alt="google reviews"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828225/meta_rgfiiq.webp" alt="meta"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828212/google-analytics_jny4ff.webp" alt="google analytics"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828212/google-ads_g7qoru.webp" alt="google ads"></div>
-                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828219/crm_dnhle0.webp" alt="crm"></div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 font-bold text-pink-300">Tratamiento corporal</h3>
+                    <p class="text-base md:text-lg text-text-light leading-relaxed">
+                        Ayuda a ganar masa muscular, volumen. Son proteínas que llegan al ADN de las células musculares.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats" id="stats">
-        <div class="stats-grid">
-            <div class="stat-card" data-delay="0">
-                <div class="stat-number" data-target="100" data-suffix="%">0%</div>
-                <div class="stat-label">Clientes Satisfechos</div>
-            </div>
-            <div class="stat-card" data-delay="200">
-                <div class="stat-number" data-target="7" data-suffix="">0</div>
-                <div class="stat-label">Días Promedio Entrega</div>
-            </div>
-            <div class="stat-card" data-delay="400">
-                <div class="stat-number" data-target="24" data-suffix="/7">0/7</div>
-                <div class="stat-label">Soporte Disponible</div>
-            </div>
+    <!-- Peptonas Banner -->
+    <section class="relative py-16 md:py-20 lg:py-24 overflow-hidden bg-cover bg-center bg-fixed" style="background-image: url('https://res.cloudinary.com/dliredzt9/image/upload/v1757985253/spa-hero_hyc6r9.jpg');">
+        <div class="absolute inset-0 bg-white/60 z-10"></div>
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-pink-300">
+                PEPTONAS de Músculo para Glúteos
+            </h2>
         </div>
     </section>
 
+    <!-- Works/Portfolio Section -->
+    <section id="trabajos" class="relative py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 md:mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl lg:text-5xl font-bold text-pink-300 mb-4 relative">
+                    ¿Por qué elegirme?
+                </h2>
+                <p class="text-lg md:text-xl lg:text-xl text-text-light max-w-2xl mx-auto">
+                    Resultados reales que hablan por sí solos
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="fade-in bg-white rounded-3xl p-6 md:p-8 lg:p-10 text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-pink-300group">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-pink-300 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758073799/piel_xtgjcs.png" alt="piel" class="w-12 h-12">
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 font-bold text-pink-300">Antes y Después</h3>
+                    <p class="text-base md:text-lg text-text-light leading-relaxed">
+                        Transformaciones increíbles con nuestros tratamientos faciales, mostrando resultados visibles y duraderos.
+                    </p>
+                </div>
+
+                <div class="fade-in bg-white rounded-3xl p-6 md:p-8 lg:p-10 text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-pink-300group">
+                    <div class="w-16 h-16 md:w-20 md:h-20 text-pink-300 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-chart-line text-2xl md:text-3xl text-primary-pink"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 font-bold text-pink-300">Casos de Éxito</h3>
+                    <p class="text-base md:text-lg text-text-light leading-relaxed">
+                        Historias reales de nuestras clientas y sus experiencias positivas con nuestros servicios profesionales.
+                    </p>
+                </div>
+
+                <div class="fade-in bg-white rounded-3xl p-6 md:p-8 lg:p-10 text-center shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-pink-300group">
+                    <div class="w-16 h-16 md:w-20 md:h-20 text-pink-300 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-award text-2xl md:text-3xl text-primary-pink"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 font-bold text-pink-300">Técnicas Innovadoras</h3>
+                    <p class="text-base md:text-lg text-text-light leading-relaxed">
+                        Aplicación de métodos vanguardistas en estética facial y corporal para obtener los mejores resultados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
  
 
     <!-- Galería Section -->
@@ -720,4 +660,5 @@
 
 </body>
 </html>
+
 
