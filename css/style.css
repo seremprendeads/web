@@ -31,9 +31,6 @@
             color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
-			        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            color: #fff;
         }
 
          /* Header moderna con glassmorphism */
@@ -396,74 +393,9 @@
             left: 20px;
             animation-delay: 1.5s;
         }
-		/*** servicios****/
-		 .solution-section {
-            padding: 0px 20px;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  	        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .section-tag {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
-            color: #fff;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 700;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #fff 0%, #ff6b35 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: #a0a0a0;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-     
-        @media (max-width: 768px) {
-            .solution-section {
-                padding: 60px 15px;
-            }
-
-            .main-offer {
-                padding: 35px 25px;
-            }
-
-            .features-grid,
-            .options-container {
-                grid-template-columns: 1fr;
-            }
-
-            .main-offer h3 {
-                font-size: 26px;
-            }
-
-            .flexibility-header h3 {
-                font-size: 26px;
-            }
-        }
 		
-		/*** Fin de Servicios***/
+		
+		
 /* === Socios Slider === */
 .socios-slider {
   overflow: hidden;
@@ -490,7 +422,7 @@
 
   /* About Me Section CSS */
 .about-me-section {
-    padding: 4rem 0 12rem;
+    padding: 8rem 0;
     background: #1a1a1a;
     position: relative;
 }
@@ -541,7 +473,6 @@
 
 .about-me-text {
     animation: fadeInUp 0.8s ease-out;
-  text-align: center;
 }
 
 .about-me-subtitle {
@@ -551,8 +482,6 @@
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-	text-align:center;
-	padding-top: 6rem;
 }
 
 .about-me-title {
@@ -565,7 +494,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-	text-align:center;
 }
 
 .mission-box {
@@ -610,64 +538,40 @@
     gap: 1.5rem;
 }
 
-.feature-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    padding: 1.5rem;
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border-glass);
-    border-radius: 16px;
-    transition: all 0.3s ease;
+.whatsapp-button {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  background: #25d366;
+  color: white;
+  border-radius: 50px;
+  font-weight: bold;
+  z-index: 1;
+  overflow: hidden;
 }
 
-.feature-item:hover {
-    transform: translateX(10px);
-    border-color: var(--primary-orange);
+.whatsapp-button::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    right: -100px;
+    bottom: -100px;
+    background: conic-gradient(#ff723b, #f2916b, #ff6e38, #ffd7d7, #ff713a);
+    border-radius: 100px;
+    z-index: -1;
+    animation: borderRotate 3s 
+linear infinite;
 }
 
-.feature-icon {
-    width: 50px;
-    height: 50px;
-    background: var(--gradient-primary);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.feature-icon svg {
-    width: 24px;
-    height: 24px;
-    color: white;
-}
-
-.feature-item h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text-light);
-    margin-bottom: 0.5rem;
-}
-
-.feature-item p {
-    font-size: 0.95rem;
-    color: var(--text-gray);
-    line-height: 1.5;
-    margin: 0;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Animación de rotación */
+@keyframes borderRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Responsive */
@@ -1035,9 +939,10 @@
             font-family: 'Outfit', sans-serif;
             font-size: clamp(2rem, 4vw, 3.5rem);
             font-weight: 700;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
 			text-align: center;
-		
+			padding-bottom: 2rem;
         }
 
         .section-description {
@@ -1259,4 +1164,3 @@
                 padding: 3rem 2rem;
             }
         }
-
