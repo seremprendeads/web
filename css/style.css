@@ -906,12 +906,15 @@ linear infinite;
         }
 
         /* Footer moderno */
-        .footer {
-            background: var(--primary-dark);
-            border-top: 1px solid var(--border-glass);
-            padding: 2rem 0;
-            text-align: center;
-        }
+       .footer {
+    background: var(--primary-dark);
+    border-top: 1px solid var(--border-glass);
+    padding: 2rem 0;
+    text-align: center;
+    font-size: small;
+}
+
+
 
         /* Services section */
         .services {
@@ -1164,3 +1167,4 @@ linear infinite;
                 padding: 3rem 2rem;
             }
         }
+
