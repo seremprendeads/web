@@ -422,7 +422,7 @@
 
   /* About Me Section CSS */
 .about-me-section {
-    padding: 8rem 0;
+    padding: 4rem 0 12rem;
     background: #1a1a1a;
     position: relative;
 }
@@ -473,6 +473,7 @@
 
 .about-me-text {
     animation: fadeInUp 0.8s ease-out;
+  text-align: center;
 }
 
 .about-me-subtitle {
@@ -482,6 +483,8 @@
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+	text-align:center;
+	padding-top: 6rem;
 }
 
 .about-me-title {
@@ -494,6 +497,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+	text-align:center;
 }
 
 .mission-box {
@@ -536,6 +540,66 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateX(10px);
+    border-color: var(--primary-orange);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.feature-icon svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.feature-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+    margin: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .whatsapp-button {
@@ -906,15 +970,12 @@ linear infinite;
         }
 
         /* Footer moderno */
-       .footer {
-    background: var(--primary-dark);
-    border-top: 1px solid var(--border-glass);
-    padding: 2rem 0;
-    text-align: center;
-    font-size: small;
-}
-
-
+        .footer {
+            background: var(--primary-dark);
+            border-top: 1px solid var(--border-glass);
+            padding: 2rem 0;
+            text-align: center;
+        }
 
         /* Services section */
         .services {
@@ -1167,4 +1228,3 @@ linear infinite;
                 padding: 3rem 2rem;
             }
         }
-
