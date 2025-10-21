@@ -3,2206 +3,609 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	 <!-- Evitar indexación en motores de búsqueda -->
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="googlebot" content="noindex, nofollow">
-    <meta name="googlebot-news" content="noindex, nofollow">
-    <meta name="bingbot" content="noindex, nofollow">
-    <title>Dra. María González - Abogada en Buenos Aires</title>
-    <style>
-       * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <title>SerEmprende | Diseño Web Moderno</title>
+    <meta name="description" content="Diseños web modernos que convierten visitantes en clientes. Landing pages optimizadas para profesionales, pymes y emprendimientos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 
-        :root {
-            --primary-gold: #d4a574;
-            --dark-navy: #1a1d2e;
-            --light-bg: #f5f1ed;
-            --text-light: #ffffff;
-            --text-dark: #2c2c2c;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--dark-navy);
-            padding: 1.2rem 5%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            padding: 0.8rem 5%;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-light);
-            font-size: 1.2rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-
-        .logo::before {
-            content: "⚖";
-            font-size: 1.5rem;
-            color: var(--primary-gold);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-gold);
-        }
-
-        .btn-contact {
-            background: var(--primary-gold);
-            color: var(--dark-navy);
-            padding: 0.7rem 1.8rem;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-contact:hover {
-            background: #c49563;
-            transform: translateY(-2px);
-        }
-
-        .mobile-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            position: relative;
-            width: 30px;
-            height: 24px;
-            justify-content: center;
-        }
-
-        .mobile-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--text-light);
-            transition: all 0.3s ease;
-            display: block;
-            position: absolute;
-        }
-
-        .mobile-toggle span:nth-child(1) {
-            top: 0;
-        }
-
-        .mobile-toggle span:nth-child(2) {
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .mobile-toggle span:nth-child(3) {
-            bottom: 0;
-        }
-
-        .mobile-toggle.active span:nth-child(1) {
-            top: 50%;
-            transform: translateY(-50%) rotate(45deg);
-        }
-
-        .mobile-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-toggle.active span:nth-child(3) {
-            bottom: 50%;
-            transform: translateY(50%) rotate(-45deg);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: var(--dark-navy);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 8rem 5% 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(26, 29, 46, 0.95) 0%, rgba(26, 29, 46, 0.85) 100%),
-                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&h=1080&fit=crop') center/cover;
-            z-index: 0;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, transparent 100%);
-            z-index: 1;
-        }
-
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-content {
-            color: var(--text-light);
-        }
-
-        .hero-label {
-            color: var(--primary-gold);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .hero-label::before {
-            content: "";
-            width: 50px;
-            height: 2px;
-            background: var(--primary-gold);
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-
-        .hero-title span {
-            color: var(--primary-gold);
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .btn-primary {
-            background: var(--primary-gold);
-            color: var(--dark-navy);
-        }
-
-        .btn-primary:hover {
-            background: #c49563;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-light);
-            border: 2px solid var(--primary-gold);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-gold);
-            color: var(--dark-navy);
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        }
-
-        /* About Section */
-        .about {
-            background: white;
-            padding: 6rem 5%;
-        }
-
-        .about-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-
-        .about-image::before {
-            content: "";
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 200px;
-            height: 200px;
-            border: 3px solid var(--primary-gold);
-            border-radius: 12px;
-            z-index: -1;
-        }
-
-        .about-content {
-            color: var(--text-dark);
-        }
-
-        .about-label {
-            color: var(--primary-gold);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-family: 'Arial', sans-serif;
-            font-weight: 600;
-        }
-
-        .about-label::before {
-            content: "";
-            width: 50px;
-            height: 2px;
-            background: var(--primary-gold);
-        }
-
-        .about-title {
-            font-size: 2.8rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: var(--dark-navy);
-        }
-
-        .about-description {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            margin-bottom: 2rem;
-            color: #666;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--light-bg);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-gold);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .about-features {
-            list-style: none;
-            margin-top: 2rem;
-        }
-
-        .about-features li {
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-            font-size: 1.05rem;
-            color: #666;
-        }
-
-        .about-features li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary-gold);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        /* Awards Section */
-        .awards {
-            background: var(--light-bg);
-            padding: 4rem 5%;
-        }
-
-        .awards-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-        }
-
-        .awards-title {
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-dark);
-            white-space: nowrap;
-        }
-
-        .awards-grid {
-            display: flex;
-            gap: 3rem;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-        }
-
-        .award-badge {
-            width: 100px;
-            height: 100px;
-            border: 3px solid var(--primary-gold);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .award-badge:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
-        }
-
-        .award-badge .award-title {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .award-badge .award-year {
-            font-size: 0.9rem;
-            color: var(--primary-gold);
-            font-weight: 700;
-        }
-
-        /* Practice Areas Section */
-        .practice-areas {
-            background: var(--dark-navy);
-            padding: 6rem 5%;
-            color: var(--text-light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .practice-areas::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(26, 29, 46, 0.95) 0%, rgba(26, 29, 46, 0.9) 100%),
-                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&h=1080&fit=crop') center/cover;
-            z-index: 0;
-        }
-
-        .section-header, .practice-grid {
-            position: relative;
-            z-index: 1;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-label {
-            color: var(--primary-gold);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .practice-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .practice-card {
-            padding: 2.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .practice-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .practice-icon {
-            width: 70px;
-            height: 70px;
-            margin-bottom: 1.5rem;
-            color: var(--primary-gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .practice-icon svg {
-            width: 100%;
-            height: 100%;
-            stroke: var(--primary-gold);
-            fill: none;
-            stroke-width: 1.5;
-        }
-
-        .practice-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-        }
-
-        .practice-card p {
-            line-height: 1.8;
-            opacity: 0.8;
-            font-family: 'Arial', sans-serif;
-        }
-
-        /* Gallery Section */
-        .gallery {
-            background: white;
-            padding: 6rem 5%;
-        }
-
-        .gallery-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .gallery-image {
-            position: relative;
-            overflow: hidden;
-            height: 350px;
-        }
-
-        .gallery-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover .gallery-image img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(26, 29, 46, 0.95) 0%, rgba(26, 29, 46, 0.3) 50%, transparent 100%);
-            display: flex;
-            align-items: flex-end;
-            padding: 2rem;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-content {
-            color: var(--text-light);
-            transform: translateY(20px);
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover .gallery-content {
-            transform: translateY(0);
-        }
-
-        .gallery-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-light);
-        }
-
-        .gallery-content p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background: var(--light-bg);
-            padding: 6rem 5%;
-            overflow: hidden;
-        }
-
-        .testimonials-slider {
-            position: relative;
-            max-width: 1400px;
-            margin: 3rem auto;
-            overflow: hidden;
-        }
-
-        .testimonials-track {
-            display: flex;
-            transition: transform 0.5s ease;
-            gap: 2rem;
-        }
-
-        .testimonial-card {
-            min-width: calc(33.333% - 1.33rem);
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-
-        .stars {
-            color: var(--primary-gold);
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .testimonial-text {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            color: var(--text-dark);
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .testimonial-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .testimonial-author h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-            color: var(--dark-navy);
-        }
-
-        .testimonial-author p {
-            font-size: 0.9rem;
-            color: var(--primary-gold);
-            font-weight: 600;
-        }
-
-        .slider-controls {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .slider-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid var(--primary-gold);
-            background: white;
-            color: var(--primary-gold);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .slider-btn:hover {
-            background: var(--primary-gold);
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .slider-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #ddd;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background: var(--primary-gold);
-            width: 30px;
-            border-radius: 6px;
-        }
-
-        /* FAQ Section */
-        .faq {
-            background: white;
-            padding: 6rem 5%;
-        }
-
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-list {
-            margin-top: 3rem;
-        }
-
-        .faq-item {
-            border-bottom: 2px solid #eee;
-            margin-bottom: 0;
-        }
-
-        .faq-question {
-            width: 100%;
-            padding: 1.8rem 0;
-            background: none;
-            border: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            text-align: left;
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            color: var(--primary-gold);
-        }
-
-        .faq-icon {
-            font-size: 2rem;
-            color: var(--primary-gold);
-            transition: transform 0.3s ease;
-            font-weight: 300;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding-bottom: 1.8rem;
-        }
-
-        .faq-answer p {
-            line-height: 1.8;
-            color: #666;
-            font-size: 1.05rem;
-        }
-
-        /* Contact CTA */
-        .cta {
-            background: var(--primary-gold);
-            padding: 5rem 5%;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(212, 165, 116, 0.95) 0%, rgb(196 149 99 / 43%) 100%), url(https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=1920&h=600&fit=crop) center / cover;
-            z-index: 0;
-        }
-
-        .cta h2, .cta p, .cta .btn {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark-navy);
-        }
-
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: var(--dark-navy);
-            opacity: 0.9;
-        }
-
-        /* Footer */
-        footer {
-            background: #0f1119;
-            color: var(--text-light);
-            padding: 4rem 5% 2rem;
-        }
-
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .footer-main {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-about {
-            max-width: 350px;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-light);
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-logo::before {
-            content: "⚖";
-            font-size: 1.8rem;
-            color: var(--primary-gold);
-        }
-
-        .footer-about p {
-            line-height: 1.8;
-            opacity: 0.8;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--primary-gold);
-            border-color: var(--primary-gold);
-            color: var(--dark-navy);
-            transform: translateY(-3px);
-        }
-
-        .footer-column h3 {
-            color: var(--primary-gold);
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            opacity: 0.8;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-            display: inline-block;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            color: var(--primary-gold);
-            padding-left: 5px;
-        }
-
-        .footer-contact-info {
-            list-style: none;
-        }
-
-        .footer-contact-info li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-            opacity: 0.8;
-            font-size: 0.95rem;
-        }
-
-        .footer-contact-info li svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--primary-gold);
-            fill: none;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 2rem;
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        .footer-legal {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .footer-legal a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-legal a:hover {
-            color: var(--primary-gold);
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                width: 70%;
-                height: calc(100vh - 70px);
-                background: var(--dark-navy);
-                flex-direction: column;
-                justify-content: flex-start;
-                padding: 3rem 2rem;
-                transition: right 0.3s ease;
-                box-shadow: -5px 0 20px rgba(0,0,0,0.3);
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .mobile-toggle {
-                display: flex;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .awards-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .practice-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonial-card {
-                min-width: calc(100% - 2rem);
-            }
-
-            .about-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-
-            .gallery-image {
-                height: 280px;
-            }
-
-            .footer-main {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-            }
-
-            .footer-about {
-                grid-column: 1 / -1;
-                max-width: 100%;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .footer-legal {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .btn {
-                padding: 0.8rem 2rem;
-                font-size: 0.9rem;
-            }
-
-            .testimonial-card {
-                min-width: 100%;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .gallery-image {
-                height: 300px;
-            }
-
-            .footer-main {
-                grid-template-columns: 1fr;
-            }
-        }
-		/*Icono flotante whastapp*/
-		  .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
-        }
-
-        .whatsapp-float svg {
-            width: 38px;
-            height: 38px;
-            fill: white;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-        }
-
-        .whatsapp-float::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: #25D366;
-            animation: ripple 2s infinite;
-            z-index: -1;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        @keyframes ripple {
-            0% {
-                transform: scale(1);
-                opacity: 0.7;
-            }
-            100% {
-                transform: scale(1.5);
-                opacity: 0;
-            }
-        }
-
-        .tooltip {
-            position: absolute;
-            right: 75px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: white;
-            color: #333;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .tooltip::after {
-            content: '';
-            position: absolute;
-            right: -8px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-left: 8px solid white;
-            border-top: 8px solid transparent;
-            border-bottom: 8px solid transparent;
-        }
-
-        .whatsapp-float:hover .tooltip {
-            opacity: 1;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .whatsapp-float svg {
-                width: 28px;
-                height: 28px;
-            }
-
-            .tooltip {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .whatsapp-float {
-                width: 45px;
-                height: 45px;
-                bottom: 15px;
-                right: 15px;
-            }
-
-            .whatsapp-float svg {
-                width: 25px;
-                height: 25px;
-            }
-        }
-		
-		/* Botón WhatsApp CTA */
-.btn-whatsapp{
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1.2rem 3rem;
-    background: #d4a574;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 25px #ddd;
-    position: relative;
-    z-index: 2;
-}
-
-.btn-whatsapp:hover {
-    background: #1a1d2e;
-    transform: translateY(-5px);
-    box-shadow: 0 6px 25px #ddd;
-}
-
-.whatsapp-icon {
-    width: 24px;
-    height: 24px;
-    fill: white;
-    transition: transform 0.3s ease;
-}
-
-.btn-whatsapp:hover .whatsapp-icon {
-    transform: rotate(15deg) scale(1.15);
-}
-
-@media (max-width: 600px) {
-    .btn-whatsapp {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-    }
-    
-    .whatsapp-icon {
-        width: 20px;
-        height: 20px;
-    }
-}
-/* Ícono WhatsApp en Nav */
-.btn-contact {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.nav-whatsapp-icon {
-    width: 16px;
-    height: 16px;
-    fill: white;
-	transition: transform 0.3s ease;
-}
-
-.btn-contact:hover .nav-whatsapp-icon {
-    transform: scale(1.15) rotate(10deg);
-}
-
-@media (max-width: 968px) {
-    .nav-whatsapp-icon {
-        width: 14px;
-        height: 14px;
-    }
-}
-    </style>
 </head>
 <body>
-    <header id="header">
-        <nav>
-            <div class="logo">ABOGADA</div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sobre-mi">Sobre Mí</a></li>
-                <li><a href="#areas">Servicios</a></li>
-                <li><a href="#galeria">Galería</a></li>
-           <li><a href="#contacto" class="btn-contact">
-    Contacto
-    <svg viewBox="0 0 308 308" xmlns="http://www.w3.org/2000/svg" class="nav-whatsapp-icon">
-                <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156
-                    c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687
-                    c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887
-                    c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153
-                    c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348
-                    c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802
-                    c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922
-                    c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0
-                    c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458
-                    C233.168,179.508,230.845,178.393,227.904,176.981z"/>
-                <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716
-                    c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396
-                    c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z
-                    M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188
-                    l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677
-                    c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867
-                    C276.546,215.678,222.799,268.994,156.734,268.994z"/>
-            </svg>
-</a></li>
-            </ul>
-            <div class="mobile-toggle" id="mobileToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="SerEmprende" class="logo">
+            
+            <div class="nav-menu">
+                <a href="#inicio" class="nav-link">Inicio</a>
+				<a href="#acercade" class="nav-link">Acerca de</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#portafolio" class="nav-link">Trabajos</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+                <a href="#contacto" class="cta-btn">
+                    Empezar Ahora
+             
+			 </a>
             </div>
+
+            <button class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
+
+        <div class="mobile-menu" id="mobileMenu">
+               <a href="#inicio" class="nav-link">Inicio</a>
+				<a href="#acercade" class="nav-link">Acerca de</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#portafolio" class="nav-link">Trabajos</a>
+                <a href="#contacto" class="cta-btn">
+                    Empezar Ahora
+                     </a>
+        </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero" id="inicio">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-label">DRA. MARÍA GONZÁLEZ</div>
-                <h1 class="hero-title">La Abogada <span>#1</span> en Buenos Aires</h1>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-subtitle">Diseño Web Profesional</div>
+                <h1 class="hero-title">Sitios Web que Convierten Visitantes en Clientes</h1>
                 <p class="hero-description">
-                    Con más de 15 años de experiencia defendiendo los derechos de mis clientes. 
-                    Especializada en derecho corporativo, laboral y familia con resultados excepcionales.
+                    Diseños modernos optimizados para profesionales, pymes y emprendimientos. 
+                    Aumenta tus ventas con una presencia digital impactante y efectiva.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-primary">Contactar</a>
-                    <a href="#galeria" class="btn btn-secondary">Ver Resultados</a>
+                    <a href="#contacto" class="btn-primary">
+                        Comenzar Proyecto
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
+                        </svg>
+                    </a>
+                    <a href="#servicios" class="btn-secondary">
+                        Ver Servicios
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759718660/woman-hero_t7pc7y.jpg" alt="Dra. María González">
-            </div>
-        </div>
-    </section>
 
-    <section class="about" id="sobre-mi">
-        <div class="about-container">
-            <div class="about-image">
-                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759718659/sobremi_qzs8ac.webp" alt="Dra. María González en su oficina">
-            </div>
-            <div class="about-content">
-                <div class="about-label">SOBRE MÍ</div>
-                <h2 class="about-title">Más de 15 Años de Excelencia Legal</h2>
-                <p class="about-description">
-                    Soy la Dra. María González, abogada especializada en derecho corporativo y laboral con una trayectoria comprobada de éxitos. Me gradué con honores de la Universidad de Buenos Aires y he representado a más de 500 clientes, desde emprendedores hasta grandes corporaciones.
-                </p>
-                <p class="about-description">
-                    Mi enfoque combina un profundo conocimiento legal con una estrategia personalizada para cada cliente. Creo firmemente en la comunicación transparente y en luchar incansablemente por los derechos de quienes confían en mí.
-                </p>
+            <div class="hero-visual">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1755010895/hero-img_g2jgdv.webp" alt="Diseño Web Moderno" class="hero-image">
                 
-                <ul class="about-features">
-                    <li>Graduada con honores de la Universidad de Buenos Aires</li>
-                    <li>Miembro activo del Colegio de Abogados de Buenos Aires</li>
-                    <li>Especialización en Derecho Corporativo Internacional</li>
-                    <li>Certificación en Mediación y Resolución de Conflictos</li>
-                    <li>Docente invitada en universidades prestigiosas</li>
-                </ul>
-
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="500" data-suffix="+">0+</div>
-                        <div class="stat-label">Casos Exitosos</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="15" data-suffix="+">0+</div>
-                        <div class="stat-label">Años Experiencia</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="98" data-suffix="%">0%</div>
-                        <div class="stat-label">Tasa de Éxito</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="awards">
-        <div class="awards-container">
-            <h2 class="awards-title">Premios & Reconocimientos</h2>
-            <div class="awards-grid">
-                <div class="award-badge">
-                    <div class="award-title">Mejor</div>
-                    <div class="award-title">Abogada</div>
-                    <div class="award-year">2023</div>
-                </div>
-                <div class="award-badge">
-                    <div class="award-title">Top 10</div>
-                    <div class="award-title">Nacional</div>
-                    <div class="award-year">2024</div>
-                </div>
-                <div class="award-badge">
-                    <div class="award-title">Excelencia</div>
-                    <div class="award-title">Legal</div>
-                    <div class="award-year">2023</div>
-                </div>
-                <div class="award-badge">
-                    <div class="award-title">Premio</div>
-                    <div class="award-title">Justicia</div>
-                    <div class="award-year">2025</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="practice-areas" id="areas">
-        <div class="section-header">
-            <div class="section-label">ÁREAS DE PRÁCTICA</div>
-            <h2 class="section-title">Servicios Legales Especializados</h2>
-        </div>
-        <div class="practice-grid">
-            <div class="practice-card">
-                <div class="practice-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 17L12 22L22 17" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 12L12 17L22 12" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h3>Derecho Corporativo</h3>
-                <p>Asesoramiento integral en constitución de sociedades, contratos comerciales y cumplimiento normativo empresarial.</p>
-            </div>
-            <div class="practice-card">
-                <div class="practice-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="3" y="3" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M3 9H21" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M9 21V9" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h3>Derecho Laboral</h3>
-                <p>Defensa especializada en conflictos laborales, despidos, negociaciones colectivas y asesoramiento a empresas.</p>
-            </div>
-            <div class="practice-card">
-                <div class="practice-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 17L12 22L22 17" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M2 12L12 17L22 12" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="12" cy="12" r="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h3>Propiedad Intelectual</h3>
-                <p>Protección de marcas, patentes, derechos de autor y defensa en casos de plagio o uso indebido.</p>
-            </div>
-            <div class="practice-card">
-                <div class="practice-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M14 2V8H20" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M16 13H8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M16 17H8" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M10 9H9H8" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h3>Fusiones y Adquisiciones</h3>
-                <p>Gestión completa de procesos de M&A, due diligence y reestructuración empresarial estratégica.</p>
-            </div>
-            <div class="practice-card">
-                <div class="practice-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 1V23" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h3>Derecho Tributario</h3>
-                <p>Planificación fiscal, defensa ante auditorías y resolución de controversias con organismos tributarios.</p>
-            </div>
-            <div class="practice-card">
-                <div class="practice-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 6V12L16 14" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h3>Resolución de Conflictos</h3>
-                <p>Mediación, arbitraje y litigación estratégica para resolver disputas de manera eficiente y favorable.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="gallery" id="galeria">
-        <div class="gallery-container">
-            <div class="section-header">
-                <div class="section-label">GALERÍA</div>
-                <h2 class="section-title">Nuestra Oficina y Equipo</h2>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747069431/right-4703943_1280_aawymh.jpg" alt="Oficina principal">
-                        <div class="gallery-overlay">
-                            <div class="gallery-content">
-                                <h3>Oficina Principal</h3>
-                                <p>Espacios modernos diseñados para la excelencia legal</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747765413/hombre-hero_ntatzg.jpg" alt="Sala de reuniones">
-                        <div class="gallery-overlay">
-                            <div class="gallery-content">
-                                <h3>Sala de Reuniones</h3>
-                                <p>Espacios privados para consultas confidenciales</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747765352/hammer-802301_1280_onp8i0.jpg" alt="Equipo de trabajo">
-                        <div class="gallery-overlay">
-                            <div class="gallery-content">
-                                <h3>Equipo de Trabajo</h3>
-                                <p>Profesionales comprometidos con tu caso</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747069431/man-5806011_1280_am1iuk.jpg" alt="Biblioteca legal">
-                        <div class="gallery-overlay">
-                            <div class="gallery-content">
-                                <h3>Biblioteca Legal</h3>
-                                <p>Recursos especializados para cada caso</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747069504/right-4944550_1280_pstflb.jpg" alt="Área de trabajo colaborativo">
-                        <div class="gallery-overlay">
-                            <div class="gallery-content">
-                                <h3>Área Colaborativa</h3>
-                                <p>Trabajo en equipo para mejores resultados</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747765342/bufe_zzr0ii.jpg" alt="Vista de oficinas">
-                        <div class="gallery-overlay">
-                            <div class="gallery-content">
-                                <h3>Vista de Oficinas</h3>
-                                <p>Ubicación estratégica en el corazón de Buenos Aires</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="section-header">
-            <div class="section-label">TESTIMONIOS</div>
-            <h2 class="section-title">Lo Que Dicen Mis Clientes</h2>
-        </div>
-        <div class="testimonials-slider">
-            <div class="testimonials-track" id="testimonialsTrack">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Excelente profesional. Me ayudó a resolver un conflicto laboral complejo en tiempo récord. Su dedicación y conocimiento son excepcionales. Totalmente recomendada."</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.pravatar.cc/80?img=1" alt="Cliente">
+                <div class="floating-element top-right">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="width: 12px; height: 12px; background: #00d984; border-radius: 50%;"></div>
                         <div>
-                            <h4>Carlos Martínez</h4>
-                            <p>Empresario</p>
+                            <div style="font-size: 0.9rem; font-weight: 600; color: #00d984;">100% Online</div>
+                            <div style="font-size: 0.8rem; color: #a1a1aa;">Disponible 24/7</div>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"La Dra. González manejó mi caso de divorcio con gran profesionalismo y empatía. Siempre estuvo disponible y me mantuvo informada en cada paso del proceso."</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.pravatar.cc/80?img=5" alt="Cliente">
-                        <div>
-                            <h4>Ana Rodríguez</h4>
-                            <p>Diseñadora</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Gracias a su asesoría, mi empresa pudo expandirse sin problemas legales. Su conocimiento en derecho corporativo es impresionante. La mejor inversión que hice."</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.pravatar.cc/80?img=12" alt="Cliente">
-                        <div>
-                            <h4>Roberto Silva</h4>
-                            <p>CEO Tech Solutions</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Protegió exitosamente mi propiedad intelectual y mi marca. Su estrategia fue impecable y los resultados superaron mis expectativas. Altamente profesional."</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.pravatar.cc/80?img=9" alt="Cliente">
-                        <div>
-                            <h4>Laura Fernández</h4>
-                            <p>Emprendedora</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Su experiencia en fusiones y adquisiciones fue clave para el éxito de nuestra operación. Atención al detalle excepcional y resultados sobresalientes."</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.pravatar.cc/80?img=7" alt="Cliente">
-                        <div>
-                            <h4>Miguel Ángel Torres</h4>
-                            <p>Director Financiero</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slider-controls">
-            <button class="slider-btn" id="prevBtn">←</button>
-            <button class="slider-btn" id="nextBtn">→</button>
-        </div>
-        <div class="slider-dots" id="sliderDots"></div>
-    </section>
 
-    <section class="faq" id="faq">
-        <div class="faq-container">
-            <div class="section-header">
-                <div class="section-label">FAQ</div>
-                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <div class="floating-element bottom-left">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="background: var(--gradient-primary); padding: 8px; border-radius: 8px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.9rem; font-weight: 600;">5.0 Estrellas</div>
+                            <div style="font-size: 0.8rem; color: #a1a1aa;">Clientes satisfechos</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Cuánto cuesta la primera consulta?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>La primera consulta es completamente gratuita y tiene una duración de 30 minutos. En esta reunión evaluaremos tu caso, te explicaré las opciones legales disponibles y te daré una estimación de costos sin ningún compromiso.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Cuánto tiempo toma resolver un caso?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>El tiempo varía según la complejidad del caso. Los casos simples pueden resolverse en 2-3 meses, mientras que litigios más complejos pueden tomar de 6 meses a 2 años. Durante la consulta inicial, te daré un estimado específico para tu situación.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Qué documentos necesito traer a la consulta?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Trae toda la documentación relevante: contratos, correos electrónicos, facturas, fotografías, documentos de identidad y cualquier evidencia relacionada con tu caso. Si no tienes algo, no te preocupes, podemos ayudarte a obtenerlo.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Ofrecen planes de pago flexibles?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Sí, entendemos que los servicios legales representan una inversión importante. Ofrecemos diversos planes de pago adaptados a tu situación financiera, incluyendo pagos mensuales y opciones de honorarios basados en resultados según el tipo de caso.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Manejan casos fuera de Buenos Aires?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Sí, manejamos casos en toda Argentina. Tenemos una red de colaboradores en diferentes provincias y también ofrecemos consultas virtuales para mayor comodidad de nuestros clientes que se encuentran fuera de Buenos Aires.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Qué tan rápido puedo agendar una cita?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Generalmente podemos agendar consultas en 24-48 horas. Para casos urgentes, hacemos nuestro mejor esfuerzo para atenderte el mismo día. Contáctanos por WhatsApp o teléfono para casos que requieran atención inmediata.</p>
-                    </div>
-                </div>
+			
+            <div class="custom-shape-divider-bottom-1757696437">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
             </div>
         </div>
     </section>
+	
+	<!-- Sección Acerca de Mí -->
+<section class="about-me-section" id="acercade">
+    <div class="about-me-container">
+        <div class="about-me-grid">
+            <div class="about-me-text">
+                <div class="about-me-subtitle">Acerca de mí</div>
+                <h2 class="about-me-title">¿Por qué elegir mis servicios?</h2>
+                
+                <div class="mission-box">
+                    <h3 class="mission-title">Misión:</h3>
+                    <p class="mission-text">
+                       <b> Facilito</b> a Profesionales, Pymes y Emprendimientos a potenciar su presencia online con Sitios web y Landing Pages Estratégicas. Complemento con Automatizaciones de Chatbot WhatsApp con IA. Atención 24/7.
+                    </p>
+                </div>
 
-<section class="cta" id="contacto">
-    <h2>¿Necesitas Asesoramiento Legal?</h2>
-    <p>Agenda una consulta gratuita y descubre cómo puedo ayudarte</p>
-    
-    <div style="text-align: center;">
-        <a href="https://wa.me/5491234567890?text=Hola!%20Quisiera%20agendar%20una%20consulta%20legal" class="btn-whatsapp" target="_blank">
-            Agendar Consulta
-            <svg viewBox="0 0 308 308" xmlns="http://www.w3.org/2000/svg" class="whatsapp-icon">
-                <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156
-                    c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687
-                    c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887
-                    c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153
-                    c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348
-                    c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802
-                    c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922
-                    c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0
-                    c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458
-                    C233.168,179.508,230.845,178.393,227.904,176.981z"/>
-                <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716
-                    c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396
-                    c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z
-                    M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188
-                    l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677
-                    c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867
-                    C276.546,215.678,222.799,268.994,156.734,268.994z"/>
-            </svg>
-        </a>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Diseños que Convierten</h4>
+                            <p>Cada elemento está pensado para guiar al usuario hacia la acción deseada</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Chatbots con IA 24/7</h4>
+                            <p>Automatización inteligente para atender a tus clientes las 24 horas</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0013 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Entrega Rápida</h4>
+                            <p>Landing pages en 7 días, sitios completos en máximo 14 días</p>
+                        </div>
+                    </div>
+                </div>
+				
+				
+            </div>
+			            <div class="about-me-image-wrapper">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1754963766/nosotros-leo_e2ql50_ez2i0u.webp" alt="Diseñador Web" class="about-me-image">
+                <div class="about-badge">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="background: var(--gradient-primary); padding: 8px; border-radius: 8px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.9rem; font-weight: 600;">Asesoramiento</div>
+                            <div style="font-size: 0.8rem; color: #a1a1aa;">Garantia Personalizada</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-main">
-                <div class="footer-about">
-                    <div class="footer-logo">ABOGADA</div>
-                    <p>
-                        Comprometida con la excelencia legal y la defensa de tus derechos. 
-                        Con más de 15 años de experiencia brindando soluciones jurídicas efectivas y personalizadas.
+	
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="section-header">
+            <div class="section-subtitle">Nuestros Servicios</div>
+            <h2 class="section-title">Servicios que potencia tu Presencia</h2>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828517/landingpage_lcquuq.png" alt="landingpage">
+                </div>
+                <h3 class="service-title">Landing Pages de Alto Impacto</h3>
+                <p class="service-description">
+                    Páginas optimizadas para conversión con diseño persuasivo, llamadas a la acción efectivas 
+                    y elementos que guían al usuario hacia la compra o contacto.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828533/sitios-web-corporativos_v1pztp.png" alt="corporativo">
+                </div>
+                <h3 class="service-title">Sitios Web Corporativos</h3>
+                <p class="service-description">
+                    Presencia profesional completa con estructura sólida, navegación intuitiva 
+                    y contenido estratégico que transmite confianza y autoridad en tu sector.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828632/velocidad_uvczb2.png" alt="velocidad">
+                </div>
+                <h3 class="service-title">Optimización de Velocidad</h3>
+                <p class="service-description">
+                    Sitios que cargan en menos de 3 segundos, optimizados para motores de búsqueda 
+                    y experiencia de usuario superior en todos los dispositivos.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828528/serguridad_afihac.png" alt="seguridad">
+                </div>
+                <h3 class="service-title">Seguridad & Mantenimiento</h3>
+                <p class="service-description">
+                    Protección completa con certificados SSL, respaldos automáticos, 
+                    actualizaciones regulares y monitoreo 24/7 para máxima tranquilidad.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758829210/integracion-whastapp_wedqof.png" alt="whatsapp">
+                </div>
+                <h3 class="service-title">Integración WhatsApp  Chatbot IA</h3>
+                <p class="service-description">
+                    Conecta directamente con tus clientes mediante botones estratégicos, 
+                    chatbots automatizados y formularios que envían consultas instantáneas.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758829184/responsive_er3nwf.png" alt="responsive">
+                </div>
+                <h3 class="service-title">Diseño Responsive</h3>
+                <p class="service-description">
+                    Adaptación perfecta a móviles, tablets y escritorio. El 70% de tus clientes 
+                    navegan desde celular, garantizamos una experiencia impecable.
+                </p>
+            </div>
+        </div>
+    </section>
+	
+    <!-- Socios Slider -->
+    <section>
+        <div class="socios-wrapper">
+            <div class="socios-slider">
+                <div class="socios-track">
+                    <!-- Logos originales -->
+                                      <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/codigo_p1ivbv.webp" alt="html5"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828225/whatsapp_scu3rh.webp" alt="chatgpt"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/manychat_jpd2vo.webp" alt="manychat"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/chatgtp_t49wgo.webp" alt="chatbot"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/google-maps_pb7deo.webp" alt="google maps"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828212/google-reviews_b0fdh3.webp" alt="google reviews"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828225/meta_rgfiiq.webp" alt="meta"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828212/google-analytics_jny4ff.webp" alt="google analytics"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828212/google-ads_g7qoru.webp" alt="google ads"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828219/crm_dnhle0.webp" alt="crm"></div>
+                
+                    <!-- Logos duplicados para el loop -->
+                                     <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/codigo_p1ivbv.webp" alt="html5"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828225/whatsapp_scu3rh.webp" alt="chatgpt"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/manychat_jpd2vo.webp" alt="manychat"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/chatgtp_t49wgo.webp" alt="chatbot"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828213/google-maps_pb7deo.webp" alt="google maps"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828212/google-reviews_b0fdh3.webp" alt="google reviews"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828225/meta_rgfiiq.webp" alt="meta"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828212/google-analytics_jny4ff.webp" alt="google analytics"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828212/google-ads_g7qoru.webp" alt="google ads"></div>
+                    <div class="socios-slide"><img src="https://res.cloudinary.com/dliredzt9/image/upload/v1758828219/crm_dnhle0.webp" alt="crm"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="stats-grid">
+            <div class="stat-card" data-delay="0">
+                <div class="stat-number" data-target="100" data-suffix="%">0%</div>
+                <div class="stat-label">Clientes Satisfechos</div>
+            </div>
+            <div class="stat-card" data-delay="200">
+                <div class="stat-number" data-target="7" data-suffix="">0</div>
+                <div class="stat-label">Días Promedio Entrega</div>
+            </div>
+            <div class="stat-card" data-delay="400">
+                <div class="stat-number" data-target="24" data-suffix="/7">0/7</div>
+                <div class="stat-label">Soporte Disponible</div>
+            </div>
+        </div>
+    </section>
+
+ 
+
+    <!-- Galería Section -->
+    <section class="services" id="portafolio">
+        <div class="section-header">
+            <div class="section-subtitle">Diseños</div>
+            <h2 class="section-title">Diseños que Impulsan tu Negocio</h2>
+            <p class="section-description">
+                Creamos experiencias digitales que conectan con tu audiencia y generan resultados reales. 
+                Cada proyecto está diseñado estratégicamente para maximizar conversiones.
+            </p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="img-galeri">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/barber02_h3bt02.webp" alt="baber-shop" width="500" height="600">
+                </div>
+                <h3 class="service-title">Barber Shop</h3>
+                <p class="service-description">
+                    Landing page moderna para barbería con sistema de reservas en línea y galería de trabajos.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="img-galeri">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585921/servicos_dvkkud.webp" alt="servicios" width="500" height="600">
+                </div>
+                <h3 class="service-title">Servicios Profesionales</h3>
+                <p class="service-description">
+                    Sitio web corporativo con diseño limpio y profesional para empresa de servicios.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="img-galeri">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585903/academia_okupjq.webp" alt="Academia" width="500" height="600">
+                </div>
+                <h3 class="service-title">Academia de Fitness</h3>
+                <p class="service-description">
+                    Landing page energética con sistema de membresías y horarios de clases integrado.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="img-galeri">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585904/construtora_exkn6l.webp" alt="Constructora" width="500" height="600">
+                </div>
+                <h3 class="service-title">Constructora</h3>
+                <p class="service-description">
+                    Sitio web robusto para empresa constructora con portafolio de proyectos y cotizaciones.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="img-galeri">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585921/seguranca_g20usz.webp" alt="Seguridad" width="500" height="600">
+                </div>
+                <h3 class="service-title">Empresa de Seguridad</h3>
+                <p class="service-description">
+                    Sitio web confiable y seguro para empresa de vigilancia y seguridad privada.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="img-galeri">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585905/estetica_lj0ctt.png" alt="Estética" width="500" height="600">
+                </div>
+                <h3 class="service-title">Centro de Estética</h3>
+                <p class="service-description">
+                    Landing page elegante para centro de belleza con sistema de citas y tratamientos.
+                </p>
+            </div>
+        </div>
+    </section>
+	
+	 <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <h2 class="testimonials-title">Lo que dicen nuestros clientes</h2>
+        
+        <div class="testimonials-wrapper">
+            <div class="testimonials-slider">
+                <!-- Primera serie de testimonios -->
+                <div class="testimonial-card">
+            
+                    <img src="https://randomuser.me/api/portraits/women/31.jpg" alt="María García" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "Increíble trabajo. Mi landing page aumentó las conversiones un 300%. El diseño es moderno y la integración con WhatsApp funciona perfecto."
                     </p>
-                    <div class="footer-social">
-                        <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
+                    <div class="testimonial-author">María García</div>
+                    <div class="testimonial-role">Coach de Vida</div>
+                </div>
+
+                <div class="testimonial-card">
+              
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Carlos Mendoza" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "Profesional y eficiente. Mi sitio corporativo transmite la seriedad que necesitaba. Los clientes ahora me ven como una empresa consolidada."
+                    </p>
+                    <div class="testimonial-author">Carlos Mendoza</div>
+                    <div class="testimonial-role">Consultor Financiero</div>
+                </div>
+
+                <div class="testimonial-card">
+             
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Ana Rodríguez" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "El mejor diseñador web que he contratado. Entendió perfectamente mi visión y la llevó a la realidad. Mi negocio creció un 200%."
+                    </p>
+                    <div class="testimonial-author">Ana Rodríguez</div>
+                    <div class="testimonial-role">Spa & Wellness</div>
+                </div>
+
+                <div class="testimonial-card">
+              
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Roberto Silva" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "Excelente servicio y soporte post-entrega. Mi sitio web carga súper rápido y se ve increíble en todos los dispositivos."
+                    </p>
+                    <div class="testimonial-author">Roberto Silva</div>
+                    <div class="testimonial-role">Arquitecto</div>
+                </div>
+
+                <!-- Segunda serie duplicada para loop infinito -->
+                <div class="testimonial-card">
+              
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b1c5?w=100&h=100&fit=crop&crop=face" alt="María García" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "Increíble trabajo. Mi landing page aumentó las conversiones un 300%. El diseño es moderno y la integración con WhatsApp funciona perfecto."
+                    </p>
+                    <div class="testimonial-author">María García</div>
+                    <div class="testimonial-role">Coach de Vida</div>
+                </div>
+
+                <div class="testimonial-card">
+              
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Carlos Mendoza" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "Profesional y eficiente. Mi sitio corporativo transmite la seriedad que necesitaba. Los clientes ahora me ven como una empresa consolidada."
+                    </p>
+                    <div class="testimonial-author">Carlos Mendoza</div>
+                    <div class="testimonial-role">Consultor Financiero</div>
+                </div>
+
+                <div class="testimonial-card">
+
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Ana Rodríguez" class="testimonial-avatar">
+                    <p class="testimonial-text">
+                        "El mejor diseñador web que he contratado. Entendió perfectamente mi visión y la llevó a la realidad. Mi negocio creció un 200%."
+                    </p>
+                    <div class="testimonial-author">Ana Rodríguez</div>
+                    <div class="testimonial-role">Spa & Wellness</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <h2 class="faq-title">Preguntas Frecuentes</h2>
+            
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFAQ(this)">
+                        ¿Cuánto tiempo toma desarrollar un sitio web?
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                             </svg>
-                        </a>
-                        <a href="https://facebook.com" class="social-link" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="https://instagram.com" class="social-link" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                        <a href="https://x.com" class="social-link" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
-                                <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
-                                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
-                            </svg>
-                        </a>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <p>El tiempo de desarrollo varía según la complejidad del proyecto. Una landing page simple puede estar lista en 5-7 días, mientras que un sitio web completo puede tomar entre 7-14 días. Siempre proporcionamos un cronograma detallado antes de comenzar.</p>
                     </div>
                 </div>
 
-                <div class="footer-column">
-                    <h3>Navegación</h3>
-                    <ul class="footer-links">
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#sobre-mi">Sobre Mí</a></li>
-                        <li><a href="#areas">Áreas de Práctica</a></li>
-                        <li><a href="#galeria">Galería</a></li>
-                        <li><a href="#faq">Preguntas Frecuentes</a></li>
-                    </ul>
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFAQ(this)">
+                        ¿Incluyen hosting y dominio?
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <p>Ofrecemos hosting y dominio gratuito por un año. Luego el dominio se renueva anual y una mensualidad minima de alojamiento web. Incluimos certificado SSL y respaldos automáticos.</p>
+                    </div>
                 </div>
 
-                <div class="footer-column">
-                    <h3>Servicios</h3>
-                    <ul class="footer-links">
-                        <li><a href="#areas">Derecho Corporativo</a></li>
-                        <li><a href="#areas">Derecho Laboral</a></li>
-                        <li><a href="#areas">Propiedad Intelectual</a></li>
-                        <li><a href="#areas">Fusiones & Adquisiciones</a></li>
-                        <li><a href="#areas">Derecho Tributario</a></li>
-                    </ul>
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFAQ(this)">
+                        ¿Los sitios son responsivos para móviles?
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <p>Absolutamente. Todos nuestros diseños son 100% responsivos y se adaptan perfectamente a móviles, tablets y escritorio. Considerando que el 70% del tráfico web es móvil, esta característica es fundamental en todos nuestros proyectos.</p>
+                    </div>
                 </div>
 
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <ul class="footer-contact-info">
-                        <li>
-                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFAQ(this)">
+                        ¿Ofrecen garantía en sus trabajos?
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                             </svg>
-                            <span>Av. Corrientes 1234, Piso 5<br>Buenos Aires, Argentina</span>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                            <span>+54 11 4567-8900</span>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                            <span>contacto@mariagonzalez.com</span>
-                        </li>
-                    </ul>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <p>Sí, ofrecemos garantía de 30 días en todos nuestros trabajos. Además, brindamos soporte técnico gratuito durante los primeros 3 meses para resolver cualquier inconveniente o hacer ajustes menores.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2025 Dra. María González. Todos los derechos reservados.</p>
-                <ul class="footer-legal">
-                    <li><a href="#privacidad">Política de Privacidad</a></li>
-                    <li><a href="#terminos">Términos y Condiciones</a></li>
-                    <li><a href="#cookies">Cookies</a></li>
-                </ul>
+                <div class="faq-item">
+                    <button class="faq-header" onclick="toggleFAQ(this)">
+                        ¿Puedo hacer cambios después de terminado el sitio?
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                            </svg>
+                        </div>
+                    </button>
+                    <div class="faq-content">
+                        <p>Por supuesto. Incluimos hasta 3 revisiones durante el desarrollo y después de la entrega ofrecemos paquetes de mantenimiento mensual para actualizaciones de contenido, cambios menores y mejoras continuas.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
-	
-  <a href="https://wa.me/5491234567890?text=Hola!%20Quisiera%20más%20información" 
-       class="whatsapp-float" 
-       target="_blank" 
-       aria-label="Contactar por WhatsApp"
-       id="whatsappBtn">
-        <span class="tooltip">¡Chatea con nosotros!</span>
-        <svg viewBox="0 0 308 308" xmlns="http://www.w3.org/2000/svg">
-            <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156
-                c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687
-                c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887
-                c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153
-                c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348
-                c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802
-                c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922
-                c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0
-                c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458
-                C233.168,179.508,230.845,178.393,227.904,176.981z"/>
-            <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716
-                c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396
-                c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z
-                M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188
-                l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677
-                c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867
-                C276.546,215.678,222.799,268.994,156.734,268.994z"/>
-        </svg>
-    </a>
-    <script>
-        // Mobile menu toggle
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navLinks = document.getElementById('navLinks');
+    </section>
 
-        mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileToggle.classList.toggle('active');
-        });
 
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileToggle.classList.remove('active');
-            });
-        });
+ 
 
-        // Header scroll effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = 80;
-                    const targetPosition = target.offsetTop - offset;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Animate cards on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '0';
-                    entry.target.style.transform = 'translateY(30px)';
-                    setTimeout(() => {
-                        entry.target.style.transition = 'all 0.6s ease';
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, 100);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.practice-card, .award-badge, .gallery-item').forEach(el => {
-            observer.observe(el);
-        });
-
-        // TESTIMONIALS SLIDER
-        const track = document.getElementById('testimonialsTrack');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const dotsContainer = document.getElementById('sliderDots');
+   <!-- CTA Section -->
+<section class="cta-section" id="contacto">
+    <div class="cta-content">
+        <div class="guarantee-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+            Garantía de Satisfacción 100%
+        </div>
         
-        let currentIndex = 0;
-        let autoplayInterval;
-        const totalCards = document.querySelectorAll('.testimonial-card').length;
-        let cardsPerView = window.innerWidth > 968 ? 3 : 1;
-        const maxIndex = totalCards - cardsPerView;
-
-        // Create dots
-        function createDots() {
-            dotsContainer.innerHTML = '';
-            for (let i = 0; i <= maxIndex; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('dot');
-                if (i === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(i));
-                dotsContainer.appendChild(dot);
-            }
-        }
-
-        // Update slider position
-        function updateSlider() {
-            const cardWidth = track.querySelector('.testimonial-card').offsetWidth;
-            const gap = 32; // 2rem gap
-            const offset = -(currentIndex * (cardWidth + gap));
-            track.style.transform = `translateX(${offset}px)`;
+        <h2 class="cta-title">¿Listo para Transformar tu Presencia Digital?</h2>
+        <p class="cta-description">
+            Comienza hoy mismo tu proyecto y obtén un diseño web que realmente genere resultados. 
+            Consultoría gratuita incluida.
+        </p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+          
+            <!-- Botón Cal.com -->
+<button 
+  class="btn-primary whatsapp-button cta-button"
+  data-cal-link="seremprende/30min"
+  data-cal-namespace="30min"
+  data-cal-config='{"layout":"month_view"}'
+  style="background: var(--gradient-primary); color: white; border: none; cursor: pointer;">
+  Agendar Consultoría Gratuita
+  <i class="fas fa-calendar-alt"></i>
+</button>
+<!-- Fin Cal.com -->
             
-            // Update dots
-            document.querySelectorAll('.dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
-        }
+        </div>
+        <div style="display: flex; justify-content: center; margin-top: 2rem; gap: 1rem;">
+            <img src="https://randomuser.me/api/portraits/women/31.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 3px solid var(--primary-orange);" alt="Cliente 1">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 3px solid var(--primary-orange); margin-left: -10px;" alt="Cliente 2">
+            <img src="https://randomuser.me/api/portraits/women/84.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 3px solid var(--primary-orange); margin-left: -10px;" alt="Cliente 3">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.9rem; margin-left: -10px;"><b>+</b></div>
+        </div>
+        <p style="color: var(--text-gray); margin-top: 1rem; font-size: 0.9rem;">
+           <b>Da el paso para tu presencia Profesional, Hoy!!</b>
+        </p>
+    </div>
+</section>
 
-        // Go to specific slide
-        function goToSlide(index) {
-            currentIndex = index;
-            updateSlider();
-            resetAutoplay();
-        }
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 SerEmprende - Diseño Web. Todos los derechos reservados.</p>
+            <p>Diseñado con ❤️ por <a href="https://seremprende.lat">SerEmprende</a></p>
+        </div>
+    </footer>
 
-        // Next slide
-        function nextSlide() {
-            currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
-            updateSlider();
-        }
+<script src="script/script.js"></script>
 
-        // Previous slide
-        function prevSlide() {
-            currentIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
-            updateSlider();
-        }
 
-        // Autoplay
-        function startAutoplay() {
-            autoplayInterval = setInterval(nextSlide, 4000);
-        }
 
-        function resetAutoplay() {
-            clearInterval(autoplayInterval);
-            startAutoplay();
-        }
-
-        // Event listeners
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetAutoplay();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            resetAutoplay();
-        });
-
-        // Pause autoplay on hover
-        track.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
-        track.addEventListener('mouseleave', startAutoplay);
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            const newCardsPerView = window.innerWidth > 968 ? 3 : 1;
-            if (newCardsPerView !== cardsPerView) {
-                cardsPerView = newCardsPerView;
-                currentIndex = 0;
-                createDots();
-                updateSlider();
-            }
-        });
-
-        // Initialize slider
-        createDots();
-        startAutoplay();
-
-        // FAQ ACCORDION
-        const faqItems = document.querySelectorAll('.faq-item');
-
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            
-            question.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                
-                // Close all items
-                faqItems.forEach(faqItem => {
-                    faqItem.classList.remove('active');
-                });
-                
-                // Open clicked item if it wasn't active
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-
-        // STATS COUNTER ANIMATION
-        function animateCounter(element, target, duration = 2000) {
-            const start = 0;
-            const increment = target / (duration / 16); // 60fps
-            let current = start;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target + (element.dataset.suffix || '');
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current) + (element.dataset.suffix || '');
-                }
-            }, 16);
-        }
-
-        // Observer for stats counter
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach(stat => {
-                        const target = parseInt(stat.dataset.target);
-                        animateCounter(stat, target);
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        // Observe stats section
-        const aboutStats = document.querySelector('.about-stats');
-        if (aboutStats) {
-            statsObserver.observe(aboutStats);
-        }
-		
-		// Icono whastapp
-		      // Efecto de entrada al cargar la página
-        window.addEventListener('load', function() {
-            const btn = document.getElementById('whatsappBtn');
-            btn.style.transform = 'scale(0)';
-            btn.style.opacity = '0';
-            
-            setTimeout(function() {
-                btn.style.transition = 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
-                btn.style.transform = 'scale(1)';
-                btn.style.opacity = '1';
-            }, 500);
-        });
-
-        // Efecto de shake al hacer click
-        document.getElementById('whatsappBtn').addEventListener('click', function(e) {
-            this.style.animation = 'none';
-            setTimeout(() => {
-                this.style.animation = 'pulse 2s infinite';
-            }, 10);
-        });
-
-        // Efecto adicional al scroll (opcional)
-        let lastScroll = 0;
-        window.addEventListener('scroll', function() {
-            const btn = document.getElementById('whatsappBtn');
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > lastScroll) {
-                btn.style.transform = 'scale(0.9)';
-            } else {
-                btn.style.transform = 'scale(1)';
-            }
-            
-            lastScroll = currentScroll;
-        });
-    </script>
 </body>
 </html>
