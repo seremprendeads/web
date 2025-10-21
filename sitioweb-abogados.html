@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de Éxito: Sitio Web para Abogados | SerEmprende</title>
+    <meta name="description" content="Descubre cómo desarrollamos un sitio web profesional para un estudio de abogados que transformó su presencia digital.">
+    
+    <!-- Evitar indexación en motores de búsqueda -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="googlebot-news" content="noindex, nofollow">
+    <meta name="bingbot" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #ff6b35;
+            --primary-purple: #8b5cf6;
+            --dark-bg: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text-white: #ffffff;
+            --text-gray: #a1a1aa;
+            --gradient-primary: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header-videoabogados {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-videoabogados {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-videoabogados {
+            height: 50px;
+            width: auto;
+        }
+
+        .back-btn-videoabogados {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 2px solid var(--primary-orange);
+            color: var(--primary-orange);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn-videoabogados:hover {
+            background: var(--primary-orange);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        .back-btn-videoabogados svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Main Content */
+        .video-section-videoabogados {
+            min-height: 100vh;
+            padding: 120px 2rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-container-videoabogados {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .video-header-videoabogados {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .video-badge-videoabogados {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .video-title-videoabogados {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .video-subtitle-videoabogados {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Video Wrapper */
+        .video-wrapper-videoabogados {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+            background: var(--card-bg);
+        }
+
+        .video-wrapper-videoabogados::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(20px);
+        }
+
+        .video-responsive-videoabogados {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-responsive-videoabogados iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Description */
+        .video-description-videoabogados {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .description-text-videoabogados {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .features-list-videoabogados {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .feature-item-videoabogados {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item-videoabogados:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon-videoabogados {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+        }
+
+        .feature-icon-videoabogados svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .feature-content-videoabogados h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+        }
+
+        .feature-content-videoabogados p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* CTA Button */
+        .cta-wrapper-videoabogados {
+            text-align: center;
+        }
+
+        .cta-btn-videoabogados {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 3rem;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn-videoabogados::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-btn-videoabogados:hover::before {
+            left: 100%;
+        }
+
+        .cta-btn-videoabogados:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+        }
+
+        .cta-btn-videoabogados svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Footer */
+        .footer-videoabogados {
+            background: var(--card-bg);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content-videoabogados {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-content-videoabogados a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-content-videoabogados a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .video-title-videoabogados {
+                font-size: 2rem;
+            }
+
+            .video-subtitle-videoabogados {
+                font-size: 1rem;
+            }
+
+            .video-section-videoabogados {
+                padding: 100px 1rem 2rem;
+            }
+
+            .features-list-videoabogados {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-btn-videoabogados {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .back-btn-videoabogados {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-videoabogados">
+        <nav class="nav-videoabogados">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744585978/logo-seremprende_egvn3o.png" alt="SerEmprende" class="logo-videoabogados">
+            <a href="index.html" class="back-btn-videoabogados">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                </svg>
+                Volver al Inicio
+            </a>
+        </nav>
+    </header>
+
+    <!-- Video Section -->
+    <section class="video-section-videoabogados">
+        <div class="video-container-videoabogados">
+            <div class="video-header-videoabogados">
+                <div class="video-badge-videoabogados">Caso de Éxito</div>
+                <h1 class="video-title-videoabogados">Cómo Desarrollamos un Sitio Web Profesional para Abogados</h1>
+                <p class="video-subtitle-videoabogados">
+                    Descubre el proceso completo de diseño y desarrollo que transformó la presencia digital 
+                    de un estudio de abogados, generando más clientes y confianza.
+                </p>
+            </div>
+
+            <!-- Video Embed -->
+            <div class="video-wrapper-videoabogados">
+                <div class="video-responsive-videoabogados">
+                    <!-- Reemplaza VIDEO_ID con el ID real de tu video de YouTube -->
+                    <iframe 
+                        src="https://www.youtube.com/embed/VIDEO_ID" 
+                        title="Desarrollo de Sitio Web para Abogados"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="video-description-videoabogados">
+                <p class="description-text-videoabogados">
+                    En este video te muestro paso a paso cómo creamos un sitio web moderno y profesional 
+                    para un estudio de abogados. Desde la estrategia inicial hasta el diseño final, 
+                    verás cómo cada elemento está pensado para generar confianza y convertir visitantes en clientes.
+                </p>
+
+
+                <div class="cta-wrapper-videoabogados">
+                    <a href="https://wa.me/5491130207987" target="_blank" rel="noopener noreferrer" class="cta-btn-videoabogados">
+                        Hablemos de tu Proyecto
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-videoabogados">
+        <div class="footer-content-videoabogados">
+            <p>&copy; 2025 SerEmprende - Diseño Web. Todos los derechos reservados.</p>
+            <p>Diseñado con ❤️ por <a href="https://seremprende.lat">SerEmprende</a></p>
+        </div>
+    </footer>
+</body>
+</html>
