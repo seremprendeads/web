@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis Trabajos | SerEmprende</title>
-	   <!-- Evitar indexación en motores de búsqueda -->
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="googlebot" content="noindex, nofollow">
-    <meta name="googlebot-news" content="noindex, nofollow">
-    <meta name="bingbot" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -46,14 +41,30 @@
         body::before {
             content: '';
             position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-            animation: pulse 15s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://res.cloudinary.com/dliredzt9/image/upload/v1748810646/fondo-roto_tjcetp.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             z-index: 0;
+            opacity: 0.3;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 107, 53, 0.15) 0%, transparent 20%),
+                        radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 20%);
+            z-index: 0;
+            pointer-events: none;
         }
 
         @keyframes pulse {
@@ -146,7 +157,7 @@
             padding: 1.25rem 2rem;
             background: var(--card-bg);
             border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
+            border-radius: 25px;
             color: var(--text-white);
             text-decoration: none;
             font-size: 1.1rem;
@@ -304,27 +315,37 @@
 
         <!-- Links Section -->
         <div class="links-section">
-            <a href="https://seremprende.com/sitioweb-abogados.html" class="link-btn" target="_blank" rel="noopener noreferrer">
+            <a href="https://seremprendeads.github.io/abogados2/" class="link-btn" target="_blank" rel="noopener noreferrer">
                 <span>Sitio Web para Abogados</span>
             </a>
 
-            <a href="https://seremprende.com/sitioweb-estudio-juridico.html" class="link-btn" target="_blank" rel="noopener noreferrer">
+            <a href="http://abogados.seremprende.com/" class="link-btn" target="_blank" rel="noopener noreferrer">
                 <span>Sitio Web para Estudio Juridico</span>
             </a>
 
-            <a href="https://seremprende.com/sitioweb-agente-inmobiliario.html" class="link-btn" target="_blank" rel="noopener noreferrer">
+            <a href="https://seremprendeads.github.io/agente-inmobiliario/" class="link-btn" target="_blank" rel="noopener noreferrer">
                 <span>Sitio Web para Agente Inmobiliario</span>
             </a>
 
-         
+            <a href="https://seremprendeads.github.io/spa-prueba/" class="link-btn" target="_blank" rel="noopener noreferrer">
+                <span>Sitio Web para Spa & Estetica</span>
+            </a>
+
+            <a href="https://seremprendeads.github.io/bartender/" class="link-btn" target="_blank" rel="noopener noreferrer">
+                <span>Sitios Web para Bartender</span>
+            </a>
+
             <a href="https://moldesa.com.ar/" class="link-btn" target="_blank" rel="noopener noreferrer">
                 <span>Sitios Web para Pymes</span>
             </a>
 			
-            <a href="https://seremprende.com/sitioweb-fotografo" class="link-btn" target="_blank" rel="noopener noreferrer">
+            <a href="https://seremprendeads.github.io/demo-pato/" class="link-btn" target="_blank" rel="noopener noreferrer">
                 <span>Sitios Web para Fotografos</span>
             </a>
-	
+			
+            <a href="https://seremprendeads.github.io/chulengo/" class="link-btn" target="_blank" rel="noopener noreferrer">
+                <span>Sitios Web para Banda de Rock</span>
+            </a>
         </div>
 
         <!-- Social Section -->
