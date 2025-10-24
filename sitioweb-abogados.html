@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Jurídico - Abogados Expertos</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #f59e0b;
+            --accent-color: #3b82f6;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --text-light: #6b7280;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header - Mejorado Responsive */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            min-height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .cta-button {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu - Mejorado */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: min(300px, 80vw);
+            height: 100vh;
+            background: var(--white);
+            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+            transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 1001;
+            padding: 80px 2rem 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mobile-menu ul li {
+            margin: 1.5rem 0;
+        }
+
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        .mobile-menu ul li a:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--secondary-color);
+            transform: translateX(10px);
+        }
+
+        .mobile-menu .mobile-cta {
+            margin-top: 2rem;
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1002;
+            position: relative;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark-color);
+            margin: 2px 0;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Hero Section - Totalmente Responsive */
+        .hero {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(0, 0, 0, 0.75) 50%);
+            padding: 120px 0 80px;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://res.cloudinary.com/dliredzt9/image/upload/v1747765342/bufe_zzr0ii.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            line-height: 1.2;
+            padding: 0 15rem;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.2s both;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease 0.4s both;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: 2px solid var(--white);
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .btn-primary:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* About Section - Completamente Responsive */
+        .about {
+            padding: clamp(60px, 10vw, 100px) 0;
+            background: var(--light-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-text h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .about-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            min-height: 300px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--secondary-color);
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-weight: 500;
+        }
+
+        /* Services Section - Responsive */
+        .services {
+            padding: clamp(60px, 10vw, 100px) 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-title p {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--light-color);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--secondary-color);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: clamp(2.5rem, 5vw, 3rem);
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        /* Team Section - Responsive */
+        .team {
+            padding: clamp(60px, 10vw, 100px) 0;
+            background: var(--light-color);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+        }
+
+        .team-member img,
+        .member-photo {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 4rem;
+        }
+
+        .member-info {
+            padding: 1.5rem;
+        }
+
+        .member-name {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .member-description {
+            color: var(--text-light);
+            font-size: clamp(0.85rem, 1.8vw, 0.9rem);
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section - Responsive */
+        .testimonials {
+            padding: clamp(60px, 10vw, 100px) 0;
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        .testimonials-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-item {
+            min-width: 100%;
+            padding: 2rem;
+            text-align: center;
+            background: var(--light-color);
+            border-radius: 16px;
+            margin: 0 1rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-content {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .author-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .author-info h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            font-size: clamp(0.95rem, 2vw, 1rem);
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+        }
+
+        /* FAQ Section - Responsive */
+        .faq {
+            padding: clamp(60px, 10vw, 100px) 0;
+            background: var(--light-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--light-color);
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: var(--light-color);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 1.5rem;
+        }
+
+        .faq-answer p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin: 0;
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+        }
+
+        /* Contact Section - Responsive */
+        .contact {
+            padding: clamp(60px, 10vw, 100px) 0;
+            background: var(--primary-color);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://res.cloudinary.com/dliredzt9/image/upload/v1747069431/right-4703925_1280_avj1xm.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .contact .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-top: 0.25rem;
+            min-width: 30px;
+        }
+
+        .contact-item span {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.9);
+            color: var(--dark-color);
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer - Responsive */
+        footer {
+            background: var(--dark-color);
+            color: var(--white);
+            padding: clamp(2rem, 5vw, 3rem) 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            text-align: center;
+            color: #6b7280;
+            font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries Específicas */
+        
+        /* Large Desktop */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1300px;
+            }
+        }
+
+        /* Tablet Large */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero::before {
+                background-attachment: scroll;
+            }
+
+            .about-content,
+            .contact-content {
+                gap: 3rem;
+            }
+        }
+
+        /* Tablet */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+       
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+                min-height: 90vh;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                padding: 0;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        /* Solo ocultar el botón del header en móviles */
+nav > .cta-button {
+    display: none;
+}
+        
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            .about-image {
+                order: -1;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .stat-item {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .testimonial-item {
+                padding: 1.5rem;
+                margin: 0 0.5rem;
+            }
+
+            .testimonial-author {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .faq-question {
+                padding: 1.25rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .faq-icon {
+                align-self: flex-end;
+                margin-top: -1.5rem;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            nav {
+                padding: 0.75rem 0;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .hero {
+                padding: 90px 0 50px;
+                min-height: 85vh;
+            }
+
+            .section-title {
+                margin-bottom: 2.5rem;
+            }
+
+            .about-image {
+                border-radius: 15px;
+                max-width: 100%;
+            }
+
+            .about-image img {
+                min-height: 200px;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+                border-radius: 12px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-member img,
+            .member-photo {
+                height: auto;
+            }
+
+            .testimonial-item {
+                padding: 1.25rem;
+                border-radius: 12px;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 360px) {
+            .mobile-menu {
+                width: 90vw;
+                padding: 70px 1.5rem 1.5rem;
+            }
+
+            .hero {
+                padding: 80px 0 40px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .service-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .stat-item {
+                padding: 1.25rem 1rem;
+            }
+
+            .testimonial-item {
+                padding: 1rem;
+                margin: 0 0.25rem;
+            }
+
+            .contact-form {
+                padding: 1.25rem;
+            }
+
+            .faq-question {
+                padding: 1rem;
+            }
+        }
+
+        /* Landscape Mobile */
+        @media (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
+            .hero {
+                min-height: 100vh;
+                padding: 70px 0 30px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        /* High DPI Displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .about-image img,
+            .team-member img {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            header, .mobile-menu, .hamburger {
+                display: none;
+            }
+
+            .hero {
+                background: none;
+                color: var(--dark-color);
+                padding: 20px 0;
+                min-height: auto;
+            }
+            
+            .about, .services, .team, .testimonials, .faq, .contact {
+                padding: 20px 0;
+                background: white !important;
+                color: var(--dark-color) !important;
+            }
+   
+        }
+
+        /* Accessibility Improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus Styles for Better Accessibility */
+        .nav-links a:focus,
+        .cta-button:focus,
+        .btn-primary:focus,
+        .btn-secondary:focus,
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .faq-question:focus {
+            outline: 3px solid var(--secondary-color);
+            outline-offset: 2px;
+        }
+
+        /* Loading States */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-balance-scale"></i> LexJuris
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="#contacto" class="cta-button">Consulta Gratuita</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="#contacto" class="cta-button mobile-cta">Consulta Gratuita</a>
+        </div>
+        
+        <!-- Overlay -->
+        <div class="overlay"></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Defendemos Tus Derechos con Excelencia</h1>
+            <p>Más de 15 años de experiencia brindando asesoría legal especializada. Tu tranquilidad es nuestra prioridad.</p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn-primary">Consulta Gratuita</a>
+                <a href="#servicios" class="btn-secondary">Nuestros Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>¿Por qué Elegir Nuestros Servicios?</h2>
+                    <p>Somos un estudio jurídico comprometido con la excelencia y la defensa integral de nuestros clientes. Contamos con un equipo multidisciplinario que abarca todas las ramas del derecho.</p>
+                    <p>Nuestra experiencia y dedicación nos ha permitido consolidarnos como referentes en el sector legal, ofreciendo soluciones efectivas y personalizadas para cada caso.</p>
+                    <a href="#equipo" class="cta-button">Conoce Nuestro Equipo</a>
+                </div>
+             
+                <div class="about-image">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759003523/nosotros_vopnis.webp" alt="Equipo Legal LexJuris" loading="lazy">
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Casos Exitosos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Años de Experiencia</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Atención Disponible</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Servicios que Potencian tu Tranquilidad</h2>
+                <p>Ofrecemos asesoría legal integral en múltiples áreas del derecho, adaptándonos a las necesidades específicas de cada cliente.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Derecho Corporativo</h3>
+                    <p>Asesoramiento integral para empresas, contratos comerciales, fusiones y adquisiciones, y cumplimiento normativo.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Derecho Inmobiliario</h3>
+                    <p>Compra, venta y alquiler de propiedades. Resolución de conflictos y regularización de documentos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Derecho Familiar</h3>
+                    <p>Divorcios, custodia de menores, pensiones alimentarias y todo lo relacionado con el ámbito familiar.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Derecho Penal</h3>
+                    <p>Defensa en procesos penales, representación legal y asesoría en investigaciones judiciales.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Mediación y Arbitraje</h3>
+                    <p>Resolución alternativa de conflictos, evitando procesos judiciales largos y costosos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Derecho Tributario</h3>
+                    <p>Asesoría en temas fiscales, planificación tributaria y representación ante autoridades fiscales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="equipo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestro Equipo de Expertos</h2>
+                <p>Profesionales altamente capacitados con amplia experiencia en sus respectivas áreas de especialización.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759019205/staff-1_ukjq5f.png" alt="Dr. Carlos Mendoza" loading="lazy">
+                    <div class="member-info">
+                        <div class="member-name">Dr. Carlos Mendoza</div>
+                        <div class="member-role">Socio Fundador</div>
+                        <div class="member-description">Especialista en Derecho Corporativo con más de 20 años de experiencia en grandes corporaciones.</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759019204/satff-2_umr5ui.png" alt="Dra. Ana Rodríguez" loading="lazy">
+                    <div class="member-info">
+                        <div class="member-name">Dra. Ana Rodríguez</div>
+                        <div class="member-role">Socia Senior</div>
+                        <div class="member-description">Experta en Derecho Familiar y Penal, reconocida por su dedicación y resultados excepcionales.</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759019205/satff-3_u3vstr.png" alt="Lic. Miguel Torres" loading="lazy">
+                    <div class="member-info">
+                        <div class="member-name">Lic. Miguel Torres</div>
+                        <div class="member-role">Abogado Asociado</div>
+                        <div class="member-description">Especializado en Derecho Inmobiliario y Tributario, con enfoque en soluciones innovadoras.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <p>La confianza de nuestros clientes es nuestro mayor logro. Conoce sus experiencias trabajando con nosotros.</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            "Excelente servicio profesional. Me ayudaron con un caso corporativo complejo y obtuvimos resultados excepcionales. Su dedicación y experiencia fueron fundamentales para el éxito."
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/31.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 3px solid var(--primary-orange);" alt="Cliente 1">
+                            <div class="author-info">
+                                <h4>María González</h4>
+                                <p>CEO, TechCorp Argentina</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            "El equipo de LexJuris me brindó tranquilidad en un momento difícil. Su enfoque humano y profesional en mi caso familiar fue exactamente lo que necesitaba. Altamente recomendados."
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 3px solid var(--primary-orange); margin-left: -10px;" alt="Cliente 2">
+                            <div class="author-info">
+                                <h4>Carlos Mendez</h4>
+                                <p>Contador Público</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            "Profesionales íntegros y comprometidos. Me asesoraron en la compra de mi primera propiedad y todo el proceso fue transparente y eficiente. Sin duda los volvería a elegir."
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/84.jpg" style="width: 50px; height: 50px; border-radius: 50%; border: 3px solid var(--primary-orange); margin-left: -10px;" alt="Cliente 3">
+                            <div class="author-info">
+                                <h4>Ana Rodríguez</h4>
+                                <p>Arquitecta</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Encuentra respuestas a las consultas más comunes sobre nuestros servicios legales.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Cuánto cuesta una consulta inicial?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Ofrecemos una consulta inicial gratuita de 30 minutos para evaluar tu caso y explicarte las opciones disponibles. Durante esta reunión, analizaremos tu situación sin compromiso.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿En qué áreas del derecho se especializan?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nos especializamos en Derecho Corporativo, Inmobiliario, Familiar, Penal, Tributario y ofrecemos servicios de Mediación y Arbitraje. Contamos con un equipo multidisciplinario para cubrir todas tus necesidades legales.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Cuánto tiempo demora un proceso legal?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Los tiempos varían según la complejidad del caso y el área legal involucrada. Durante la consulta inicial, te daremos una estimación realista basada en nuestra experiencia y las características específicas de tu situación.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Qué documentos necesito para mi consulta?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Recomendamos traer todos los documentos relacionados con tu caso: contratos, correspondencia, documentos de identidad, y cualquier material que consideres relevante. Esto nos permitirá brindarte un asesoramiento más preciso.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        ¿Ofrecen atención fuera del horario comercial?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sí, entendemos que las emergencias legales pueden ocurrir en cualquier momento. Ofrecemos atención de emergencia 24/7 para casos urgentes. Contáctanos y evaluaremos la situación inmediatamente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">¿Listo para Transformar tu Situación Legal?</h2>
+                <p style="color: rgba(255,255,255,0.8);">Contáctanos hoy mismo para una consulta gratuita. Estamos aquí para defender tus derechos.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Av. Corrientes 1234, CABA, Argentina</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+54 11 4567-8900</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@lexjuris.com.ar</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Lun - Vie: 9:00 - 18:00</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Describe tu consulta</label>
+                            <textarea id="mensaje" name="mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%;">Enviar Consulta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LexJuris</h3>
+                    <p>Tu estudio jurídico de confianza. Defendiendo tus derechos con excelencia y dedicación desde 2008.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Servicios</h3>
+                    <a href="#servicios">Derecho Corporativo</a>
+                    <a href="#servicios">Derecho Inmobiliario</a>
+                    <a href="#servicios">Derecho Familiar</a>
+                    <a href="#servicios">Derecho Penal</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>Av. Corrientes 1234, CABA</p>
+                    <p>+54 11 4567-8900</p>
+                    <p>info@lexjuris.com.ar</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Síguenos</h3>
+                    <a href="#" style="display: inline-block; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="display: inline-block; margin-right: 1rem;"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" style="display: inline-block; margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LexJuris. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+     <script>
+                 // Enhanced smooth scrolling with easing
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    closeMobileMenu();
+                }
+            });
+        });
+
+        // Enhanced header scroll effect with debouncing
+        let ticking = false;
+        
+        function updateHeader() {
+            const header = document.querySelector('header');
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(15px)';
+                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = '#ffffff';
+                header.style.backdropFilter = 'none';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        });
+
+        // Enhanced mobile menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const overlay = document.querySelector('.overlay');
+        const body = document.body;
+
+        function openMobileMenu() {
+            hamburger.classList.add('active');
+            mobileMenu.classList.add('active');
+            overlay.classList.add('active');
+            body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        overlay.addEventListener('click', closeMobileMenu);
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Enhanced form submission with animation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // Loading animation
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.style.opacity = '0.7';
+            submitBtn.disabled = true;
+            
+            // Simulate sending
+            setTimeout(() => {
+                submitBtn.textContent = '✓ Enviado';
+                submitBtn.style.background = '#10b981';
+                
+                setTimeout(() => {
+                    alert('¡Gracias por tu consulta! Nos pondremos en contacto contigo pronto.');
+                    this.reset();
+                    
+                    // Reset button
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.style.opacity = '1';
+                    submitBtn.disabled = false;
+                }, 1000);
+            }, 2000);
+        });
+
+        // Enhanced scroll animations with staggered effects
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, index * 100); // Staggered animation
+                }
+            });
+        }, observerOptions);
+
+        // Counter animation for stats
+        function animateCounter(element, target) {
+            const duration = 2000;
+            const start = performance.now();
+            const startValue = 0;
+
+            function updateCounter(currentTime) {
+                const elapsed = currentTime - start;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Easing function
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const currentValue = Math.floor(startValue + (target - startValue) * easeOutQuart);
+                
+                if (target === 500) {
+                    element.textContent = currentValue + '+';
+                } else if (target === 15) {
+                    element.textContent = currentValue;
+                } else {
+                    element.textContent = currentValue === 24 ? '24/7' : currentValue;
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                }
+            }
+
+            requestAnimationFrame(updateCounter);
+        }
+
+        // Stats counter observer
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumber = entry.target.querySelector('.stat-number');
+                    const text = statNumber.textContent;
+                    
+                    if (text.includes('500')) {
+                        animateCounter(statNumber, 500);
+                    } else if (text.includes('15')) {
+                        animateCounter(statNumber, 15);
+                    } else if (text.includes('24')) {
+                        animateCounter(statNumber, 24);
+                    }
+                    
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe stats
+        document.querySelectorAll('.stat-item').forEach(stat => {
+            statsObserver.observe(stat);
+        });
+
+        // Enhanced service card hover effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+                this.querySelector('.service-icon').style.transform = 'scale(1.2) rotate(5deg)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.querySelector('.service-icon').style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Team member card animations
+        document.querySelectorAll('.team-member').forEach((member, index) => {
+            member.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) rotateY(5deg)';
+                this.querySelector('.member-photo').style.transform = 'scale(1.1)';
+            });
+
+            member.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotateY(0deg)';
+                this.querySelector('.member-photo').style.transform = 'scale(1)';
+            });
+        });
+
+        // Typing effect for hero title
+        function typeWriter(element, text, speed = 100) {
+            element.textContent = '';
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Initialize typing effect when page loads
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero h1');
+            const originalText = heroTitle.textContent;
+            typeWriter(heroTitle, originalText, 80);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const hero = document.querySelector('.hero');
+                    const rate = scrolled * -0.5;
+                    
+                    hero.style.transform = `translateY(${rate}px)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observe service cards and team members with enhanced effects
+            document.querySelectorAll('.service-card, .team-member').forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(50px) scale(0.9)';
+                el.style.transition = 'all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1)';
+                observer.observe(el);
+            });
+
+            // Add floating animation to CTA buttons
+            document.querySelectorAll('.cta-button, .btn-primary').forEach(btn => {
+                btn.addEventListener('mouseover', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.05)';
+                    this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.2)';
+                });
+
+                btn.addEventListener('mouseout', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+
+        // Form field focus animations
+        document.querySelectorAll('.form-group input, .form-group textarea').forEach(field => {
+            field.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+                this.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)';
+            });
+
+            field.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Testimonials Slider
+        let currentTestimonial = 0;
+        const testimonialTrack = document.getElementById('testimonialTrack');
+        const dots = document.querySelectorAll('.dot');
+        const totalTestimonials = document.querySelectorAll('.testimonial-item').length;
+
+        function showTestimonial(index) {
+            // Update track position
+            testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update dots
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+            showTestimonial(currentTestimonial);
+        }
+
+        // Auto-play slider every 5 seconds
+        setInterval(nextTestimonial, 5000);
+
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentTestimonial = index;
+                showTestimonial(currentTestimonial);
+            });
+        });
+
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // If this item wasn't active, open it
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Enhanced testimonials section animation
+        const testimonialsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.3 });
+
+        // Initialize testimonials and FAQ animations
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate testimonials section
+            document.querySelectorAll('.testimonial-item, .faq-item').forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
+                testimonialsObserver.observe(el);
+            });
+        });       
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
