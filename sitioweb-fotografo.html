@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pat Smith - Fotografía Profesional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navegación */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.1);
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .btn-book {
+            padding: 0.7rem 1.8rem;
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+			border-radius:  10px;
+        }
+
+        .btn-book:hover {
+            background: #d4af37;
+            border-color: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://res.cloudinary.com/dliredzt9/image/upload/v1759612547/fondo-hero_izzi4j.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+			padding-top:100px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%);
+        }
+
+        .hero-content {
+            z-index: 10;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .hero h2 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    letter-spacing: 5px;
+}
+
+.hero h2 .bold {
+    font-weight: 700;
+}
+
+        .hero p {
+            max-width: 600px;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+           .btn-contact {
+            padding: 0.2rem 1rem;
+            background: #d4af37;
+            border: none;
+            color: #0a0a0a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+			border-radius: 10px;
+        }
+
+        .btn-contact::after {
+            content: '📸';
+            font-size: 1.5rem;
+			margin-bottom: 10px;
+        }
+
+        .btn-contact:hover {
+            background: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-contact:hover {
+            background: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Sobre Mí */
+        .about {
+            padding: 8rem 5%;
+            background: #0f0f0f;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: 3px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #d4af37;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 3px solid #d4af37;
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        .about-content {
+            flex: 1;
+            text-align: left;
+            line-height: 2;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #d4af37;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+
+        /* Portfolio/Galería */
+        .portfolio {
+            padding: 8rem 5%;
+            background: #0a0a0a;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 2rem;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.85rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #d4af37;
+            border-color: #d4af37;
+            color: #0a0a0a;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+         /* Call to Action */
+        .cta {
+            padding: 8rem 5%;
+               background: linear-gradient(rgb(212 175 55 / 0%), rgb(244 208 63 / 75%)), url(https://res.cloudinary.com/dliredzt9/image/upload/v1759612547/fondo-hero_izzi4j.png);
+            background-size: cover;
+            background-position: center center;
+            text-align: center;
+            color: #0a0a0a;
+            position: relative;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .cta h2,
+        .cta p,
+        .cta button {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .btn-cta {
+            padding: 1.2rem 3rem;
+            background: #0a0a0a;
+            border: none;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+			border-radius: 10px;
+        }
+
+        .btn-cta:hover {
+            background: #1a1a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* Redes Sociales */
+        .social {
+            padding: 6rem 5%;
+            background: #0f0f0f;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            border-color: #d4af37;
+            color: #d4af37;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            background: #0a0a0a;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Modal Galería */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: rgba(10, 10, 10, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .btn-book {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .about-image::before {
+                display: none;
+            }
+
+            .about-image img {
+                height: 400px;
+            }
+
+            .about-content {
+                text-align: center;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav>
+        <div class="logo-container">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759613531/pato_vw38dy.png" alt="Logo" class="logo-image">
+            <div class="logo">Pat Smith</div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Sobre Mí</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+        <button class="btn-book">BOOK NOW</button>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>¡HOLA!</h1>
+            <h2>SOY <span class="bold">Pat Smith</span></h2>
+            <p>Soy una fotógrafa freelance especializada en capturar momentos únicos y auténticos. Mi pasión es transformar ideas creativas en imágenes que cuenten historias. ¿Estás buscando ese fotógrafo perfecto para tu proyecto? ¡Yo soy esa fotógrafa!</p>
+            <button class="btn-contact" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                 CONTÁCTAME 
+            </button>
+        </div>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section class="about" id="about">
+        <h2 class="section-title">SOBRE MÍ</h2>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759612548/quien_soy_ruarod.png" alt="María García - Fotógrafa">
+            </div>
+            <div class="about-content">
+                <p>Con más de 10 años de experiencia en fotografía profesional, he tenido el privilegio de trabajar con clientes increíbles y capturar momentos inolvidables. Mi enfoque se centra en la autenticidad, la emoción y la belleza natural de cada escena.</p>
+                <p>Especializada en retratos, moda, bodas y fotografía artística, mi objetivo es crear imágenes que no solo documenten momentos, sino que cuenten historias que perduren para siempre.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Proyectos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10</span>
+                        <span class="stat-label">Años</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Presentaciones</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="section-title">PORTFOLIO</h2>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">TODO</button>
+            <button class="filter-btn" data-filter="portrait">RETRATOS</button>
+            <button class="filter-btn" data-filter="fashion">FASHION</button>
+            <button class="filter-btn" data-filter="wedding">EVENTOS</button>
+            <button class="filter-btn" data-filter="nature">URBANO</button>
+        </div>
+
+        <div class="gallery" id="gallery">
+            <!-- Las imágenes se generarán con JavaScript -->
+        </div>
+    </section>
+
+   <!-- Call to Action -->
+    <section class="cta" id="contact">
+        <h2>¿LISTO PARA CREAR ALGO INCREÍBLE?</h2>
+        <p>Trabajemos juntos en tu próximo proyecto fotográfico</p>
+        <button class="btn-cta" onclick="alert('¡Gracias! En un sitio real, esto abriría un formulario de contacto o mailto.')">CONTÁCTAME AHORA</button>
+    </section>
+
+   <!-- Redes Sociales -->
+    <section class="social">
+        <h2 class="section-title">SÍGUEME</h2>
+        <div class="social-links">
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 - Todos los derechos reservados.</p>
+        <p>Diseñado con ❤️ by seremprende.com</p>
+    </footer>
+
+    <!-- Modal para galería -->
+    <div class="modal" id="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImg" src="" alt="Imagen ampliada">
+        </div>
+    </div>
+
+    <script>
+// Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+// Cerrar menú al hacer clic en un enlace
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
+
+// Generar galería con imágenes placeholder
+const categories = ['portrait', 'portrait', 'fashion', 'wedding', 'nature', 'portrait', 'fashion', 'wedding', 'nature', 'fashion', 'portrait', 'nature', 'wedding', 'fashion', 'nature', 'portrait'];
+const gallery = document.getElementById('gallery');
+
+categories.forEach((cat, index) => {
+    const item = document.createElement('div');
+    item.className = `gallery-item ${cat}`;
+    item.innerHTML = `<img src="https://picsum.photos/400/400?random=${index}" alt="${cat}">`;
+    item.onclick = () => openModal(item.querySelector('img').src);
+    gallery.appendChild(item);
+});
+
+// Filtros de galería
+const filterBtns = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Actualizar botón activo
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        galleryItems.forEach(item => {
+            if (filter === 'all' || item.classList.contains(filter)) {
+                item.style.display = 'block';
+                setTimeout(() => item.style.opacity = '1', 10);
+            } else {
+                item.style.opacity = '0';
+                setTimeout(() => item.style.display = 'none', 300);
+            }
+        });
+    });
+});
+
+// Modal
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+
+function openModal(src) {
+    modal.style.display = 'flex';
+    modalImg.src = src;
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Cerrar modal al hacer clic fuera de la imagen
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+// Scroll suave
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+
+// ===== CONTADOR ANIMADO =====
+let counterHasAnimated = false;
+
+function animateCounter(element, target, duration = 2000) {
+    const hasPlus = element.textContent.includes('+');
+    element.textContent = '0' + (hasPlus ? '+' : '');
+    
+    const startTime = performance.now();
+    
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        const currentValue = Math.floor(progress * target);
+        element.textContent = currentValue + (hasPlus ? '+' : '');
+        
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+    
+    requestAnimationFrame(update);
+}
+
+function startCounterAnimation() {
+    if (counterHasAnimated) return;
+    
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (statNumbers.length === 0) return;
+    
+    counterHasAnimated = true;
+    
+    statNumbers.forEach((stat, index) => {
+        const text = stat.textContent.trim();
+        const number = parseInt(text.replace('+', ''));
+        
+        setTimeout(() => {
+            animateCounter(stat, number);
+        }, index * 150);
+    });
+}
+
+// Intersection Observer para el contador
+const aboutSection = document.querySelector('.about');
+if (aboutSection) {
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounterAnimation();
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px'
+    });
+    
+    counterObserver.observe(aboutSection);
+}
+
+// ===== ANIMACIONES GENERALES =====
+const animationObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInUp 1s ease forwards';
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+});
+
+document.querySelectorAll('.about, .portfolio, .cta, .social').forEach(section => {
+    animationObserver.observe(section);
+});
+    </script>
+</body>
+
+</html>
+
+
+
+
+
