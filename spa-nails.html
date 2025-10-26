@@ -1,0 +1,2451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Spa - Wellness & Beauty</title>
+	 <!-- Evitar indexación en motores de búsqueda -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="googlebot-news" content="noindex, nofollow">
+    <meta name="bingbot" content="noindex, nofollow">
+<style>
+/* ========================================
+   RESET Y ESTILOS GLOBALES
+======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    color: #5a5a5a;
+    background-color: #f5f1ed;
+    overflow-x: hidden;
+}
+
+/* ========================================
+   HEADER Y NAVEGACIÓN
+======================================== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(245, 241, 237, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-shrink: 0;
+    text-decoration: none;
+    color: #2c2c2c;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
+}
+
+.logo-text {
+    font-family: 'Georgia', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #8b7355;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #5a5a5a;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: #8b7355;
+}
+
+.header-icons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.icon-btn {
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+    width: 30px;
+    height: 24px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: #5a5a5a;
+    transition: all 0.3s;
+    position: absolute;
+    left: 0;
+}
+
+.menu-toggle span:nth-child(1) {
+    top: 0;
+}
+
+.menu-toggle span:nth-child(2) {
+    top: 11px;
+}
+
+.menu-toggle span:nth-child(3) {
+    top: 22px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    top: 11px;
+    transform: rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    top: 11px;
+    transform: rotate(-45deg);
+}
+
+/* ========================================
+   BOTONES
+======================================== */
+.submit-btn {
+    background: #249616;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    justify-content: center;
+	font-weight: bold;
+}
+
+.submit-btn:hover {
+    background: #6d5942;
+    transform: translateY(-2px);
+}
+
+.submit-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+    stroke: white;
+    stroke-width: 8;
+    flex-shrink: 0;
+}
+
+.submit-btn span {
+    line-height: 1;
+}
+
+.submit-hero-btn {
+    background: #ffffff;
+    color: #2d2a2a;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    align-items: center;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+.submit-hero-btn:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+}
+
+.submit-hero-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+.cta-button {
+    background: white;
+    color: #2c2c2c;
+    border: none;
+    padding: 1.2rem 3rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s;
+    opacity: 0;
+    animation: fadeInUp 1s forwards 0.9s;
+    font-weight: 600;
+}
+
+.cta-button:hover {
+    background: #8b7355;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.cta-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cta-secondary:hover {
+    background: white;
+    color: #2c2c2c;
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgb(255 255 255 / 0%), rgb(255 192 159 / 59%)),
+                url('https://res.cloudinary.com/dliredzt9/image/upload/v1761421860/beautician-5529805_640_g4p3x6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 80px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #f9f7f4;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-content {
+    text-align: center;
+    color: #2c2c2c;
+    z-index: 2;
+    padding: 0 5%;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeInUp 1s forwards 0.3s;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 1s forwards 0.5s;
+    color: #8b7355;
+}
+
+.hero-description {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeInUp 1s forwards 0.7s;
+    color: rgb(86 74 74 / 95%);
+    font-family: 'Georgia', serif;
+}
+
+.hero-services {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+/* ========================================
+   ABOUT SECTION
+======================================== */
+.about-section {
+    padding: 6rem 5%;
+    background: white;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image-main {
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                url('https://res.cloudinary.com/dliredzt9/image/upload/v1761423334/people-2583493_1280_s24kia.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    position: relative;
+}
+
+.about-stats {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.stat-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    text-align: center;
+    min-width: 140px;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: #8b7355;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    color: #6a6a6a;
+    line-height: 1.4;
+}
+
+.about-content {
+    padding-left: 2rem;
+}
+
+.about-text {
+    color: #6a6a6a;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.about-features {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.feature-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background: #f9f7f4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.feature-item h4 {
+    color: #2c2c2c;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.feature-item p {
+    color: #6a6a6a;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ========================================
+   WELLNESS/SERVICES SECTION
+======================================== */
+.wellness-section {
+    padding: 6rem 5%;
+    text-align: center;
+    background: linear-gradient(rgb(255 255 255 / 48%), rgb(255 255 255 / 34%)),
+                url('https://res.cloudinary.com/dliredzt9/image/upload/v1761421860/beautician-5529805_640_g4p3x6.jpg') center/cover no-repeat fixed;
+    position: relative;
+}
+
+.wellness-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #f9f7f4;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.section-subtitle {
+    color: #8b7355;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: #2c2c2c;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    font-family: 'Georgia', serif;
+    position: relative;
+    z-index: 2;
+}
+
+.wellness-description {
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    line-height: 1.9;
+    color: #2c2c2c;
+    font-size: 1.05rem;
+    position: relative;
+    z-index: 2;
+    font-family: 'Georgia', serif;
+    font-weight: 400;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.service-card {
+    text-align: center;
+    transition: transform 0.3s;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(10px);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: white;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}
+
+.service-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    border: 3px solid #e8e1d9;
+    transition: all 0.3s;
+    display: block;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service-card:hover .service-image {
+    border-color: #8b7355;
+    box-shadow: 0 8px 25px rgba(139, 115, 85, 0.3);
+    transform: scale(1.05);
+}
+
+.service-name {
+    font-size: 1.2rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'Georgia', serif;
+}
+
+.service-description {
+    color: #5a5a5a;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    font-family: 'Georgia', serif;
+}
+
+.service-price {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    color: #8b7355;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* ========================================
+   VIDEO SECTION
+======================================== */
+.video-section {
+    padding: 4rem 5%;
+    background: white;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.video-container {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 500px;
+    background: #000;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: white;
+}
+
+.play-button::after {
+    content: '▶';
+    font-size: 1.5rem;
+    color: #8b7355;
+    margin-left: 5px;
+}
+
+.video-container.playing .play-button {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.benefits-content h3 {
+    font-size: 2rem;
+    color: #2c2c2c;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.benefits-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f9f7f4;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.benefit-item:hover {
+    background: #f0ebe5;
+    transform: translateX(10px);
+}
+
+.benefit-icon {
+    width: 50px;
+    height: 50px;
+    background: #8b7355;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* ========================================
+   GALLERY SECTION
+======================================== */
+.gallery-section {
+    padding: 6rem 5%;
+    background: white;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.gallery-item {
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-large {
+    grid-column: span 2;
+}
+
+.gallery-wide {
+    grid-column: span 2;
+    height: 250px;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 2rem;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+    z-index: 2;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay span {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* ========================================
+   TESTIMONIALS SECTION
+======================================== */
+.testimonials-section {
+    padding: 6rem 5%;
+    background: #f9f7f4;
+}
+
+.testimonials-container {
+    max-width: 900px;
+    margin: 3rem auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.testimonials-wrapper {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    min-height: 300px;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    display: none;
+    animation: fadeInUp 0.5s;
+}
+
+.testimonial-card.active {
+    display: block;
+}
+
+.stars {
+    color: #d4af37;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #5a5a5a;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    background: #8b7355;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.testimonial-author strong {
+    display: block;
+    color: #2c2c2c;
+    margin-bottom: 0.3rem;
+}
+
+.testimonial-author p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.testimonial-nav {
+    background: white;
+    border: 2px solid #e8e1d9;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #8b7355;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.testimonial-nav:hover {
+    background: #8b7355;
+    color: white;
+    border-color: #8b7355;
+}
+
+.testimonial-dots {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #d4c8ba;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: #8b7355;
+    width: 30px;
+    border-radius: 6px;
+}
+
+/* ========================================
+   FAQ SECTION
+======================================== */
+.faq-section {
+    padding: 6rem 5%;
+    background: white;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 3rem auto;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    border: 1px solid #e8e1d9;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.faq-item:hover {
+    border-color: #8b7355;
+}
+
+.faq-question {
+    padding: 1.5rem;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: #2c2c2c;
+    transition: all 0.3s;
+}
+
+.faq-question:hover {
+    background: #f9f7f4;
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    color: #8b7355;
+    transition: transform 0.3s;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #f9f7f4;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+}
+
+.faq-answer p {
+    padding: 1.5rem;
+    line-height: 1.8;
+    color: #6a6a6a;
+}
+
+/* ========================================
+   CONTACT SECTION
+======================================== */
+.contact-section {
+    padding: 6rem 5%;
+    background: linear-gradient(rgb(255 255 255 / 48%), rgb(255 255 255 / 34%)),
+                url('https://res.cloudinary.com/dliredzt9/image/upload/v1761421860/beautician-5529805_640_g4p3x6.jpg') center/cover no-repeat fixed;
+    position: relative;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #f9f7f4;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 3rem auto;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+.contact-info > p {
+    color: #6a6a6a;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.contact-details {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(139, 115, 85, 0.3);
+}
+
+.contact-item strong {
+    display: block;
+    color: #2c2c2c;
+    margin-bottom: 0.3rem;
+}
+
+.contact-item p {
+    color: #6a6a6a;
+    font-size: 0.95rem;
+}
+
+  .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-gold);
+            border-color: var(--primary-gold);
+            color: var(--dark-navy);
+            transform: translateY(-3px);
+        }
+
+.contact-form-wrapper {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+    backdrop-filter: blur(10px);
+}
+
+.contact-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e8e1d9;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #8b7355;
+    box-shadow: 0 0 0 4px rgba(139, 115, 85, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+.footer-cta {
+    background: #2c2c2c;
+    color: white;
+    padding: 3rem 5%;
+    text-align: center;
+}
+
+.footer-p {
+    padding-left: 90px;
+}
+
+.footer-cta h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer {
+    background: #2c2c2c;
+    color: white;
+    padding: 4rem 5% 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-column h4 {
+    color: #8b7355;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.footer-column p {
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-column ul li a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #8b7355;
+}
+
+.footer-logo {
+    margin-bottom: 1.5rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-bottom p {
+    color: #aaa;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #8b7355;
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   MEDIA QUERIES - RESPONSIVE
+======================================== */
+
+/* Tablets y dispositivos medianos */
+@media (max-width: 1024px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile y dispositivos pequeños */
+@media (max-width: 768px) {
+    /* Header */
+    header {
+        padding: 0.5rem 3%;
+    }
+    
+    .logo img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    nav {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(245, 241, 237, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+    }
+    
+    nav.active {
+        left: 0;
+    }
+    
+    .header-icons {
+        gap: 1rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+        height: 100vh;
+        margin-top: 70px;
+        background-attachment: scroll;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        padding: 0 1.5rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+    
+    .hero-services {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 2rem;
+    }
+
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 0.95rem;
+    }
+    
+    /* About Section */
+    .about-section {
+        padding: 4rem 5%;
+    }
+    
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-content {
+        padding-left: 0;
+        margin-top: 3rem;
+    }
+
+    .about-stats {
+        position: static;
+        margin-top: 2rem;
+    }
+    
+    /* Wellness Section */
+    .wellness-section {
+        padding: 4rem 5%;
+        background-attachment: scroll;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+    
+    .wellness-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .service-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    /* Video Section */
+    .video-section {
+        padding: 3rem 5%;
+    }
+    
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .video-container {
+        height: 350px;
+    }
+    
+    /* Gallery Section */
+    .gallery-section {
+        padding: 4rem 5%;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .gallery-large,
+    .gallery-wide {
+        grid-column: span 1;
+    }
+    
+    .gallery-item {
+        height: 250px;
+    }
+    
+    /* Testimonials Section */
+    .testimonials-section {
+        padding: 4rem 5%;
+    }
+    
+    .testimonials-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .testimonial-nav {
+        display: none;
+    }
+    
+    .testimonial-card {
+        padding: 2rem;
+    }
+    
+    /* FAQ Section */
+    .faq-section {
+        padding: 4rem 5%;
+    }
+    
+    .faq-question {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .faq-answer p {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+        padding: 4rem 5%;
+        background-attachment: scroll;
+    }
+    
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contact-form-wrapper {
+        padding: 2rem;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 3rem 5% 1.5rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .footer-cta {
+        padding: 2rem 5%;
+    }
+    
+    .footer-cta h3 {
+        font-size: 1.5rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+	
+}
+
+/* Dispositivos muy pequeños */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.8rem;
+    }
+    
+    .service-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .stat-item {
+        padding: 1.5rem;
+        min-width: 120px;
+    }
+    
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+    
+    .contact-form-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+    
+    .submit-btn {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .logo-text {
+        font-size: 1rem;
+    }
+}
+
+/* Landscape móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 6rem 5% 4rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1400px) {
+    .about-container,
+    .contact-container {
+        max-width: 1400px;
+    }
+    
+    .section-title {
+        font-size: 3.2rem;
+    }
+    
+    .hero h1 {
+        font-size: 4.5rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4rem;
+    }
+}
+
+
+/* Print styles */
+@media print {
+    header,
+    .menu-toggle,
+    .hero,
+    .footer-cta,
+    .video-section,
+    .testimonials-section,
+    .social-links {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .service-card,
+    .contact-form-wrapper {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+	
+
+}
+</style>
+</head>
+<body>
+    <!-- Header -->
+  <header id="header">
+    <div class="logo">
+        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761430413/ai-generated-8357451_1280_oyphnu-removebg-preview_1_ucw8wn.png" alt="Serenity Nails">
+        <span class="logo-text">Serenity Nails</span>
+    </div>
+    
+    <nav id="nav">
+        <a href="#home">Inicio</a>
+        <a href="#about">Nosotros</a>
+        <a href="#services">Servicios</a>
+        <a href="#gallery">Galería</a>
+        <a href="#testimonials">Testimonios</a>
+        <button type="submit" class="submit-btn">
+            <span>Reservar Turno</span>
+            <svg viewBox="0 0 308 308" xmlns="http://www.w3.org/2000/svg">
+                <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156
+                    c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687
+                    c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887
+                    c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153
+                    c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348
+                    c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802
+                    c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922
+                    c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0
+                    c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458
+                    C233.168,179.508,230.845,178.393,227.904,176.981z"/>
+                <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716
+                    c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396
+                    c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z
+                    M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188
+                    l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677
+                    c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867
+                    C276.546,215.678,222.799,268.994,156.734,268.994z"/>
+            </svg>
+        </button>
+    </nav>
+    
+    <div class="header-icons">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Spa de Uñas & Belleza</h1>
+        <p class="hero-subtitle">Manos Perfectas, Estilo que Inspira</p>
+        <p class="hero-description">
+            Vive la experiencia de un cuidado excepcional para tus uñas. Nuestros expertos en manicura 
+            y pedicura combinan técnica, arte y bienestar para resaltar tu belleza natural en un ambiente 
+            relajante y sofisticado.
+        </p>
+        
+        <div class="hero-services">
+            <button class="submit-hero-btn">
+                Reservar Turno
+            </button>
+        </div>
+    </div>
+</section>
+
+
+   <!-- About Us Section -->
+<section class="about-section" id="nosotros">
+    <div class="about-container">
+        <div class="about-image">
+            <div class="about-image-main"></div>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <h3 class="counter" data-target="500">0</h3>
+                    <p>Clientes Satisfechos</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="15">0</h3>
+                    <p>Años de Experiencia</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-content">
+            <p class="section-subtitle">Conoce Nuestra Historia</p>
+            <h2 class="section-title" style="text-align: left;">Tu Espacio de Cuidado y Belleza para Uñas</h2>
+            <p class="about-text">
+                En <strong>Serenity Nails Spa</strong> nos apasiona realzar la belleza natural de tus manos y pies. 
+                Desde nuestros inicios, nos hemos enfocado en ofrecer experiencias únicas de manicura y pedicura 
+                donde el detalle, la técnica y la relajación se fusionan para brindarte resultados impecables.
+            </p>
+            <p class="about-text">
+                Contamos con un equipo de especialistas en cuidado de uñas, altamente capacitados y dedicados 
+                a proporcionarte un servicio personalizado. Utilizamos productos de primera calidad y técnicas 
+                modernas que garantizan durabilidad, salud y un acabado perfecto en cada visita.
+            </p>
+            
+            <div class="about-features">
+                <div class="feature-item">
+                    <div class="feature-icon">💅</div>
+                    <div>
+                        <h4>Expertos en Uñas</h4>
+                        <p>Profesionales especializados en manicura, pedicura y nail art.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🌸</div>
+                    <div>
+                        <h4>Productos de Alta Calidad</h4>
+                        <p>Trabajamos con marcas reconocidas que cuidan y fortalecen tus uñas.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🕯️</div>
+                    <div>
+                        <h4>Ambiente Relajante</h4>
+                        <p>Un espacio diseñado para que cada servicio sea una experiencia de bienestar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Spa de Uñas Section -->
+<section class="wellness-section" id="servicios">
+    <p class="section-subtitle">Descubre Nuestros Servicios</p>
+    <h2 class="section-title">Cuidado Profesional para Tus Uñas</h2>
+   
+    <div class="services-grid">
+        <div class="service-card">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761424794/Manicura-Tradicional-1-e1605979349773_yp7fzh.jpg" alt="Manicure Tradicional" class="service-image">
+            <h3 class="service-name">Manicure Tradicional</h3>
+            <p class="service-description">
+                Limpieza, limado, retiro de cutícula y esmaltado clásico para unas manos suaves y elegantes.
+            </p>
+            <div class="service-price">
+                <span>Duración | 45 min</span>
+                <span>Desde | $25</span>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761424950/images_1_nro3xt.jpg" alt="Pedicure Spa" class="service-image">
+            <h3 class="service-name">Pedicure Spa</h3>
+            <p class="service-description">
+                Exfoliación, hidratación y masaje relajante que revitalizan tus pies y uñas.
+            </p>
+            <div class="service-price">
+                <span>Duración | 60 min</span>
+                <span>Desde | $35</span>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761425006/YWISY2SSR5FL7NLTOT4N5B3WFE_jxzpcc.jpg" alt="Manicure con Gel" class="service-image">
+            <h3 class="service-name">Manicure con Gel</h3>
+            <p class="service-description">
+                Esmaltado semipermanente con brillo intenso y duración de hasta 3 semanas.
+            </p>
+            <div class="service-price">
+                <span>Duración | 60 min</span>
+                <span>Desde | $30</span>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761425050/images_2_ibqftx.jpg" alt="Tratamiento de Parafina" class="service-image">
+            <h3 class="service-name">Tratamiento de Parafina</h3>
+            <p class="service-description">
+                Hidratación profunda con cera tibia que deja la piel suave y rejuvenecida.
+            </p>
+            <div class="service-price">
+                <span>Duración | 30 min</span>
+                <span>Desde | $20</span>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761423343/nail-art-2154665_1280_yn9kcw.jpg" alt="Decoración de Uñas" class="service-image">
+            <h3 class="service-name">Decoración de Uñas</h3>
+            <p class="service-description">
+                Diseños personalizados con esmaltes, piedras y arte único para cada estilo.
+            </p>
+            <div class="service-price">
+                <span>Duración | Según diseño</span>
+                <span>Desde | $15</span>
+            </div>
+        </div>
+        
+        <div class="service-card">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761423336/hand-3161974_1280_j3mcc0.jpg" alt="Uñas Acrílicas o de Gel" class="service-image">
+            <h3 class="service-name">Uñas Acrílicas o de Gel</h3>
+            <p class="service-description">
+                Extensiones resistentes y con acabado profesional para unas uñas perfectas por más tiempo.
+            </p>
+            <div class="service-price">
+                <span>Duración | 90 min</span>
+                <span>Desde | $50</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+ <!-- Video & Benefits Section -->
+<section class="video-section" id="benefits">
+    <div class="video-grid">
+        <div class="video-container" id="videoContainer">
+            <video id="benefitsVideo" loop muted playsinline>
+                <source src="https://res.cloudinary.com/dliredzt9/video/upload/v1761425429/3997849-uhd_2160_4096_25fps_yjlo7v.mp4" type="video/mp4">
+                Tu navegador no soporta video HTML5.
+            </video>
+            <div class="play-button" id="playButton"></div>
+        </div>
+        
+        <div class="benefits-content">
+            <p class="section-subtitle">Nuestros Beneficios</p>
+            <h3>Belleza y Cuidado Profesional</h3>
+            
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div>
+                        <strong>Productos Premium</strong>
+                        <p style="color: #888; font-size: 0.9rem; margin-top: 0.3rem;">
+                            Esmaltes y tratamientos de marcas reconocidas internacionalmente
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div>
+                        <strong>Higiene Impecable</strong>
+                        <p style="color: #888; font-size: 0.9rem; margin-top: 0.3rem;">
+                            Esterilización de herramientas y protocolos de limpieza estrictos
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div>
+                        <strong>Especialistas en Nail Art</strong>
+                        <p style="color: #888; font-size: 0.9rem; margin-top: 0.3rem;">
+                            Diseñadoras expertas en las últimas tendencias y técnicas
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div>
+                        <strong>Resultados Duraderos</strong>
+                        <p style="color: #888; font-size: 0.9rem; margin-top: 0.3rem;">
+                            Técnicas profesionales que garantizan manicures perfectos por semanas
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery-section" id="gallery">
+    <p class="section-subtitle">Nuestras Instalaciones</p>
+    <h2 class="section-title">Galería</h2>
+    
+    <div class="gallery-grid">
+        <div class="gallery-item gallery-large">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761421858/nail-art-5653459_1280_jekcsq.jpg" alt="Sala de Masajes">
+            <div class="gallery-overlay">
+                <span>Sala de Masajes</span>
+				<p>Colocar texto acá...</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761423893/roses-2171193_1280_1_smywrv.jpg" alt="Área de Relajación">
+            <div class="gallery-overlay">
+                <span>Área de Relajación</span>
+				<p>Colocar texto acá...</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761423861/nail-polish-1677561_1280_im6fqv.jpg" alt="Manicura Premium">
+            <div class="gallery-overlay">
+                <span>Manicura Premium</span>
+            </div>
+        </div>
+        
+        <div class="gallery-item">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761423343/nail-art-2154665_1280_yn9kcw.jpg" alt="Tratamientos Faciales">
+            <div class="gallery-overlay">
+                <span>Tratamientos Faciales</span>
+				<p>Colocar texto acá...</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761423341/nail-art-5653458_1280_owov9s.jpg" alt="Spa Privado">
+            <div class="gallery-overlay">
+                <span>Spa Privado</span>
+				<p>Colocar texto acá...</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item gallery-wide">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761423336/hand-3161974_1280_j3mcc0.jpg" alt="Tratamiento de Manos">
+            <div class="gallery-overlay">
+                <span>Tratamiento de Manos</span>
+				<p>Colocar texto acá...</p>
+            </div>
+        </div>
+        
+        <div class="gallery-item">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761423339/hand-221630_1280_y8p0v3.jpg" alt="Pedicura de Lujo">
+            <div class="gallery-overlay">
+                <span>Pedicura de Lujo</span>
+				<p>Colocar texto acá...</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <p class="section-subtitle" style="text-align: center;">Lo Que Dicen Nuestros Clientes</p>
+        <h2 class="section-title" style="text-align: center;">Testimonios</h2>
+        
+        <div class="testimonials-container">
+            <button class="testimonial-nav prev" onclick="changeTestimonial(-1)">‹</button>
+            
+            <div class="testimonials-wrapper">
+                <div class="testimonial-card active">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Una experiencia increíble. El masaje fue exactamente lo que necesitaba después de 
+                        semanas de estrés. El ambiente es hermoso y el personal muy profesional."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div>
+                            <strong>María González</strong>
+                            <p>Cliente Frecuente</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Mi esposa y yo fuimos para el masaje en pareja y fue maravilloso. 
+                        La atención al detalle y la calidad del servicio superaron nuestras expectativas."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <div>
+                            <strong>Carlos Rodríguez</strong>
+                            <p>Cliente Satisfecho</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">
+                        "Los tratamientos faciales son espectaculares. Mi piel nunca se había visto mejor. 
+                        Definitivamente volveré cada mes."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div>
+                            <strong>Ana Martínez</strong>
+                            <p>Cliente VIP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="testimonial-nav next" onclick="changeTestimonial(1)">›</button>
+        </div>
+        
+        <div class="testimonial-dots">
+            <span class="dot active" onclick="setTestimonial(0)"></span>
+            <span class="dot" onclick="setTestimonial(1)"></span>
+            <span class="dot" onclick="setTestimonial(2)"></span>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <p class="section-subtitle" style="text-align: center;">Preguntas Comunes</p>
+        <h2 class="section-title" style="text-align: center;">Preguntas Frecuentes</h2>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>¿Necesito reservar con anticipación?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, recomendamos reservar con al menos 24 horas de anticipación para garantizar disponibilidad. 
+                    Para tratamientos especiales o sesiones en pareja, sugerimos reservar con 48-72 horas de anticipación.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>¿Qué debo llevar a mi cita?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No necesitas llevar nada. Proporcionamos batas, toallas, pantuflas y todos los productos 
+                    necesarios. Solo trae ganas de relajarte y disfrutar.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>¿Cuánto tiempo dura cada tratamiento?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Los tratamientos varían desde 45 minutos hasta 90 minutos, dependiendo del servicio elegido. 
+                    Te recomendamos llegar 15 minutos antes para completar el registro y comenzar a relajarte.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>¿Tienen paquetes especiales o promociones?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, ofrecemos paquetes mensuales, descuentos para grupos, y promociones especiales 
+                    en fechas festivas. Contáctanos por WhatsApp para conocer las ofertas actuales.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>¿Cuál es la política de cancelación?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Puedes cancelar o reprogramar tu cita sin cargo hasta 24 horas antes. Cancelaciones con 
+                    menos de 24 horas de anticipación están sujetas a un cargo del 50% del servicio.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>¿Aceptan tarjetas de crédito?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Aceptamos efectivo, tarjetas de crédito y débito (Visa, Mastercard, American Express), 
+                    y transferencias bancarias. El pago se realiza después del servicio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <p class="section-subtitle">Contáctanos</p>
+        <h2 class="section-title">Reserva Tu Cita</h2>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <p>Estamos aquí para ayudarte a encontrar la paz y relajación que mereces.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div>📍</div>
+                        <div>
+                            <strong>Dirección</strong>
+                            <p>Av. Principal 123, Buenos Aires<br>Argentina</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div>📞</div>
+                        <div>
+                            <strong>Teléfono</strong>
+                            <p>+54 11 1234-5678</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div>📧</div>
+                        <div>
+                            <strong>Email</strong>
+                            <p>info@serenityspa.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div>🕐</div>
+                        <div>
+                            <strong>Horario</strong>
+                            <p>Lun - Vie: 9:00 - 20:00<br>Sáb - Dom: 10:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+
+          
+				
+		   <div class="footer-social">
+                        <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://facebook.com" class="social-link" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com" class="social-link" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="https://x.com" class="social-link" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
+                                <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+                                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+            </div>
+
+            <div class="contact-form-wrapper">
+                <form class="contact-form" onsubmit="sendWhatsApp(event)">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Nombre Completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Teléfono" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <select id="service" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="Body Wraps">Body Wraps</option>
+                            <option value="Foot Massage">Foot Massage</option>
+                            <option value="Lymphatic Therapy">Lymphatic Therapy</option>
+                            <option value="Ayurvedic Massage">Ayurvedic Massage</option>
+                            <option value="Couple Massage">Masaje en Pareja</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="message" rows="4" placeholder="Mensaje (opcional)"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span>Reservar Turno</span>
+						<svg viewBox="0 0 308 308" xmlns="http://www.w3.org/2000/svg">
+            <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156
+                c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687
+                c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887
+                c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153
+                c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348
+                c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802
+                c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922
+                c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0
+                c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458
+                C233.168,179.508,230.845,178.393,227.904,176.981z"/>
+            <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716
+                c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396
+                c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z
+                M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188
+                l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677
+                c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867
+                C276.546,215.678,222.799,268.994,156.734,268.994z"/>
+        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                   <div class="logo">
+        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1761430413/ai-generated-8357451_1280_oyphnu-removebg-preview_1_ucw8wn.png" alt="Serenity Nails">
+        <span class="logo-text">Serenity Nails</span>
+		
+    </div>
+                <p class="footer-p">Tu santuario de paz y bienestar. Dedicados a tu salud física y mental desde 2020.</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#gallery">Galería</a></li>
+                    <li><a href="#testimonials">Testimonios</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#">Body Wraps</a></li>
+                    <li><a href="#">Masajes Terapéuticos</a></li>
+                    <li><a href="#">Tratamientos Faciales</a></li>
+                    <li><a href="#">Terapia Linfática</a></li>
+                    <li><a href="#">Masaje Ayurvédico</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Serenity Spa. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos y Condiciones</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll effect for header
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '0.5rem 5%';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.padding = '1rem 5%';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const nav = document.getElementById('nav');
+            const menuToggle = document.querySelector('.menu-toggle');
+            nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu
+                    document.getElementById('nav').classList.remove('active');
+                    document.querySelector('.menu-toggle').classList.remove('active');
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .benefit-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+     // Video functionality
+const video = document.getElementById('benefitsVideo');
+const playButton = document.getElementById('playButton');
+const videoContainer = document.getElementById('videoContainer');
+
+if (video && playButton) {
+    // Play/Pause on button click
+    playButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleVideo();
+    });
+
+    // Play/Pause on video click
+    video.addEventListener('click', function() {
+        toggleVideo();
+    });
+
+    // Show button when video ends
+    video.addEventListener('ended', function() {
+        videoContainer.classList.remove('playing');
+    });
+
+    function toggleVideo() {
+        if (video.paused) {
+            video.play();
+            videoContainer.classList.add('playing');
+        } else {
+            video.pause();
+            videoContainer.classList.remove('playing');
+        }
+    }
+}
+
+        // Testimonials functionality
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        const dots = document.querySelectorAll('.dot');
+        let testimonialInterval;
+
+        function showTestimonial(index) {
+            testimonials.forEach(card => card.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            if (index >= testimonials.length) {
+                currentTestimonial = 0;
+            } else if (index < 0) {
+                currentTestimonial = testimonials.length - 1;
+            } else {
+                currentTestimonial = index;
+            }
+            
+            testimonials[currentTestimonial].classList.add('active');
+            dots[currentTestimonial].classList.add('active');
+        }
+
+        function changeTestimonial(direction) {
+            showTestimonial(currentTestimonial + direction);
+            resetInterval();
+        }
+
+        function setTestimonial(index) {
+            showTestimonial(index);
+            resetInterval();
+        }
+
+        function resetInterval() {
+            clearInterval(testimonialInterval);
+            startAutoplay();
+        }
+
+        function startAutoplay() {
+            testimonialInterval = setInterval(() => {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(currentTestimonial);
+            }, 5000);
+        }
+
+        // Start autoplay on page load
+        startAutoplay();
+
+        // FAQ functionality
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // WhatsApp form submission
+        function sendWhatsApp(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            const message = document.getElementById('message').value;
+            
+            const whatsappMessage = `Hola! Me gustaría reservar una cita:\n\n` +
+                `Nombre: ${name}\n` +
+                `Teléfono: ${phone}\n` +
+                `Email: ${email}\n` +
+                `Servicio: ${service}\n` +
+                `Fecha preferida: ${date}\n` +
+                `Mensaje: ${message || 'N/A'}`;
+            
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappNumber = '5491112345678'; // Cambia este número por tu número de WhatsApp
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            window.open(whatsappURL, '_blank');
+        }
+
+       // Counter Animation
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000; // 2 seconds
+            const step = target / (duration / 16); // 60fps
+            let current = 0;
+            
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    element.textContent = Math.floor(current) + '+';
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target + '+';
+                }
+            };
+            
+            updateCounter();
+        }
+
+        // Intersection Observer for counters
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    if (!counter.classList.contains('counted')) {
+                        counter.classList.add('counted');
+                        animateCounter(counter);
+                    }
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        // Observe all counters
+        document.querySelectorAll('.counter').forEach(counter => {
+            counterObserver.observe(counter);
+        });
+    </script>
+</body>
+</html>
