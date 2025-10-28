@@ -2619,111 +2619,145 @@ Me inspiro en los sabores, las personas y los buenos momentos. Ya sea en una bar
     </svg>
 </a>
     <script>
-	//Menú
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+// ==========================================
+// OPTIMIZACIONES DE RENDIMIENTO
+// ==========================================
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+// Cache de selectores DOM (una sola vez)
+const DOM = {
+    menuToggle: document.querySelector('.menu-toggle'),
+    navLinks: document.querySelector('.nav-links'),
+    faqItems: document.querySelectorAll('.faq-item'),
+    servicioVideo: document.querySelector('.servicio-video'),
+    playButton: document.getElementById('playButton'),
+    videoContainer: document.querySelector('.video-container'),
+    galeriaItems: document.querySelectorAll('.galeria-item'),
+    lightbox: document.getElementById('lightbox'),
+    lightboxImage: document.getElementById('lightboxImage'),
+    lightboxTitle: document.getElementById('lightboxTitle'),
+    lightboxSubtitle: document.getElementById('lightboxSubtitle'),
+    lightboxDescription: document.getElementById('lightboxDescription'),
+    lightboxLocation: document.getElementById('lightboxLocation'),
+    lightboxGuests: document.getElementById('lightboxGuests'),
+    closeLightbox: document.getElementById('closeLightbox'),
+    prevImage: document.getElementById('prevImage'),
+    nextImage: document.getElementById('nextImage'),
+    contactForm: document.getElementById('contactForm'),
+    yearElement: document.getElementById('currentYear')
+};
+
+// ==========================================
+// 1. MENÚ NAVEGACIÓN (Optimizado)
+// ==========================================
+if (DOM.menuToggle && DOM.navLinks) {
+    // Usar delegación de eventos en lugar de múltiples listeners
+    DOM.menuToggle.addEventListener('click', () => {
+        // Batch de cambios de clase usando requestAnimationFrame
+        requestAnimationFrame(() => {
+            DOM.navLinks.classList.toggle('active');
+            DOM.menuToggle.classList.toggle('active');
         });
+    });
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.classList.remove('active');
+    // Delegación de eventos para links de navegación
+    DOM.navLinks.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            requestAnimationFrame(() => {
+                DOM.navLinks.classList.remove('active');
+                DOM.menuToggle.classList.remove('active');
             });
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-
-
-
-        // Navegación con teclado
-        document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
-            
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowRight') nextImage();
-            if (e.key === 'ArrowLeft') prevImage();
-        });
-// FAQ Accordion
-const faqItems = document.querySelectorAll('.faq-item');
-
-faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    
-    question.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        
-        // Cerrar todos los items
-        faqItems.forEach(faqItem => {
-            faqItem.classList.remove('active');
-        });
-        
-        // Abrir el item clickeado si no estaba activo
-        if (!isActive) {
-            item.classList.add('active');
         }
-    });
-});
-
-// Video Player Control
-const servicioVideo = document.querySelector('.servicio-video');
-const playButton = document.getElementById('playButton');
-const videoContainer = document.querySelector('.video-container');
-
-if (playButton && servicioVideo) {
-    playButton.addEventListener('click', () => {
-        if (servicioVideo.paused) {
-            servicioVideo.play();
-            videoContainer.classList.add('playing');
-        } else {
-            servicioVideo.pause();
-            videoContainer.classList.remove('playing');
-        }
-    });
-
-    // Ocultar overlay cuando el video se reproduce
-    servicioVideo.addEventListener('play', () => {
-        videoContainer.classList.add('playing');
-    });
-
-    // Mostrar overlay cuando el video se pausa
-    servicioVideo.addEventListener('pause', () => {
-        videoContainer.classList.remove('playing');
-    });
-
-    // Mostrar overlay cuando el video termina
-    servicioVideo.addEventListener('ended', () => {
-        videoContainer.classList.remove('playing');
     });
 }
 
-/// /Galeria
-const galeriaItems = document.querySelectorAll('.galeria-item');
-const lightbox = document.getElementById('lightbox');
-const lightboxImage = document.getElementById('lightboxImage');
-const lightboxTitle = document.getElementById('lightboxTitle');
-const lightboxSubtitle = document.getElementById('lightboxSubtitle');
-const lightboxDescription = document.getElementById('lightboxDescription');
-const lightboxLocation = document.getElementById('lightboxLocation');
-const lightboxGuests = document.getElementById('lightboxGuests');
-const closeLightbox = document.getElementById('closeLightbox');
-const prevImage = document.getElementById('prevImage');
-const nextImage = document.getElementById('nextImage');
+// ==========================================
+// 2. SMOOTH SCROLL (Optimizado con passive)
+// ==========================================
+document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+    
+    e.preventDefault();
+    const targetId = anchor.getAttribute('href');
+    const target = document.querySelector(targetId);
+    
+    if (target) {
+        // Usar scrollIntoView nativo (mejor rendimiento)
+        target.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    }
+}, { passive: false });
 
-let currentIndex = 0;
+// ==========================================
+// 3. FAQ ACCORDION (Optimizado)
+// ==========================================
+if (DOM.faqItems.length > 0) {
+    // Delegación de eventos en el contenedor padre
+    const faqContainer = document.querySelector('.faq-list');
+    
+    if (faqContainer) {
+        faqContainer.addEventListener('click', (e) => {
+            const question = e.target.closest('.faq-question');
+            if (!question) return;
+            
+            const item = question.closest('.faq-item');
+            const isActive = item.classList.contains('active');
+            
+            // Batch de cambios usando requestAnimationFrame
+            requestAnimationFrame(() => {
+                // Cerrar todos los items (sin triggear reflow)
+                DOM.faqItems.forEach(faqItem => {
+                    if (faqItem !== item) {
+                        faqItem.classList.remove('active');
+                    }
+                });
+                
+                // Abrir/cerrar el item clickeado
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    }
+}
 
+// ==========================================
+// 4. VIDEO PLAYER (Optimizado)
+// ==========================================
+if (DOM.playButton && DOM.servicioVideo && DOM.videoContainer) {
+    DOM.playButton.addEventListener('click', () => {
+        if (DOM.servicioVideo.paused) {
+            DOM.servicioVideo.play();
+        } else {
+            DOM.servicioVideo.pause();
+        }
+    });
+
+    // Usar eventos nativos del video (mejor rendimiento)
+    DOM.servicioVideo.addEventListener('play', () => {
+        requestAnimationFrame(() => {
+            DOM.videoContainer.classList.add('playing');
+        });
+    }, { passive: true });
+
+    DOM.servicioVideo.addEventListener('pause', () => {
+        requestAnimationFrame(() => {
+            DOM.videoContainer.classList.remove('playing');
+        });
+    }, { passive: true });
+
+    DOM.servicioVideo.addEventListener('ended', () => {
+        requestAnimationFrame(() => {
+            DOM.videoContainer.classList.remove('playing');
+        });
+    }, { passive: true });
+}
+
+// ==========================================
+// 5. GALERÍA Y LIGHTBOX (Optimizado)
+// ==========================================
 const eventosData = [
     {
         title: 'Boda Elegante',
@@ -2775,27 +2809,33 @@ const eventosData = [
     }
 ];
 
+let currentIndex = 0;
+
 function openLightbox(index) {
     currentIndex = index;
     const evento = eventosData[index];
 
-    lightboxImage.loading = "lazy";
-    lightboxImage.src = evento.image;
-    
-    lightboxTitle.textContent = evento.title;
-    lightboxSubtitle.textContent = evento.subtitle;
-    lightboxDescription.textContent = evento.description;
-    lightboxLocation.textContent = evento.location;
-    lightboxGuests.textContent = evento.guests;
-    
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    // Batch todas las actualizaciones del DOM
+    requestAnimationFrame(() => {
+        DOM.lightboxImage.loading = "lazy";
+        DOM.lightboxImage.src = evento.image;
+        DOM.lightboxTitle.textContent = evento.title;
+        DOM.lightboxSubtitle.textContent = evento.subtitle;
+        DOM.lightboxDescription.textContent = evento.description;
+        DOM.lightboxLocation.textContent = evento.location;
+        DOM.lightboxGuests.textContent = evento.guests;
+        
+        DOM.lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
 }
 
 function closeLightboxFunc() {
-    lightbox.classList.remove('active');
-    lightboxImage.src = '';
-    document.body.style.overflow = 'auto';
+    requestAnimationFrame(() => {
+        DOM.lightbox.classList.remove('active');
+        DOM.lightboxImage.src = '';
+        document.body.style.overflow = 'auto';
+    });
 }
 
 function showPrevImage() {
@@ -2808,71 +2848,140 @@ function showNextImage() {
     openLightbox(currentIndex);
 }
 
-galeriaItems.forEach((item, index) => {
-    const btnVerMas = item.querySelector('.btn-ver-mas');
-    btnVerMas.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openLightbox(index);
-    });
-});
-
-closeLightbox.addEventListener('click', closeLightboxFunc);
-prevImage.addEventListener('click', showPrevImage);
-nextImage.addEventListener('click', showNextImage);
-
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightboxFunc();
-});
-
-document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') closeLightboxFunc();
-    if (e.key === 'ArrowLeft') showPrevImage();
-    if (e.key === 'ArrowRight') showNextImage();
-});
-
-// Navegación con teclado
-document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
+// Delegación de eventos para galería (mejor rendimiento)
+if (DOM.galeriaItems.length > 0) {
+    const galeriaGrid = document.querySelector('.galeria-grid');
     
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') nextImage();
-    if (e.key === 'ArrowLeft') prevImage();
-});
-
-		// Formulario contacto a Whatsapp
-		document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Obtener los valores del formulario
-    const nombre = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const telefono = document.getElementById('phone').value;
-    const mensaje = document.getElementById('message').value;
-    
-    // Crear el mensaje para WhatsApp
-    const textoWhatsApp = `Hola Caro de Details Barras! Me contacto desde tu sitio web:\n\n*Nombre:* ${nombre}\n*Email:* ${email}\n*Teléfono:* ${telefono}\n*Mensaje:* ${mensaje}`;
-    
-    // Tu número de WhatsApp (reemplaza con tu número, incluyendo código de país sin +)
-    const numeroWhatsApp = '5491134597788'; // Ejemplo: 549 (Argentina) + código de área + número
-    
-    // Codificar el mensaje para URL
-    const mensajeCodificado = encodeURIComponent(textoWhatsApp);
-    
-    // Crear el enlace de WhatsApp
-    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
-    
-    // Abrir WhatsApp en una nueva ventana
-    window.open(urlWhatsApp, '_blank');
-});
-// Actualizar año automáticamente
-(function() {
-    const yearElement = document.getElementById('currentYear');
-    const currentYear = new Date().getFullYear();
-    if (yearElement) {
-        yearElement.textContent = currentYear;
+    if (galeriaGrid) {
+        galeriaGrid.addEventListener('click', (e) => {
+            const btnVerMas = e.target.closest('.btn-ver-mas');
+            if (!btnVerMas) return;
+            
+            const item = btnVerMas.closest('.galeria-item');
+            const index = Array.from(DOM.galeriaItems).indexOf(item);
+            
+            if (index !== -1) {
+                openLightbox(index);
+            }
+        });
     }
-})();
+}
+
+// Event listeners del lightbox
+if (DOM.closeLightbox) {
+    DOM.closeLightbox.addEventListener('click', closeLightboxFunc);
+}
+
+if (DOM.prevImage) {
+    DOM.prevImage.addEventListener('click', showPrevImage);
+}
+
+if (DOM.nextImage) {
+    DOM.nextImage.addEventListener('click', showNextImage);
+}
+
+if (DOM.lightbox) {
+    DOM.lightbox.addEventListener('click', (e) => {
+        if (e.target === DOM.lightbox) {
+            closeLightboxFunc();
+        }
+    });
+}
+
+// ==========================================
+// 6. NAVEGACIÓN CON TECLADO (Optimizado)
+// ==========================================
+document.addEventListener('keydown', (e) => {
+    if (!DOM.lightbox || !DOM.lightbox.classList.contains('active')) return;
+    
+    const actions = {
+        'Escape': closeLightboxFunc,
+        'ArrowLeft': showPrevImage,
+        'ArrowRight': showNextImage
+    };
+    
+    const action = actions[e.key];
+    if (action) {
+        e.preventDefault();
+        action();
+    }
+}, { passive: false });
+
+// ==========================================
+// 7. FORMULARIO WHATSAPP (Optimizado)
+// ==========================================
+if (DOM.contactForm) {
+    DOM.contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Cache de inputs (evitar múltiples queries)
+        const inputs = {
+            nombre: this.querySelector('#name').value,
+            email: this.querySelector('#email').value,
+            telefono: this.querySelector('#phone').value,
+            mensaje: this.querySelector('#message').value
+        };
+        
+        // Construir mensaje
+        const textoWhatsApp = `Hola Caro de Details Barras! Me contacto desde tu sitio web:\n\n*Nombre:* ${inputs.nombre}\n*Email:* ${inputs.email}\n*Teléfono:* ${inputs.telefono}\n*Mensaje:* ${inputs.mensaje}`;
+        
+        const numeroWhatsApp = '5491134597788';
+        const mensajeCodificado = encodeURIComponent(textoWhatsApp);
+        const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+        
+        // Usar window.open con noopener para mejor seguridad y rendimiento
+        window.open(urlWhatsApp, '_blank', 'noopener,noreferrer');
+    });
+}
+
+// ==========================================
+// 8. AÑO AUTOMÁTICO (Optimizado)
+// ==========================================
+if (DOM.yearElement) {
+    DOM.yearElement.textContent = new Date().getFullYear();
+}
+
+// ==========================================
+// 9. OPTIMIZACIÓN ADICIONAL: INTERSECTION OBSERVER
+// Para lazy load de imágenes y animaciones
+// ==========================================
+const observerOptions = {
+    root: null,
+    rootMargin: '50px',
+    threshold: 0.1
+};
+
+const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const img = entry.target;
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+            }
+            imageObserver.unobserve(img);
+        }
+    });
+}, observerOptions);
+
+// Observar imágenes lazy (si las implementas)
+document.querySelectorAll('img[data-src]').forEach(img => {
+    imageObserver.observe(img);
+});
+
+// ==========================================
+// 10. DEBOUNCE PARA RESIZE (Optimización)
+// ==========================================
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        // Aquí van acciones que necesiten ejecutarse en resize
+        // Por ahora no hay, pero está preparado
+    }, 250);
+}, { passive: true });
+
+console.log('✅ Script optimizado cargado correctamente');
 
     </script>
 </body>
