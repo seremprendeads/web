@@ -8,13 +8,34 @@
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="googlebot-news" content="noindex, nofollow">
     <meta name="bingbot" content="noindex, nofollow">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript>
-  <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
-</noscript>
-
-<title>Details - Bartender</title>
-
+ <!-- ===================================== -->
+    <!-- ✅ OPTIMIZACIÓN LCP CRÍTICA -->
+    <!-- ===================================== -->
+    
+    <!-- 1. Preload del POSTER (imagen visible inmediata) -->
+    <link rel="preload" 
+          as="image" 
+          href="https://res.cloudinary.com/dliredzt9/image/upload/w_1920,q_auto,f_auto/v1761670613/fondo_nunc1k.avif"
+          fetchpriority="high"
+          imagesrcset="
+              https://res.cloudinary.com/dliredzt9/image/upload/w_640,q_auto,f_auto/v1761670613/fondo_nunc1k.avif 640w,
+              https://res.cloudinary.com/dliredzt9/image/upload/w_1280,q_auto,f_auto/v1761670613/fondo_nunc1k.avif 1280w,
+              https://res.cloudinary.com/dliredzt9/image/upload/w_1920,q_auto,f_auto/v1761670613/fondo_nunc1k.avif 1920w
+          "
+          imagesizes="100vw">
+    
+    <!-- 2. Preload del VIDEO (para dispositivos con buena conexión) -->
+    <link rel="preload" 
+          as="video" 
+          href="https://res.cloudinary.com/dliredzt9/video/upload/v1760299357/hero-video_ybsolu.mp4"
+          type="video/mp4">
+    
+    <!-- 3. DNS Prefetch para Cloudinary (conexión anticipada) -->
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    
+    <!-- Resto de tu head... -->
+    <title>Details - Bartender</title>
     <style>
 /* ===========================
    ESTILOS BASE
@@ -225,27 +246,34 @@ nav {
    HERO SECTION
    =========================== */
 
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    background: #000;
-}
+      .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
 
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 10%;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-}
-
+   .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            /* ✅ CRÍTICO: Asegurar visibilidad inmediata */
+            will-change: transform;
+        }
+        
+        /* Optimización: Mostrar poster rápido */
+        .hero-video[poster] {
+            background-image: url('https://res.cloudinary.com/dliredzt9/image/upload/w_1920,q_auto,f_auto/v1761670613/fondo_nunc1k.avif');
+            background-size: cover;
+            background-position: center;
+        }
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -1989,47 +2017,71 @@ footer .social-icons {
         </div>
     </nav>
 
-   <!-- Preload video en el head -->
-<link rel="preload" as="video" href="https://res.cloudinary.com/dliredzt9/video/upload/v1760299357/hero-video_ybsolu.mp4" type="video/mp4">
-
-<section class="hero" id="home">
-    <!-- Hero Video -->
-    <video class="hero-video"
-        autoplay muted loop playsinline
-        poster="https://res.cloudinary.com/dliredzt9/image/upload/v1761670613/fondo_nunc1k.avif"
-        fetchpriority="high">
-        <source src="https://res.cloudinary.com/dliredzt9/video/upload/v1760299357/hero-video_ybsolu.mp4" type="video/mp4">
-        Tu navegador no soporta HTML5 video.
-    </video>
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-        <div class="logo-hero-container">
-            <!-- Logo optimizado LCP -->
-            <img src="https://res.cloudinary.com/dliredzt9/image/upload/w_260,h_260,c_fill,q_auto,f_auto/logo2-detail-barras_jovu0d.avif"
-                 alt="Santo Inferno Logo"
-                 width="260"
-                 height="260"
-                 fetchpriority="high">
-
-            <div class="hero-text">
-                <h1>Bartender</h1>
-                <p class="subtitle">Servicio de Barra Integral</p>
+    <!-- Hero Section OPTIMIZADA -->
+    <section class="hero" id="home">
+        <!-- 
+        ✅ VIDEO OPTIMIZADO PARA LCP:
+        - fetchpriority="high" (prioridad máxima)
+        - preload="auto" (carga inmediata)
+        - poster optimizado con srcset
+        - playsinline para iOS
+        -->
+        <video 
+            class="hero-video"
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            preload="auto"
+            fetchpriority="high"
+            poster="https://res.cloudinary.com/dliredzt9/image/upload/w_1920,q_auto,f_auto/v1761670613/fondo_nunc1k.avif"
+            width="1920"
+            height="1080">
+            
+            <!-- Fuente de video con type explícito -->
+            <source 
+                src="https://res.cloudinary.com/dliredzt9/video/upload/v1760299357/hero-video_ybsolu.mp4" 
+                type="video/mp4">
+            
+            <!-- Fallback para navegadores sin soporte -->
+            <img 
+                src="https://res.cloudinary.com/dliredzt9/image/upload/w_1920,q_auto,f_auto/v1761670613/fondo_nunc1k.avif"
+                alt="Hero Background"
+                width="1920"
+                height="1080"
+                fetchpriority="high">
+        </video>
+        
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="logo-hero-container">
+                <!-- Logo con dimensiones explícitas -->
+                <img 
+                    src="https://res.cloudinary.com/dliredzt9/image/upload/w_260,h_260,c_fill,q_auto,f_auto/logo2-detail-barras_jovu0d.avif"
+                    alt="Santo Inferno Logo"
+                    width="260"
+                    height="260"
+                    fetchpriority="high">
+                
+                <div class="hero-text">
+                    <h1>Bartender</h1>
+                    <p class="subtitle">Servicio de Barra Integral</p>
+                </div>
+            </div>
+            
+            <!-- Botones móviles -->
+            <div class="hero-mobile-buttons">
+                <a href="#about" class="hero-btn btn-secondary">Saber Más</a>
+                <a href="#suscribete" class="hero-btn btn-primary">
+                    Hablemos
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </a>
             </div>
         </div>
-
-        <!-- Botones móviles -->
-        <div class="hero-mobile-buttons">
-            <a href="#about" class="hero-btn btn-secondary">Saber Más</a>
-            <a href="#suscribete" class="hero-btn btn-primary">
-                Hablemos
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -2631,6 +2683,7 @@ const DOM = (() => {
         navLinks: '.nav-links',
         faqList: '.faq-list',
         faqItems: '.faq-item',
+        heroVideo: '.hero-video',
         servicioVideo: '.servicio-video',
         playButton: '#playButton',
         videoContainer: '.video-container',
@@ -2698,30 +2751,68 @@ const debounce = (fn, delay) => {
 };
 
 // ==========================================
-// 1. MENÚ NAVEGACIÓN (Sin reflows)
+// 1. MENÚ NAVEGACIÓN (Sin reflows) - CORREGIDO
 // ==========================================
-if (DOM.menuToggle && DOM.navLinks[0]) {
-    const navLinksEl = DOM.navLinks[0];
-    const menuToggleEl = DOM.menuToggle;
+(function initMenu() {
+    // ✅ FIX: Obtener el primer elemento si es un NodeList
+    const menuToggleEl = (DOM.menuToggle && DOM.menuToggle.length) 
+        ? DOM.menuToggle[0] 
+        : document.querySelector('.menu-toggle');
+    
+    const navLinksEl = (DOM.navLinks && DOM.navLinks.length) 
+        ? DOM.navLinks[0] 
+        : document.querySelector('.nav-links');
+    
+    // Debug: verificar si los elementos existen
+    console.log('Menu Toggle:', menuToggleEl ? '✅' : '❌');
+    console.log('Nav Links:', navLinksEl ? '✅' : '❌');
+    
+    if (!menuToggleEl || !navLinksEl) {
+        console.warn('⚠️ Elementos del menú no encontrados');
+        return;
+    }
 
+    // Click en el botón hamburguesa
     menuToggleEl.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
+        
+        console.log('🍔 Click en menú hamburguesa');
+        
         batchDOM(() => {
-            navLinksEl.classList.toggle('active');
-            menuToggleEl.classList.toggle('active');
+            const isActive = navLinksEl.classList.contains('active');
+            navLinksEl.classList.toggle('active', !isActive);
+            menuToggleEl.classList.toggle('active', !isActive);
+            console.log('Estado:', isActive ? 'Cerrado' : 'Abierto');
         });
-    }, { passive: false });
+    });
 
-    // Delegación de eventos
+    // Delegación de eventos para cerrar al hacer click en un link
     navLinksEl.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
+        const link = e.target.closest('a');
+        if (link) {
+            console.log('🔗 Click en link del menú');
             batchDOM(() => {
                 navLinksEl.classList.remove('active');
                 menuToggleEl.classList.remove('active');
             });
         }
     });
-}
+    
+    // Cerrar menú al hacer click fuera
+    document.addEventListener('click', (e) => {
+        if (!menuToggleEl.contains(e.target) && !navLinksEl.contains(e.target)) {
+            if (navLinksEl.classList.contains('active')) {
+                batchDOM(() => {
+                    navLinksEl.classList.remove('active');
+                    menuToggleEl.classList.remove('active');
+                });
+            }
+        }
+    });
+    
+    console.log('✅ Menú hamburguesa inicializado');
+})();
 
 // ==========================================
 // 2. SMOOTH SCROLL (Optimizado)
@@ -2773,26 +2864,90 @@ if (DOM.faqList) {
 }
 
 // ==========================================
-// 4. VIDEO PLAYER (Sin lecturas de propiedades)
+// 4. VIDEO PLAYERS (Optimizado y unificado)
 // ==========================================
+
+// 4.1 Video Hero (autoplay con detección de conexión)
+(function initHeroVideo() {
+    const heroVideo = DOM.heroVideo && DOM.heroVideo[0] ? DOM.heroVideo[0] : document.querySelector('.hero-video');
+    if (!heroVideo) return;
+    
+    // Detectar tipo de conexión
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const isSlowConnection = connection && (
+        connection.effectiveType === 'slow-2g' || 
+        connection.effectiveType === '2g' ||
+        connection.saveData === true
+    );
+    
+    // Optimización para conexiones lentas
+    if (isSlowConnection) {
+        batchDOM(() => {
+            heroVideo.removeAttribute('autoplay');
+            heroVideo.preload = 'none';
+        });
+        console.log('📶 Conexión lenta detectada: Video hero en modo poster');
+        return;
+    }
+    
+    // Video cargado correctamente
+    heroVideo.addEventListener('loadeddata', () => {
+        console.log('✅ Video hero cargado correctamente');
+    }, { once: true, passive: true });
+    
+    // Manejo de errores
+    heroVideo.addEventListener('error', () => {
+        console.warn('⚠️ Error al cargar video hero, mostrando poster');
+        batchDOM(() => {
+            heroVideo.style.display = 'none';
+        });
+    }, { once: true, passive: true });
+})();
+
+// 4.2 Video Servicio (con controles manuales)
 if (DOM.playButton && DOM.servicioVideo && DOM.videoContainer) {
+    const servicioVideoEl = DOM.servicioVideo[0] || DOM.servicioVideo;
+    
+    // Click en botón play
     DOM.playButton.addEventListener('click', () => {
-        if (DOM.servicioVideo.paused) {
-            DOM.servicioVideo.play().catch(() => {});
+        if (servicioVideoEl.paused) {
+            servicioVideoEl.play().catch(err => {
+                console.warn('⚠️ Error al reproducir video:', err);
+            });
         } else {
-            DOM.servicioVideo.pause();
+            servicioVideoEl.pause();
         }
     });
 
-    // Eventos nativos del video
-    ['play', 'pause', 'ended'].forEach(eventType => {
-        DOM.servicioVideo.addEventListener(eventType, () => {
-            const shouldPlay = eventType === 'play';
+    // Eventos nativos del video (unificados)
+    const videoEvents = {
+        'play': () => true,
+        'pause': () => false,
+        'ended': () => false
+    };
+
+    Object.keys(videoEvents).forEach(eventType => {
+        servicioVideoEl.addEventListener(eventType, () => {
+            const isPlaying = videoEvents[eventType]();
             batchDOM(() => {
-                DOM.videoContainer.classList.toggle('playing', shouldPlay);
+                DOM.videoContainer.classList.toggle('playing', isPlaying);
             });
         }, { passive: true });
     });
+    
+    // Optimización: Lazy load del video servicio
+    if ('IntersectionObserver' in window) {
+        const servicioObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    servicioVideoEl.preload = 'metadata';
+                    servicioObserver.unobserve(servicioVideoEl);
+                }
+            });
+        }, { rootMargin: '200px' });
+        
+        servicioObserver.observe(servicioVideoEl);
+    }
 }
 
 // ==========================================
