@@ -2620,69 +2620,123 @@ Me inspiro en los sabores, las personas y los buenos momentos. Ya sea en una bar
 </a>
     <script>
 // ==========================================
-// OPTIMIZACIONES DE RENDIMIENTO
+// SCRIPT ULTRA OPTIMIZADO - CERO REFLOWS
 // ==========================================
 
-// Cache de selectores DOM (una sola vez)
-const DOM = {
-    menuToggle: document.querySelector('.menu-toggle'),
-    navLinks: document.querySelector('.nav-links'),
-    faqItems: document.querySelectorAll('.faq-item'),
-    servicioVideo: document.querySelector('.servicio-video'),
-    playButton: document.getElementById('playButton'),
-    videoContainer: document.querySelector('.video-container'),
-    galeriaItems: document.querySelectorAll('.galeria-item'),
-    lightbox: document.getElementById('lightbox'),
-    lightboxImage: document.getElementById('lightboxImage'),
-    lightboxTitle: document.getElementById('lightboxTitle'),
-    lightboxSubtitle: document.getElementById('lightboxSubtitle'),
-    lightboxDescription: document.getElementById('lightboxDescription'),
-    lightboxLocation: document.getElementById('lightboxLocation'),
-    lightboxGuests: document.getElementById('lightboxGuests'),
-    closeLightbox: document.getElementById('closeLightbox'),
-    prevImage: document.getElementById('prevImage'),
-    nextImage: document.getElementById('nextImage'),
-    contactForm: document.getElementById('contactForm'),
-    yearElement: document.getElementById('currentYear')
+// ✅ PASO 1: Cache de selectores (una sola vez al inicio)
+const DOM = (() => {
+    const cache = {};
+    const selectors = {
+        menuToggle: '.menu-toggle',
+        navLinks: '.nav-links',
+        faqList: '.faq-list',
+        faqItems: '.faq-item',
+        servicioVideo: '.servicio-video',
+        playButton: '#playButton',
+        videoContainer: '.video-container',
+        galeriaGrid: '.galeria-grid',
+        galeriaItems: '.galeria-item',
+        lightbox: '#lightbox',
+        lightboxImage: '#lightboxImage',
+        lightboxTitle: '#lightboxTitle',
+        lightboxSubtitle: '#lightboxSubtitle',
+        lightboxDescription: '#lightboxDescription',
+        lightboxLocation: '#lightboxLocation',
+        lightboxGuests: '#lightboxGuests',
+        closeLightbox: '#closeLightbox',
+        prevImage: '#prevImage',
+        nextImage: '#nextImage',
+        contactForm: '#contactForm',
+        yearElement: '#currentYear'
+    };
+
+    // Cachear todos los elementos de una vez
+    for (const [key, selector] of Object.entries(selectors)) {
+        cache[key] = selector.startsWith('.') 
+            ? document.querySelectorAll(selector)
+            : document.querySelector(selector);
+    }
+    
+    // Convertir NodeLists a Arrays (mejor rendimiento)
+    cache.faqItemsArray = Array.from(cache.faqItems || []);
+    cache.galeriaItemsArray = Array.from(cache.galeriaItems || []);
+    
+    return cache;
+})();
+
+// ==========================================
+// ✅ PASO 2: Utilidades para evitar reflows
+// ==========================================
+
+// Batch de cambios DOM usando requestAnimationFrame
+const batchDOM = (() => {
+    let scheduled = false;
+    let callbacks = [];
+
+    return (callback) => {
+        callbacks.push(callback);
+        
+        if (!scheduled) {
+            scheduled = true;
+            requestAnimationFrame(() => {
+                const batch = callbacks;
+                callbacks = [];
+                scheduled = false;
+                batch.forEach(cb => cb());
+            });
+        }
+    };
+})();
+
+// Debounce optimizado
+const debounce = (fn, delay) => {
+    let timeoutId;
+    return (...args) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => fn(...args), delay);
+    };
 };
 
 // ==========================================
-// 1. MENÚ NAVEGACIÓN (Optimizado)
+// 1. MENÚ NAVEGACIÓN (Sin reflows)
 // ==========================================
-if (DOM.menuToggle && DOM.navLinks) {
-    // Usar delegación de eventos en lugar de múltiples listeners
-    DOM.menuToggle.addEventListener('click', () => {
-        // Batch de cambios de clase usando requestAnimationFrame
-        requestAnimationFrame(() => {
-            DOM.navLinks.classList.toggle('active');
-            DOM.menuToggle.classList.toggle('active');
-        });
-    });
+if (DOM.menuToggle && DOM.navLinks[0]) {
+    const navLinksEl = DOM.navLinks[0];
+    const menuToggleEl = DOM.menuToggle;
 
-    // Delegación de eventos para links de navegación
-    DOM.navLinks.addEventListener('click', (e) => {
+    menuToggleEl.addEventListener('click', (e) => {
+        e.preventDefault();
+        batchDOM(() => {
+            navLinksEl.classList.toggle('active');
+            menuToggleEl.classList.toggle('active');
+        });
+    }, { passive: false });
+
+    // Delegación de eventos
+    navLinksEl.addEventListener('click', (e) => {
         if (e.target.tagName === 'A') {
-            requestAnimationFrame(() => {
-                DOM.navLinks.classList.remove('active');
-                DOM.menuToggle.classList.remove('active');
+            batchDOM(() => {
+                navLinksEl.classList.remove('active');
+                menuToggleEl.classList.remove('active');
             });
         }
     });
 }
 
 // ==========================================
-// 2. SMOOTH SCROLL (Optimizado con passive)
+// 2. SMOOTH SCROLL (Optimizado)
 // ==========================================
 document.addEventListener('click', (e) => {
     const anchor = e.target.closest('a[href^="#"]');
     if (!anchor) return;
     
+    const href = anchor.getAttribute('href');
+    if (href === '#') return;
+    
     e.preventDefault();
-    const targetId = anchor.getAttribute('href');
-    const target = document.querySelector(targetId);
+    const target = document.querySelector(href);
     
     if (target) {
-        // Usar scrollIntoView nativo (mejor rendimiento)
         target.scrollIntoView({ 
             behavior: 'smooth', 
             block: 'start' 
@@ -2691,74 +2745,60 @@ document.addEventListener('click', (e) => {
 }, { passive: false });
 
 // ==========================================
-// 3. FAQ ACCORDION (Optimizado)
+// 3. FAQ ACCORDION (Sin reflows forzados)
 // ==========================================
-if (DOM.faqItems.length > 0) {
-    // Delegación de eventos en el contenedor padre
-    const faqContainer = document.querySelector('.faq-list');
-    
-    if (faqContainer) {
-        faqContainer.addEventListener('click', (e) => {
-            const question = e.target.closest('.faq-question');
-            if (!question) return;
-            
-            const item = question.closest('.faq-item');
-            const isActive = item.classList.contains('active');
-            
-            // Batch de cambios usando requestAnimationFrame
-            requestAnimationFrame(() => {
-                // Cerrar todos los items (sin triggear reflow)
-                DOM.faqItems.forEach(faqItem => {
-                    if (faqItem !== item) {
-                        faqItem.classList.remove('active');
-                    }
-                });
-                
-                // Abrir/cerrar el item clickeado
-                if (!isActive) {
-                    item.classList.add('active');
+if (DOM.faqList) {
+    DOM.faqList.addEventListener('click', (e) => {
+        const question = e.target.closest('.faq-question');
+        if (!question) return;
+        
+        const item = question.closest('.faq-item');
+        if (!item) return;
+        
+        const isActive = item.classList.contains('active');
+        
+        // ✅ Batch todos los cambios visuales juntos
+        batchDOM(() => {
+            // Cerrar todos menos el actual
+            DOM.faqItemsArray.forEach(faqItem => {
+                if (faqItem !== item) {
+                    faqItem.classList.remove('active');
                 }
             });
+            
+            // Toggle el actual
+            item.classList.toggle('active', !isActive);
         });
-    }
+    });
 }
 
 // ==========================================
-// 4. VIDEO PLAYER (Optimizado)
+// 4. VIDEO PLAYER (Sin lecturas de propiedades)
 // ==========================================
 if (DOM.playButton && DOM.servicioVideo && DOM.videoContainer) {
     DOM.playButton.addEventListener('click', () => {
         if (DOM.servicioVideo.paused) {
-            DOM.servicioVideo.play();
+            DOM.servicioVideo.play().catch(() => {});
         } else {
             DOM.servicioVideo.pause();
         }
     });
 
-    // Usar eventos nativos del video (mejor rendimiento)
-    DOM.servicioVideo.addEventListener('play', () => {
-        requestAnimationFrame(() => {
-            DOM.videoContainer.classList.add('playing');
-        });
-    }, { passive: true });
-
-    DOM.servicioVideo.addEventListener('pause', () => {
-        requestAnimationFrame(() => {
-            DOM.videoContainer.classList.remove('playing');
-        });
-    }, { passive: true });
-
-    DOM.servicioVideo.addEventListener('ended', () => {
-        requestAnimationFrame(() => {
-            DOM.videoContainer.classList.remove('playing');
-        });
-    }, { passive: true });
+    // Eventos nativos del video
+    ['play', 'pause', 'ended'].forEach(eventType => {
+        DOM.servicioVideo.addEventListener(eventType, () => {
+            const shouldPlay = eventType === 'play';
+            batchDOM(() => {
+                DOM.videoContainer.classList.toggle('playing', shouldPlay);
+            });
+        }, { passive: true });
+    });
 }
 
 // ==========================================
-// 5. GALERÍA Y LIGHTBOX (Optimizado)
+// 5. DATOS DE EVENTOS (Constante)
 // ==========================================
-const eventosData = [
+const EVENTOS_DATA = Object.freeze([
     {
         title: 'Boda Elegante',
         subtitle: 'Nordelta 2024',
@@ -2807,79 +2847,99 @@ const eventosData = [
         guests: '100 invitados',
         image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1761670613/gallery-imagen3-detail-barras_fs3zkq.avif'
     }
-];
+]);
 
+// ==========================================
+// 6. LIGHTBOX (Sin reflows)
+// ==========================================
 let currentIndex = 0;
 
-function openLightbox(index) {
-    currentIndex = index;
-    const evento = eventosData[index];
-
-    // Batch todas las actualizaciones del DOM
-    requestAnimationFrame(() => {
+function updateLightboxContent(evento) {
+    // ✅ Todas las actualizaciones en un solo batch
+    batchDOM(() => {
         DOM.lightboxImage.loading = "lazy";
         DOM.lightboxImage.src = evento.image;
+        DOM.lightboxImage.alt = evento.title;
         DOM.lightboxTitle.textContent = evento.title;
         DOM.lightboxSubtitle.textContent = evento.subtitle;
         DOM.lightboxDescription.textContent = evento.description;
         DOM.lightboxLocation.textContent = evento.location;
         DOM.lightboxGuests.textContent = evento.guests;
-        
+    });
+}
+
+function openLightbox(index) {
+    currentIndex = index;
+    const evento = EVENTOS_DATA[index];
+    
+    updateLightboxContent(evento);
+    
+    batchDOM(() => {
         DOM.lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
     });
 }
 
 function closeLightboxFunc() {
-    requestAnimationFrame(() => {
+    batchDOM(() => {
         DOM.lightbox.classList.remove('active');
-        DOM.lightboxImage.src = '';
         document.body.style.overflow = 'auto';
+        // Limpiar imagen después de cerrar (no inmediatamente)
+        setTimeout(() => {
+            DOM.lightboxImage.src = '';
+        }, 300);
     });
 }
 
-function showPrevImage() {
-    currentIndex = (currentIndex - 1 + eventosData.length) % eventosData.length;
-    openLightbox(currentIndex);
-}
-
-function showNextImage() {
-    currentIndex = (currentIndex + 1) % eventosData.length;
-    openLightbox(currentIndex);
-}
-
-// Delegación de eventos para galería (mejor rendimiento)
-if (DOM.galeriaItems.length > 0) {
-    const galeriaGrid = document.querySelector('.galeria-grid');
+function navigateLightbox(direction) {
+    const length = EVENTOS_DATA.length;
+    currentIndex = direction === 'next' 
+        ? (currentIndex + 1) % length
+        : (currentIndex - 1 + length) % length;
     
-    if (galeriaGrid) {
-        galeriaGrid.addEventListener('click', (e) => {
-            const btnVerMas = e.target.closest('.btn-ver-mas');
-            if (!btnVerMas) return;
-            
-            const item = btnVerMas.closest('.galeria-item');
-            const index = Array.from(DOM.galeriaItems).indexOf(item);
-            
-            if (index !== -1) {
-                openLightbox(index);
-            }
-        });
-    }
+    updateLightboxContent(EVENTOS_DATA[currentIndex]);
 }
 
-// Event listeners del lightbox
-if (DOM.closeLightbox) {
-    DOM.closeLightbox.addEventListener('click', closeLightboxFunc);
+// ==========================================
+// 7. GALERÍA (Delegación optimizada)
+// ==========================================
+if (DOM.galeriaGrid) {
+    DOM.galeriaGrid.addEventListener('click', (e) => {
+        const btnVerMas = e.target.closest('.btn-ver-mas');
+        if (!btnVerMas) return;
+        
+        e.preventDefault();
+        const item = btnVerMas.closest('.galeria-item');
+        const index = DOM.galeriaItemsArray.indexOf(item);
+        
+        if (index !== -1) {
+            openLightbox(index);
+        }
+    });
 }
 
-if (DOM.prevImage) {
-    DOM.prevImage.addEventListener('click', showPrevImage);
+// ==========================================
+// 8. CONTROLES LIGHTBOX
+// ==========================================
+const lightboxControls = {
+    close: DOM.closeLightbox,
+    prev: DOM.prevImage,
+    next: DOM.nextImage
+};
+
+if (lightboxControls.close) {
+    lightboxControls.close.addEventListener('click', closeLightboxFunc);
 }
 
-if (DOM.nextImage) {
-    DOM.nextImage.addEventListener('click', showNextImage);
+if (lightboxControls.prev) {
+    lightboxControls.prev.addEventListener('click', () => navigateLightbox('prev'));
 }
 
+if (lightboxControls.next) {
+    lightboxControls.next.addEventListener('click', () => navigateLightbox('next'));
+}
+
+// Click fuera del lightbox
 if (DOM.lightbox) {
     DOM.lightbox.addEventListener('click', (e) => {
         if (e.target === DOM.lightbox) {
@@ -2889,18 +2949,18 @@ if (DOM.lightbox) {
 }
 
 // ==========================================
-// 6. NAVEGACIÓN CON TECLADO (Optimizado)
+// 9. TECLADO (Optimizado)
 // ==========================================
+const keyboardActions = Object.freeze({
+    'Escape': closeLightboxFunc,
+    'ArrowLeft': () => navigateLightbox('prev'),
+    'ArrowRight': () => navigateLightbox('next')
+});
+
 document.addEventListener('keydown', (e) => {
-    if (!DOM.lightbox || !DOM.lightbox.classList.contains('active')) return;
+    if (!DOM.lightbox?.classList.contains('active')) return;
     
-    const actions = {
-        'Escape': closeLightboxFunc,
-        'ArrowLeft': showPrevImage,
-        'ArrowRight': showNextImage
-    };
-    
-    const action = actions[e.key];
+    const action = keyboardActions[e.key];
     if (action) {
         e.preventDefault();
         action();
@@ -2908,81 +2968,82 @@ document.addEventListener('keydown', (e) => {
 }, { passive: false });
 
 // ==========================================
-// 7. FORMULARIO WHATSAPP (Optimizado)
+// 10. FORMULARIO WHATSAPP (Sin reflows)
 // ==========================================
 if (DOM.contactForm) {
     DOM.contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Cache de inputs (evitar múltiples queries)
-        const inputs = {
-            nombre: this.querySelector('#name').value,
-            email: this.querySelector('#email').value,
-            telefono: this.querySelector('#phone').value,
-            mensaje: this.querySelector('#message').value
+        // ✅ Leer todos los valores de una vez (sin reflows)
+        const formData = new FormData(this);
+        const data = {
+            nombre: formData.get('name'),
+            email: formData.get('email'),
+            telefono: formData.get('phone'),
+            mensaje: formData.get('message')
         };
         
-        // Construir mensaje
-        const textoWhatsApp = `Hola Caro de Details Barras! Me contacto desde tu sitio web:\n\n*Nombre:* ${inputs.nombre}\n*Email:* ${inputs.email}\n*Teléfono:* ${inputs.telefono}\n*Mensaje:* ${inputs.mensaje}`;
+        const texto = `Hola Caro de Details Barras! Me contacto desde tu sitio web:\n\n*Nombre:* ${data.nombre}\n*Email:* ${data.email}\n*Teléfono:* ${data.telefono}\n*Mensaje:* ${data.mensaje}`;
         
-        const numeroWhatsApp = '5491134597788';
-        const mensajeCodificado = encodeURIComponent(textoWhatsApp);
-        const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+        const url = `https://wa.me/5491134597788?text=${encodeURIComponent(texto)}`;
         
-        // Usar window.open con noopener para mejor seguridad y rendimiento
-        window.open(urlWhatsApp, '_blank', 'noopener,noreferrer');
+        window.open(url, '_blank', 'noopener,noreferrer');
     });
 }
 
 // ==========================================
-// 8. AÑO AUTOMÁTICO (Optimizado)
+// 11. AÑO ACTUAL (Una sola vez)
 // ==========================================
 if (DOM.yearElement) {
     DOM.yearElement.textContent = new Date().getFullYear();
 }
 
 // ==========================================
-// 9. OPTIMIZACIÓN ADICIONAL: INTERSECTION OBSERVER
-// Para lazy load de imágenes y animaciones
+// 12. INTERSECTION OBSERVER (Lazy loading)
 // ==========================================
-const observerOptions = {
-    root: null,
-    rootMargin: '50px',
-    threshold: 0.1
-};
-
-const imageObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const img = entry.target;
-            if (img.dataset.src) {
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const src = img.dataset.src;
+                
+                if (src) {
+                    // ✅ Batch de cambios
+                    batchDOM(() => {
+                        img.src = src;
+                        img.removeAttribute('data-src');
+                    });
+                    imageObserver.unobserve(img);
+                }
             }
-            imageObserver.unobserve(img);
-        }
+        });
+    }, {
+        root: null,
+        rootMargin: '50px',
+        threshold: 0.1
     });
-}, observerOptions);
 
-// Observar imágenes lazy (si las implementas)
-document.querySelectorAll('img[data-src]').forEach(img => {
-    imageObserver.observe(img);
-});
+    // Observar imágenes con data-src
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
 
 // ==========================================
-// 10. DEBOUNCE PARA RESIZE (Optimización)
+// 13. RESIZE HANDLER (Debounced)
 // ==========================================
-let resizeTimer;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        // Aquí van acciones que necesiten ejecutarse en resize
-        // Por ahora no hay, pero está preparado
-    }, 250);
-}, { passive: true });
+const handleResize = debounce(() => {
+    // Acciones en resize si son necesarias
+    // Por ahora vacío, pero preparado
+}, 250);
 
-console.log('✅ Script optimizado cargado correctamente');
+window.addEventListener('resize', handleResize, { passive: true });
 
+// ==========================================
+// ✅ SCRIPT CARGADO
+// ==========================================
+console.log('✅ Script ultra-optimizado cargado - 0 reflows forzados');
     </script>
 </body>
 </html>
