@@ -925,11 +925,25 @@ nav {
 /* ===================================== */
 /* GALERÍA SECTION */
 /* ===================================== */
-
 .galeria {
-    max-width: 935px;
-    margin: 0 auto;
+ 
+    padding: 100px 5%;
+    background: url('https://res.cloudinary.com/dliredzt9/image/upload/v1762460481/img-video_v00o3s.jpg') center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
 }
+
+.galeria::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   background: linear-gradient(135deg, #000000d4 0%, rgb(10 10 9) 100%);
+    z-index: 0;
+}
+
 
 .galeria-container h2 {
     font-size: 28px;
@@ -981,20 +995,20 @@ nav {
 
 .galeria-info {
     padding: 16px;
-    background: #080808;
+    background: #ffffff;
     text-align: center;
 }
 
 .galeria-info h3 {
     font-size: 16px;
     font-weight: 600;
-    color: #fff;
+    color: #443d3d;
     margin-bottom: 4px;
 }
 
 .galeria-info p {
     font-size: 14px;
-    color: #8e8e8e;
+    color: #222020;
     margin-bottom: 12px;
 }
 
@@ -1003,9 +1017,9 @@ nav {
 }
 
 .btn-ver-mas {
-    padding: 8px 16px;
-    background: #ff4757;
-    color: #fff;
+    padding: 18px 38px;
+    background: #e74c3c;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
     font-weight: 600;
@@ -1018,7 +1032,7 @@ nav {
 }
 
 .btn-ver-mas:hover {
-    background: #000;
+    background: #f0cf5a;
 }
 
 .btn-ver-mas svg {
@@ -1116,7 +1130,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(https://res.cloudinary.com/dliredzt9/image/upload/v1761670618/sobre-mi-logo-detail-barras_nm1lup.avif);
+    background-image: url('https://res.cloudinary.com/dliredzt9/image/upload/v1762545778/sobre-mi-logo-detail-barras_nm1lup_wk2nq8.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -2320,33 +2334,32 @@ footer .social-icons {
         </div>
     </section>
 
-    <!-- Banner 2 -->
-    <section class="banner">
+
+
+    <!-- Galeria Section -->
+    <section class="galeria" id="eventos">
+        <div class="galeria-container">
+	
+              <div class="banner">
         <div class="banner-bg"></div>
         <div class="banner-content">
             <h3>Eventos</h3>
             <p>Momentos inolvidables, tragos perfectos</p>
         </div>
-    </section>
-
-    <!-- Galeria Section -->
-    <section class="galeria" id="eventos">
-        <div class="galeria-container">
+    </div>
             <div class="galeria-grid">
                 <div class="galeria-item" data-index="0">
                     <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_380/v1761670614/gallery-imagen6-detail-barras_wzj9kc.avif" 
-                             srcset="https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_260/v1761670614/gallery-imagen6-detail-barras_wzj9kc.avif 260w, https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_380/v1761670614/gallery-imagen6-detail-barras_wzj9kc.avif 380w, https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_640/v1761670614/gallery-imagen6-detail-barras_wzj9kc.avif 640w" 
-                             sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
-                             alt="Boda Elegante - Nordelta 2024" 
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/1._empresarial-para-luxo-palermo-soho-bartender-details_oztlnl.webp" sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
+                             alt="Empresarial para Luxo - 📍Palermo Soho" 
                              loading="lazy" 
                              decoding="async" 
                              width="380" 
                              height="380">
-                    </div>
+					</div>
                     <div class="galeria-info">
-                        <h3>Boda Elegante</h3>
-                        <p>Nordelta 2024</p>
+                        <h3>Empresarial para Luxo</h3>
+                        <p>📍Palermo Soho</p>
                         <button class="btn-ver-mas">
                             Ver más
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2357,18 +2370,17 @@ footer .social-icons {
                 </div>
                 <div class="galeria-item" data-index="1">
                     <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_380/v1761670613/gallery-imagen2-detail-barras_wpeeqv.avif" 
-                             srcset="https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_260/v1761670613/gallery-imagen2-detail-barras_wpeeqv.avif 260w, https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_380/v1761670613/gallery-imagen2-detail-barras_wpeeqv.avif 380w, https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_640/v1761670613/gallery-imagen2-detail-barras_wpeeqv.avif 640w" 
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/2._activacion-activaci%C3%B3n-para-ginebra-llave-recoleta-bartender-details_g1f7bw.webp" 
                              sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
-                             alt="Evento Corporativo - Cocktail Bar" 
+                             alt="	Activación para Ginebra Llave -Recoleta" 
                              loading="lazy" 
                              decoding="async" 
                              width="380" 
                              height="380">
                     </div>
                     <div class="galeria-info">
-                        <h3>Cocktail Bar</h3>
-                        <p>Evento Corporativo</p>
+	                   <h3>Activación para Ginebra Llave</h3>
+                        <p>📍Recoleta</p>
                         <button class="btn-ver-mas">
                             Ver más
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2379,8 +2391,7 @@ footer .social-icons {
                 </div>
                 <div class="galeria-item" data-index="2">
                     <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_380/v1761670614/gallery-imagen5-detail-barras_wbkgyf.avif" 
-                             srcset="https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_260/v1761670614/gallery-imagen5-detail-barras_wbkgyf.avif 260w, https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_380/v1761670614/gallery-imagen5-detail-barras_wbkgyf.avif 380w, https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_640/v1761670614/gallery-imagen5-detail-barras_wbkgyf.avif 640w" 
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/3._after-office-para-bardoteca-san-telmo-bartender-details_k8jlyw.webp" 
                              sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
                              alt="Fiesta Temática - Palermo" 
                              loading="lazy" 
@@ -2389,8 +2400,8 @@ footer .social-icons {
                              height="380">
                     </div>
                     <div class="galeria-info">
-                        <h3>Fiesta Temática</h3>
-                        <p>Palermo 2024</p>
+                      <h3>After Office para Bardoteca </h3>
+                        <p>📍San Telmo</p>
                         <button class="btn-ver-mas">
                             Ver más
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2401,8 +2412,7 @@ footer .social-icons {
                 </div>
                 <div class="galeria-item" data-index="3">
                     <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_380/v1761670613/gallery-imagen4-detail-barras_b8s1t5.avif" 
-                             srcset="https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_260/v1761670613/gallery-imagen4-gallery-imagen4-detail-barras_b8s1t5.avif 260w, https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_380/v1761670613/gallery-imagen4-detail-barras_b8s1t5.avif 380w, https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_640/v1761670613/gallery-imagen4-detail-barras_b8s1t5.avif 640w" 
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/4._activaci%C3%B3n-para-yagmour-unicenter-bartender-details_badntx.webp" 
                              sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
                              alt="Inauguración - Local Belgrano" 
                              loading="lazy" 
@@ -2411,8 +2421,8 @@ footer .social-icons {
                              height="380">
                     </div>
                     <div class="galeria-info">
-                        <h3>Inauguración</h3>
-                        <p>Local Belgrano</p>
+                        <h3>Activación para Yagmour</h3>
+                        <p>📍Unicenter</p>
                         <button class="btn-ver-mas">
                             Ver más
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2421,10 +2431,10 @@ footer .social-icons {
                         </button>
                     </div>
                 </div>
+				
                 <div class="galeria-item" data-index="4">
                     <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_380/v1761670618/sobre2-mi-detail-barras_icz1aw.avif" 
-                             srcset="https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_260/v1761670618/sobre2-mi-detail-barras_icz1aw.avif 260w, https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_380/v1761670618/sobre2-mi-detail-barras_icz1aw.avif 380w, https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_640/v1761670618/sobre2-mi-detail-barras_icz1aw.avif 640w" 
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/5._activacion-para-fullescabio-san-telmo-bartender-details_ctcn4a.webp" 
                              sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
                              alt="Cumpleaños Premium - Recoleta" 
                              loading="lazy" 
@@ -2433,8 +2443,8 @@ footer .social-icons {
                              height="380">
                     </div>
                     <div class="galeria-info">
-                        <h3>Cumpleaños Premium</h3>
-                        <p>Recoleta 2024</p>
+                        <h3>Cumpleaños </h3>
+                        <p>📍 Rincón de Milberg</p>
                         <button class="btn-ver-mas">
                             Ver más
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2443,10 +2453,11 @@ footer .social-icons {
                         </button>
                     </div>
                 </div>
+				
+				
                 <div class="galeria-item" data-index="5">
                     <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_380/v1761670613/gallery-imagen3-detail-barras_fs3zkq.avif" 
-                             srcset="https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_260/v1761670613/gallery-imagen3-detail-barras_fs3zkq.avif 260w, https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_380/v1761670613/gallery-imagen3-detail-barras_fs3zkq.avif 380w, https://res.cloudinary.com/dliredzt9/image/upload/f_auto,q_auto,w_640/v1761670613/gallery-imagen3-detail-barras_fs3zkq.avif 640w" 
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/6._cumplea%C3%B1os-rincon-de-milberg-bartender-details_snmqiw.webp" 
                              sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
                              alt="After Office - Puerto Madero" 
                              loading="lazy" 
@@ -2455,8 +2466,8 @@ footer .social-icons {
                              height="380">
                     </div>
                     <div class="galeria-info">
-                        <h3>After Office</h3>
-                        <p>Puerto Madero</p>
+                        <h3>Cumpleaños</h3>
+                        <p>📍Villa Devoto</p>
                         <button class="btn-ver-mas">
                             Ver más
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2465,6 +2476,80 @@ footer .social-icons {
                         </button>
                     </div>
                 </div>
+				
+				
+				        <div class="galeria-item" data-index="6">
+                    <div class="galeria-image">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/7._cumplea%C3%B1os-villa-devoto-bartender-details_htkuwh.webp" 
+                             sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
+                             alt="After Office - Puerto Madero" 
+                             loading="lazy" 
+                             decoding="async" 
+                             width="380" 
+                             height="380">
+                    </div>
+                    <div class="galeria-info">
+                      <h3>Aniversario para Bardoteca</h3>
+                        <p>📍San Telmo</p>
+                        <button class="btn-ver-mas">
+                            Ver más
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+				
+				        <div class="galeria-item" data-index="7">
+                    <div class="galeria-image">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/8._aniversario-para-bardoteca-san-telmo-bartender-details_xv11a4.webp" 
+                             sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
+                             alt="After Office - Puerto Madero" 
+                             loading="lazy" 
+                             decoding="async" 
+                             width="380" 
+                             height="380">
+                    </div>
+                    <div class="galeria-info">
+                      <h3>Cumpleaños</h3>
+                        <p>📍 Villa Urquiza</p>
+                        <button class="btn-ver-mas">
+                            Ver más
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+				
+				
+				        <div class="galeria-item" data-index="8">
+                    <div class="galeria-image">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542667/9._cumplea%C3%B1os-villa-urquiza-bartender-details_iik72j.webp" 
+                             sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
+                             alt="After Office - Puerto Madero" 
+                             loading="lazy" 
+                             decoding="async" 
+                             width="380" 
+                             height="380">
+                    </div>
+                    <div class="galeria-info">
+                        <h3>Cumpleaños</h3>
+                        <p>📍Villa Devoto</p>
+                        <button class="btn-ver-mas">
+                            Ver más
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+				
+				
+				
+				
+				
+				
             </div>
         </div>
     </section>
@@ -2930,52 +3015,76 @@ document.addEventListener('click', (e) => {
 (function initGaleria() {
     const EVENTOS_DATA = [
         {
-            title: 'Boda Elegante',
-            subtitle: 'Nordelta 2024',
-            description: 'Una boda sofisticada con una barra de cócteles premium. Creamos una experiencia única con tragos personalizados para cada momento de la celebración.',
-            location: 'Nordelta, Buenos Aires',
-            guests: '200 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1761670614/gallery-imagen6-detail-barras_wzj9kc.avif'
+            title: 'Empresarial',
+            subtitle: 'Para Luxo',
+            description: 'San Telmo',
+            location: 'Palermo Soho, Buenos Aires',
+            guests: '50 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/1._empresarial-para-luxo-palermo-soho-bartender-details_oztlnl.webp'
         },
         {
-            title: 'Cocktail Bar',
-            subtitle: 'Evento Corporativo',
-            description: 'Evento corporativo de alto nivel con barra móvil de cócteles clásicos y autorales. Servicio profesional para 150 ejecutivos.',
-            location: 'CABA, Buenos Aires',
-            guests: '150 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1761670613/gallery-imagen2-detail-barras_wpeeqv.avif'
-        },
-        {
-            title: 'Fiesta Temática',
-            subtitle: 'Palermo 2024',
-            description: 'Fiesta temática tropical con cócteles exóticos y frutales. Ambiente festivo con música en vivo y shows de flair bartending.',
-            location: 'Palermo, Buenos Aires',
-            guests: '180 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1761670614/gallery-imagen5-detail-barras_wbkgyf.avif'
-        },
-        {
-            title: 'Inauguración',
-            subtitle: 'Local Belgrano',
-            description: 'Inauguración de local gastronómico con barra de autor. Tragos signature especialmente diseñados para la ocasión.',
-            location: 'Belgrano, Buenos Aires',
-            guests: '120 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1761670613/gallery-imagen4-detail-barras_b8s1t5.avif'
-        },
-        {
-            title: 'Cumpleaños Premium',
-            subtitle: 'Recoleta 2024',
-            description: 'Celebración de cumpleaños exclusiva con barra de cócteles premium y champagne. Servicio personalizado y atención de lujo.',
+            title: 'Activación',
+            subtitle: 'Para Ginebra Llave',
+            description: '',
             location: 'Recoleta, Buenos Aires',
-            guests: '80 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1761670618/sobre2-mi-detail-barras_icz1aw.avif'
+            guests: '100 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/2._activacion-activaci%C3%B3n-para-ginebra-llave-recoleta-bartender-details_g1f7bw.webp'
         },
         {
             title: 'After Office',
-            subtitle: 'Puerto Madero',
-            description: 'After office corporativo con barra de tragos clásicos y modernos. Ambiente relajado y profesional para networking.',
-            location: 'Puerto Madero, Buenos Aires',
+            subtitle: ' para Bardoteca',
+            description: '',
+            location: 'San Telmo, Buenos Aires',
+            guests: '80 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/3._after-office-para-bardoteca-san-telmo-bartender-details_k8jlyw.webp'
+        },
+        {
+            title: 'Activación',
+            subtitle: 'para Yagmour',
+            description: '',
+            location: 'Unicenter, Buenos Aires',
+            guests: '40 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/4._activaci%C3%B3n-para-yagmour-unicenter-bartender-details_badntx.webp'
+        },
+        {
+            title: 'Activación',
+            subtitle: 'para Fullescabio',
+            description: '',
+            location: 'San Telmo, Buenos Aires',
+            guests: '60 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/5._activacion-para-fullescabio-san-telmo-bartender-details_ctcn4a.webp'
+        },
+        {
+            title: 'Cumpleaños',
+            subtitle: 'Rincón de Milberg',
+            description: '',
+            location: 'Cumpleaños, Buenos Aires',
+            guests: '50 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/6._cumplea%C3%B1os-rincon-de-milberg-bartender-details_snmqiw.webp'
+        },
+		  {
+            title: 'Cumpleaños',
+            subtitle: 'Año 2025',
+            description: '',
+            location: 'Villa Devoto, Buenos Aires',
+            guests: '40 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/7._cumplea%C3%B1os-villa-devoto-bartender-details_htkuwh.webp'
+        },
+		  {
+            title: 'Aniversario',
+            subtitle: 'para Bardoteca 2025',
+            description: '',
+            location: 'San Telmo, Buenos Aires',
             guests: '100 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1761670613/gallery-imagen3-detail-barras_fs3zkq.avif'
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/8._aniversario-para-bardoteca-san-telmo-bartender-details_xv11a4.webp'
+        },
+		  {
+            title: 'Cumpleaños',
+            subtitle: 'Año 2025',
+            description: '',
+            location: 'Cumpleaños, Buenos Aires',
+            guests: '25 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542667/9._cumplea%C3%B1os-villa-urquiza-bartender-details_iik72j.webp'
         }
     ];
 
@@ -3169,8 +3278,8 @@ document.addEventListener('click', (e) => {
 // ===================================
 // FIN DEL SCRIPT
 // ===================================
-console.log('🎉 Script completamente cargado y optimizado');
-console.log('📊 Estado de componentes:');
+console.log('Script completamente cargado y optimizado');
+console.log('Estado de componentes:');
 console.log('- Preloader:', document.getElementById('preloader') ? '✅' : '❌');
 console.log('- Menú:', document.querySelector('.menu-toggle') ? '✅' : '❌');
 console.log('- FAQ:', document.querySelector('.faq-list') ? '✅' : '❌');
