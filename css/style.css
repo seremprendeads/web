@@ -460,8 +460,8 @@
 
 .about-badge {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: -90px;
+    right: 175px;
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -1228,3 +1228,4 @@ linear infinite;
                 padding: 3rem 2rem;
             }
         }
+
