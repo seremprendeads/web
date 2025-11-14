@@ -612,6 +612,44 @@ nav {
     margin-bottom: 1rem;
     font-size: 1.05rem;
 }
+/************Servicios*************/
+ /* Títulos */
+.titulo-servicio {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0.6rem 0 0.8rem;
+  line-height: 1.1;
+  padding-top:36px;
+  text-transform: uppercase;
+    background: linear-gradient(135deg, #ea7f39 0%, #ffdfe2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Párrafos */
+.texto-servicio {
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.35;
+  margin: 0.4rem 0 1.2rem;
+  letter-spacing: 0.2px;
+}
+
+/* Palabras resaltadas */
+.resaltar,
+.resaltar--fuerte {
+  color: #ffffff;
+  font-weight: 800;
+  ext-decoration-thickness: 1.5px;
+  font-size: 1.2rem;
+}
+
+.resaltar--fuerte {
+  font-weight: 800;
+  font-size: 1.2em;
+}
 
 /* ===================================== */
 /* BANNER SECTION */
@@ -695,7 +733,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-       background: linear-gradient(135deg, rgb(10 10 10 / 67%) 0%, rgb(30 29 18) 100%);
+    background: linear-gradient(135deg, rgb(10 10 10 / 67%) 0%, rgb(206 189 0) 100%);
     z-index: 0;
 }
 
@@ -712,7 +750,7 @@ nav {
 }
 
 .servicio-header h2 {
-    font-size: 3rem;
+    font-size: 4rem;
     letter-spacing: 3px;
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -722,6 +760,7 @@ nav {
     background-clip: text;
     position: relative;
     display: inline-block;
+	font-weight: 900;
 }
 
 .servicio-header h2::after {
@@ -739,9 +778,8 @@ nav {
 .servicio-subtitle {
     font-size: 1.4rem;
     color: #fff;
-    letter-spacing: 2px;
     margin-top: 2rem;
-    font-weight: 300;
+   
 }
 
 .servicio-content {
@@ -2027,7 +2065,7 @@ footer .social-icons {
     }
     
     .servicio-header h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     
     .servicio-subtitle {
@@ -2293,28 +2331,54 @@ Mi objetivo es que sólo te preocupes en disfrutar de tu evento. No solo sé hac
         <div class="servicio-container">
             <div class="servicio-header">
                 <h2>Servicios</h2>
-                <p class="servicio-subtitle"><b>Cuento con dos opciones principales</b></p>
+                <p class="servicio-subtitle"><b>Cuento con dos opciones principales</p>
             </div>
             <div class="servicio-content">
                 <div class="servicio-text">
-<h2>SERVICIO DE BARRA INTEGRAL</h2>
-<p>
-No tenés que preocuparte por nada: <strong>ésta opción cuenta con todo lo necesario para armar un bar móvil donde quieras.</strong>
-Incluye <strong>personal, bebidas e insumos, cristalería, hielo, etc.</strong>
-Todo está pensado y organizado para que <strong>el servicio sea ideal de principio a fin.</strong>
-Me ocupo de que <strong>la experiencia sea completa, desde el primer cóctel hasta el último brindis.</strong>
-</p>
+<section>
+  <!-- SERVICIO DE BARRA INTEGRAL -->
+  <h2 class="titulo-servicio">SERVICIO DE BARRA INTEGRAL</h2>
 
-<h2>SERVICIO DE BARTENDING</h2>
-<p>
-Esta modalidad consiste en <strong>servicio de bartender con asesoramiento de compra de bebidas, jugos, hielo, etc.</strong>
-Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una barra funcional.</strong>
-</p>
+  <p class="texto-servicio">
+    <span class="resaltar--fuerte">Es la experiencia completa</span>: un 
+    <span class="resaltar">bar móvil</span> donde quieras. Incluye 
+    <span class="resaltar">todo lo necesario</span>: 
+    <span class="resaltar">barra equipada</span>, 
+    <span class="resaltar">bebidas</span>, 
+    <span class="resaltar">insumos</span>, 
+    <span class="resaltar">cristalería</span>, 
+    <span class="resaltar">hielo</span>, etc.
+    Cada detalle está pensado y organizado para que el servicio sea 
+    <span class="resaltar--fuerte">ideal</span>, desde el 
+    <span class="resaltar">primer cóctel</span> hasta el 
+    <span class="resaltar">último brindis</span>.
+  </p>
+
+  <!-- SERVICIO DE BARTENDING -->
+  <h2 class="titulo-servicio">SERVICIO DE BARTENDING</h2>
+
+  <p class="texto-servicio">
+    <span class="resaltar--fuerte">Consiste</span> en el<span class="resaltar--fuerte"> servicio de bartender</span> 
+    con <span class="resaltar">asesoramiento en la compra</span> de 
+    <span class="resaltar">bebidas</span>, 
+    <span class="resaltar">jugos</span>, 
+    <span class="resaltar">hielo</span> e 
+    <span class="resaltar">insumos</span>, a cargo del cliente.
+    Esta modalidad es ideal para quienes 
+    <span class="resaltar">no requieran módulo de barra</span>.
+    Incluye <span class="resaltar--fuerte">cristalería</span> y 
+    <span class="resaltar">todo lo necesario</span> para montar una 
+    <span class="resaltar--fuerte">barra funcional</span>.
+  </p>
+</section>
+
+
+
 
                 </div>
                 <div class="servicio-video-wrapper">
                     <div class="video-container">
-                        <video class="servicio-video" controls poster="https://res.cloudinary.com/dliredzt9/image/upload/v1762460481/img-video_v00o3s.jpg" preload="metadata" fetchpriority="high">
+                        <video class="servicio-video" controls poster="https://res.cloudinary.com/dliredzt9/image/upload/v1763137588/imagen-de-video_a8b8f7.webp" preload="metadata" fetchpriority="high">
                             <source src="https://res.cloudinary.com/dliredzt9/video/upload/v1762549234/1_evento_en_menos_de_1_minuto.En_la_publicaci%C3%B3n_anterior_les_cont%C3%A9_de_qu%C3%A9_se_trata_esta_modalida_lo3udq.mp4" type="video/mp4">
                             Tu navegador no soporta el elemento de video.
                         </video>
@@ -2385,7 +2449,7 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
             <div class="galeria-grid">
                 <div class="galeria-item" data-index="0">
                     <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/1._empresarial-para-luxo-palermo-soho-bartender-details_oztlnl.webp" sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542667/9._cumplea%C3%B1os-villa-urquiza-bartender-details_iik72j.webp" sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
                              alt="Empresarial para Luxo - 📍Palermo Soho" 
                              loading="lazy" 
                              decoding="async" 
@@ -2393,8 +2457,8 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                              height="380">
 					</div>
                     <div class="galeria-info">
-                        <h3>Empresarial para Luxo</h3>
-                        <p>📍Palermo Soho</p>
+                        <h3>Cumpleaños</h3>
+                        <p>📍 Villa Urquiza 2025</p>
                         <button class="btn-ver-mas">
                             Ver más
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2403,9 +2467,10 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                         </button>
                     </div>
                 </div>
+				
                 <div class="galeria-item" data-index="1">
                     <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/2._activacion-activaci%C3%B3n-para-ginebra-llave-recoleta-bartender-details_g1f7bw.webp" 
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/8._aniversario-para-bardoteca-san-telmo-bartender-details_xv11a4.webp" 
                              sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
                              alt="	Activación para Ginebra Llave -Recoleta" 
                              loading="lazy" 
@@ -2414,9 +2479,9 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                              height="380">
                     </div>
                     <div class="galeria-info">
-	                   <h3>Activación para Ginebra Llave</h3>
-                        <p>📍Recoleta</p>
-                        <button class="btn-ver-mas">
+					     <h3>Aniversario para Bardoteca</h3>
+                        <p>📍San Telmo 2025</p>
+	                    <button class="btn-ver-mas">
                             Ver más
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -2424,9 +2489,10 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                         </button>
                     </div>
                 </div>
+				
                 <div class="galeria-item" data-index="2">
                     <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/3._after-office-para-bardoteca-san-telmo-bartender-details_k8jlyw.webp" 
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/7._cumplea%C3%B1os-villa-devoto-bartender-details_htkuwh.webp" 
                              sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
                              alt="Fiesta Temática - Palermo" 
                              loading="lazy" 
@@ -2435,8 +2501,8 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                              height="380">
                     </div>
                     <div class="galeria-info">
-                      <h3>After Office para Bardoteca </h3>
-                        <p>📍San Telmo</p>
+				    	<h3>Cumpleaños </h3>
+                        <p>📍Villa Devoto 2025</p>
                         <button class="btn-ver-mas">
                             Ver más
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2445,9 +2511,15 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                         </button>
                     </div>
                 </div>
+				
+				
+				
+				
+				
+				
                 <div class="galeria-item" data-index="3">
                     <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/4._activaci%C3%B3n-para-yagmour-unicenter-bartender-details_badntx.webp" 
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/6._cumplea%C3%B1os-rincon-de-milberg-bartender-details_snmqiw.webp" 
                              sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
                              alt="Inauguración - Local Belgrano" 
                              loading="lazy" 
@@ -2456,9 +2528,9 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                              height="380">
                     </div>
                     <div class="galeria-info">
-                        <h3>Activación para Yagmour</h3>
-                        <p>📍Unicenter</p>
-                        <button class="btn-ver-mas">
+					  <h3>Cumpleaños</h3>
+                        <p>📍 Rincón de Milberg</p>
+					      <button class="btn-ver-mas">
                             Ver más
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -2478,9 +2550,9 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                              height="380">
                     </div>
                     <div class="galeria-info">
-                        <h3>Activación para Fullescabio</h3>
+					<h3>Activación para Fullescabio</h3>
                         <p>📍San Telmo</p>
-                        <button class="btn-ver-mas">
+                           <button class="btn-ver-mas">
                             Ver más
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -2492,7 +2564,30 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
 				
                 <div class="galeria-item" data-index="5">
                     <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/6._cumplea%C3%B1os-rincon-de-milberg-bartender-details_snmqiw.webp" 
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/4._activaci%C3%B3n-para-yagmour-unicenter-bartender-details_badntx.webp" 
+                             sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
+                             alt="After Office - Puerto Madero"  loading="lazy" decoding="async" width="380" height="380">
+                    </div>
+                    <div class="galeria-info">
+                        <h3>Activación para Yagmour</h3>
+                        <p>📍Unicenter</p>
+                         <button class="btn-ver-mas">
+                            Ver más
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+				
+				
+				
+				
+				
+			
+	        <div class="galeria-item" data-index="6">
+                    <div class="galeria-image">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/3._after-office-para-bardoteca-san-telmo-bartender-details_k8jlyw.webp" 
                              sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
                              alt="After Office - Puerto Madero" 
                              loading="lazy" 
@@ -2501,8 +2596,31 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                              height="380">
                     </div>
                     <div class="galeria-info">
-                        <h3>Cumpleaños</h3>
-                        <p>📍 Rincón de Milberg</p>
+                       <h3>After Office para Bardoteca </h3>
+                        <p>📍San Telmo</p>
+                        <button class="btn-ver-mas">
+                            Ver más
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+				
+			
+	        <div class="galeria-item" data-index="7">
+                    <div class="galeria-image">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/2._activacion-activaci%C3%B3n-para-ginebra-llave-recoleta-bartender-details_g1f7bw.webp" 
+                             sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
+                             alt="After Office - Puerto Madero" 
+                             loading="lazy" 
+                             decoding="async" 
+                             width="380" 
+                             height="380">
+                    </div>
+                    <div class="galeria-info">
+                    	 <h3>Activación para Ginebra Llave</h3>
+                        <p>📍Recoleta</p>
                         <button class="btn-ver-mas">
                             Ver más
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2513,9 +2631,10 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                 </div>
 				
 				
-				        <div class="galeria-item" data-index="6">
+			
+	        <div class="galeria-item" data-index="8">
                     <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/7._cumplea%C3%B1os-villa-devoto-bartender-details_htkuwh.webp" 
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/1._empresarial-para-luxo-palermo-soho-bartender-details_oztlnl.webp" 
                              sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
                              alt="After Office - Puerto Madero" 
                              loading="lazy" 
@@ -2524,53 +2643,8 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                              height="380">
                     </div>
                     <div class="galeria-info">
-                      <h3>Cumpleaños </h3>
-                        <p>📍Villa Devoto 2025</p>
-                        <button class="btn-ver-mas">
-                            Ver más
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-				
-				        <div class="galeria-item" data-index="7">
-                    <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/8._aniversario-para-bardoteca-san-telmo-bartender-details_xv11a4.webp" 
-                             sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
-                             alt="After Office - Puerto Madero" 
-                             loading="lazy" 
-                             decoding="async" 
-                             width="380" 
-                             height="380">
-                    </div>
-                    <div class="galeria-info">
-                      <h3>Aniversario para Bardoteca</h3>
-                        <p>📍San Telmo 2025</p>
-                        <button class="btn-ver-mas">
-                            Ver más
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-				
-				
-				        <div class="galeria-item" data-index="8">
-                    <div class="galeria-image">
-                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1762542667/9._cumplea%C3%B1os-villa-urquiza-bartender-details_iik72j.webp" 
-                             sizes="(max-width:480px) 100vw, (max-width:1024px) 50vw, 33vw" 
-                             alt="After Office - Puerto Madero" 
-                             loading="lazy" 
-                             decoding="async" 
-                             width="380" 
-                             height="380">
-                    </div>
-                    <div class="galeria-info">
-                        <h3>Cumpleaños</h3>
-                        <p>📍 Villa Urquiza 2025</p>
+                        <h3>Empresarial para Luxo</h3>
+                        <p>📍Palermo Soho</p>
                         <button class="btn-ver-mas">
                             Ver más
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2626,6 +2700,7 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
             <h2>Lo que dicen nuestros clientes</h2>
             <div class="testimonios-slider">
                 <div class="testimonios-track">
+				
                     <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"Gracias Caro! Salió todo divino. Los detalles, la barra, ustedes!! Gracias porque no paro de recibir elogios"</p>
@@ -2637,6 +2712,7 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                             </div>
                         </div>
                     </div>
+					
                     <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"La mejor barra del mundo!! Unos genios, me consintieron todo los pedidos desde el primer llamado hasta el último minuto de la fiesta"</p>
@@ -2648,6 +2724,7 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                             </div>
                         </div>
                     </div>
+					
                     <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"Qué lindo es contar con vos y con tu magia"</p>
@@ -2660,6 +2737,7 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                             </div>
                         </div>
                     </div>
+					
                     <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"Gracias Caro!! Sos una genia, amé el servicio!! Todos mis invitados quedaron fascinados con tus tragos"</p>
@@ -2672,17 +2750,7 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                             </div>
                         </div>
                     </div>
-                    <div class="testimonio-card">
-                        <div class="testimonio-stars"></div>
-                        <p class="testimonio-text">"Profesionalismo puro. Desde la consulta previa hasta el último trago del evento, todo fue perfecto. Los recomiendo con los ojos cerrados."</p>
-                        <div class="testimonio-author">
-                            <div class="author-avatar">A</div>
-                            <div class="author-info">
-                                <h4>Ana Silva</h4>
-                                <span>Evento Social</span>
-                            </div>
-                        </div>
-                    </div>
+               
                     <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"Gracias Caro!! No solo preparaste nuestra barra de tragos: le pusiste tu estilo y buena onda. Quedó espectacular!!"
@@ -2695,6 +2763,77 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
                             </div>
                         </div>
                     </div>
+					
+					
+					
+					
+					                    <div class="testimonio-card">
+                        <div class="testimonio-stars"></div>
+                        <p class="testimonio-text">"Gracias Caro! Salió todo divino. Los detalles, la barra, ustedes!! Gracias porque no paro de recibir elogios"</p>
+                        <div class="testimonio-author">
+                            <div class="author-avatar">L</div>
+                            <div class="author-info">
+                                <h4>Liliana</h4>
+                                <span>Cumpleaños en Pilar</span>
+                            </div>
+                        </div>
+                    </div>
+					
+                    <div class="testimonio-card">
+                        <div class="testimonio-stars"></div>
+                        <p class="testimonio-text">"La mejor barra del mundo!! Unos genios, me consintieron todo los pedidos desde el primer llamado hasta el último minuto de la fiesta"</p>
+                        <div class="testimonio-author">
+                            <div class="author-avatar">C</div>
+                            <div class="author-info">
+                                <h4>Carolina</h4>
+                                <span>Cumpleaños en Rincón Milberg</span>
+                            </div>
+                        </div>
+                    </div>
+					
+                    <div class="testimonio-card">
+                        <div class="testimonio-stars"></div>
+                        <p class="testimonio-text">"Qué lindo es contar con vos y con tu magia"</p>
+						<br><br>
+                        <div class="testimonio-author">
+                            <div class="author-avatar">B</div>
+                            <div class="author-info">
+                                <h4>Bardoteca</h4>
+                                <span>Aniversario en San Telmo</span>
+                            </div>
+                        </div>
+                    </div>
+					
+                    <div class="testimonio-card">
+                        <div class="testimonio-stars"></div>
+                        <p class="testimonio-text">"Gracias Caro!! Sos una genia, amé el servicio!! Todos mis invitados quedaron fascinados con tus tragos"</p>
+<br>
+					  <div class="testimonio-author">
+                            <div class="author-avatar">J</div>
+                            <div class="author-info">
+                                <h4>Johana</h4>
+                                <span>Cumpleaños en Villa Urquiza</span>
+                            </div>
+                        </div>
+                    </div>
+               
+                    <div class="testimonio-card">
+                        <div class="testimonio-stars"></div>
+                        <p class="testimonio-text">"Gracias Caro!! No solo preparaste nuestra barra de tragos: le pusiste tu estilo y buena onda. Quedó espectacular!!"
+</p>
+                        <div class="testimonio-author">
+                            <div class="author-avatar">C</div>
+                            <div class="author-info">
+                                <h4>Cristian</h4>
+                                <span>Cumpleaños en Villa Urquiza</span>
+                            </div>
+                        </div>
+                    </div>
+					
+					
+					
+					
+					
                 </div>
             </div>
         </div>
@@ -2703,12 +2842,11 @@ Incluye <strong>cristalería, insumos varios y todo lo requerido para armar una 
     <!-- FAQ Section -->
     <section class="faq" id="faq">
         <div class="faq-container">
-		   <p class="title">Preguntas Frecuentes, sobre:</p>
-            <h2>"EL SERVICIO DE BARRA INTEGRAL"</h2>
+		   <h2>Preguntas Frecuentes</h2>
             <div class="faq-list">
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span>¿Tenés base de contratación?</span>
+                        <span>"En el servicio de barra integral: ¿tenés base de contratación?"</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
@@ -2807,7 +2945,7 @@ El resto se abona el día del evento.</p>
                         </svg>
                     </button>
                 </form>
-                <p class="cta-note">La experiencia de una barra hace la diferencia de una fiesta.</p>
+                <p class="cta-note"><i>"En Detail, todo está listo antes de que empiece la fiesta para que vivas tu evento como invitado."</i></p>
             </div>
         </div>
     </section>
@@ -3066,36 +3204,42 @@ document.addEventListener('click', (e) => {
 (function initGaleria() {
     const EVENTOS_DATA = [
         {
-            title: 'Empresarial',
-            subtitle: 'Para Luxo',
-            description: 'San Telmo',
-            location: 'Palermo Soho, Buenos Aires',
-            guests: '50 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/1._empresarial-para-luxo-palermo-soho-bartender-details_oztlnl.webp'
-        },
-        {
-            title: 'Activación',
-            subtitle: 'Para Ginebra Llave',
+		
+		 title: 'Cumpleaños',
+            subtitle: 'Año 2025',
             description: '',
-            location: 'Recoleta, Buenos Aires',
-            guests: '100 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/2._activacion-activaci%C3%B3n-para-ginebra-llave-recoleta-bartender-details_g1f7bw.webp'
+            location: 'Cumpleaños, Buenos Aires',
+            guests: '25 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542667/9._cumplea%C3%B1os-villa-urquiza-bartender-details_iik72j.webp'
+           
         },
         {
-            title: 'After Office',
-            subtitle: ' para Bardoteca',
+		
+		 title: 'Aniversario',
+            subtitle: 'para Bardoteca 2025',
             description: '',
             location: 'San Telmo, Buenos Aires',
-            guests: '80 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/3._after-office-para-bardoteca-san-telmo-bartender-details_k8jlyw.webp'
+            guests: '100 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/8._aniversario-para-bardoteca-san-telmo-bartender-details_xv11a4.webp'
+           
         },
         {
-            title: 'Activación',
-            subtitle: 'para Yagmour',
+		    title: 'Cumpleaños',
+            subtitle: 'Año 2025',
             description: '',
-            location: 'Unicenter, Buenos Aires',
+            location: 'Villa Devoto, Buenos Aires',
             guests: '40 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/4._activaci%C3%B3n-para-yagmour-unicenter-bartender-details_badntx.webp'
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/7._cumplea%C3%B1os-villa-devoto-bartender-details_htkuwh.webp'
+ 
+        },
+        {
+		   title: 'Cumpleaños',
+            subtitle: 'Rincón de Milberg',
+            description: '',
+            location: 'Cumpleaños, Buenos Aires',
+            guests: '50 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/6._cumplea%C3%B1os-rincon-de-milberg-bartender-details_snmqiw.webp'
+           
         },
         {
             title: 'Activación',
@@ -3106,36 +3250,39 @@ document.addEventListener('click', (e) => {
             image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/5._activacion-para-fullescabio-san-telmo-bartender-details_ctcn4a.webp'
         },
         {
-            title: 'Cumpleaños',
-            subtitle: 'Rincón de Milberg',
+		  title: 'Activación',
+            subtitle: 'para Yagmour',
             description: '',
-            location: 'Cumpleaños, Buenos Aires',
-            guests: '50 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/6._cumplea%C3%B1os-rincon-de-milberg-bartender-details_snmqiw.webp'
-        },
-		  {
-            title: 'Cumpleaños',
-            subtitle: 'Año 2025',
-            description: '',
-            location: 'Villa Devoto, Buenos Aires',
+            location: 'Unicenter, Buenos Aires',
             guests: '40 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/7._cumplea%C3%B1os-villa-devoto-bartender-details_htkuwh.webp'
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/4._activaci%C3%B3n-para-yagmour-unicenter-bartender-details_badntx.webp'
+
         },
 		  {
-            title: 'Aniversario',
-            subtitle: 'para Bardoteca 2025',
+		    title: 'After Office',
+            subtitle: ' para Bardoteca',
             description: '',
             location: 'San Telmo, Buenos Aires',
-            guests: '100 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/8._aniversario-para-bardoteca-san-telmo-bartender-details_xv11a4.webp'
+            guests: '80 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/3._after-office-para-bardoteca-san-telmo-bartender-details_k8jlyw.webp'
+		  
+         
         },
 		  {
-            title: 'Cumpleaños',
-            subtitle: 'Año 2025',
+            title: 'Activación',
+            subtitle: 'Para Ginebra Llave',
             description: '',
-            location: 'Cumpleaños, Buenos Aires',
-            guests: '25 invitados',
-            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542667/9._cumplea%C3%B1os-villa-urquiza-bartender-details_iik72j.webp'
+            location: 'Recoleta, Buenos Aires',
+            guests: '100 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542665/2._activacion-activaci%C3%B3n-para-ginebra-llave-recoleta-bartender-details_g1f7bw.webp'
+        },
+		  {
+           title: 'Empresarial',
+            subtitle: 'Para Luxo',
+            description: 'San Telmo',
+            location: 'Palermo Soho, Buenos Aires',
+            guests: '50 invitados',
+            image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/1._empresarial-para-luxo-palermo-soho-bartender-details_oztlnl.webp'
         }
     ];
 
