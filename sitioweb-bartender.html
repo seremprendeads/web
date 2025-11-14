@@ -836,26 +836,6 @@ nav {
     object-fit: cover;
 }
 
-.video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.video-container.playing .video-overlay {
-    opacity: 0;
-}
-
-
 
 .servicio-features {
     display: grid;
@@ -2347,13 +2327,7 @@ Mi objetivo es que sólo te preocupes en disfrutar de tu evento. No solo sé hac
                             <source src="https://res.cloudinary.com/dliredzt9/video/upload/v1762549234/1_evento_en_menos_de_1_minuto.En_la_publicaci%C3%B3n_anterior_les_cont%C3%A9_de_qu%C3%A9_se_trata_esta_modalida_lo3udq.mp4" type="video/mp4">
                             Tu navegador no soporta el elemento de video.
                         </video>
-                        <div class="video-overlay">
-                            <button class="play-button" id="playButton">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </button>
-                        </div>
+          
                     </div>
                 </div>
             </div>
