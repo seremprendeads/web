@@ -879,6 +879,8 @@ nav {
     transition: all 0.3s ease;
 }
 
+.
+
 .feature-item:hover .feature-icon {
     transform: rotateY(360deg);
 }
@@ -1217,8 +1219,9 @@ nav {
 
 .testimonios-track {
     display: flex;
-    animation: scroll 60s linear infinite;
     gap: 2rem;
+	    animation: scroll 100s 
+linear infinite;
 }
 
 .testimonios-track:hover {
@@ -1712,9 +1715,7 @@ footer .social-icons {
     margin-bottom: 1rem;
 }
 
-.module-title br {
-  display: none;
-}
+
 
 /* ===================================== */
 /* WHATSAPP FLOAT BUTTON */
@@ -1922,10 +1923,7 @@ footer .social-icons {
     .hero-mobile-buttons {
         display: none;
     }
-	  .module-title br {
-    display: block; /* fuerza el salto de línea */
-    content: "";    /* no necesario, pero seguro */
-  }
+
 }
 
 @media (max-width: 1024px) {
@@ -2347,10 +2345,9 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
                     </div>
-<h3 class="module-title">Módulo<br> De Barra</h3>
-   
-
-                    <p>Opcional</p>
+				
+             <h3 >Módulo De Barra</h3>
+                     <p>Opcional</p>
                 </div>
                 <div class="feature-item">
                     <div class="feature-icon">
@@ -2636,8 +2633,9 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                     <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"Gracias Caro! Salió todo divino. Los detalles, la barra, ustedes!! Gracias porque no paro de recibir elogios"</p>
-<br>                       
+                         <br><br>                       
 					   <div class="testimonio-author">
+					    <br><br>
                             <div class="author-avatar">L</div>
                             <div class="author-info">
                                 <h4>Liliana</h4>
@@ -2650,6 +2648,7 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"La mejor barra del mundo!! Unos genios, me consintieron todo los pedidos desde el primer llamado hasta el último minuto de la fiesta"</p>
                         <div class="testimonio-author">
+						 <br><br><br><br>
                             <div class="author-avatar">C</div>
                             <div class="author-info">
                                 <h4>Carolina</h4>
@@ -2661,7 +2660,7 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                     <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"Qué lindo es contar con vos y con tu magia"</p>
-							<br><br>
+							<br><br><br>
                         <div class="testimonio-author">
                             <div class="author-avatar">B</div>
                             <div class="author-info">
@@ -2674,7 +2673,7 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                     <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"Gracias Caro!! Sos una genia, amé el servicio!! Todos mis invitados quedaron fascinados con tus tragos"</p>
-                      <br>
+                       <br><br>
 					  <div class="testimonio-author">
                             <div class="author-avatar">J</div>
                             <div class="author-info">
@@ -2687,7 +2686,8 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                     <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"Gracias Caro!! No solo preparaste nuestra barra de tragos: le pusiste tu estilo y buena onda. Quedó espectacular!!"
-</p>
+                      </p>
+					   <br>
                         <div class="testimonio-author">
                             <div class="author-avatar">C</div>
                             <div class="author-info">
@@ -2697,14 +2697,27 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                         </div>
                     </div>
 					
+					   <div class="testimonio-card">
+                        <div class="testimonio-stars"></div>
+                        <p class="testimonio-text">"Hola Caro! Quería agradecerte de nuevo por el servicio. Todo muy espectacular, ustedes muy amables y profesionales. Hasta el próximo festejo!"
+</p>
+ 
+                        <div class="testimonio-author">
+                            <div class="author-avatar">T</div>
+                            <div class="author-info">
+                                <h4>Tamara</h4>
+                                <span>Tristán Suárez</span>
+                            </div>
+                        </div>
+                    </div>			
 					
-					
-					
-					                    <div class="testimonio-card">
+					<!-- duplicado -->
+                              <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"Gracias Caro! Salió todo divino. Los detalles, la barra, ustedes!! Gracias porque no paro de recibir elogios"</p>
-                        <div class="testimonio-author">
-						<br><br><br><br>
+                         <br><br>                       
+					   <div class="testimonio-author">
+					    <br><br>
                             <div class="author-avatar">L</div>
                             <div class="author-info">
                                 <h4>Liliana</h4>
@@ -2717,10 +2730,11 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"La mejor barra del mundo!! Unos genios, me consintieron todo los pedidos desde el primer llamado hasta el último minuto de la fiesta"</p>
                         <div class="testimonio-author">
+						 <br><br><br><br>
                             <div class="author-avatar">C</div>
                             <div class="author-info">
                                 <h4>Carolina</h4>
-                                <span>Cumpleaños en Rincón Milberg</span>
+                                <span>Villa Urquiza en Rincón Milberg</span>
                             </div>
                         </div>
                     </div>
@@ -2728,7 +2742,7 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                     <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"Qué lindo es contar con vos y con tu magia"</p>
-						<br><br>
+							<br><br><br>
                         <div class="testimonio-author">
                             <div class="author-avatar">B</div>
                             <div class="author-info">
@@ -2741,7 +2755,7 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                     <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"Gracias Caro!! Sos una genia, amé el servicio!! Todos mis invitados quedaron fascinados con tus tragos"</p>
-<br>
+                       <br><br>
 					  <div class="testimonio-author">
                             <div class="author-avatar">J</div>
                             <div class="author-info">
@@ -2754,7 +2768,8 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                     <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"Gracias Caro!! No solo preparaste nuestra barra de tragos: le pusiste tu estilo y buena onda. Quedó espectacular!!"
-</p>
+                      </p>
+					   <br>
                         <div class="testimonio-author">
                             <div class="author-avatar">C</div>
                             <div class="author-info">
@@ -2763,10 +2778,12 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                             </div>
                         </div>
                     </div>
-					     <div class="testimonio-card">
+					
+					   <div class="testimonio-card">
                         <div class="testimonio-stars"></div>
                         <p class="testimonio-text">"Hola Caro! Quería agradecerte de nuevo por el servicio. Todo muy espectacular, ustedes muy amables y profesionales. Hasta el próximo festejo!"
 </p>
+
                         <div class="testimonio-author">
                             <div class="author-avatar">T</div>
                             <div class="author-info">
@@ -2774,8 +2791,7 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                                 <span>Tristán Suárez</span>
                             </div>
                         </div>
-                    </div>
-		
+                    </div>			
 					
 					
                 </div>
@@ -2827,7 +2843,7 @@ Incluye cristalería y todo lo necesario para montar una barra funcional.
                     </button>
                     <div class="faq-answer">
                         <p>Incluye el despacho de vinos, espumantes, cervezas, etc., acordado previamente.
-También está incluído el servicio de agua y gaseosa, que se despacha desde la barra.</p>
+También está incluído el servicio de agua y gaseosa, que se despacha desde la barra (como adicional).</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -2854,16 +2870,7 @@ También está incluído el servicio de agua y gaseosa, que se despacha desde la
 El resto se abona el día del evento.</p>
                     </div>
                 </div> 
-             <div class="faq-item">
-                    <button class="faq-question">
-                        <span>¿Qué más está incluido?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>También está incluído el servicio de agua y gaseosa, que se despacha desde la barra (como adicional).</p>
-                    </div>
-                </div
-
+         
 		   </div>
         </div>
     </section>
@@ -3186,10 +3193,10 @@ document.addEventListener('click', (e) => {
  
         },
         {
-		   title: 'Rincón de Milberg',
+		   title: 'Cumpleaños',
             subtitle: '',
             description: '',
-            location: 'Villa Urquiza, Buenos Aires',
+            location: 'Rincón de Milberg, Buenos Aires',
             guests: '50 invitados',
             image: 'https://res.cloudinary.com/dliredzt9/image/upload/v1762542666/6._cumplea%C3%B1os-rincon-de-milberg-bartender-details_snmqiw.webp'
            
