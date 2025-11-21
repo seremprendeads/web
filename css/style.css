@@ -664,7 +664,7 @@ linear infinite;
 
 @media (max-width: 480px) {
     .about-badge {
-        bottom: 10px;
+        bottom: -80px;
         right: 10px;
         padding: 0.75rem;
     }
@@ -1228,5 +1228,6 @@ linear infinite;
                 padding: 3rem 2rem;
             }
         }
+
 
 
