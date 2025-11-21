@@ -322,7 +322,7 @@ nav {
 }
 
 .how-it-works {
-    padding: 1rem 2rem;
+    padding: 6rem 0.5rem;
     background: #faf8f6;
 }
 
@@ -802,12 +802,20 @@ footer {
         margin-top: 1rem;
     }
     
-    .hero { 
-        grid-template-columns: 1fr; 
+   .hero { 
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        min-height: auto;
+    }
+    
+    .hero-image {
+        min-height: 80vh;
+        order: 1;
     }
     
     .hero-content { 
-        padding: 3rem 2rem; 
+        padding: 3rem 2rem;
+        order: 2;
     }
     
     .hero-title { 
