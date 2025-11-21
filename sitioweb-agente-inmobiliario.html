@@ -994,8 +994,8 @@ document.querySelectorAll('.step-arrow').forEach(arrow => {
 
 // LIGHTBOX CON TUS VIDEOS
 const lightboxData = {
-    buying: 
-        videoId: '3f-OqgdAG0U',
+    buying: {  // ❌ Faltaban las llaves { }
+        videoId: '3f-OqgdAG0U',  // ❌ Quita el ?si=nDCma--PpYsLeC1K
         title: 'Servicio de Compra de Propiedades',
         description: 'Te acompaño en todo el proceso de compra, desde la búsqueda inicial hasta el cierre del trato. Con acceso a las mejores propiedades del mercado y años de experiencia negociando, te garantizo encontrar el hogar perfecto al mejor precio.',
         features: [
@@ -1007,8 +1007,8 @@ const lightboxData = {
             '✓ Acompañamiento hasta la escritura'
         ]
     },
-    selling:
-        videoId: 'Q_A_CpjeVqA',
+    selling: {  // ❌ Faltaban las llaves { }
+        videoId: 'Q_A_CpjeVqA',  // ❌ Quita el ?si=pwv1rBVZQtKubzYm
         title: 'Servicio de Venta de Propiedades',
         description: 'Utilizo estrategias de marketing probadas y mi red de contactos para vender tu propiedad al mejor precio en el menor tiempo posible. Fotografía profesional, tours virtuales y campañas publicitarias efectivas.',
         features: [
@@ -1020,9 +1020,9 @@ const lightboxData = {
             '✓ Negociación experta'
         ]
     },
-   renting: {
-    videoId: 'JHhgXxUVozI', 
-    title: 'Servicio de Alquiler',
+    renting: {
+        videoId: 'JHhgXxUVozI',  // ❌ Quita el ?si=wY0FjQyAAnDRTYub
+        title: 'Servicio de Alquiler',
         description: 'Ya sea que busques alquilar tu propiedad o encontrar el lugar perfecto para rentar, te conecto con las mejores oportunidades. Gestión completa del proceso de alquiler con contratos seguros y inquilinos confiables.',
         features: [
             '✓ Búsqueda de propiedades en alquiler',
@@ -1034,6 +1034,30 @@ const lightboxData = {
         ]
     }
 };
+
+function openLightbox(service) {
+    const data = lightboxData[service];
+    const lightbox = document.getElementById('lightbox');
+    const iframe = document.getElementById('lightbox-iframe');
+    const title = document.getElementById('lightbox-title');
+    const description = document.getElementById('lightbox-description');
+    const features = document.getElementById('lightbox-features');
+    
+    // USA youtube-nocookie.com
+    iframe.src = `https://www.youtube-nocookie.com/embed/${data.videoId}?autoplay=1&mute=1&rel=0&modestbranding=1`;
+    
+    title.textContent = data.title;
+    description.textContent = data.description;
+    
+    features.innerHTML = data.features.map(feature => `
+        <div class="feature-item">
+            <span class="feature-text">${feature}</span>
+        </div>
+    `).join('');
+    
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
 function openLightbox(service) {
     const data = lightboxData[service];
