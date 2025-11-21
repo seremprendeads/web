@@ -462,7 +462,7 @@
     position: absolute;
     bottom: -90px;
     right: 175px;
-    background: var(--glass-bg);
+    background: rgb(42 42 42 / 33%);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border-glass);
@@ -1228,4 +1228,5 @@ linear infinite;
                 padding: 3rem 2rem;
             }
         }
+
 
