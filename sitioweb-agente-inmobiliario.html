@@ -63,7 +63,7 @@ nav {
 }
 
 .contact-btn {
-   background: #2c2c2c;
+    background: #2c2c2c;
     color: white;
     padding: 0.8rem 2rem;
     border: none;
@@ -75,7 +75,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-	border-radius: 05px;
+    border-radius: 5px;
 }
 
 .contact-btn:hover {
@@ -322,7 +322,7 @@ nav {
 }
 
 .how-it-works {
-    padding: 6rem 2rem;
+    padding: 1rem 2rem;
     background: #faf8f6;
 }
 
@@ -540,7 +540,6 @@ footer {
     color: rgba(255,255,255,0.5);
 }
 
-/* LIGHTBOX */
 .lightbox {
     display: none;
     position: fixed;
@@ -554,11 +553,6 @@ footer {
 
 .lightbox.active {
     display: block;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 .lightbox-overlay {
@@ -732,73 +726,6 @@ footer {
     background: #1a1a1a;
 }
 
-@media (max-width: 968px) {
-    .menu-toggle { display: flex; }
-    .nav-links {
-        position: fixed;
-        top: 80px;
-        left: -100%;
-        flex-direction: column;
-        background: white;
-        width: 100%;
-        padding: 2rem;
-        transition: left 0.3s;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .nav-links.active { left: 0; }
-    nav .contact-btn {
-        display: none;
-    }
-    .nav-links .contact-btn {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        margin-top: 1rem;
-    }
-    .hero { grid-template-columns: 1fr; }
-    .hero-content { padding: 3rem 2rem; }
-    .services-grid { grid-template-columns: 1fr; }
-    .service-card.renting { grid-column: span 1; }
-    .contact-section { grid-template-columns: 1fr; }
-    .lightbox-inner { 
-        grid-template-columns: 1fr; 
-        grid-template-rows: 60vh auto;
-    }
-    .lightbox-content {
-        width: 100%;
-        max-width: 100%;
-        height: 100vh;
-        margin: 0;
-        border-radius: 0;
-    }
-    .lightbox-video {
-        padding: 0;
-        height: 60vh;
-    }
-    .lightbox-video iframe {
-        max-height: none;
-        height: 100%;
-    }
-    .lightbox-info {
-        max-height: 40vh;
-    }
-    .lightbox-close {
-        background: rgba(255, 255, 255, 0.95);
-        color: #2c2c2c;
-        border-color: #2c2c2c;
-        top: 10px;
-        right: 10px;
-        width: 40px;
-        height: 40px;
-        font-size: 28px;
-        z-index: 1000;
-    }
-}
-
-/* ===================================== */
-/* WHATSAPP FLOAT BUTTON */
-/* ===================================== */
-
 .whatsapp-float {
     position: fixed;
     bottom: 30px;
@@ -829,107 +756,6 @@ footer {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-.whatsapp-float::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: #25D366;
-    animation: ripple 2s infinite;
-    z-index: -1;
-}
-
-.tooltip {
-    position: absolute;
-    right: 75px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #fff;
-    color: #333;
-    padding: 10px 15px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.tooltip::after {
-    content: '';
-    position: absolute;
-    right: -8px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-left: 8px solid #fff;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-}
-
-.whatsapp-float:hover .tooltip {
-    opacity: 1;
-}
-
-/* ===================================== */
-/* KEYFRAMES ANIMATIONS */
-/* ===================================== */
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-320px * 6 - 2rem * 6));
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
@@ -939,42 +765,130 @@ footer {
     }
 }
 
-@keyframes loading {
-    0% {
-        width: 0;
-        background-position: 0% 50%;
-    }
-    50% {
-        width: 100%;
-        background-position: 100% 50%;
-    }
-    100% {
-        width: 100%;
-        background-position: 200% 50%;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-@keyframes bounce {
-    0%, 80%, 100% {
-        transform: scale(0);
-        opacity: 0.5;
+@media (max-width: 968px) {
+    .menu-toggle { 
+        display: flex; 
     }
-    40% {
-        transform: scale(1);
-        opacity: 1;
+    
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        padding: 2rem;
+        transition: left 0.3s;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links.active { 
+        left: 0; 
+    }
+    
+    nav > .contact-btn {
+        display: none;
+    }
+    
+    .nav-links .contact-btn {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .hero { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .hero-content { 
+        padding: 3rem 2rem; 
+    }
+    
+    .hero-title { 
+        font-size: 2.5rem; 
+    }
+    
+    .services-grid { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .service-card.renting { 
+        grid-column: span 1; 
+    }
+    
+    .contact-section { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .lightbox-inner { 
+        grid-template-columns: 1fr; 
+        grid-template-rows: 60vh auto;
+    }
+    
+    .lightbox-content {
+        width: 100%;
+        max-width: 100%;
+        height: 100vh;
+        margin: 0;
+        border-radius: 0;
+    }
+    
+    .lightbox-video {
+        padding: 0;
+        height: 60vh;
+    }
+    
+    .lightbox-video iframe {
+        max-height: none;
+        height: 100%;
+    }
+    
+    .lightbox-info {
+        max-height: 40vh;
+    }
+    
+    .lightbox-close {
+        background: rgba(255, 255, 255, 0.95);
+        color: #2c2c2c;
+        border-color: #2c2c2c;
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 28px;
+        z-index: 1000;
+    }
+    
+    .properties-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    
+    .property-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .property-image {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .property-info {
+        width: 100%;
+        text-align: center;
     }
 }
-
-@keyframes ripple {
-    0% {
-        transform: scale(1);
-        opacity: 0.7;
-    }
-    100% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
-}
+  
     </style>
 </head>
 <body>
