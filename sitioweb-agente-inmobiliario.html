@@ -321,6 +321,100 @@ nav {
     margin-bottom: 0.5rem;
 }
 
+.testimonials {
+    padding: 6rem 2rem;
+    background: white;
+    overflow: hidden;
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.testimonials-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-track {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+
+.testimonial-card {
+    min-width: 100%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #2c2c2c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 2rem;
+    max-width: 700px;
+}
+
+.testimonial-author {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-bottom: 0.3rem;
+}
+
+.testimonial-role {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.testimonial-stars {
+    color: #FFD700;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.testimonials-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: #2c2c2c;
+    width: 30px;
+    border-radius: 6px;
+}
+
 .how-it-works {
     padding: 6rem 0.5rem;
     background: #faf8f6;
@@ -900,6 +994,20 @@ footer {
         width: 100%;
         text-align: center;
     }
+    
+    .testimonial-card {
+        padding: 2rem 1rem;
+    }
+    
+    .testimonial-text {
+        font-size: 1rem;
+    }
+    
+    .testimonial-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+    }
 }
   
     </style>
@@ -1000,6 +1108,45 @@ footer {
                     <button class="service-btn" onclick="openLightbox('renting')">Saber más</button>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <h2 class="section-title">Lo Que Dicen Mis Clientes</h2>
+        <div class="testimonials-container">
+            <div class="testimonials-slider">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <div class="testimonial-avatar">JM</div>
+                        <p class="testimonial-text">
+                            "María nos ayudó a encontrar la casa de nuestros sueños. Su profesionalismo y dedicación son incomparables. Estuvo con nosotros en cada paso del proceso y negoció un precio excelente."
+                        </p>
+                        <div class="testimonial-author">Juan Martínez</div>
+                        <div class="testimonial-role">Propietario en Palermo</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <div class="testimonial-avatar">LR</div>
+                        <p class="testimonial-text">
+                            "Vendí mi apartamento en tiempo récord gracias a María. Su estrategia de marketing es impecable y su red de contactos es increíble. Totalmente recomendada."
+                        </p>
+                        <div class="testimonial-author">Laura Rodríguez</div>
+                        <div class="testimonial-role">Ex-propietaria en Recoleta</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <div class="testimonial-avatar">CS</div>
+                        <p class="testimonial-text">
+                            "Como inversionista, he trabajado con muchos agentes, pero María es excepcional. Su conocimiento del mercado y su honestidad la hacen única. Ya es mi agente de confianza."
+                        </p>
+                        <div class="testimonial-author">Carlos Sánchez</div>
+                        <div class="testimonial-role">Inversionista Inmobiliario</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-dots" id="testimonialsDots"></div>
         </div>
     </section>
 	
@@ -1281,7 +1428,6 @@ function openLightbox(service) {
     const description = document.getElementById('lightbox-description');
     const features = document.getElementById('lightbox-features');
     
-    // USA youtube-nocookie.com
     iframe.src = `https://www.youtube-nocookie.com/embed/${data.videoId}?autoplay=1&mute=1&rel=0&modestbranding=1`;
     
     title.textContent = data.title;
@@ -1311,6 +1457,44 @@ document.addEventListener('keydown', (e) => {
         closeLightbox();
     }
 });
+
+// TESTIMONIALS SLIDER
+let currentSlide = 0;
+const slides = document.querySelectorAll('.testimonial-card');
+const totalSlides = slides.length;
+const track = document.getElementById('testimonialsTrack');
+const dotsContainer = document.getElementById('testimonialsDots');
+
+// Create dots
+for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+}
+
+function updateSlider() {
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlider();
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    updateSlider();
+}
+
+// Auto-play every 6 seconds
+setInterval(nextSlide, 6000);
     </script>
 </body>
 </html>
