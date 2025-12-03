@@ -616,30 +616,31 @@
          /* ========== CONTENEDOR PRINCIPAL ========== */
         #reservar {
             padding: 2rem 1rem;
-            max-width: 2000px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         /* ========== RESERVAR CTA ========== */
-        .reservar-cta {
-            background: linear-gradient(135deg, var(--dark-bg), var(--light-gray));
-            text-align: center;
-            border-radius: 20px;
-            padding: 3rem 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
+       .reservar-cta {
+    background: #1f0f3a;
+    text-align: center;
+    border-radius: 20px;
+    padding: 3rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
 
-        .reservar-cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
+       .reservar-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    animation: pulse 4s 
+ease-in-out infinite;
+}
+
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
@@ -667,8 +668,7 @@
         /* ========== FORMULARIO ========== */
         .contact-form {
             background: #1f0f3a;
-            padding: 0.5rem;
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 2rem;
             border-radius: 12px;
             max-width: 900px;
             margin: 0 auto;
