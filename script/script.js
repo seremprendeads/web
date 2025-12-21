@@ -53,7 +53,7 @@ function animateCounter(card) {
     const suffix = numberElement.dataset.suffix || '';
     
     let current = 0;
-    const duration = 2000; 
+    const duration = 6000; 
     const steps = 60; 
     const increment = target / steps;
     const stepDuration = duration / steps;
@@ -261,4 +261,5 @@ window.addEventListener('scroll', handleHeaderScroll);
   Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
 
 <!-- Cal element-click embed code ends -->
+
 
