@@ -999,7 +999,7 @@ linear infinite;
             padding: 0 2rem;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            gap: 1rem;
         }
 
         .service-card {
@@ -1206,6 +1206,7 @@ linear infinite;
                 padding: 3rem 2rem;
             }
         }
+
 
 
 
