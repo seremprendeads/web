@@ -347,28 +347,6 @@
             transform: perspective(1000px) rotateY(-10deg) rotateX(2deg) scale(1.02);
         }
 		
-/* shape-divider */		
-		.custom-shape-divider-bottom-1757696437 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
-
-.custom-shape-divider-bottom-1757696437 svg {
-    position: relative;
-    display: block;
-    width: calc(139% + 1.3px);
-    height: 150px;
-}
-
-.custom-shape-divider-bottom-1757696437 .shape-fill {
-    fill: #191919;
-}
-
         /* Floating elements */
         .floating-element {
             position: absolute;
@@ -1228,6 +1206,7 @@ linear infinite;
                 padding: 3rem 2rem;
             }
         }
+
 
 
 
