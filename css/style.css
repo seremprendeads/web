@@ -385,7 +385,7 @@
 .socios-track {
   display: flex;
   width: max-content;
-  animation: scrollLoop 25s linear infinite;
+  animation: scrollLoop 60s linear infinite;
 }
 
 .socios-slide {
@@ -1207,6 +1207,7 @@ linear infinite;
                 padding: 3rem 2rem;
             }
         }
+
 
 
 
