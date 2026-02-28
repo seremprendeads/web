@@ -1,0 +1,2029 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JurriLaw - Your Partner for Business Advisory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #0F172A;
+            --color-secondary: #1E293B;
+            --color-accent: #D4A574;
+            --color-beige: #F5F1E8;
+            --color-cream: #FAF9F6;
+            --color-text: #334155;
+            --color-text-light: #64748B;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--color-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.75rem;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+        }
+
+        .header-contact {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .phone {
+            font-size: 0.85rem;
+            color: #000000;
+            padding: 10px 35px 10px 35px;
+            font-weight: bold;
+        }
+
+        /* Iconos de redes sociales en negro */
+        .phone a {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .phone a:hover {
+            opacity: 0.7;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu Button - Hamburguesa animada */
+        .mobile-menu {
+            display: none;
+            width: 30px;
+            height: 24px;
+            position: relative;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: var(--color-primary);
+            border-radius: 2px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+        }
+
+        .mobile-menu span:nth-child(1) {
+            top: 0px;
+        }
+
+        .mobile-menu span:nth-child(2) {
+            top: 10px;
+        }
+
+        .mobile-menu span:nth-child(3) {
+            top: 20px;
+        }
+
+        /* Animación a X cuando está activo */
+        .mobile-menu.active span:nth-child(1) {
+            top: 10px;
+            transform: rotate(135deg);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            top: 10px;
+            transform: rotate(-135deg);
+        }
+
+        /* Navegación móvil vertical - CORREGIDO */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav.active {
+            display: flex !important;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav ul {
+            flex-direction: column;
+            gap: 2rem;
+            text-align: center;
+            list-style: none;
+        }
+
+        .mobile-nav a {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+			
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 500;
+            line-height: 1.1;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            color: var(--color-text-light);
+            font-size: 1rem;
+            max-width: 400px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-image {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f0f0f0 100%);
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .award-badge {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            background: white;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .award-badge span {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-text-light);
+        }
+
+        .award-badge strong {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--color-primary);
+        }
+
+        /* Logos Section */
+        .logos {
+            background: var(--color-primary);
+            padding: 2rem;
+        }
+
+        .logos-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .logos span {
+            color: rgba(255,255,255,0.6);
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .about-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+        }
+
+        .about h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--color-primary);
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* Services Cards */
+        .services-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+        }
+
+        .service-card {
+            background: var(--color-cream);
+            padding: 2.5rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--color-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .link-arrow {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            background: var(--color-cream);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .expertise-header {
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+        }
+
+        .expertise h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .all-services {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .expertise-item {
+            padding: 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-right: 1px solid rgba(0,0,0,0.1);
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: transparent;
+        }
+
+        .expertise-item:nth-child(3n) {
+            border-right: none;
+        }
+
+        .expertise-item:hover {
+            background: white;
+            transform: translateX(5px);
+        }
+
+        .expertise-item span {
+            font-size: 0.9rem;
+            color: var(--color-text);
+            font-weight: 500;
+        }
+
+        .expertise-item i {
+            color: var(--color-text-light);
+            font-size: 0.8rem;
+            transition: transform 0.3s;
+        }
+
+        .expertise-item:hover i {
+            transform: translateX(5px);
+            color: var(--color-primary);
+        }
+
+        /* Modal/Popup Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            background: var(--color-primary);
+            color: white;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .modal-header h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            margin: 0;
+            padding-right: 3rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-description {
+            font-size: 1.1rem;
+            color: var(--color-text);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            border-left: 3px solid var(--color-accent);
+            padding-left: 1rem;
+        }
+
+        .modal-paragraph {
+            color: var(--color-text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-features {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .modal-features li {
+            padding: 0.5rem 0;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-features li i {
+            color: var(--color-accent);
+            font-size: 0.9rem;
+        }
+
+        .modal-cta {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        /* Testimonial Section */
+        .testimonial {
+            background: var(--color-primary);
+            color: white;
+            padding: 6rem 2rem;
+        }
+
+        .testimonial-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .testimonial-content h3 {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .quote-mark {
+            font-size: 4rem;
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: -1rem;
+            display: block;
+        }
+
+        .testimonial-content p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .stars {
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .author-name {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .testimonial-image {
+            position: relative;
+            height: 400px;
+        }
+
+        .testimonial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(255,255,255,0.95);
+            padding: 1.5rem 2rem;
+            color: var(--color-primary);
+        }
+
+        .author-info h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info span {
+            font-size: 0.8rem;
+            color: var(--color-text-light);
+        }
+
+        /* Clients Section */
+        .clients {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .clients-content h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .clients-content p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        .clients-logos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .client-logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-text-light);
+            opacity: 0.6;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .team-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            align-items: end;
+        }
+
+        .team h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+        }
+
+        .team-header p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .team-member {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member:nth-child(4),
+        .team-member:nth-child(5) {
+            grid-column: span 1;
+        }
+
+        .team-member:nth-child(6) {
+            background: var(--color-primary);
+            color: white;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 1.5rem 0;
+        }
+
+        .member-info h4 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+            color: var(--color-primary);
+        }
+
+        .member-info span {
+            font-size: 0.8rem;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .member-role {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .join-team h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .join-team p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-outline {
+            border: 1px solid white;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--color-primary);
+        }
+
+        /* Gallery / Case Studies */
+        .cases {
+            padding: 6rem 2rem;
+            background: var(--color-cream);
+        }
+
+        .cases-header {
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+        }
+
+        .cases h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+        }
+
+        .cases-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+        }
+
+        .case-item {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .case-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .case-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .case-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 3rem;
+            background: linear-gradient(to top, rgba(15,23,42,0.9), transparent);
+            color: white;
+        }
+
+        .case-overlay span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        .case-overlay h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            margin-top: 0.5rem;
+        }
+
+       
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 2rem;
+            background: var(--color-cream);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--color-primary);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* WhatsApp Section */
+        .whatsapp {
+            padding: 6rem 2rem;
+            background: var(--color-primary);
+            color: white;
+            text-align: center;
+        }
+
+        .whatsapp-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .whatsapp-icon {
+            font-size: 3rem;
+            color: #25D366;
+            margin-bottom: 1.5rem;
+        }
+
+        .whatsapp h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .whatsapp p {
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .whatsapp-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .whatsapp-form input,
+        .whatsapp-form textarea {
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-family: var(--font-sans);
+        }
+
+        .whatsapp-form input::placeholder,
+        .whatsapp-form textarea::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: transform 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-primary);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-brand h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-contact i {
+            margin-right: 0.5rem;
+        }
+
+        .footer-links h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero,
+            .about,
+            .testimonial-container,
+            .clients,
+            .team-header {
+                grid-template-columns: 1fr;
+            }
+
+            .services-cards,
+            .expertise-grid,
+            .team-grid,
+            {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none !important;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .phone {
+                padding: 10px 20px;
+                font-size: 0.75rem;
+            }
+
+            .phone a {
+                margin: 0 0.3rem;
+            }
+
+            .header-contact {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                margin-top: 60px;
+                padding: 2rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+                padding-top: 50px;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .services-cards,
+            .expertise-grid,
+            .team-grid,
+            .clients-logos {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise-item {
+                border-right: none;
+            }
+
+            .modal-content {
+                margin: 1rem;
+                max-height: 85vh;
+            }
+
+            .modal-header h3 {
+                font-size: 1.4rem;
+            }
+
+            .testimonial-container {
+                gap: 2rem;
+            }
+
+            .testimonial-image {
+                height: 300px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <!-- Header --> <
+    <header>
+        <div class="header-contact">
+            <span class="phone"><i class="fas fa-envelope"></i> jurri-law@gola.io</span>
+            <span class="phone">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-x"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </span>
+            <span class="phone"><i class="fas fa-phone"></i> +42 20 123 456 78</span>
+        </div>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">JL</div>
+                JURRILAW
+            </a>
+             
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#cases">Casos</a></li>
+                      <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+                         
+            <a href="#contact" class="btn-primary desktop-btn">Contáctanos</a>
+           
+            <!-- Botón hamburguesa animado -->
+            <div class="mobile-menu" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Menú móvil vertical de pantalla completa -->
+        <nav class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#about">Sobre Nosotros</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#cases">Casos</a></li>
+                     <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact" class="btn-primary" style="margin-top: 2rem; color:white; border-radius:05px;">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1>Tu Aliado en Asesoría Legal y de Negocios.</h1>
+            <p>Somos tu socio estratégico para optimizar operaciones, mitigar riesgos y alcanzar tus objetivos empresariales con excelencia legal.</p>
+            <a href="#contact" class="btn-primary">Consulta Gratuita</a>
+        </div>
+        <div class="hero-image fade-in">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop" alt="Equipo de abogados profesionales">
+            <div class="award-badge">
+                <span>Reconocidos Como</span>
+                <strong>Best Lawyer<br>2024</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logos -->
+    <section class="logos">
+        <div class="logos-container">
+            <span>NIRASTATE</span>
+            <span>ASGARDIA</span>
+            <span>STARI</span>
+            <span>KANBA</span>
+            <span>HOOKS</span>
+            <span>CIRCLE</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="fade-in">
+            <span class="about-label">Acerca de</span>
+            <h2>Soluciones Legales que Empoderan tu Negocio</h2>
+        </div>
+        <div class="about-text fade-in">
+            <p>En nuestra firma, nos dedicamos a proporcionar soluciones legales innovadoras y efectivas adaptadas a las necesidades únicas de cada cliente. Con un equipo de abogados experimentados y expertos legales, nos esforzamos por ofrecer un servicio excepcional y lograr resultados favorables para nuestros clientes.</p>
+            <p>Nuestro enfoque se centra en la colaboración, transparencia y defensa. Trabajamos estrechamente con los clientes para entender sus objetivos y desafíos, ofreciendo orientación estratégica y representación legal personalizada en cada paso del camino.</p>
+        </div>
+    </section>
+
+    <!-- Services Cards -->
+    <section id="services" class="services-cards">
+        <div class="service-card fade-in">
+            <div class="service-icon">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <h3>Derecho Corporativo</h3>
+            <p>Desde la formación de empresas hasta la gestión de riesgos, aseguramos que tu negocio prospere en el competitivo panorama actual.</p>
+            <a href="#" class="link-arrow">Más Información <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card fade-in">
+            <div class="service-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Asesoría Financiera</h3>
+            <p>Asesoramiento financiero confiable para individuos y empresas, ofreciendo estrategias de inversión sólidas y planificación patrimonial.</p>
+            <a href="#" class="link-arrow">Más Información <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card fade-in">
+            <div class="service-icon">
+                <i class="fas fa-balance-scale"></i>
+            </div>
+            <h3>Legal & Fiscal</h3>
+            <p>Brindando asesoramiento experto en materia legal y fiscal para asegurar el cumplimiento normativo y optimizar tus obligaciones tributarias.</p>
+            <a href="#" class="link-arrow">Más Información <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Expertise Section con Modal -->
+    <section class="expertise">
+        <div class="expertise-header fade-in">
+            <span class="about-label">Expertos</span>
+            <h2>Visión General & Experiencia</h2>
+            <a href="#" class="all-services">Ver Todos los Servicios <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="expertise-grid fade-in">
+            <div class="expertise-item" onclick="openModal('gobierno')">
+                <span>Gobierno Corporativo</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('riesgos')">
+                <span>Gestión de Riesgos</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('activos')">
+                <span>Protección de Activos</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('expansion')">
+                <span>Expansión Empresarial</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('seguros')">
+                <span>Soluciones de Seguros</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('riesgos2')">
+                <span>Gestión de Riesgos</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('cumplimiento')">
+                <span>Cumplimiento Normativo</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('fiscal')">
+                <span>Estrategias Fiscales</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('disputas')">
+                <span>Resolución de Disputas</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('contratos')">
+                <span>Negociación de Contratos</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('retiro')">
+                <span>Planificación de Retiro</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('tributario')">
+                <span>Cumplimiento Tributario</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('estructuracion')">
+                <span>Estructuración de Negocios</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('patrimonio')">
+                <span>Gestión de Patrimonio</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="expertise-item" onclick="openModal('revision')">
+                <span>Revisión de Contratos</span>
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Popup -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 id="modalTitle">Título del Servicio</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description" id="modalDescription">
+                    Descripción breve del servicio.
+                </p>
+                <p class="modal-paragraph" id="modalParagraph">
+                    Párrafo completo con información detallada sobre el servicio.
+                </p>
+                <ul class="modal-features" id="modalFeatures">
+                    <!-- Características se insertan dinámicamente -->
+                </ul>
+                <div class="modal-cta">
+                    <a href="#contact" class="btn-primary" onclick="closeModal()">Consultar sobre este servicio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <div class="testimonial-container">
+            <div class="testimonial-content fade-in">
+                <span class="quote-mark">"</span>
+                <h3>Servicio legal excepcional, superó todas las expectativas, recomiendo ampliamente su experiencia.</h3>
+                <p>Trabajar con JurriLaw y su equipo fue un cambio radical para nuestro negocio. Su servicio legal excepcional superó nuestras expectativas en todos los aspectos. Recomiendo ampliamente su experiencia a cualquiera que busque representación legal de primer nivel.</p>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <span class="author-name">John Williams</span>
+            </div>
+            <div class="testimonial-image fade-in">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=800&fit=crop" alt="John Williams - CEO">
+                <div class="author-info">
+                    <span>CEO & Fundador</span>
+                    <h4>John Williams</h4>
+                    <span>Tech Innovations Inc.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients">
+        <div class="clients-content fade-in">
+            <span class="about-label">Clientes</span>
+            <h2>Confiado por Muchos Clientes</h2>
+            <p>Con nuestra dedicación, experiencia y enfoque personalizado, hemos ganado su confianza y entregado resultados excepcionales una y otra vez.</p>
+        </div>
+        <div class="clients-logos fade-in">
+            <div class="client-logo">NIRASTATE</div>
+            <div class="client-logo">STARI</div>
+            <div class="client-logo">HEXA</div>
+            <div class="client-logo">GOLDLINE</div>
+            <div class="client-logo">ASGARDIA</div>
+            <div class="client-logo">EARTH 2.0</div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="team-header">
+            <div class="fade-in">
+                <span class="about-label">Nuestro Equipo</span>
+                <h2>Excelencia a través del Trabajo en Equipo</h2>
+            </div>
+            <div class="fade-in">
+                <p>Conoce a los individuos dinámicos comprometidos con lograr la excelencia, impulsar resultados y superar expectativas en todo lo que hacemos.</p>
+            </div>
+        </div>
+        <div class="team-grid">
+            <div class="team-member fade-in">
+                <span class="member-role">Abogado Senior</span>
+                <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&h=500&fit=crop" alt="John Smith">
+                <div class="member-info">
+                    <h4>John Smith</h4>
+                    <span>Abogado Senior</span>
+                </div>
+            </div>
+            <div class="team-member fade-in">
+                <span class="member-role">Abogado Asociado</span>
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="David Wilson">
+                <div class="member-info">
+                    <h4>David Wilson</h4>
+                    <span>Abogado Asociado</span>
+                </div>
+            </div>
+            <div class="team-member fade-in">
+                <span class="member-role">Paralegal</span>
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop" alt="Jessica Martinez">
+                <div class="member-info">
+                    <h4>Jessica Martinez</h4>
+                    <span>Paralegal</span>
+                </div>
+            </div>
+            <div class="team-member fade-in">
+                <span class="member-role">Asistente Legal</span>
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop" alt="Samantha Lee">
+                <div class="member-info">
+                    <h4>Samantha Lee</h4>
+                    <span>Asistente Legal</span>
+                </div>
+            </div>
+            <div class="team-member fade-in">
+                <span class="member-role">Abogado Asociado</span>
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop" alt="Daniel Watson">
+                <div class="member-info">
+                    <h4>Daniel Watson</h4>
+                    <span>Abogado Asociado</span>
+                </div>
+            </div>
+            <div class="team-member join-team fade-in">
+                <h3>¡Únete a Nuestro Equipo Hoy!</h3>
+                <p>Oportunidades emocionantes te esperan. Explora carreras con nosotros y sé parte de nuestra historia de éxito.</p>
+                <a href="#" class="btn-outline">Ver Vacantes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases / Gallery Section -->
+    <section id="cases" class="cases">
+        <div class="cases-header fade-in">
+            <span class="about-label">Casos de Éxito</span>
+            <h2>Historias de Éxito de Clientes</h2>
+            <a href="#" class="all-services">Ver Todos <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="cases-grid">
+            <div class="case-item fade-in">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop" alt="Protección de Propiedad Intelectual">
+                <div class="case-overlay">
+                    <span>NIRASTATE</span>
+                    <h3>Protegiendo Derechos de Propiedad Intelectual</h3>
+                </div>
+            </div>
+            <div class="case-item fade-in">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=600&fit=crop" alt="Resolución de Disputas Laborales">
+                <div class="case-overlay">
+                    <span>ASGARDIA</span>
+                    <h3>Resolviendo Disputas Laborales Eficientemente</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="faq-container">
+            <h2 class="fade-in">Preguntas Frecuentes</h2>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>¿Cuánto tiempo toma resolver un caso legal?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    El tiempo varía según la complejidad del caso. Los asuntos simples pueden resolverse en semanas, mientras que litigios complejos pueden tomar meses o años. Te proporcionamos un estimado realista durante la consulta inicial.
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>¿Cuáles son sus honorarios legales?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Ofrecemos diferentes estructuras de honorarios según el tipo de caso: tarifas fijas, por hora o contingencia. Durante la consulta inicial gratuita, evaluamos tu situación y te presentamos opciones transparentes sin costos ocultos.
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>¿Atienden casos internacionales?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Sí, tenemos experiencia en derecho internacional y colaboramos con firmas asociadas en múltiples jurisdicciones. Manejamos casos transfronterizos de comercio, inmigración empresarial y arbitraje internacional.
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>¿Cómo puedo agendar una consulta?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Puedes contactarnos a través del formulario de WhatsApp en esta página, llamarnos directamente al +42 20 123 456 78, o enviarnos un correo a jurri-law@gola.io. Respondemos dentro de las 24 horas.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Section -->
+    <section id="contact" class="whatsapp">
+        <div class="whatsapp-container fade-in">
+            <i class="fab fa-whatsapp whatsapp-icon"></i>
+            <h2>Contáctanos por WhatsApp</h2>
+            <p>Envíanos tu consulta legal y te responderemos en minutos. Atención personalizada.</p>
+            <form class="whatsapp-form" onsubmit="sendWhatsApp(event)">
+                <input type="text" id="nombre" placeholder="Tu Nombre" required>
+                <input type="email" id="email" placeholder="Tu Correo Electrónico" required>
+                <input type="tel" id="telefono" placeholder="Tu Teléfono" required>
+                <textarea id="mensaje" rows="4" placeholder="Describe tu caso legal..." required></textarea>
+                <button type="submit" class="btn-whatsapp">
+                    
+                    Enviar Consulta por WhatsApp
+					  <i class="fab fa-whatsapp"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>JURRILAW</h3>
+                <p>Tu socio confiable en asesoría legal y de negocios. Comprometidos con la excelencia y resultados excepcionales.</p>
+                <div class="footer-contact">
+                    <span><i class="fas fa-phone"></i> +42 20 123 456 78</span>
+                    <span><i class="fas fa-envelope"></i> jurri-law@gola.io</span>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Páginas</h4>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#cases">Casos</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Casos</h4>
+                <ul>
+                    <li><a href="#">Casos de Éxito</a></li>
+                    <li><a href="#">Detalle de Caso</a></li>
+                    <li><a href="#">Carreras</a></li>
+                    <li><a href="#">Noticias</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="#faq">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Términos de Servicio</a></li>
+                    <li><a href="#">Licencias</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2024 JurriLaw. Todos los derechos reservados.</span>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-x"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Datos de los servicios para el modal
+        const serviciosData = {
+            'gobierno': {
+                titulo: 'Gobierno Corporativo',
+                descripcion: 'Establecemos estructuras de gobierno sólidas que garantizan la transparencia, responsabilidad y eficiencia en tu organización.',
+                parrafo: 'Nuestro equipo de expertos en gobierno corporativo trabaja contigo para diseñar e implementar marcos de gobierno adaptados a las necesidades específicas de tu empresa. Desde la definición de roles y responsabilidades hasta la creación de comités especializados, aseguramos que tu organización cumpla con los más altos estándares éticos y regulatorios. Ayudamos a establecer protocolos de comunicación efectivos entre accionistas, directorios y management.',
+                caracteristicas: [
+                    'Diseño de estructuras de gobierno',
+                    'Creación de comités especializados',
+                    'Protocolos de comunicación stakeholders',
+                    'Cumplimiento normativo corporativo',
+                    'Evaluación de desempeño directivo'
+                ]
+            },
+            'riesgos': {
+                titulo: 'Gestión de Riesgos',
+                descripcion: 'Identificamos, evaluamos y mitigamos riesgos empresariales para proteger tus activos y garantizar la continuidad operativa.',
+                parrafo: 'Implementamos sistemas integrales de gestión de riesgos que abarcan riesgos operativos, financieros, legales y reputacionales. Nuestro enfoque proactivo permite anticipar escenarios adversos y desarrollar planes de contingencia efectivos. Trabajamos con metodologías reconocidas internacionalmente para asegurar que tu empresa esté preparada ante cualquier eventualidad.',
+                caracteristicas: [
+                    'Identificación de riesgos empresariales',
+                    'Evaluación de impacto y probabilidad',
+                    'Planes de mitigación y contingencia',
+                    'Monitoreo continuo de riesgos',
+                    'Reportes ejecutivos de exposición'
+                ]
+            },
+            'activos': {
+                titulo: 'Protección de Activos',
+                descripcion: 'Salvaguardamos tus activos tangibles e intangibles mediante estrategias legales y estructuras de protección patrimonial.',
+                parrafo: 'Desarrollamos estrategias integrales para proteger tus activos empresariales y personales contra litigios, acreedores y otros riesgos. Esto incluye la creación de estructuras societarias óptimas, fideicomisos de protección patrimonial, y la implementación de acuerdos prenupciales y postnupciales. Nuestro objetivo es preservar el valor que has construido a lo largo de los años.',
+                caracteristicas: [
+                    'Estructuras societarias protectoras',
+                    'Fideicomisos patrimoniales',
+                    'Planificación sucesoria',
+                    'Protección contra litigios',
+                    'Segregación de activos personales y empresariales'
+                ]
+            },
+            'expansion': {
+                titulo: 'Expansión Empresarial',
+                descripcion: 'Te acompañamos en cada etapa del crecimiento de tu negocio, desde la apertura de nuevas ubicaciones hasta la internacionalización.',
+                parrafo: 'Ya sea que estés considerando expandirte a nuevos mercados nacionales o internacionales, nuestro equipo te proporciona el soporte legal necesario para una expansión exitosa. Manejamos due diligence, negociaciones contractuales, cumplimiento regulatorio local, y estructuración de joint ventures o alianzas estratégicas. Minimizamos los riesgos asociados al crecimiento empresarial.',
+                caracteristicas: [
+                    'Due diligence de expansión',
+                    'Estructuración de joint ventures',
+                    'Cumplimiento regulatorio internacional',
+                    'Negociación de contratos comerciales',
+                    'Asesoría en franquicias y licencias'
+                ]
+            },
+            'seguros': {
+                titulo: 'Soluciones de Seguros',
+                descripcion: 'Diseñamos programas de seguros integrales que protegen a tu empresa contra riesgos específicos de tu industria.',
+                parrafo: 'Analizamos el perfil de riesgo de tu organización para recomendar las coberturas de seguros más adecuadas. Negociamos con aseguradoras líderes para obtener las mejores condiciones y gestionamos reclamaciones cuando sea necesario. Nuestro enfoque asegura que no pagues de más por coberturas innecesarias ni quedes expuesto a riesgos no asegurados.',
+                caracteristicas: [
+                    'Auditoría de programas de seguros existentes',
+                    'Negociación con aseguradoras',
+                    'Coberturas especializadas por industria',
+                    'Gestión de reclamaciones',
+                    'Revisión anual de coberturas'
+                ]
+            },
+            'riesgos2': {
+                titulo: 'Gestión de Riesgos Avanzada',
+                descripcion: 'Soluciones especializadas para riesgos complejos y emergentes en entornos empresariales dinámicos.',
+                parrafo: 'Esta área se enfoca en riesgos específicos como ciberseguridad, cambio climático, y disruptores tecnológicos. Desarrollamos marcos de gobierno del riesgo empresarial (ERM) que integran la gestión de riesgos en la estrategia corporativa. Utilizamos análisis predictivo y escenarios para anticipar amenazas antes de que materialicen.',
+                caracteristicas: [
+                    'Riesgos cibernéticos y de datos',
+                    'Riesgos climáticos y ESG',
+                    'Marcos ERM integrales',
+                    'Análisis de escenarios',
+                    'Resiliencia organizacional'
+                ]
+            },
+            'cumplimiento': {
+                titulo: 'Cumplimiento Normativo',
+                descripcion: 'Aseguramos que tu empresa cumpla con todas las regulaciones aplicables, evitando sanciones y protegiendo tu reputación.',
+                parrafo: 'En un entorno regulatorio cada vez más complejo, mantenemos a tu empresa al día con todas las obligaciones legales sectoriales y generales. Implementamos programas de compliance efectivos, realizamos auditorías internas, y capacitamos a tu personal en materias regulatorias. Prevenimos incumplimientos antes de que ocurran.',
+                caracteristicas: [
+                    'Programas de compliance integral',
+                    'Auditorías regulatorias',
+                    'Capacitación corporativa',
+                    'Prevención de lavado de activos',
+                    'Cumplimiento sectorial específico'
+                ]
+            },
+            'fiscal': {
+                titulo: 'Estrategias Fiscales',
+                descripcion: 'Optimizamos tu carga tributaria legalmente mediante planificación fiscal estratégica y estructuración eficiente.',
+                parrafo: 'Nuestros especialistas fiscales diseñan estrategias que minimizan la carga tributaria dentro del marco legal vigente. Analizamos operaciones corporativas, transacciones transfronterizas, y estructuras de tenencia para identificar oportunidades de optimización fiscal. Trabajamos proactivamente para anticipar cambios legislativos y ajustar estrategias.',
+                caracteristicas: [
+                    'Planificación fiscal corporativa',
+                    'Optimización de estructuras de tenencia',
+                    'Precios de transferencia',
+                    'Tratados para evitar doble tributación',
+                    'Due diligence fiscal'
+                ]
+            },
+            'disputas': {
+                titulo: 'Resolución de Disputas',
+                descripcion: 'Resolvemos conflictos comerciales de manera eficiente, ya sea mediante negociación, mediación, arbitraje o litigio.',
+                parrafo: 'Cuando surgen conflictos, nuestro equipo litigante ofrece representación experta en todas las instancias judiciales y arbitrales. Sin embargo, priorizamos siempre la resolución alternativa de disputas cuando es viable, ahorrando tiempo y recursos a nuestros clientes. Nuestra reputación como litigantes efectivos frecuentemente facilita acuerdos favorables.',
+                caracteristicas: [
+                    'Litigio civil y comercial',
+                    'Arbitraje nacional e internacional',
+                    'Mediación y negociación',
+                    'Disputas contractuales',
+                    'Conflictos entre accionistas'
+                ]
+            },
+            'contratos': {
+                titulo: 'Negociación de Contratos',
+                descripcion: 'Elaboramos y negociamos contratos que protegen tus intereses comerciales y minimizan riesgos legales.',
+                parrafo: 'Redactamos contratos claros, completos y ejecutables que reflejan fielmente los acuerdos comerciales de nuestros clientes. Ya sea un contrato de joint venture, distribución, licencia, o de servicios profesionales, aseguramos que todos los escenarios relevantes estén contemplados. Nuestra experiencia en litigio nos da ventaja al anticipar posibles puntos de conflicto.',
+                caracteristicas: [
+                    'Contratos comerciales complejos',
+                    'Acuerdos de confidencialidad',
+                    'Contratos de tecnología y software',
+                    'Acuerdos de nivel de servicio (SLA)',
+                    'Renegociación de contratos'
+                ]
+            },
+            'retiro': {
+                titulo: 'Planificación de Retiro',
+                descripcion: 'Diseñamos estrategias de retiro ejecutivo y sucesión empresaria que aseguran tu legado y el futuro de la compañía.',
+                parrafo: 'Ayudamos a fundadores y ejecutivos senior a planificar su salida de la empresa de manera ordenada y rentable. Esto incluye la valoración del negocio, estructuración de la venta o transmisión, planificación fiscal del retiro, y preparación de la próxima generación de liderazgo. Aseguramos que tu legado empresarial perdure.',
+                caracteristicas: [
+                    'Valoración empresarial',
+                    'Estructuración de ventas',
+                    'Planes de sucesión familiar',
+                    'ESOP y participación accionaria',
+                    'Planificación patrimonial post-retiro'
+                ]
+            },
+            'tributario': {
+                titulo: 'Cumplimiento Tributario',
+                descripcion: 'Gestionamos todas tus obligaciones fiscales periódicas, asegurando presentaciones oportunas y correctas.',
+                parrafo: 'Nuestro departamento tributario maneja el cumplimiento diario de obligaciones fiscales: declaraciones de impuestos mensuales y anuales, retenciones en la fuente, impuestos a la renta, IVA, y otros tributos específicos. Implementamos sistemas que automatizan y verifican la información tributaria, reduciendo errores y riesgos de auditoría.',
+                caracteristicas: [
+                    'Declaraciones de impuestos',
+                    'Retenciones en la fuente',
+                    'Devoluciones de impuestos',
+                    'Atención de requerimientos fiscales',
+                    'Auditorías tributarias'
+                ]
+            },
+            'estructuracion': {
+                titulo: 'Estructuración de Negocios',
+                descripcion: 'Diseñamos la arquitectura corporativa óptima para tus operaciones, considerando aspectos legales, fiscales y operativos.',
+                parrafo: 'La estructura correcta puede marcar la diferencia entre el éxito y el fracaso empresarial. Analizamos tus objetivos de negocio, perfil de riesgo, y consideraciones fiscales para recomendar la forma societaria más adecuada. Esto incluye holdings, sociedades operativas, vehículos de inversión, y estructuras offshore cuando son legalmente apropiadas.',
+                caracteristicas: [
+                    'Diseño de estructuras de grupo',
+                    'Sociedades holdings y operativas',
+                    'Vehículos de inversión',
+                    'Reestructuraciones corporativas',
+                    'Spin-offs y escisiones'
+                ]
+            },
+            'patrimonio': {
+                titulo: 'Gestión de Patrimonio',
+                descripcion: 'Asesoramos en la administración y crecimiento del patrimonio familiar y empresarial a través de generaciones.',
+                parrafo: 'Ofrecemos un enfoque holístico de la gestión patrimonial que integra aspectos legales, fiscales, financieros y familiares. Establecemos estructuras duraderas para la preservación y crecimiento del patrimonio, incluyendo family offices, protocolos familiares, y estrategias de filantropía estructurada. Pensamos en el largo plazo.',
+                caracteristicas: [
+                    'Family offices',
+                    'Protocolos familiares',
+                    'Fundaciones y filantropía',
+                    'Inversiones patrimoniales',
+                    'Educación de la próxima generación'
+                ]
+            },
+            'revision': {
+                titulo: 'Revisión de Contratos',
+                descripcion: 'Analizamos contratos existentes para identificar riesgos, oportunidades de mejora y asegurar su vigencia legal.',
+                parrafo: 'Muchas empresas operan con contratos obsoletos o desfavorables simplemente porque "siempre se ha hecho así". Realizamos auditorías contractuales exhaustivas para identificar cláusulas riesgosas, términos desactualizados, y oportunidades de renegociación. Proporcionamos recomendaciones prácticas para fortalecer tu posición contractual.',
+                caracteristicas: [
+                    'Auditoría de cartera contractual',
+                    'Identificación de cláusulas riesgosas',
+                    'Análisis de exposición legal',
+                    'Recomendaciones de enmienda',
+                    'Playbooks de negociación'
+                ]
+            }
+        };
+
+        // Función para abrir el modal
+        function openModal(servicio) {
+            const modal = document.getElementById('modalOverlay');
+            const data = serviciosData[servicio];
+            
+            if (data) {
+                document.getElementById('modalTitle').textContent = data.titulo;
+                document.getElementById('modalDescription').textContent = data.descripcion;
+                document.getElementById('modalParagraph').textContent = data.parrafo;
+                
+                // Insertar características
+                const featuresList = document.getElementById('modalFeatures');
+                featuresList.innerHTML = '';
+                data.caracteristicas.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="fas fa-check-circle"></i> ${feature}`;
+                    featuresList.appendChild(li);
+                });
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Función para cerrar el modal
+        function closeModal(event) {
+            if (!event || event.target === document.getElementById('modalOverlay') || event.target.closest('.modal-close')) {
+                const modal = document.getElementById('modalOverlay');
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // WhatsApp Form
+        function sendWhatsApp(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            const text = `Hola, soy ${nombre}.%0AEmail: ${email}%0ATeléfono: ${telefono}%0A%0AMi consulta: ${mensaje}`;
+            const phoneNumber = '42012345678'; // Replace with actual number
+
+            window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Cerrar menú móvil si está abierto
+                const mobileNav = document.getElementById('mobileNav');
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (mobileNav.classList.contains('active')) {
+                    mobileNav.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Mobile menu toggle con animación de X
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNav = document.getElementById('mobileNav');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            
+            // Prevenir scroll del body cuando el menú está abierto
+            if (mobileNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

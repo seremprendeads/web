@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Alejandro Varela | Abogado Especialista</title>
+    <meta name="description" content="Asesoramiento legal premium con enfoque personalizado. Especialista en derecho civil, comercial y laboral.">
+    
+    <!-- Fuentes: Playfair Display (Serif) + Inter (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Fijo -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#inicio" class="logo">
+                <span class="logo-icon">V</span>
+                <span class="logo-text">Varela<span class="logo-accent">Legal</span></span>
+            </a>
+
+            <nav class="nav" id="nav">
+                <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#por-que-elegirme" class="nav-link">Por qué elegirme</a></li>
+                    <li><a href="#galeria" class="nav-link">Galería</a></li>
+                    <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#contacto" class="nav-link nav-cta">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg-shape"></div>
+        <div class="container hero-container">
+            <div class="hero-content scroll-reveal slide-right">
+                <div class="hero-tag">Asesoramiento Legal Premium</div>
+                <h1 class="hero-title">
+                    Defiendo tus derechos con <span class="text-accent">excelencia</span> y compromiso
+                </h1>
+                <p class="hero-subtitle">
+                    Más de 15 años de experiencia brindando soluciones legales estratégicas 
+                    para personas y empresas que buscan resultados concretos.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://wa.me/5491123456789?text=Hola%20Dr.%20Varela,%20me%20gustaría%20agendar%20una%20consulta" 
+                       class="btn btn-primary" target="_blank">
+                        Consultar por WhatsApp
+						  <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </a>
+                    <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Años de experiencia</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Casos resueltos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Clientes satisfechos</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image-container scroll-reveal slide-left">
+                <div class="hero-image-frame">
+                    <div class="hero-image-accent"></div>
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759718660/woman-hero_t7pc7y.jpg" 
+                         alt="Dr. Alejandro Varela - Abogado" 
+                         class="hero-image">
+                    <div class="hero-badge">
+                        <span class="badge-number">15</span>
+                        <span class="badge-text">Años de<br>trayectoria</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Separador diagonal -->
+        <div class="hero-diagonal"></div>
+    </section>
+
+    <!-- Sobre Mí -->
+    <section class="section sobre-mi" id="sobre-mi">
+        <div class="container">
+            <div class="sobre-mi-grid">
+                <div class="sobre-mi-image scroll-reveal slide-right">
+                    <div class="image-stack">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759718659/sobremi_qzs8ac.webp" 
+                             alt="Dr. Alejandro Varela en su oficina" 
+                             class="image-main">
+                        <div class="image-frame"></div>
+                        <div class="image-accent"></div>
+                    </div>
+                </div>
+                
+                <div class="sobre-mi-content scroll-reveal slide-left">
+                    <span class="section-tag">Sobre mí</span>
+                    <h2 class="section-title">Compromiso con la <span class="text-accent">justicia</span> y tus derechos</h2>
+                    <p class="sobre-mi-text">
+                        Soy el Dr. Alejandro Varela, abogado con matrícula nacional y provincial, 
+                        especializado en derecho civil, comercial y laboral. Mi práctica se fundamenta 
+                        en la cercanía con el cliente y la búsqueda constante de soluciones eficientes.
+                    </p>
+                    <p class="sobre-mi-text">
+                        Me formé en la Universidad de Buenos Aires y complementé mi educación con 
+                        especializaciones en mediación y resolución de conflictos. Creo firmemente 
+                        que cada caso merece una atención personalizada y una estrategia a medida.
+                    </p>
+                    
+                 
+                    
+                    <a href="#contacto" class="btn btn-secondary">Agendar consulta</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="section servicios" id="servicios">
+        <div class="servicios-header">
+            <div class="container">
+                <div class="section-header scroll-reveal fade-up">
+                    <span class="section-tag">Áreas de práctica</span>
+                    <h2 class="section-title">Servicios <span class="text-accent">legales</span> especializados</h2>
+                    <p class="section-subtitle">Soluciones integrales adaptadas a las necesidades específicas de cada cliente</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="servicios-grid">
+                <article class="servicio-card scroll-reveal fade-up" data-delay="0">
+                    <div class="servicio-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 6h18M3 12h18M3 18h18"/>
+                            <path d="M8 6v12M16 6v12" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="servicio-title">Derecho Civil</h3>
+                    <p class="servicio-desc">Contratos, sucesiones, daños y perjuicios, derecho de familia. Asesoramiento integral en todas las ramas del derecho civil.</p>
+                    <a href="#contacto" class="servicio-link">Consultar →</a>
+                </article>
+
+                <article class="servicio-card scroll-reveal fade-up" data-delay="100">
+                    <div class="servicio-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="7" width="20" height="14" rx="2"/>
+                            <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                        </svg>
+                    </div>
+                    <h3 class="servicio-title">Derecho Comercial</h3>
+                    <p class="servicio-desc">Sociedades, contratos comerciales, concursos y quiebras. Protección para empresas y emprendedores.</p>
+                    <a href="#contacto" class="servicio-link">Consultar →</a>
+                </article>
+
+                <article class="servicio-card scroll-reveal fade-up" data-delay="200">
+                    <div class="servicio-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                        </svg>
+                    </div>
+                    <h3 class="servicio-title">Derecho Laboral</h3>
+                    <p class="servicio-desc">Despidos, accidentes laborales, negociaciones colectivas. Defensa de derechos tanto de empleadores como trabajadores.</p>
+                    <a href="#contacto" class="servicio-link">Consultar →</a>
+                </article>
+
+                <article class="servicio-card scroll-reveal fade-up" data-delay="300">
+                    <div class="servicio-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="servicio-title">Mediación</h3>
+                    <p class="servicio-desc">Resolución alternativa de conflictos. Mediaciones prejudiciales y judiciales con enfoque en acuerdos beneficiosos.</p>
+                    <a href="#contacto" class="servicio-link">Consultar →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por qué elegirme -->
+    <section class="section por-que-elegirme" id="por-que-elegirme">
+        <div class="container">
+            <div class="elegirme-layout">
+                <div class="elegirme-header scroll-reveal slide-right">
+                    <span class="section-tag">Ventajas competitivas</span>
+                    <h2 class="section-title">¿Por qué <span class="text-accent">elegirme</span>?</h2>
+                    <p class="elegirme-intro">Mi práctica profesional se distingue por valores fundamentales que garantizan un servicio legal de excelencia.</p>
+                </div>
+
+                <div class="elegirme-grid">
+                    <div class="beneficio-card scroll-reveal slide-up" data-delay="0">
+                        <div class="beneficio-num">01</div>
+                        <div class="beneficio-content">
+                            <h3 class="beneficio-title">Experiencia Comprobada</h3>
+                            <p class="beneficio-text">Más de 15 años de trayectoria y cientos de casos resueltos exitosamente en diversas jurisdicciones.</p>
+                        </div>
+                    </div>
+
+                    <div class="beneficio-card scroll-reveal slide-up" data-delay="100">
+                        <div class="beneficio-num">02</div>
+                        <div class="beneficio-content">
+                            <h3 class="beneficio-title">Atención Personalizada</h3>
+                            <p class="beneficio-text">Cada cliente es único. Diseño estrategias legales a medida, manteniendo comunicación constante.</p>
+                        </div>
+                    </div>
+
+                    <div class="beneficio-card scroll-reveal slide-up" data-delay="200">
+                        <div class="beneficio-num">03</div>
+                        <div class="beneficio-content">
+                            <h3 class="beneficio-title">Transparencia Total</h3>
+                            <p class="beneficio-text">Honestidad en el análisis de cada situación. Informo realisticamente sobre probabilidades y costos.</p>
+                        </div>
+                    </div>
+
+                    <div class="beneficio-card scroll-reveal slide-up" data-delay="300">
+                        <div class="beneficio-num">04</div>
+                        <div class="beneficio-content">
+                            <h3 class="beneficio-title">Resultados Eficientes</h3>
+                            <p class="beneficio-text">Enfoque en resolver conflictos de manera rápida y efectiva, minimizando costos y tiempos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Elemento decorativo -->
+        <div class="elegirme-accent"></div>
+    </section>
+
+    <!-- Galería -->
+    <section class="section galeria" id="galeria">
+        <div class="container">
+            <div class="section-header scroll-reveal fade-up">
+                <span class="section-tag">Nuestro espacio</span>
+                <h2 class="section-title">Ambiente <span class="text-accent">profesional</span></h2>
+            </div>
+
+            <div class="galeria-grid">
+                <div class="galeria-item large scroll-reveal fade-up">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="Oficina principal">
+                    <div class="galeria-overlay">
+                        <span class="galeria-tag">Oficina Principal</span>
+                        <h4 class="galeria-title">Atención personalizada</h4>
+                    </div>
+                </div>
+                
+                <div class="galeria-item scroll-reveal fade-up" data-delay="100">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=500&fit=crop" alt="Biblioteca jurídica">
+                    <div class="galeria-overlay">
+                        <span class="galeria-tag">Biblioteca</span>
+                        <h4 class="galeria-title">Recursos actualizados</h4>
+                    </div>
+                </div>
+                
+                <div class="galeria-item scroll-reveal fade-up" data-delay="200">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=500&fit=crop" alt="Reunión con cliente">
+                    <div class="galeria-overlay">
+                        <span class="galeria-tag">Consultoría</span>
+                        <h4 class="galeria-title">Reuniones estratégicas</h4>
+                    </div>
+                </div>
+                
+                <div class="galeria-item wide scroll-reveal fade-up" data-delay="300">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=400&fit=crop" alt="Sala de conferencias">
+                    <div class="galeria-overlay">
+                        <span class="galeria-tag">Sala de Juntas</span>
+                        <h4 class="galeria-title">Espacio para mediaciones</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="section testimonios" id="testimonios">
+        <div class="container">
+            <div class="section-header scroll-reveal fade-up">
+                <span class="section-tag">Opiniones de clientes</span>
+                <h2 class="section-title">Lo que dicen mis <span class="text-accent">clientes</span></h2>
+            </div>
+
+            <div class="testimonios-carousel scroll-reveal fade-up" id="testimoniosCarousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Testimonio 1 -->
+                    <div class="testimonio-card">
+                        <div class="testimonio-stars">★★★★★</div>
+                        <p class="testimonio-text">"El Dr. Varela resolvió mi caso de despido con profesionalismo excepcional. Siempre estuvo disponible y logró una indemnización mayor a la esperada. Altamente recomendado."</p>
+                        <div class="testimonio-author">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="María González" class="author-avatar">
+                            <div class="author-info">
+                                <span class="author-name">María González</span>
+                                <span class="author-role">Ex empleada sector IT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonio 2 -->
+                    <div class="testimonio-card">
+                        <div class="testimonio-stars">★★★★★</div>
+                        <p class="testimonio-text">"Excelente asesoramiento para la constitución de mi empresa. Su conocimiento en derecho comercial nos ahorró muchos problemas futuros. Un abogado de confianza."</p>
+                        <div class="testimonio-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="Carlos Rodríguez" class="author-avatar">
+                            <div class="author-info">
+                                <span class="author-name">Carlos Rodríguez</span>
+                                <span class="author-role">CEO, TechStart Argentina</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonio 3 -->
+                    <div class="testimonio-card">
+                        <div class="testimonio-stars">★★★★★</div>
+                        <p class="testimonio-text">"En un complejo caso de sucesión familiar, demostró gran empatía y eficiencia. Logró que un proceso potencialmente conflictivo se resolviera en meses, no años."</p>
+                        <div class="testimonio-author">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" alt="Laura Martínez" class="author-avatar">
+                            <div class="author-info">
+                                <span class="author-name">Laura Martínez</span>
+                                <span class="author-role">Empresaria</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonio 4 -->
+                    <div class="testimonio-card">
+                        <div class="testimonio-stars">★★★★★</div>
+                        <p class="testimonio-text">"Su expertise en mediación nos permitió resolver un conflicto comercial sin llegar a juicio. Ahorramos tiempo y dinero. Un profesional verdaderamente estratégico."</p>
+                        <div class="testimonio-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Roberto Silva" class="author-avatar">
+                            <div class="author-info">
+                                <span class="author-name">Roberto Silva</span>
+                                <span class="author-role">Director Comercial</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" id="carouselPrev" aria-label="Anterior testimonio">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                    <button class="carousel-btn next" id="carouselNext" aria-label="Siguiente testimonio">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="faq-layout">
+                <div class="faq-header scroll-reveal slide-right">
+                    <span class="section-tag">Preguntas frecuentes</span>
+                    <h2 class="section-title">Resolvemos tus <span class="text-accent">dudas</span></h2>
+                    <p class="faq-intro">Encuentra respuestas a las consultas más comunes sobre mis servicios legales.</p>
+                    <a href="#contacto" class="btn btn-secondary">¿Otra consulta? Escríbeme</a>
+                </div>
+
+                <div class="faq-list scroll-reveal slide-left">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Cómo es el proceso de primera consulta?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>La primera consulta es gratuita y tiene una duración aproximada de 30 minutos. Evaluamos tu situación legal, analizamos las posibles estrategias y te informo sobre costos y tiempos estimados. Puede ser presencial o virtual según tu preferencia.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Cuáles son los honorarios y formas de pago?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Los honorarios se determinan según la complejidad del caso. Ofrezco flexibilidad en formas de pago: transferencia, efectivo, y en algunos casos de derecho laboral, el sistema de "solo si ganamos" (porcentaje sobre lo recuperado).</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Atienden casos de otras provincias o solo CABA?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Aunque mi estudio está en CABA, atiendo casos en todo el territorio nacional. Para provincias del interior, utilizamos herramientas digitales para reuniones y coordinamos con colegas locales cuando es necesario para trámites presenciales.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Cuánto tiempo tarda un proceso judicial?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Los tiempos varían según la materia y la complejidad. Un caso laboral puede resolverse en 6-12 meses, mientras que una sucesión compleja puede llevar 2-3 años. Siempre informo realisticamente sobre los plazos estimados en la primera consulta.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>¿Ofrecen servicios de mediación privada?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sí, soy mediador matriculado y ofrezco servicios de mediación privada para conflictos civiles y comerciales. La mediación es confidencial, más rápida que el juicio y permite llegar a acuerdos satisfactorios para ambas partes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section contacto" id="contacto">
+        <div class="contacto-bg"></div>
+        <div class="container">
+            <div class="contacto-layout">
+                <div class="contacto-info scroll-reveal slide-right">
+                    <span class="section-tag">Contacto</span>
+                    <h2 class="section-title">Agendemos una <span class="text-accent">consulta</span></h2>
+                    <p class="contacto-desc">Completa el formulario y me pondré en contacto contigo en menos de 24 horas. También puedes escribirme directamente por WhatsApp para una respuesta inmediata.</p>
+                    
+                    <div class="contacto-datos">
+                        <div class="contacto-item">
+                            <div class="contacto-icon">📍</div>
+                            <div>
+                                <span class="contacto-label">Ubicación</span>
+                                <p class="contacto-value">Av. Corrientes 1234, Piso 8<br>CABA, Buenos Aires</p>
+                            </div>
+                        </div>
+                        <div class="contacto-item">
+                            <div class="contacto-icon">📞</div>
+                            <div>
+                                <span class="contacto-label">Teléfono / WhatsApp</span>
+                                <p class="contacto-value">+54 9 11 2345-6789</p>
+                            </div>
+                        </div>
+                        <div class="contacto-item">
+                            <div class="contacto-icon">✉️</div>
+                            <div>
+                                <span class="contacto-label">Email</span>
+                                <p class="contacto-value">contacto@varelalegal.com</p>
+                            </div>
+                        </div>
+                        <div class="contacto-item">
+                            <div class="contacto-icon">🕐</div>
+                            <div>
+                                <span class="contacto-label">Horario de atención</span>
+                                <p class="contacto-value">Lun a Vie: 9:00 - 18:00<br>Sábados: 10:00 - 13:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contacto-form-container scroll-reveal slide-left">
+                    <form class="contacto-form" id="contactoForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" required placeholder="+54 9 11 1234-5678">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="tu@email.com">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">¿En qué puedo ayudarte? *</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Describe brevemente tu consulta legal..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">
+                           Enviar por WhatsApp   <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </button>
+                        
+                        <p class="form-nota">* Campos obligatorios. Tu información es confidencial.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#inicio" class="logo footer-logo">
+                        <span class="logo-icon">V</span>
+                        <span class="logo-text">Varela<span class="logo-accent">Legal</span></span>
+                    </a>
+                    <p class="footer-desc">Abogado especialista comprometido con la excelencia y la defensa de tus derechos. Más de 15 años de experiencia al servicio de la justicia.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-title">Navegación</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#sobre-mi">Sobre mí</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-title">Servicios</h4>
+                    <ul>
+                        <li><a href="#servicios">Derecho Civil</a></li>
+                        <li><a href="#servicios">Derecho Comercial</a></li>
+                        <li><a href="#servicios">Derecho Laboral</a></li>
+                        <li><a href="#servicios">Mediación</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contacto directo</h4>
+                    <a href="https://wa.me/5491123456789" class="btn btn-whatsapp" target="_blank">
+                       
+                        WhatsApp Directo
+						 <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-legal">© 2024 Varela Legal. Todos los derechos reservados. | Mat. N° 45.892 CPIAJ</p>
+                <p class="footer-disclaimer">El contenido de este sitio es informativo y no constituye asesoramiento legal específico.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante WhatsApp -->
+    <a href="https://wa.me/5491123456789?text=Hola%20Dr.%20Varela,%20me%20gustaría%20consultarle" 
+       class="whatsapp-float" 
+       target="_blank" 
+       aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <script src="main.js"></script>
+</body>
+</html>
+
