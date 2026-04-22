@@ -3335,6 +3335,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             lastScroll = currentScroll;
         });
+		// Script para el Slider Infinito
+const logoTrack = document.getElementById('logoTrack');
+const logos = logoTrack.innerHTML;
+
+// Clonamos el contenido de los logos para crear el efecto de bucle infinito
+logoTrack.innerHTML += logos;
+
+// Nota: Al duplicar el contenido, el CSS puede desplazar el track 
+// continuamente sin que el usuario note el salto al reiniciar.
 		
 		
 
