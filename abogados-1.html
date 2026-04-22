@@ -1366,6 +1366,53 @@
         height: 14px;
     }
 }
+
+/* Estilos para el Slider de Logos */
+.logo-slider-container {
+    background: #1a1d2e;
+    padding: 30px 0;
+    overflow: hidden; /* Oculta los logos que salen de la pantalla */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.logo-slider-track {
+    display: flex;
+    width: calc(250px * 12); /* Ajuste dinámico basado en el número de logos */
+    animation: scroll 30s linear infinite;
+}
+
+.logo-slider-track:hover {
+    animation-play-state: paused; /* El slider se detiene al pasar el mouse */
+}
+
+.slide {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+}
+
+.slide img {
+    width: 30%;
+    /*max-width: 150px;*/
+    /*filter: grayscale(100%);*/ /* Efecto elegante en blanco y negro */
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.slide img:hover {
+    filter: grayscale(0%); /* El logo recupera color al pasar el mouse */
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Animación del movimiento */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 6)); } /* Se mueve la mitad del track total */
+}
     </style>
 </head>
 <body>
@@ -1427,6 +1474,17 @@
             </div>
         </div>
     </section>
+	
+	<section class="logo-slider-container">
+    <div class="logo-slider-track" id="logoTrack">
+        <div class="slide"><img src="1.png" alt="Logo 1"></div>
+        <div class="slide"><img src="2.png" alt="Logo 2"></div>
+        <div class="slide"><img src="3.png" alt="Logo 3"></div>
+        <div class="slide"><img src="4.png" alt="Logo 4"></div>
+        <div class="slide"><img src="5.png" alt="Logo 5"></div>
+        <div class="slide"><img src="6.png" alt="Logo 6"></div>
+    </div>
+</section>
 
     <section class="about" id="sobre-mi">
         <div class="about-container">
@@ -2200,8 +2258,16 @@
             
             lastScroll = currentScroll;
         });
+		
+		// Script para el Slider Infinito
+const logoTrack = document.getElementById('logoTrack');
+const logos = logoTrack.innerHTML;
+
+// Clonamos el contenido de los logos para crear el efecto de bucle infinito
+logoTrack.innerHTML += logos;
+
+// Nota: Al duplicar el contenido, el CSS puede desplazar el track 
+// continuamente sin que el usuario note el salto al reiniciar.
     </script>
 </body>
 </html>
-
-
