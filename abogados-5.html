@@ -1,2115 +1,1357 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudio Jurídico - Abogados Expertos</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        :root {
-            --primary-color: #1e3a8a;
-            --secondary-color: #f59e0b;
-            --accent-color: #3b82f6;
-            --dark-color: #1f2937;
-            --light-color: #f8fafc;
-            --text-light: #6b7280;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 10px 20px;
-        }
-
-        /* Header */
-        header {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .cta-button {
-            background: var(--secondary-color);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: #d97706;
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
-          .hero {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(0 0 0 / 85%) 50%);
-            padding: 120px 0 80px;
-            color: var(--white);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://res.cloudinary.com/dliredzt9/image/upload/v1747765342/bufe_zzr0ii.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            opacity: 0.2;
-            z-index: 1;
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .btn-primary {
-            background: var(--secondary-color);
-            color: var(--white);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            padding: 1rem 2rem;
-            border: 2px solid var(--white);
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background: #d97706;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--primary-color);
-        }
-
-        /* About Section Responsive */
-        .about {
-            padding: 100px 0;
-            background: var(--light-color);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 3rem;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .about-image {
-            position: relative;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
-        }
-
-        .about-image:hover {
-            transform: translateY(-10px);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            min-height: 300px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .cta-button {
-            background: var(--secondary-color);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-
-        .cta-button:hover {
-            background: #d97706;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
-        }
-
-        /* Stats Section */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1.5rem;
-            background: var(--white);
-            border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-8px);
-            border-color: var(--secondary-color);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-size: 1rem;
-            font-weight: 500;
-        }
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background: var(--white);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .section-title p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--light-color);
-            padding: 2.5rem;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--secondary-color);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Team Section */
-        .team {
-            padding: 100px 0;
-            background: var(--light-color);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .team-member {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-        }
-
-        .member-photo {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 4rem;
-        }
-
-        .member-info {
-            padding: 1.5rem;
-        }
-
-        .member-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .member-role {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .member-description {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-		
-		   /* Testimonials Section */
-        .testimonials {
-            padding: 100px 0;
-            background: var(--white);
-            overflow: hidden;
-        }
-
-        .testimonials-slider {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .testimonial-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .testimonial-item {
-            min-width: 100%;
-            padding: 2rem;
-            text-align: center;
-            background: var(--light-color);
-            border-radius: 12px;
-            margin: 0 1rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .testimonial-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .author-photo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .author-info h4 {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .author-info p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .testimonial-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--text-light);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background: var(--secondary-color);
-            transform: scale(1.2);
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 100px 0;
-            background: var(--light-color);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--white);
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-
-        .faq-question {
-            padding: 1.5rem 2rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--white);
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: var(--light-color);
-        }
-
-        .faq-icon {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            background: var(--light-color);
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-            padding: 1.5rem 2rem;
-        }
-
-        .faq-answer p {
-            color: var(--text-light);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 0;
-            background: var(--primary-color);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://res.cloudinary.com/dliredzt9/image/upload/v1747069431/right-4703925_1280_avj1xm.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
-            z-index: 1;
-        }
-
-        .contact .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-right: 1rem;
-            width: 30px;
-        }
-
-        .contact-form {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.9);
-            color: var(--dark-color);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-color);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #9ca3af;
-            text-decoration: none;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .footer-section a:hover {
-            color: var(--secondary-color);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 1rem;
-            text-align: center;
-            color: #6b7280;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 300px;
-            height: 100vh;
-            background: var(--white);
-            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-            transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            z-index: 1001;
-            padding: 80px 2rem 2rem;
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .mobile-menu ul li {
-            margin: 1.5rem 0;
-        }
-
-        .mobile-menu ul li a {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-size: 1.2rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: block;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid transparent;
-        }
-
-        .mobile-menu ul li a:hover {
-            color: var(--primary-color);
-            border-bottom-color: var(--secondary-color);
-            transform: translateX(10px);
-        }
-
-        .mobile-menu .mobile-cta {
-            margin-top: 2rem;
-            display: block;
-            text-align: center;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-            z-index: 1002;
-            position: relative;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--dark-color);
-            margin: 2px 0;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            transform-origin: center;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-            transform: scale(0);
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-		
-		
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-		
-		  .about-content {
-                gap: 3rem;
-            }
-
-            .about-text h2 {
-                font-size: 2.2rem;
-            }
-
-            .stats {
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-                gap: 1.5rem;
-            }
-
-            .stat-item {
-                padding: 1.5rem 1rem;
-            }
-
-            .stat-number {
-                font-size: 2.2rem;
-            }
-			}
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .cta-button:not(.mobile-cta) {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-              .container {
-                padding: 0 15px;
-            }
-
-            .about {
-                padding: 60px 0;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-                text-align: center;
-            }
-
-            .about-text h2 {
-                font-size: 2rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .about-text p {
-                font-size: 1rem;
-                margin-bottom: 1.2rem;
-            }
-
-            .about-image {
-                order: -1;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-
-            .about-image img {
-                min-height: 250px;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin-top: 2rem;
-            }
-
-            .stat-item {
-                max-width: 300px;
-                margin: 0 auto;
-                padding: 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            .stat-label {
-                font-size: 0.9rem;
-            }
-        
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .hero {
-                padding: 100px 0 60px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .about {
-                padding: 40px 0;
-            }
-
-            .about-content {
-                gap: 2rem;
-            }
-
-            .about-text h2 {
-                font-size: 1.8rem;
-                line-height: 1.3;
-            }
-
-            .about-text p {
-                font-size: 0.95rem;
-                margin-bottom: 1rem;
-            }
-
-            .about-image {
-                border-radius: 15px;
-                max-width: 100%;
-            }
-
-            .about-image img {
-                min-height: 200px;
-            }
-
-            .cta-button {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
-
-            .stats {
-                margin-top: 1.5rem;
-            }
-
-            .stat-item {
-                padding: 1.2rem 1rem;
-                border-radius: 12px;
-            }
-
-            .stat-number {
-                font-size: 1.8rem;
-            }
-
-            .stat-label {
-                font-size: 0.85rem;
-            }
-        }
-		 @media (max-width: 360px) {
-            .container {
-                padding: 0 10px;
-            }
-
-            .about-text h2 {
-                font-size: 1.6rem;
-            }
-
-            .about-text p {
-                font-size: 0.9rem;
-            }
-
-            .stat-item {
-                padding: 1rem;
-            }
-
-            .stat-number {
-                font-size: 1.6rem;
-            }
-
-            .cta-button {
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
-            }
-        }
-		       /* Additional responsive improvements */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .about-content {
-                gap: 2.5rem;
-            }
-
-            .about-image img {
-                min-height: 280px;
-            }
-        }
-		   /* Landscape mobile and small tablets */
-        @media (max-width: 768px) and (orientation: landscape) {
-            .about {
-                padding: 40px 0;
-            }
-
-            .about-content {
-                gap: 2rem;
-            }
-
-            .about-image img {
-                min-height: 200px;
-            }
-
-            .stats {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
-            }
-
-            .stat-item {
-                padding: 1rem;
-            }
-
-            .stat-number {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* High-resolution displays */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .about-image img {
-                image-rendering: -webkit-optimize-contrast;
-                image-rendering: crisp-edges;
-            }
-        }
-
-        /* Print styles */
-        @media print {
-            .about {
-                padding: 20px 0;
-                background: white;
-            }
-            
-            .about-image {
-                box-shadow: none;
-            }
-            
-            .cta-button {
-                display: none;
-            }
-        }
-			/*Icono flotante whastapp*/
-		  .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
-        }
-
-        .whatsapp-float svg {
-            width: 38px;
-            height: 38px;
-            fill: white;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-        }
-
-        .whatsapp-float::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: #25D366;
-            animation: ripple 2s infinite;
-            z-index: -1;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        @keyframes ripple {
-            0% {
-                transform: scale(1);
-                opacity: 0.7;
-            }
-            100% {
-                transform: scale(1.5);
-                opacity: 0;
-            }
-        }
-
-        .tooltip {
-            position: absolute;
-            right: 75px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: white;
-            color: #333;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .tooltip::after {
-            content: '';
-            position: absolute;
-            right: -8px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-left: 8px solid white;
-            border-top: 8px solid transparent;
-            border-bottom: 8px solid transparent;
-        }
-
-        .whatsapp-float:hover .tooltip {
-            opacity: 1;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .whatsapp-float svg {
-                width: 28px;
-                height: 28px;
-            }
-
-            .tooltip {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .whatsapp-float {
-                width: 45px;
-                height: 45px;
-                bottom: 15px;
-                right: 15px;
-            }
-
-            .whatsapp-float svg {
-                width: 25px;
-                height: 25px;
-            }
-        }
-		
-				/* Estilos para el Slider de Logos */
-.logo-slider-container {
-    background: #c7c7c7;
-    padding: 10px 0;
-    overflow: hidden; /* Oculta los logos que salen de la pantalla */
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    position: relative;
+<!DOCTYPE html><html lang="es"><head><meta name="referrer" content="no-referrer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio Jurídico Valdés &amp; Asociados | Derecho Laboral Argentina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=DM+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0d1b2a;
+  --navy-mid: #1a2e45;
+  --gold: #b8964e;
+  --gold-light: #d4af6e;
+  --white: #ffffff;
+  --off-white: #f8f7f4;
+  --gray-100: #f2f1ee;
+  --gray-200: #e5e3de;
+  --gray-400: #9a9690;
+  --gray-600: #5c5850;
+  --text: #1a1814;
+  --heading-font: 'Cormorant Garamond', serif;
+  --body-font: 'DM Sans', sans-serif;
+  --shadow-sm: 0 2px 8px rgba(13,27,42,0.06), 0 1px 2px rgba(13,27,42,0.04);
+  --shadow-md: 0 8px 24px rgba(13,27,42,0.10), 0 2px 6px rgba(13,27,42,0.06);
+  --shadow-lg: 0 20px 50px rgba(13,27,42,0.14), 0 6px 16px rgba(13,27,42,0.08);
+  --radius: 4px;
+  --radius-lg: 12px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body-font); color: var(--text); background: var(--white); overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+.reveal-left.visible { opacity: 1; transform: none; }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+.reveal-right.visible { opacity: 1; transform: none; }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* TYPOGRAPHY */
+h1,h2,h3,h4 { font-family: var(--heading-font); font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; }
+h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+p { line-height: 1.7; color: var(--gray-600); }
+.label { font-family: var(--body-font); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+.section-title { margin-bottom: 1rem; }
+.section-sub { font-size: clamp(1rem, 1.5vw, 1.125rem); max-width: 560px; }
+
+/* BUTTONS */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.75rem; font-family: var(--body-font); font-size: 0.9rem; font-weight: 500; border-radius: var(--radius); cursor: pointer; border: none; transition: all 0.3s cubic-bezier(0.16,1,0.3,1); letter-spacing: 0.01em; }
+.btn-primary { background: var(--gold); color: var(--white); }
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(184,150,78,0.35); }
+.btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.5); }
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); transform: translateY(-2px); }
+.btn-dark { background: var(--navy); color: var(--white); }
+.btn-dark:hover { background: var(--navy-mid); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+.whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; width: 56px; height: 56px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.4); transition: transform 0.3s, box-shadow 0.3s; }
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37,211,102,0.5); }
+.whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+
+/* HEADER */
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0; transition: all 0.4s cubic-bezier(0.16,1,0.3,1); }
+header.scrolled { background: rgba(13,27,42,0.97); backdrop-filter: blur(12px); box-shadow: 0 2px 20px rgba(0,0,0,0.2); }
+.header-inner { max-width: 1280px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 0.75rem; }
+.logo-icon { width: 36px; height: 36px; }
+.logo-text { display: flex; flex-direction: column; }
+.logo-name { font-family: var(--heading-font); font-size: 1.3rem; font-weight: 700; color: var(--white); letter-spacing: 0.02em; line-height: 1; }
+.logo-tagline { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-top: 2px; }
+nav { display: flex; align-items: center; gap: 2rem; }
+nav a { font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.8); letter-spacing: 0.02em; transition: color 0.2s; position: relative; }
+nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
+nav a:hover { color: var(--white); }
+nav a:hover::after { width: 100%; }
+.nav-cta { display: flex; align-items: center; gap: 1rem; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; border-radius: 2px; }
+.mobile-menu { display: none; position: fixed; inset: 0; background: var(--navy); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: var(--heading-font); font-size: 2rem; color: var(--white); }
+.mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 2rem; color: var(--white); cursor: pointer; background: none; border: none; }
+
+/* HERO */
+.hero { min-height: 100vh; background: linear-gradient(135deg, #0a1520 0%, #0d1b2a 40%, #142338 70%, #0d1b2a 100%); display: flex; align-items: center; position: relative; overflow: hidden; }
+.hero-bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,78,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,78,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+.hero-glow { position: absolute; top: -20%; right: -10%; width: 60vw; height: 60vw; border-radius: 50%; background: radial-gradient(circle, rgba(184,150,78,0.08) 0%, transparent 65%); pointer-events: none; }
+.hero-glow-2 { position: absolute; bottom: -20%; left: -10%; width: 50vw; height: 50vw; border-radius: 50%; background: radial-gradient(circle, rgba(26,46,69,0.6) 0%, transparent 65%); pointer-events: none; }
+.hero-inner { max-width: 1280px; margin: 0 auto; padding: 8rem 2rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+.hero-content { }
+.hero-label { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+.hero-label::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--gold); }
+.hero h1 { color: var(--white); margin-bottom: 1.5rem; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub { font-size: clamp(1rem, 1.5vw, 1.15rem); color: rgba(255,255,255,0.65); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.7; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+.hero-stats { display: flex; gap: 2.5rem; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+.hero-stat-num { font-family: var(--heading-font); font-size: 2.5rem; color: var(--gold); line-height: 1; }
+.hero-stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 0.25rem; letter-spacing: 0.05em; }
+.hero-visual { position: relative; }
+.hero-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: 2rem; backdrop-filter: blur(8px); }
+.hero-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.hero-card-icon { width: 40px; height: 40px; background: rgba(184,150,78,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.hero-card-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; }
+.hero-card-title { font-family: var(--heading-font); font-size: 1.2rem; color: var(--white); }
+.hero-card-sub { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+.hero-card-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.hero-card-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+.hero-card-item::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+.hero-badge { position: absolute; top: -1.5rem; right: -1rem; background: var(--gold); color: var(--white); padding: 0.6rem 1rem; border-radius: var(--radius); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; box-shadow: 0 4px 16px rgba(184,150,78,0.4); }
+.hero-badge-2 { position: absolute; bottom: -1rem; left: -1rem; background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.1); color: var(--white); padding: 0.75rem 1.25rem; border-radius: var(--radius); display: flex; align-items: center; gap: 0.75rem; }
+.hero-badge-2 .b2-num { font-family: var(--heading-font); font-size: 1.5rem; color: var(--gold); }
+.hero-badge-2 .b2-text { font-size: 0.72rem; color: rgba(255,255,255,0.55); line-height: 1.4; }
+
+/* HERO ACTUALIZADO CON IMAGEN DE FONDO */
+.hero { 
+  min-height: 100vh; 
+  /* Combinamos un degradado oscuro con la imagen de Cloudinary */
+  background: linear-gradient(rgba(10, 21, 32, 0.85), rgba(13, 27, 42, 0.8)), 
+              url('https://res.cloudinary.com/dliredzt9/image/upload/v1776899647/smuldur-justice-6778953_1920_hjamh9.webp'); 
+  
+  background-size: cover; 
+   background-repeat: no-repeat;
+  background-attachment: fixed; /* Mantiene la imagen estática al scrollear (efecto parallax) */
+  
+  display: flex; 
+  align-items: center; 
+  position: relative; 
+  overflow: hidden; 
 }
 
-.logo-slider-track {
-    display: flex;
-    width: calc(250px * 12); /* Ajuste dinámico basado en el número de logos */
-    animation: scroll 30s linear infinite;
+/* Mantenemos el resto de tus estilos del Hero... */
+.hero-bg-grid { 
+  position: absolute; 
+  inset: 0; 
+  background-image: linear-gradient(rgba(184,150,78,0.04) 1px, transparent 1px), 
+                    linear-gradient(90deg, rgba(184,150,78,0.04) 1px, transparent 1px); 
+  background-size: 60px 60px; 
+  z-index: 1; /* Asegura que la grilla esté sobre la imagen pero bajo el texto */
 }
 
-.logo-slider-track:hover {
-    animation-play-state: paused; /* El slider se detiene al pasar el mouse */
+/* Ajuste opcional: Si quieres que el brillo (glow) se note más sobre la imagen */
+.hero-glow { z-index: 2; }
+.hero-inner { z-index: 3; }
+/* NOSOTROS */
+.nosotros { background: var(--off-white); padding: 7rem 2rem; }
+.nosotros-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.nosotros-text h2 { margin-bottom: 1.25rem; color: var(--navy); }
+.nosotros-text p { margin-bottom: 2rem; font-size: 1.05rem; }
+.nosotros-bullets { display: flex; flex-direction: column; gap: 1.25rem; }
+.bullet-item { display: flex; align-items: flex-start; gap: 1rem; }
+.bullet-icon { width: 40px; height: 40px; background: var(--navy); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.bullet-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; }
+.bullet-text h4 { font-family: var(--body-font); font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+.bullet-text p { font-size: 0.88rem; color: var(--gray-400); line-height: 1.5; }
+.nosotros-visual { position: relative; }
+.nosotros-img-wrap { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/5; background: linear-gradient(145deg, var(--navy) 0%, var(--navy-mid) 100%); display: flex; align-items: center; justify-content: center; position: relative; }
+.nosotros-img-placeholder { text-align: center; padding: 3rem; }
+.nosotros-img-placeholder svg { width: 80px; height: 80px; stroke: rgba(184,150,78,0.5); fill: none; margin: 0 auto 1rem; }
+.nosotros-img-placeholder p { color: rgba(255,255,255,0.3); font-size: 0.85rem; }
+.nosotros-years { position: absolute; bottom: -1.5rem; left: -1.5rem; background: var(--gold); color: var(--white); width: 110px; height: 110px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); }
+.nosotros-years .num { font-family: var(--heading-font); font-size: 2.5rem; line-height: 1; }
+.nosotros-years .txt { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; text-align: center; opacity: 0.9; }
+
+/* SERVICIO PRINCIPAL */
+.servicio-principal { padding: 7rem 2rem; background: var(--white); }
+.servicio-principal-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.sp-card { background: var(--navy); border-radius: var(--radius-lg); padding: 4rem 3rem; position: relative; overflow: hidden; box-shadow: var(--shadow-lg); }
+.sp-card-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 30%, rgba(184,150,78,0.12) 0%, transparent 60%); }
+.sp-card h2 { color: var(--white); margin-bottom: 1.25rem; position: relative; z-index: 1; }
+.sp-card p { color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto 2.5rem; position: relative; z-index: 1; font-size: 1.05rem; }
+.sp-card .btn { position: relative; z-index: 1; }
+.sp-features { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap; position: relative; z-index: 1; }
+.sp-feature { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+.sp-feature svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; flex-shrink: 0; }
+
+/* SERVICIO PRINCIPAL CON IMAGEN DE FONDO */
+.sp-card { 
+  background-color: var(--navy); /* Color de respaldo */
+  background-image: 
+    linear-gradient(to right, rgba(13, 27, 42, 0.95) 30%, rgba(13, 27, 42, 0.4) 100%), 
+    url('https://res.cloudinary.com/dliredzt9/image/upload/v1747765403/hero-2_ioecwm.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-lg); 
+  padding: 4rem 3rem; 
+  position: relative; 
+  overflow: hidden; 
+  box-shadow: var(--shadow-lg); 
 }
 
-.slide {
-    width: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 40px;
+/* Rediseñamos el resplandor para que no compita con la nueva imagen */
+.sp-card-bg { 
+  position: absolute; 
+  inset: 0; 
+  background: radial-gradient(circle at 20% 20%, rgba(184,150,78,0.15) 0%, transparent 50%); 
+  pointer-events: none;
 }
 
-.slide img {
-    width: 20%;
-    max-width: 150px;
-	transition: all 0.3s ease;
+/* Aseguramos que el contenido destaque */
+.sp-card h2, .sp-card p, .sp-features, .sp-card .btn, .sp-card .label {
+  position: relative;
+  z-index: 2;
 }
 
-.slide img:hover {
-    filter: grayscale(0%); /* El logo recupera color al pasar el mouse */
-    opacity: 1;
-    transform: scale(1.1);
+/* TODOS LOS SERVICIOS */
+.servicios { padding: 7rem 2rem; background: var(--gray-100); }
+.servicios-inner { max-width: 1280px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-header h2 { color: var(--navy); }
+.section-header .section-sub { margin: 1rem auto 0; }
+.servicios-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.service-card { background: var(--white); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); transition: all 0.35s cubic-bezier(0.16,1,0.3,1); position: relative; overflow: hidden; }
+.service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); }
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.service-card:hover::before { transform: scaleX(1); }
+.service-icon { width: 48px; height: 48px; background: linear-gradient(135deg, var(--navy), var(--navy-mid)); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+.service-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+.service-card h3 { font-size: 1.1rem; color: var(--navy); margin-bottom: 0.6rem; letter-spacing: -0.01em; }
+.service-card p { font-size: 0.875rem; line-height: 1.65; color: var(--gray-400); }
+
+/* LOGO SLIDER */
+.logo-slider { padding: 4rem 0; background: #0d1b2a; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); overflow: hidden; }
+.slider-label { text-align: center; margin-bottom: 2.5rem; }
+.slider-track-wrap { overflow: hidden; position: relative; }
+.slider-track-wrap::before, .slider-track-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; pointer-events: none; }
+.slider-track { display: flex; gap: 3rem; animation: scroll-logos 28s linear infinite; width: max-content; }
+.slider-track:hover { animation-play-state: paused; }
+@keyframes scroll-logos { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.logo-item { display: flex; align-items: center; justify-content: center; height: 48px; min-width: 140px; opacity: 0.5; transition: opacity 0.2s; filter: grayscale(100%); }
+.logo-item:hover { opacity: 0.9; filter: none; }
+.logo-placeholder { background: var(--gray-100); border-radius: var(--radius); height: 40px; min-width: 120px; display: flex; align-items: center; justify-content: center; font-family: var(--heading-font); font-size: 1.1rem; color: var(--gray-400); font-weight: 600; border: 1px solid var(--gray-200); padding: 0 1.5rem; }
+
+.logo-item { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  height: 60px; /* Aumentado ligeramente para tus logos */
+  min-width: 160px; 
+  opacity: 0.5; 
+  transition: all 0.3s ease; 
+  filter: grayscale(100%); 
 }
 
-/* Animación del movimiento */
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-250px * 6)); } /* Se mueve la mitad del track total */
-}f
-		
-    </style>
-</head>
+/* Regla nueva para controlar el tamaño de las imágenes */
+.logo-item img {
+  max-height: 100%;
+  max-width: 120px;
+  object-fit: contain;
+}
+
+.logo-item:hover { 
+  opacity: 1; 
+  filter: grayscale(0%); 
+  transform: scale(1.05); /* Efecto de aumento suave */
+}
+/* GALERÍA */
+.galeria { padding: 7rem 2rem; background: var(--off-white); }
+.galeria-inner { max-width: 1280px; margin: 0 auto; }
+.galeria-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; gap: 1rem; }
+.galeria-item { position: relative; border-radius: var(--radius-lg); overflow: hidden; cursor: pointer; }
+.galeria-item:first-child { grid-column: 1 / 3; }
+.galeria-img { aspect-ratio: 4/3; background: var(--navy-mid); display: flex; align-items: center; justify-content: center; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+.galeria-item:first-child .galeria-img { aspect-ratio: 16/9; }
+.galeria-item:last-child .galeria-img { aspect-ratio: 4/5; grid-row: 1 / 3; }
+.galeria-img-inner { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #0d1b2a 0%, #1a2e45 100%); }
+.galeria-img-inner svg { width: 48px; height: 48px; stroke: rgba(184,150,78,0.3); fill: none; }
+.galeria-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,27,42,0.92) 0%, rgba(13,27,42,0.3) 60%, transparent 100%); opacity: 0; transition: opacity 0.3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; }
+.galeria-item:hover .galeria-overlay { opacity: 1; }
+.galeria-item:hover .galeria-img-inner { transform: scale(1.04); }
+.galeria-overlay h4 { font-family: var(--heading-font); font-size: 1.2rem; color: var(--white); }
+.galeria-overlay span { font-size: 0.8rem; color: var(--gold); margin-top: 0.25rem; display: block; }
+
+/* GALERÍA CON FONDO */
+.galeria { 
+  padding: 7rem 2rem; 
+  /* Aplicamos el fondo con una capa oscura (overlay) para que resalten los cuadros */
+  background: linear-gradient(rgba(13, 27, 42, 0.85), rgba(13, 27, 42, 0.85)), 
+              url('https://res.cloudinary.com/dliredzt9/image/upload/v1776899647/smuldur-justice-6778953_1920_hjamh9.webp'); 
+  
+  background-size: cover; 
+  sbackground-repeat: no-repeat;
+  background-attachment: fixed; /* Efecto de fondo fijo al bajar la página */
+}
+
+/* Ajuste para que el texto de la cabecera se vea bien sobre el fondo oscuro */
+.galeria .reveal {
+  color: var(--white);
+}
+
+.galeria .label {
+  color: var(--gold); /* Aseguramos que la etiqueta resalte */
+}
+
+/* El resto de tu código se mantiene igual */
+.galeria-inner { max-width: 1280px; margin: 0 auto; }
+.galeria-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; gap: 1rem; }
+
+.galeria-item { 
+  position: relative; 
+  border-radius: var(--radius-lg); 
+  overflow: hidden; 
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Sombra para despegar los items del fondo */
+}
+
+/* BANNER FRASE */
+.banner-frase { padding: 6rem 2rem; background: linear-gradient(135deg, #0a1520 0%, #0d1b2a 50%, #071018 100%); position: relative; overflow: hidden; text-align: center; }
+.banner-frase::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 70vw; height: 70vw; border-radius: 50%; background: radial-gradient(circle, rgba(184,150,78,0.06) 0%, transparent 65%); pointer-events: none; }
+.banner-quote { font-family: var(--heading-font); font-size: clamp(1.8rem, 4vw, 3.2rem); color: var(--white); max-width: 900px; margin: 0 auto; line-height: 1.2; font-weight: 500; position: relative; z-index: 1; }
+.banner-quote em { color: var(--gold); font-style: italic; }
+.banner-source { margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; position: relative; z-index: 1; }
+.banner-lines { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; }
+.banner-line { position: absolute; height: 1px; background: linear-gradient(to right, transparent, rgba(184,150,78,0.15), transparent); }
+.banner-line:nth-child(1) { top: 30%; width: 100%; }
+.banner-line:nth-child(2) { top: 70%; width: 100%; }
+
+/* EQUIPO */
+.equipo { padding: 7rem 2rem; background: var(--white); }
+.equipo-inner { max-width: 1280px; margin: 0 auto; }
+.equipo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.staff-card { background: var(--off-white); border-radius: var(--radius-lg); overflow: hidden; transition: all 0.35s cubic-bezier(0.16,1,0.3,1); border: 1px solid var(--gray-200); }
+.staff-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.staff-photo { aspect-ratio: 3/4; background: linear-gradient(145deg, var(--navy) 0%, var(--navy-mid) 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.staff-photo svg { width: 60px; height: 60px; stroke: rgba(184,150,78,0.4); fill: none; }
+.staff-photo-overlay { position: absolute; inset: 0; background: linear-gradient(to top, var(--navy) 0%, transparent 50%); }
+.staff-info { padding: 1.25rem; }
+.staff-name { font-family: var(--heading-font); font-size: 1.15rem; color: var(--navy); margin-bottom: 0.25rem; }
+.staff-role { font-size: 0.78rem; color: var(--gold); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.75rem; }
+.staff-bio { font-size: 0.82rem; color: var(--gray-400); line-height: 1.6; }
+.staff-social { display: flex; gap: 0.5rem; margin-top: 1rem; }
+.staff-social a { width: 32px; height: 32px; background: var(--gray-200); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.staff-social a:hover { background: var(--navy); }
+.staff-social a:hover svg { stroke: var(--white); }
+.staff-social svg { width: 14px; height: 14px; stroke: var(--gray-400); fill: none; transition: stroke 0.2s; }
+
+/* TESTIMONIOS */
+.testimonios { padding: 7rem 2rem; background: var(--off-white); }
+.testimonios-inner { max-width: 900px; margin: 0 auto; }
+.testimonios-slider { position: relative; overflow: hidden; }
+.testimonios-track { display: flex; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+.testimonio-slide { min-width: 100%; }
+.testimonio-card { background: var(--white); border-radius: var(--radius-lg); padding: 3rem; box-shadow: var(--shadow-md); border: 1px solid var(--gray-200); text-align: center; }
+.testimonio-stars { display: flex; justify-content: center; gap: 0.25rem; margin-bottom: 1.5rem; }
+.star { width: 18px; height: 18px; fill: var(--gold); }
+.testimonio-text { font-family: var(--heading-font); font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--navy); line-height: 1.5; margin-bottom: 2rem; font-style: italic; }
+.testimonio-author { display: flex; align-items: center; justify-content: center; gap: 1rem; }
+.author-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--navy), var(--navy-mid)); display: flex; align-items: center; justify-content: center; font-family: var(--heading-font); font-size: 1.2rem; color: var(--gold); font-weight: 600; }
+.author-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); text-align: left; }
+.author-role { font-size: 0.78rem; color: var(--gray-400); text-align: left; }
+.slider-controls { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-top: 2rem; }
+.slider-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gray-200); border: none; cursor: pointer; transition: all 0.3s; padding: 0; }
+.slider-dot.active { background: var(--gold); width: 24px; border-radius: 4px; }
+
+/* FAQ */
+.faq { padding: 7rem 2rem; background: var(--white); }
+.faq-inner { max-width: 800px; margin: 0 auto; }
+.faq-list { display: flex; flex-direction: column; gap: 0; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); }
+.faq-item { border-bottom: 1px solid var(--gray-200); background: var(--white); }
+.faq-item:last-child { border-bottom: none; }
+.faq-question { width: 100%; padding: 1.5rem 1.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--body-font); font-size: 0.95rem; font-weight: 600; color: var(--navy); transition: background 0.2s; }
+.faq-question:hover { background: var(--off-white); }
+.faq-item.open .faq-question { background: var(--off-white); color: var(--gold); }
+.faq-icon { width: 24px; height: 24px; border: 1.5px solid var(--gray-200); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s; }
+.faq-item.open .faq-icon { background: var(--gold); border-color: var(--gold); transform: rotate(45deg); }
+.faq-icon svg { width: 12px; height: 12px; stroke: var(--gray-400); fill: none; transition: stroke 0.3s; }
+.faq-item.open .faq-icon svg { stroke: var(--white); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1); }
+.faq-answer-inner { padding: 0 1.75rem 1.5rem; font-size: 0.9rem; line-height: 1.75; color: var(--gray-600); }
+
+/* FORMULARIO */
+.contacto { padding: 7rem 2rem; background: var(--gray-100); }
+.contacto-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+.contacto-info h2 { color: var(--navy); margin-bottom: 1rem; }
+.contacto-info p { font-size: 1rem; margin-bottom: 2.5rem; }
+.contacto-details { display: flex; flex-direction: column; gap: 1.25rem; }
+.contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+.contact-icon { width: 40px; height: 40px; background: var(--navy); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; }
+.contact-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 0.2rem; }
+.contact-value { font-size: 0.9rem; color: var(--navy); font-weight: 500; }
+.form-card { background: var(--white); border-radius: var(--radius-lg); padding: 2.5rem; box-shadow: var(--shadow-md); }
+.form-card h3 { font-family: var(--heading-font); font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem; }
+.form-card .form-sub { font-size: 0.875rem; color: var(--gray-400); margin-bottom: 2rem; }
+.form-group { margin-bottom: 1.25rem; }
+label { display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.5rem; }
+input, textarea, select { width: 100%; padding: 0.875rem 1rem; border: 1.5px solid var(--gray-200); border-radius: var(--radius); font-family: var(--body-font); font-size: 0.9rem; color: var(--text); background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+input:focus, textarea:focus, select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(184,150,78,0.12); }
+textarea { resize: vertical; min-height: 120px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-card .btn { width: 100%; justify-content: center; padding: 1rem; font-size: 0.95rem; }
+
+/* FORMULARIO CON FONDO */
+.contacto { 
+  padding: 7rem 2rem; 
+  /* Overlay oscuro para legibilidad + Imagen de Cloudinary */
+  background: linear-gradient(rgba(10, 21, 32, 0.9), rgba(13, 27, 42, 0.85)), 
+              url('https://res.cloudinary.com/dliredzt9/image/upload/v1776900429/smuldur-justice-6778953_1920_1_mr10bs.webp');
+  background-size: cover;
+  background-attachment: fixed; /* Efecto elegante al scrollear */
+}
+
+.contacto-inner { 
+  max-width: 1280px; 
+  margin: 0 auto; 
+  display: grid; 
+  grid-template-columns: 1fr 1.2fr; 
+  gap: 5rem; 
+  align-items: start; 
+}
+
+/* Ajustes de texto para fondo oscuro */
+.contacto-info h2 { 
+  color: var(--white); /* Cambiado de navy a white */
+  margin-bottom: 1rem; 
+}
+
+.contacto-info p { 
+  font-size: 1rem; 
+  margin-bottom: 2.5rem; 
+  color: rgba(255,255,255,0.8); /* Texto suave pero legible */
+}
+
+.contacto-details { display: flex; flex-direction: column; gap: 1.25rem; }
+.contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+
+.contact-icon { 
+  width: 40px; 
+  height: 40px; 
+  background: var(--gold); /* Cambiado a dorado para que resalte más */
+  border-radius: var(--radius); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  flex-shrink: 0; 
+}
+
+.contact-icon svg { 
+  width: 18px; 
+  height: 18px; 
+  stroke: var(--navy); /* Icono oscuro sobre fondo dorado */
+  fill: none; 
+}
+
+.contact-label { 
+  font-size: 0.72rem; 
+  letter-spacing: 0.1em; 
+  text-transform: uppercase; 
+  color: var(--gold); 
+  font-weight: 600; 
+  margin-bottom: 0.2rem; 
+}
+
+.contact-value { 
+  font-size: 0.9rem; 
+  color: var(--white); /* Cambiado de navy a white */
+  font-weight: 500; 
+}
+
+.contact-value a { color: var(--white); text-decoration: none; }
+
+/* La tarjeta del formulario se mantiene blanca para generar contraste limpio */
+.form-card { 
+  background: var(--white); 
+  border-radius: var(--radius-lg); 
+  padding: 2.5rem; 
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
+}
+
+.form-card h3 { font-family: var(--heading-font); font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem; }
+.form-card .form-sub { font-size: 0.875rem; color: var(--gray-400); margin-bottom: 2rem; }
+
+/* ... Resto de estilos de input y botones se mantienen igual ... */
+
+/* FOOTER */
+footer { background: var(--navy); color: rgba(255,255,255,0.7); padding: 5rem 2rem 2rem; }
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 4rem; }
+.footer-brand .logo-name { font-size: 1.4rem; }
+.footer-brand p { font-size: 0.875rem; margin-top: 1rem; line-height: 1.7; max-width: 280px; }
+.footer-col h5 { font-family: var(--body-font); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+.footer-col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col ul a { font-size: 0.875rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--white); }
+.footer-social { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+.social-btn { width: 36px; height: 36px; border-radius: var(--radius); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.social-btn:hover { background: var(--gold); border-color: var(--gold); }
+.social-btn svg { width: 15px; height: 15px; stroke: rgba(255,255,255,0.7); fill: none; transition: stroke 0.2s; }
+.social-btn:hover svg { stroke: var(--white); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 2rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem; }
+.footer-disclaimer { font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 0.25rem; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-visual { max-width: 500px; margin: 0 auto; }
+  .nosotros-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .nosotros-visual { order: -1; max-width: 400px; }
+  .equipo-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .contacto-inner { grid-template-columns: 1fr; gap: 3rem; }
+}
+@media (max-width: 768px) {
+  nav { display: none; }
+  .nav-cta .btn-primary { display: none; }
+  .hamburger { display: flex; }
+  .hero-inner { padding: 7rem 1rem 4rem; }
+  .hero-stats { gap: 1.5rem; }
+  .servicios-grid { grid-template-columns: 1fr 1fr; }
+  .galeria-grid { grid-template-columns: 1fr; }
+  .galeria-item:first-child { grid-column: 1; }
+  .equipo-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+  .form-row { grid-template-columns: 1fr; }
+  .sp-card { padding: 2.5rem 1.5rem; }
+  .sp-features { gap: 1rem; }
+  
+  @media (max-width: 768px) {
+  .contacto-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+}
+@media (max-width: 480px) {
+  .servicios-grid { grid-template-columns: 1fr; }
+  .equipo-grid { grid-template-columns: 1fr; }
+  .hero-badge, .hero-badge-2 { display: none; }
+  .banner-quote { font-size: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+  .slider-track { animation: none; }
+}
+
+.staff-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Esto evita que la imagen se deforme */
+  display: block;
+}
+
+.staff-photo {
+  position: relative;
+  overflow: hidden; /* Corta lo que sobre de la imagen */
+  /* Asegúrate de que tenga una altura definida, ej: height: 300px; */
+}
+
+.nosotros-img {
+  width: 100%;
+  height: 100%;
+  min-height: 400px; /* Ajusta según el diseño de tu grilla */
+  object-fit: cover; /* Mantiene la proporción sin estirar la foto */
+  border-radius: 8px; /* Opcional, para suavizar las esquinas */
+  display: block;
+}
+
+.nosotros-img-wrap {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Agrega profundidad */
+}
+.img-fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Recorta la imagen para llenar el espacio */
+  display: block;
+  transition: transform 0.5s ease; /* Para efectos de hover */
+}
+</style>
+<style id="htmlpub-breakpoint-visibility">@media (max-width: 390px) { .hp-hide-mobile { display: none !important; } }
+@media (min-width: 391px) and (max-width: 768px) { .hp-hide-tablet { display: none !important; } }
+@media (min-width: 769px) { .hp-hide-desktop { display: none !important; } }</style><style>#htmlpub-link-input::placeholder{color:rgba(255,255,255,0.65);}ul,ol{padding:20px;}</style></head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <i class="fas fa-balance-scale"></i> LexJuris
-            </div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#equipo">Equipo</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-            <a href="#contacto" class="cta-button">Consulta Gratuita</a>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#equipo">Equipo</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-            <a href="#contacto" class="cta-button mobile-cta">Consulta Gratuita</a>
-        </div>
-        
-        <!-- Overlay -->
-        <div class="overlay"></div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="container">
-            <h1>Defendemos Tus Derechos</h1>
-            <p>Más de 15 años de experiencia brindando asesoría legal especializada. Tu tranquilidad es nuestra prioridad.</p>
-            <div class="hero-buttons">
-                <a href="#contacto" class="btn-primary">Consulta Gratuita</a>
-                <a href="#servicios" class="btn-secondary">Nuestros Servicios</a>
-            </div>
-        </div>
-    </section>
-		
-    <section class="logo-slider-container">
-    <div class="logo-slider-track" id="logoTrack">
-        <div class="slide"><img src="img/logo-slider1.png" alt="Logo 1"></div>
-        <div class="slide"><img src="img/logo-slider2.png" alt="Logo 2"></div>
-        <div class="slide"><img src="img/logo-slider3.png" alt="Logo 3"></div>
-        <div class="slide"><img src="img/logo-slider4.png" alt="Logo 4"></div>
-        <div class="slide"><img src="img/logo-slider5.png" alt="Logo 5"></div>
-        <div class="slide"><img src="img/logo-slider6.png" alt="Logo 6"></div>
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5491112345678?text=Hola%2C%20necesito%20asesoramiento%20legal" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.112 1.523 5.843L0 24l6.302-1.504A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.003-1.368l-.358-.214-3.742.893.935-3.644-.234-.373A9.77 9.77 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"></path></svg>
+</a>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#inicio" onclick="closeMobile()">Inicio</a>
+  <a href="#nosotros" onclick="closeMobile()">Nosotros</a>
+  <a href="#servicios" onclick="closeMobile()">Servicios</a>
+  <a href="#equipo" onclick="closeMobile()">Equipo</a>
+  <a href="#testimonios" onclick="closeMobile()">Testimonios</a>
+  <a href="#faq" onclick="closeMobile()">FAQ</a>
+  <a href="#contacto" onclick="closeMobile()">Contacto</a>
+  <a href="https://wa.me/5491112345678" class="btn btn-primary" style="margin-top:1rem;" target="_blank">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path></svg>
+    Consultar ahora
+  </a>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-inner" style="">
+    <a href="#inicio" class="logo">
+      <svg class="logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="6" fill="rgba(184,150,78,0.15)"></rect>
+        <path d="M18 6L8 11V17C8 22.5 12.5 27.5 18 29C23.5 27.5 28 22.5 28 17V11L18 6Z" stroke="#b8964e" stroke-width="1.5" fill="none"></path>
+        <path d="M14 18L17 21L22 15" stroke="#b8964e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-name">Valdés &amp; Asociados</span>
+        <span class="logo-tagline">Estudio Jurídico</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="https://wa.me/5491112345678?text=Hola%2C%20quiero%20una%20consulta%20legal" class="btn btn-primary" target="_blank">
+        <svg viewBox="0 0 24 24" fill="white" style="width:16px;height:16px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path></svg>
+        Consulta por WhatsApp
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section id="inicio" class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-inner" style="">
+    <div class="hero-content" style="">
+      <div class="hero-label reveal"><span class="label">Estudio Jurídico en Buenos Aires</span></div>
+      <h1 class="reveal delay-1" style="">Tu trabajo merece <em>defensa legal</em> de primer nivel</h1>
+      <p class="hero-sub reveal delay-2" style="">Especialistas en Derecho Laboral, Civil y Societario. Más de 20 años protegiendo los derechos de trabajadores y empresas en Argentina.</p>
+      <div class="hero-actions reveal delay-3" style="">
+        <a href="https://wa.me/5491112345678?text=Hola%2C%20quiero%20una%20consulta%20gratuita" class="btn btn-primary" target="_blank">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path></svg>
+          Consulta gratuita ahora
+        </a>
+        <a href="#servicios" class="btn btn-outline">Ver todos los servicios</a>
+      </div>
+      <div class="hero-stats reveal delay-4" style="">
+        <div><div class="hero-stat-num">+500</div><div class="hero-stat-label">Casos resueltos</div></div>
+        <div><div class="hero-stat-num">20+</div><div class="hero-stat-label">Años de experiencia</div></div>
+        <div><div class="hero-stat-num">98%</div><div class="hero-stat-label" style="">Clientes satisfechos</div></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal-right delay-2">
+      <div style="position: relative; padding: 1.5rem 1rem 1.5rem 0px;">
+        <div class="hero-badge">Consulta Sin Cargo</div>
+        <div class="hero-card" style="">
+          <div class="hero-card-header" style="">
+            <div class="hero-card-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 1.5l2.25 4.56 5.03.73-3.64 3.55.86 5.01L12 12.85l-4.5 2.37.86-5.01L4.72 6.79l5.03-.73L12 1.5z"></path></svg>
+            </div>
+            <div>
+              <div class="hero-card-title">Áreas de práctica</div>
+              <div class="hero-card-sub">Soluciones jurídicas integrales</div>
+            </div>
+          </div>
+          <div class="hero-card-list" style="">
+            <div class="hero-card-item" style="">Derecho Laboral y Previsional</div>
+            <div class="hero-card-item" style="">Derecho Civil y Familia</div>
+            <div class="hero-card-item" style="">Derecho Societario y Comercial</div>
+            <div class="hero-card-item" style="">Accidentes de Tránsito</div>
+            <div class="hero-card-item" style="">Derecho Administrativo</div>
+            <div class="hero-card-item" style="">Mediación y Conciliación</div>
+          </div>
+        </div>
+        <div class="hero-badge-2">
+          <div class="b2-num">24h</div>
+          <div class="b2-text">Respuesta<br>garantizada</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-	
-
-    <!-- About Section -->
-    <section class="about" id="nosotros">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>¿Por qué Elegir Nuestros Servicios?</h2>
-                    <p>Somos un estudio jurídico comprometido con la excelencia y la defensa integral de nuestros clientes. Contamos con un equipo multidisciplinario que abarca todas las ramas del derecho.</p>
-                    <p>Nuestra experiencia y dedicación nos ha permitido consolidarnos como referentes en el sector legal, ofreciendo soluciones efectivas y personalizadas para cada caso.</p>
-                    <a href="#equipo" class="cta-button">Conoce Nuestro Equipo</a>
-                </div>
-             
-                <div class="about-image">
-                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759004218/nosotros_ti8rlg.webp" alt="Equipo Legal LexJuris" loading="lazy">
-                </div>
-            </div>
-            
-            <div class="stats">
-                <div class="stat-item">
-                    <span class="stat-number">500+</span>
-                    <div class="stat-label">Casos Exitosos</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">15</span>
-                    <div class="stat-label">Años de Experiencia</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <div class="stat-label">Atención Disponible</div>
-                </div>
-            </div>
+<section id="nosotros" class="nosotros">
+  <div class="nosotros-inner">
+    <div class="nosotros-text reveal-left">
+      <span class="label">Quiénes somos</span>
+      <h2 class="section-title">Más de dos décadas de justicia y resultados</h2>
+      <p>Somos un equipo de abogados comprometidos con la defensa de los derechos de nuestros clientes. Nuestro enfoque combina profundo conocimiento jurídico con atención personalizada y estrategias orientadas al resultado.</p>
+      
+      <div class="nosotros-bullets">
+        <div class="bullet-item">
+          <div class="bullet-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 15l-4-4 1.414-1.414L11 14.172l6.586-6.586L19 9l-8 8z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div class="bullet-text">
+            <h4>Experiencia probada</h4>
+            <p>Más de 20 años de ejercicio profesional y más de 500 casos exitosos en la Ciudad de Buenos Aires y Gran Buenos Aires.</p>
+          </div>
         </div>
-    </section>
-	
-
-    <!-- Services Section -->
-    <section class="services" id="servicios">
-        <div class="container">
-            <div class="section-title">
-                <h2>Servicios que Potencian tu Tranquilidad</h2>
-                <p>Ofrecemos asesoría legal integral en múltiples áreas del derecho, adaptándonos a las necesidades específicas de cada cliente.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Derecho Corporativo</h3>
-                    <p>Asesoramiento integral para empresas, contratos comerciales, fusiones y adquisiciones, y cumplimiento normativo.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3>Derecho Inmobiliario</h3>
-                    <p>Compra, venta y alquiler de propiedades. Resolución de conflictos y regularización de documentos.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Derecho Familiar</h3>
-                    <p>Divorcios, custodia de menores, pensiones alimentarias y todo lo relacionado con el ámbito familiar.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Derecho Penal</h3>
-                    <p>Defensa en procesos penales, representación legal y asesoría en investigaciones judiciales.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Mediación y Arbitraje</h3>
-                    <p>Resolución alternativa de conflictos, evitando procesos judiciales largos y costosos.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-coins"></i>
-                    </div>
-                    <h3>Derecho Tributario</h3>
-                    <p>Asesoría en temas fiscales, planificación tributaria y representación ante autoridades fiscales.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-        <!-- Team Section -->
-    <section class="team" id="equipo">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nuestro Equipo de Expertos</h2>
-                <p>Profesionales altamente capacitados con amplia experiencia en sus respectivas áreas de especialización.</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-member">
-                    
-                         <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759019205/staff-1_ukjq5f.png" alt="Carlos Mendoza" class="testimonial-avatar">
-             
-                    <div class="member-info">
-                        <div class="member-name">Dr. Carlos Mendoza</div>
-                        <div class="member-role">Socio Fundador</div>
-                        <div class="member-description">Especialista en Derecho Corporativo con más de 20 años de experiencia en grandes corporaciones.</div>
-                    </div>
-                </div>
-                <div class="team-member">
-				     <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759019204/satff-2_umr5ui.png" alt="Carlos Mendoza" class="testimonial-avatar">
-          
-                    <div class="member-info">
-                        <div class="member-name">Dra. Ana Rodríguez</div>
-                        <div class="member-role">Socia Senior</div>
-                        <div class="member-description">Experta en Derecho Familiar y Penal, reconocida por su dedicación y resultados excepcionales.</div>
-                    </div>
-                </div>
-                <div class="team-member">
-                  		     <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759019205/satff-3_u3vstr.png" alt="Carlos Mendoza" class="testimonial-avatar">
-                    <div class="member-info">
-                        <div class="member-name">Lic. Miguel Torres</div>
-                        <div class="member-role">Abogado Asociado</div>
-                        <div class="member-description">Especializado en Derecho Inmobiliario y Tributario, con enfoque en soluciones innovadoras.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-	
-	    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonios">
-        <div class="container">
-            <div class="section-title">
-                <h2>Lo que dicen nuestros clientes</h2>
-                <p>La confianza de nuestros clientes es nuestro mayor logro. Conoce sus experiencias trabajando con nosotros.</p>
-            </div>
-            <div class="testimonials-slider">
-                <div class="testimonial-track" id="testimonialTrack">
-                    <div class="testimonial-item">
-                        <div class="testimonial-content">
-                            "Excelente servicio profesional. Me ayudaron con un caso corporativo complejo y obtuvimos resultados excepcionales. Su dedicación y experiencia fueron fundamentales para el éxito."
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-photo">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>María González</h4>
-                                <p>CEO, TechCorp Argentina</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-content">
-                            "El equipo de LexJuris me brindó tranquilidad en un momento difícil. Su enfoque humano y profesional en mi caso familiar fue exactamente lo que necesitaba. Altamente recomendados."
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-photo">
-                                <i class="fas fa-user-graduate"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>Carlos Mendez</h4>
-                                <p>Contador Público</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-content">
-                            "Profesionales íntegros y comprometidos. Me asesoraron en la compra de mi primera propiedad y todo el proceso fue transparente y eficiente. Sin duda los volvería a elegir."
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-photo">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>Ana Rodríguez</h4>
-                                <p>Arquitecta</p>
-                            </div>
-                        </div>
-                    </div>
-					    <div class="testimonial-item">
-                        <div class="testimonial-content">
-                            "Excelente servicio profesional. Me ayudaron con un caso corporativo complejo y obtuvimos resultados excepcionales. Su dedicación y experiencia fueron fundamentales para el éxito."
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-photo">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>María González</h4>
-                                <p>CEO, TechCorp Argentina</p>
-                            </div>
-                        </div>
-                    </div>
-					    <div class="testimonial-item">
-                        <div class="testimonial-content">
-                            "Excelente servicio profesional. Me ayudaron con un caso corporativo complejo y obtuvimos resultados excepcionales. Su dedicación y experiencia fueron fundamentales para el éxito."
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-photo">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>María González</h4>
-                                <p>CEO, TechCorp Argentina</p>
-                            </div>
-                        </div>
-                    </div>
-					    <div class="testimonial-item">
-                        <div class="testimonial-content">
-                            "Excelente servicio profesional. Me ayudaron con un caso corporativo complejo y obtuvimos resultados excepcionales. Su dedicación y experiencia fueron fundamentales para el éxito."
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="author-photo">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="author-info">
-                                <h4>María González</h4>
-                                <p>CEO, TechCorp Argentina</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-          
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-title">
-                <h2>Preguntas Frecuentes</h2>
-                <p>Encuentra respuestas a las consultas más comunes sobre nuestros servicios legales.</p>
-            </div>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        ¿Cuánto cuesta una consulta inicial?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Ofrecemos una consulta inicial gratuita de 30 minutos para evaluar tu caso y explicarte las opciones disponibles. Durante esta reunión, analizaremos tu situación sin compromiso.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        ¿En qué áreas del derecho se especializan?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Nos especializamos en Derecho Corporativo, Inmobiliario, Familiar, Penal, Tributario y ofrecemos servicios de Mediación y Arbitraje. Contamos con un equipo multidisciplinario para cubrir todas tus necesidades legales.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        ¿Cuánto tiempo demora un proceso legal?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Los tiempos varían según la complejidad del caso y el área legal involucrada. Durante la consulta inicial, te daremos una estimación realista basada en nuestra experiencia y las características específicas de tu situación.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        ¿Qué documentos necesito para mi consulta?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Recomendamos traer todos los documentos relacionados con tu caso: contratos, correspondencia, documentos de identidad, y cualquier material que consideres relevante. Esto nos permitirá brindarte un asesoramiento más preciso.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        ¿Ofrecen atención fuera del horario comercial?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Sí, entendemos que las emergencias legales pueden ocurrir en cualquier momento. Ofrecemos atención de emergencia 24/7 para casos urgentes. Contáctanos y evaluaremos la situación inmediatamente.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contacto">
-        <div class="container">
-            <div class="section-title">
-                <h2 style="color: white;">¿Listo para Transformar tu Situación Legal?</h2>
-                <p style="color: rgba(255,255,255,0.8);">Contáctanos hoy mismo para una consulta gratuita. Estamos aquí para defender tus derechos.</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Av. Corrientes 1234, CABA, Argentina</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+54 11 4567-8900</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>info@lexjuris.com.ar</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Lun - Vie: 9:00 - 18:00</span>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="nombre">Nombre Completo</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Teléfono</label>
-                            <input type="tel" id="telefono" name="telefono">
-                        </div>
-                        <div class="form-group">
-                            <label for="mensaje">Describe tu consulta</label>
-                            <textarea id="mensaje" name="mensaje" required></textarea>
-                        </div>
-                        <button type="submit" class="cta-button" style="width: 100%;">Enviar Consulta</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>LexJuris</h3>
-                    <p>Tu estudio jurídico de confianza. Defendiendo tus derechos con excelencia y dedicación desde 2008.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Servicios</h3>
-                    <a href="#servicios">Derecho Corporativo</a>
-                    <a href="#servicios">Derecho Inmobiliario</a>
-                    <a href="#servicios">Derecho Familiar</a>
-                    <a href="#servicios">Derecho Penal</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <p>Av. Corrientes 1234, CABA</p>
-                    <p>+54 11 4567-8900</p>
-                    <p>info@lexjuris.com.ar</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Síguenos</h3>
-                    <a href="#" style="display: inline-block; margin-right: 1rem;"><i class="fab fa-facebook"></i></a>
-                    <a href="#" style="display: inline-block; margin-right: 1rem;"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" style="display: inline-block; margin-right: 1rem;"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 LexJuris. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-	
-		
-		  <a href="https://wa.me/5491234567890?text=Hola!%20Quisiera%20más%20información" 
-       class="whatsapp-float" 
-       target="_blank" 
-       aria-label="Contactar por WhatsApp"
-       id="whatsappBtn">
-        <span class="tooltip">¡Chatea con nosotros!</span>
-        <svg viewBox="0 0 308 308" xmlns="http://www.w3.org/2000/svg">
-            <path d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156
-                c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687
-                c-0.201,0-3.676-1.431-4.728-1.888c-24.087-10.463-42.37-35.624-44.877-39.867c-0.358-0.61-0.373-0.887-0.376-0.887
-                c0.088-0.323,0.898-1.135,1.316-1.554c1.223-1.21,2.548-2.805,3.83-4.348c0.607-0.731,1.215-1.463,1.812-2.153
-                c1.86-2.164,2.688-3.844,3.648-5.79l0.503-1.011c2.344-4.657,0.342-8.587-0.305-9.856c-0.531-1.062-10.012-23.944-11.02-26.348
-                c-2.424-5.801-5.627-8.502-10.078-8.502c-0.413,0,0,0-1.732,0.073c-2.109,0.089-13.594,1.601-18.672,4.802
-                c-5.385,3.395-14.495,14.217-14.495,33.249c0,17.129,10.87,33.302,15.537,39.453c0.116,0.155,0.329,0.47,0.638,0.922
-                c17.873,26.102,40.154,45.446,62.741,54.469c21.745,8.686,32.042,9.69,37.896,9.69c0.001,0,0.001,0,0.001,0
-                c2.46,0,4.429-0.193,6.166-0.364l1.102-0.105c7.512-0.666,24.02-9.22,27.775-19.655c2.958-8.219,3.738-17.199,1.77-20.458
-                C233.168,179.508,230.845,178.393,227.904,176.981z"/>
-            <path d="M156.734,0C73.318,0,5.454,67.354,5.454,150.143c0,26.777,7.166,52.988,20.741,75.928L0.212,302.716
-                c-0.484,1.429-0.124,3.009,0.933,4.085C1.908,307.58,2.943,308,4,308c0.405,0,0.813-0.061,1.211-0.188l79.92-25.396
-                c21.87,11.685,46.588,17.853,71.604,17.853C240.143,300.27,308,232.923,308,150.143C308,67.354,240.143,0,156.734,0z
-                M156.734,268.994c-23.539,0-46.338-6.797-65.936-19.657c-0.659-0.433-1.424-0.655-2.194-0.655c-0.407,0-0.815,0.062-1.212,0.188
-                l-40.035,12.726l12.924-38.129c0.418-1.234,0.209-2.595-0.561-3.647c-14.924-20.392-22.813-44.485-22.813-69.677
-                c0-65.543,53.754-118.867,119.826-118.867c66.064,0,119.812,53.324,119.812,118.867
-                C276.546,215.678,222.799,268.994,156.734,268.994z"/>
-        </svg>
-    </a>
-
-    <script>
-                 // Enhanced smooth scrolling with easing
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerOffset = 80;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-
-                    // Close mobile menu if open
-                    closeMobileMenu();
-                }
-            });
-        });
-
-        // Enhanced header scroll effect with debouncing
-        let ticking = false;
         
-        function updateHeader() {
-            const header = document.querySelector('header');
-            const scrollY = window.scrollY;
-            
-            if (scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(15px)';
-                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = '#ffffff';
-                header.style.backdropFilter = 'none';
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            }
-            ticking = false;
-        }
+        <div class="bullet-item">
+          <div class="bullet-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div class="bullet-text">
+            <h4>Resultados que hablan solos</h4>
+            <p>Índice de éxito del 98% en casos laborales. Nuestros clientes recuperan lo que les corresponde por ley.</p>
+          </div>
+        </div>
+        
+        <div class="bullet-item">
+          <div class="bullet-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+          <div class="bullet-text">
+            <h4>Atención personalizada</h4>
+            <p>Cada caso es único. Usted siempre hablará directamente con su abogado, no con intermediarios.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(updateHeader);
-                ticking = true;
-            }
-        });
+    <div class="nosotros-visual reveal-right">
+      <div class="nosotros-img-wrap">
+        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747765342/bufe_zzr0ii.jpg" alt="Nuestro estudio jurídico" class="nosotros-img">
+      </div>
+      <div class="nosotros-years">
+        <span class="num">20</span>
+        <span class="txt">años de<br>trayectoria</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Enhanced mobile menu functionality
-        const hamburger = document.querySelector('.hamburger');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const overlay = document.querySelector('.overlay');
-        const body = document.body;
+<!-- SERVICIO PRINCIPAL -->
+<section class="servicio-principal" style="">
+  <div class="servicio-principal-inner">
+    <div class="sp-card reveal">
+      <div class="sp-card-bg" style=""></div>
+      <span class="label" style="display:inline-block; margin-bottom:1rem; position:relative; z-index:1;">Especialidad destacada</span>
+      <h2 style="">Especialistas en<br>Derecho Laboral</h2>
+      <p style="">Defendemos a trabajadores y empresas ante situaciones de despido, liquidaciones incorrectas, accidentes laborales y todo conflicto vinculado a la relación de empleo. Evaluamos su caso sin costo y le decimos con precisión qué le corresponde por ley.</p>
+      <div class="sp-features">
+        <div class="sp-feature"><svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>Despidos y liquidaciones</div>
+        <div class="sp-feature"><svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>Accidentes de trabajo</div>
+        <div class="sp-feature"><svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>Trabajo no registrado</div>
+        <div class="sp-feature" style=""><svg viewBox="0 0 24 24" stroke-width="1.5"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>Mobbing y acoso laboral</div>
+      </div>
+      <a href="https://wa.me/5491112345678?text=Hola%2C%20tengo%20un%20problema%20laboral%20y%20quiero%20una%20consulta" class="btn btn-primary" target="_blank">
+        <svg viewBox="0 0 24 24" fill="white" style="width:16px;height:16px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path></svg>
+        Consultar mi caso laboral
+      </a>
+    </div>
+  </div>
+</section>
 
-        function openMobileMenu() {
-            hamburger.classList.add('active');
-            mobileMenu.classList.add('active');
-            overlay.classList.add('active');
-            body.style.overflow = 'hidden';
-        }
+<!-- TODOS LOS SERVICIOS -->
+<section id="servicios" class="servicios" style="">
+  <div class="servicios-inner" style="">
+    <div class="section-header" style="">
+      <span class="label">Lo que hacemos</span>
+      <h2 class="section-title reveal" style="">Soluciones legales para cada situación</h2>
+      <p class="section-sub reveal delay-1" style="">Cubrimos todas las áreas del derecho con un equipo especializado en cada materia. Su problema tiene solución legal.</p>
+    </div>
+    <div class="servicios-grid" style="">
+      <div class="service-card reveal delay-1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2" stroke-linecap="round"></path></svg>
+        </div>
+        <h3>Derecho Laboral</h3>
+        <p>Despidos, liquidaciones, accidentes de trabajo, trabajo no registrado, mobbing. Defendemos sus derechos desde el primer día.</p>
+      </div>
+      <div class="service-card reveal delay-2" style="">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <h3 style="">Derecho de Familia</h3>
+        <p>Divorcios, alimentos, tenencia, adopción y sucesiones. Acompañamos en los momentos más sensibles con discreción y eficacia.</p>
+      </div>
+      <div class="service-card reveal delay-3" style="">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <h3>Derecho Societario</h3>
+        <p>Constitución de empresas, contratos comerciales, conflictos societarios. Asesoramiento estratégico para su negocio.</p>
+      </div>
+      <div class="service-card reveal delay-1" style="">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <h3>Accidentes de Tránsito</h3>
+        <p>Reclamaciones por daños, lesiones, negativa de compañías aseguradoras. Máxima indemnización garantizada.</p>
+      </div>
+      <div class="service-card reveal delay-2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <h3>Derecho Civil</h3>
+        <p>Contratos, obligaciones, daños y perjuicios, responsabilidad civil. Protección integral de sus intereses patrimoniales.</p>
+      </div>
+      <div class="service-card reveal delay-3" style="">
+        <div class="service-icon" style="">
+          <svg viewBox="0 0 24 24"><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01M12 2a10 10 0 110 20A10 10 0 0112 2z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <h3 style="">Mediación y Acuerdos</h3>
+        <p style="">Resolución extrajudicial de conflictos. Llegamos al mejor acuerdo posible sin las demoras ni costos del juicio.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        function closeMobileMenu() {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            body.style.overflow = '';
-        }
+<div class="logo-slider">
+  <div class="slider-label">
+    <span class="label">Empresas y organizaciones que confían en nosotros</span>
+  </div>
+  <div class="slider-track-wrap">
+    <div class="slider-track" id="logoTrack">
+      <div class="logo-item"><img src="img/logo-slider1.png" alt="Logo 1"></div>
+      <div class="logo-item"><img src="img/logo-slider2.png" alt="Logo 2"></div>
+      <div class="logo-item"><img src="img/logo-slider3.png" alt="Logo 3"></div>
+      <div class="logo-item"><img src="img/logo-slider4.png" alt="Logo 4"></div>
+      <div class="logo-item"><img src="img/logo-slider5.png" alt="Logo 5"></div>
 
-        hamburger.addEventListener('click', () => {
-            if (mobileMenu.classList.contains('active')) {
-                closeMobileMenu();
-            } else {
-                openMobileMenu();
-            }
-        });
+      <div class="logo-item"><img src="img/logo-slider1.png" alt="Logo 1"></div>
+      <div class="logo-item"><img src="img/logo-slider2.png" alt="Logo 2"></div>
+      <div class="logo-item"><img src="img/logo-slider3.png" alt="Logo 3"></div>
+      <div class="logo-item"><img src="img/logo-slider4.png" alt="Logo 4"></div>
+      <div class="logo-item"><img src="img/logo-slider5.png" alt="Logo 5"></div>
+    </div>
+  </div>
+</div>
 
-        overlay.addEventListener('click', closeMobileMenu);
+<section class="galeria">
+  <div class="galeria-inner">
+    <div class="section-header" style="text-align: left; margin-bottom: 3rem;">
+      <span class="label">Nuestro estudio</span>
+      <h2 class="reveal">Espacios diseñados para la confianza</h2>
+    </div>
 
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        });
+    <div class="galeria-grid">
+      <div class="galeria-item reveal">
+        <div class="galeria-img">
+          <div class="galeria-img-inner">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747765347/office-2820890_1280_fvrvv9.jpg" alt="Sala de reuniones principal" class="img-fluid">
+          </div>
+        </div>
+        <div class="galeria-overlay">
+          <h4>Sala de reuniones principal</h4>
+          <span>Buenos Aires, Piso 12</span>
+        </div>
+      </div>
 
-        // Enhanced form submission with animation
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            // Loading animation
-            submitBtn.textContent = 'Enviando...';
-            submitBtn.style.opacity = '0.7';
-            submitBtn.disabled = true;
-            
-            // Simulate sending
-            setTimeout(() => {
-                submitBtn.textContent = '✓ Enviado';
-                submitBtn.style.background = '#10b981';
-                
-                setTimeout(() => {
-                    alert('¡Gracias por tu consulta! Nos pondremos en contacto contigo pronto.');
-                    this.reset();
-                    
-                    // Reset button
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.background = '';
-                    submitBtn.style.opacity = '1';
-                    submitBtn.disabled = false;
-                }, 1000);
-            }, 2000);
-        });
+      <div class="galeria-item reveal delay-1">
+        <div class="galeria-img">
+          <div class="galeria-img-inner">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747069431/attorney-7236482_1280_mwewns.jpg" alt="Biblioteca jurídica" class="img-fluid">
+          </div>
+        </div>
+        <div class="galeria-overlay">
+          <h4>Biblioteca jurídica</h4>
+          <span>Más de 2.000 volúmenes</span>
+        </div>
+      </div>
 
-        // Enhanced scroll animations with staggered effects
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+      <div class="galeria-item reveal delay-2" style="grid-row: 1 / 3;">
+        <div class="galeria-img" style="height:100%; aspect-ratio:auto;">
+          <div class="galeria-img-inner" style="height:100%;">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747765342/bufe_zzr0ii.jpg" alt="Despacho principal" class="img-fluid">
+          </div>
+        </div>
+        <div class="galeria-overlay">
+          <h4>Despacho principal</h4>
+          <span>Atención personalizada</span>
+        </div>
+      </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0) scale(1)';
-                    }, index * 100); // Staggered animation
-                }
-            });
-        }, observerOptions);
+      <div class="galeria-item reveal delay-1">
+        <div class="galeria-img">
+          <div class="galeria-img-inner">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747069431/right-4703943_1280_aawymh.jpg" alt="Sala de mediación" class="img-fluid">
+          </div>
+        </div>
+        <div class="galeria-overlay">
+          <h4>Sala de mediación</h4>
+          <span>Espacio para acuerdos</span>
+        </div>
+      </div>
 
-        // Counter animation for stats
-        function animateCounter(element, target) {
-            const duration = 2000;
-            const start = performance.now();
-            const startValue = 0;
+      <div class="galeria-item reveal delay-2">
+        <div class="galeria-img">
+          <div class="galeria-img-inner">
+            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1747765413/hombre-hero_ntatzg.jpg" alt="Recepción" class="img-fluid">
+          </div>
+        </div>
+        <div class="galeria-overlay">
+          <h4>Recepción</h4>
+          <span>Av. Corrientes 1234</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            function updateCounter(currentTime) {
-                const elapsed = currentTime - start;
-                const progress = Math.min(elapsed / duration, 1);
-                
-                // Easing function
-                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                const currentValue = Math.floor(startValue + (target - startValue) * easeOutQuart);
-                
-                if (target === 500) {
-                    element.textContent = currentValue + '+';
-                } else if (target === 15) {
-                    element.textContent = currentValue;
-                } else {
-                    element.textContent = currentValue === 24 ? '24/7' : currentValue;
-                }
+<!-- BANNER FRASE -->
+<section class="banner-frase">
+  <div class="banner-lines" style=""><div class="banner-line"></div><div class="banner-line"></div></div>
+  <blockquote class="banner-quote reveal" style="">
+    "La justicia no es un privilegio.<br><em style="">Es un derecho que se defiende</em><br>con experiencia y convicción."
+  </blockquote>
+  <p class="banner-source reveal delay-1" style="">— Dr. Martín Valdés, Fundador del Estudio</p>
+</section>
 
-                if (progress < 1) {
-                    requestAnimationFrame(updateCounter);
-                }
-            }
+<section id="equipo" class="equipo">
+  <div class="equipo-inner">
+    <div class="section-header">
+      <span class="label">Nuestro equipo</span>
+      <h2 class="reveal">Abogados con vocación de servicio</h2>
+      <p class="section-sub reveal delay-1">Profesionales formados en las mejores universidades, con especializaciones en cada área del derecho.</p>
+    </div>
+    
+    <div class="equipo-grid">
+      <div class="staff-card reveal delay-1">
+        <div class="staff-photo">
+          <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759019205/staff-1_ukjq5f.png" alt="Dr. Martín Valdés" class="staff-img">
+          <div class="staff-photo-overlay"></div>
+        </div>
+        <div class="staff-info">
+          <div class="staff-name">Dr. Martín Valdés</div>
+          <div class="staff-role">Fundador &amp; Socio Principal</div>
+          <p class="staff-bio">Especialista en Derecho Laboral. UBA. 20+ años de trayectoria en litigios complejos.</p>
+          <div class="staff-social">
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+          </div>
+        </div>
+      </div>
 
-            requestAnimationFrame(updateCounter);
-        }
+      <div class="staff-card reveal delay-2">
+        <div class="staff-photo">
+          <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759019204/satff-2_umr5ui.png" alt="Dra. Laura Fernández" class="staff-img">
+          <div class="staff-photo-overlay"></div>
+        </div>
+        <div class="staff-info">
+          <div class="staff-name">Dra. Laura Fernández</div>
+          <div class="staff-role">Socia – Derecho de Familia</div>
+          <p class="staff-bio">Mediadora certificada. Especialista en conflictos familiares y sucesiones. UCA.</p>
+          <div class="staff-social">
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+          </div>
+        </div>
+      </div>
 
-        // Stats counter observer
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumber = entry.target.querySelector('.stat-number');
-                    const text = statNumber.textContent;
-                    
-                    if (text.includes('500')) {
-                        animateCounter(statNumber, 500);
-                    } else if (text.includes('15')) {
-                        animateCounter(statNumber, 15);
-                    } else if (text.includes('24')) {
-                        animateCounter(statNumber, 24);
-                    }
-                    
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
+      <div class="staff-card reveal delay-3">
+        <div class="staff-photo">
+          <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1759019205/satff-3_u3vstr.png" alt="Dr. Carlos Moreno" class="staff-img">
+          <div class="staff-photo-overlay"></div>
+        </div>
+        <div class="staff-info">
+          <div class="staff-name">Dr. Carlos Moreno</div>
+          <div class="staff-role">Asociado – Derecho Societario</div>
+          <p class="staff-bio">Asesor de empresas y startups. Especialista en fusiones y adquisiciones. MBA.</p>
+          <div class="staff-social">
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+          </div>
+        </div>
+      </div>
 
-        // Observe stats
-        document.querySelectorAll('.stat-item').forEach(stat => {
-            statsObserver.observe(stat);
-        });
+      <div class="staff-card reveal delay-4">
+        <div class="staff-photo">
+          <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1776896371/img-hero_niftk6-removebg-preview_g9bzpw.png" alt="Dra. Valentina Cruz" class="staff-img">
+          <div class="staff-photo-overlay"></div>
+        </div>
+        <div class="staff-info">
+          <div class="staff-name">Dra. Valentina Cruz</div>
+          <div class="staff-role">Asociada – Derecho Civil</div>
+          <p class="staff-bio">Especialista en daños y perjuicios, accidentes de tránsito. UNLP. Alta efectividad.</p>
+          <div class="staff-social">
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Enhanced service card hover effects
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-                this.querySelector('.service-icon').style.transform = 'scale(1.2) rotate(5deg)';
-            });
+<!-- TESTIMONIOS -->
+<section id="testimonios" class="testimonios" style="">
+  <div class="testimonios-inner" style="">
+    <div class="section-header" style="">
+      <span class="label">Lo que dicen nuestros clientes</span>
+      <h2 class="reveal" style="">Resultados que generan confianza</h2>
+    </div>
+    <div class="testimonios-slider reveal" style="">
+      <div class="testimonios-track" id="testimonioTrack">
+        <div class="testimonio-slide">
+          <div class="testimonio-card" style="">
+            <div class="testimonio-stars" style="">
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            </div>
+            <p class="testimonio-text" style="">"Me despidieron después de 12 años sin pagarme correctamente. El Dr. Valdés me recuperó todo lo que me correspondía más intereses. Jamás pensé que sería posible sin meses de espera."</p>
+            <div class="testimonio-author" style="">
+              <div class="author-avatar">MR</div>
+              <div><div class="author-name">Marcela Rodríguez</div><div class="author-role">Empleada administrativa, CABA</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonio-slide">
+          <div class="testimonio-card">
+            <div class="testimonio-stars">
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            </div>
+            <p class="testimonio-text">"Tuve un accidente de tránsito grave y la aseguradora no quería pagar. En menos de 4 meses, Valdés &amp; Asociados logró una indemnización 3 veces mayor a lo que ofrecían. Excelentes profesionales."</p>
+            <div class="testimonio-author">
+              <div class="author-avatar">JL</div>
+              <div><div class="author-name">Jorge López</div><div class="author-role">Transportista, Provincia de Buenos Aires</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonio-slide">
+          <div class="testimonio-card">
+            <div class="testimonio-stars">
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            </div>
+            <p class="testimonio-text">"Necesitaba constituir mi empresa y asesorarme sobre contratos con proveedores del exterior. El Dr. Moreno fue muy claro, rápido y eficiente. Hoy confío en ellos para todo lo societario."</p>
+            <div class="testimonio-author">
+              <div class="author-avatar">SP</div>
+              <div><div class="author-name">Sofía Pereyra</div><div class="author-role">Empresaria, Mendoza</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonio-slide">
+          <div class="testimonio-card">
+            <div class="testimonio-stars">
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+              <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+            </div>
+            <p class="testimonio-text">"Atravesé un divorcio muy complicado con hijos. La Dra. Fernández fue extraordinaria: firme cuando era necesario, pero siempre cuidando el bienestar de mis hijos. Le estaré eternamente agradecida."</p>
+            <div class="testimonio-author">
+              <div class="author-avatar">AG</div>
+              <div><div class="author-name">Ana Gómez</div><div class="author-role">Docente, Vicente López</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-controls">
+        <button class="slider-dot active" data-index="0"></button>
+        <button class="slider-dot" data-index="1"></button>
+        <button class="slider-dot" data-index="2"></button>
+        <button class="slider-dot" data-index="3"></button>
+      </div>
+    </div>
+  </div>
+</section>
 
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-                this.querySelector('.service-icon').style.transform = 'scale(1) rotate(0deg)';
-            });
-        });
+<!-- FAQ -->
+<section id="faq" class="faq" style="">
+  <div class="faq-inner" style="">
+    <div class="section-header" style="">
+      <span class="label">Preguntas frecuentes</span>
+      <h2 class="reveal" style="">Todo lo que necesita saber</h2>
+      <p class="section-sub reveal delay-1" style="">Respuestas claras a las dudas más comunes de nuestros clientes.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" style="">
+          ¿Cuánto cuesta la primera consulta?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"></line><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"></line></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">La primera consulta es completamente gratuita y sin compromiso. Evaluamos su situación, le explicamos qué derechos le asisten y le damos una opinión profesional honesta sobre las posibilidades de éxito antes de tomar cualquier decisión.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" style="">
+          ¿Trabajan con honorarios a éxito (sin anticipo)?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"></line><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"></line></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Sí, en muchos casos de derecho laboral y accidentes trabajamos bajo la modalidad de honorarios a éxito: usted no paga nada hasta que ganemos el juicio o logremos un acuerdo. Nuestros honorarios son un porcentaje del monto recuperado. Esto garantiza que trabajamos con el máximo compromiso hacia su caso.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" style="">
+          ¿Cuánto tiempo dura un juicio laboral en Argentina?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"></line><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"></line></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Depende del caso y la instancia. Un juicio laboral en el fuero CABA puede durar entre 1 y 3 años. Sin embargo, la mayoría de los casos se resuelven antes mediante acuerdos extrajudiciales o conciliación obligatoria (SECLO), lo que puede reducir el tiempo a 3-6 meses. Siempre buscamos la solución más rápida y favorable para usted.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" style="">
+          Me despidieron, ¿tengo plazo para reclamar?
+          <span class="faq-icon" style=""><svg viewBox="0 0 24 24" style=""><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"></line><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"></line></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Sí, hay plazos de prescripción. En el derecho laboral argentino, el plazo general es de 2 años desde que ocurrió el hecho (despido, accidente, etc.). Sin embargo, existen situaciones donde el plazo puede ser menor. No espere: consulte hoy mismo para no perder su derecho a reclamar.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" style="">
+          ¿Atienden casos en todo el país?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"></line><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"></line></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Tenemos sede en Buenos Aires y atendemos casos en CABA, Gran Buenos Aires y Provincia de Buenos Aires. Para otras provincias, podemos orientarle y, en casos de especial relevancia, coordinamos con estudios jurídicos asociados en todo el país. Muchas gestiones también pueden realizarse de forma remota.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" style="">
+          ¿Qué documentos debo llevar a la primera consulta?
+          <span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19" stroke-linecap="round"></line><line x1="5" y1="12" x2="19" y2="12" stroke-linecap="round"></line></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer-inner">Traiga todo lo que tenga disponible: contratos de trabajo, recibos de sueldo, telegramas, cartas documento, cualquier comunicación con su empleador y su DNI. No se preocupe si no tiene todo: podemos avanzar con lo que tenga y solicitar el resto durante el proceso. Lo importante es no esperar.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Team member card animations
-        document.querySelectorAll('.team-member').forEach((member, index) => {
-            member.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) rotateY(5deg)';
-                this.querySelector('.member-photo').style.transform = 'scale(1.1)';
-            });
+<!-- CONTACTO -->
+<section id="contacto" class="contacto" style="">
+  <div class="contacto-inner" style="">
+    <div class="contacto-info reveal-left">
+      <span class="label">Hablemos</span>
+      <h2>Dé el primer paso hacia la solución</h2>
+      <p style="">Complete el formulario y nos comunicaremos por WhatsApp en menos de 24 horas. La consulta inicial es gratuita y confidencial.</p>
+      <div class="contacto-details" style="">
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div>
+          <div><div class="contact-label">Dirección</div><div class="contact-value">Av. Corrientes 1234, Piso 12 · CABA, Argentina</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div>
+          <div><div class="contact-label">Teléfono / WhatsApp</div><div class="contact-value">+54 9 11 1234-5678</div></div>
+        </div>
+        <div class="contact-item" style="">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div>
+          <div><div class="contact-label">Email</div><div class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a2c1cdccd1d7ced6c3d1e2d4c3cec6c7d1dbc3d1cdc1cbc3c6cdd18cc1cdcf8cc3d0">[email&#160;protected]</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg></div>
+          <div><div class="contact-label">Horario de atención</div><div class="contact-value">Lunes a Viernes · 9:00 a 18:00 hs</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-card reveal-right" style="">
+      <h3 style="">Consulta gratuita</h3>
+      <p class="form-sub" style="">Sin cargos, sin compromiso. Solo respuestas claras.</p>
+      <form name="consulta-legal" data-success-message="Gracias por escribirnos. Un abogado se pondrá en contacto con usted por WhatsApp en menos de 24 horas." style="">
+        <div class="form-row" style="">
+          <div class="form-group" style="">
+            <label for="nombre" style="">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre_completo" placeholder="Juan García" required="" style="">
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono / WhatsApp</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+54 9 11 ...">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email" style="">Email</label>
+          <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" style="">
+        </div>
+        <div class="form-group" style="">
+          <label for="area">Área legal</label>
+          <select id="area" name="area_legal">
+            <option value="">¿Sobre qué necesita asesoramiento?</option>
+            <option value="laboral">Derecho Laboral (despido, accidente, etc.)</option>
+            <option value="familia">Derecho de Familia (divorcio, alimentos)</option>
+            <option value="societario">Derecho Societario y Comercial</option>
+            <option value="transito">Accidente de Tránsito</option>
+            <option value="civil">Derecho Civil / Contratos</option>
+            <option value="otro">Otra consulta</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Describa su situación brevemente</label>
+          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntenos qué está pasando..." style=""></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="formSubmit" style="">
+          <svg viewBox="0 0 24 24" fill="white" style="width:16px;height:16px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path></svg>
+          Enviar consulta por WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
 
-            member.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) rotateY(0deg)';
-                this.querySelector('.member-photo').style.transform = 'scale(1)';
-            });
-        });
+<!-- FOOTER -->
+<footer style="">
+  <div class="footer-inner">
+    <div class="footer-top" style="">
+      <div class="footer-brand">
+        <div class="logo">
+          <svg style="width:36px;height:36px;" viewBox="0 0 36 36" fill="none">
+            <rect width="36" height="36" rx="6" fill="rgba(184,150,78,0.15)"></rect>
+            <path d="M18 6L8 11V17C8 22.5 12.5 27.5 18 29C23.5 27.5 28 22.5 28 17V11L18 6Z" stroke="#b8964e" stroke-width="1.5" fill="none"></path>
+            <path d="M14 18L17 21L22 15" stroke="#b8964e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <div class="logo-text" style="margin-left:0.75rem;">
+            <span class="logo-name">Valdés &amp; Asociados</span>
+            <span class="logo-tagline">Estudio Jurídico</span>
+          </div>
+        </div>
+        <p>Defensa legal comprometida con sus derechos desde 2004. Equipo especializado en Derecho Laboral, Civil, Societario y de Familia en Argentina.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+          <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+          <a href="#" class="social-btn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-linecap="round" stroke-linejoin="round"></rect><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-linecap="round"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-linecap="round"></line></svg></a>
+          <a href="https://wa.me/5491112345678" class="social-btn" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.112 1.523 5.843L0 24l6.302-1.504A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.003-1.368l-.358-.214-3.742.893.935-3.644-.234-.373A9.77 9.77 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#equipo">Equipo</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 style="">Servicios</h5>
+        <ul style="">
+          <li><a href="#servicios">Derecho Laboral</a></li>
+          <li style=""><a href="#servicios" style="">Derecho de Familia</a></li>
+          <li><a href="#servicios">Derecho Societario</a></li>
+          <li><a href="#servicios">Accidentes de Tránsito</a></li>
+          <li><a href="#servicios">Derecho Civil</a></li>
+          <li><a href="#servicios">Mediación</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="#">Av. Corrientes 1234, P.12</a></li>
+          <li><a href="#">Ciudad de Buenos Aires</a></li>
+          <li><a href="tel:+5491112345678">+54 9 11 1234-5678</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#fd9e92938e8891899c8ebd8b9c9199988e849c8e929e949c99928ed39e9290d39c8f"><span class="__cf_email__" data-cfemail="6e0d01001d1b021a0f1d2e180f020a0b1d170f1d010d070f0a011d400d0103400f1c">[email&#160;protected]</span></a></li>
+          <li><a href="#">Lun-Vie: 9:00 a 18:00 hs</a></li>
+        </ul>
+        <div style="margin-top:1.5rem;">
+          <a href="https://wa.me/5491112345678?text=Hola%2C%20quiero%20una%20consulta%20gratuita" class="btn btn-primary" target="_blank" style="font-size:0.8rem; padding:0.65rem 1.25rem;">
+            <svg viewBox="0 0 24 24" fill="white" style="width:14px;height:14px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path></svg>
+            Consulta gratis
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>
+        <div>© 2026 Valdés &amp; Asociados. Todos los derechos reservados.</div>
+        <div class="footer-disclaimer">La información en este sitio no constituye asesoramiento legal. Consulte a un profesional para su caso específico.</div>
+      </div>
+      <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
+        <a href="#" style="font-size:0.8rem; color:rgba(255,255,255,0.4);">Política de Privacidad</a>
+        <a href="#" style="font-size:0.8rem; color:rgba(255,255,255,0.4);">Términos de Servicio</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-        // Typing effect for hero title
-        function typeWriter(element, text, speed = 100) {
-            element.textContent = '';
-            let i = 0;
-            
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            
-            type();
-        }
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Header scroll effect
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 50);
+});
+header.classList.add('scrolled');
 
-        // Initialize typing effect when page loads
-        window.addEventListener('load', () => {
-            const heroTitle = document.querySelector('.hero h1');
-            const originalText = heroTitle.textContent;
-            typeWriter(heroTitle, originalText, 80);
-        });
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+function closeMobile() { mobileMenu.classList.remove('open'); }
 
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    const scrolled = window.pageYOffset;
-                    const hero = document.querySelector('.hero');
-                    const rate = scrolled * -0.5;
-                    
-                    hero.style.transform = `translateY(${rate}px)`;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 
-        // Initialize animations
-        document.addEventListener('DOMContentLoaded', () => {
-            // Observe service cards and team members with enhanced effects
-            document.querySelectorAll('.service-card, .team-member').forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(50px) scale(0.9)';
-                el.style.transition = 'all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1)';
-                observer.observe(el);
-            });
+// FAQ
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const answer = item.querySelector('.faq-answer');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-answer').style.maxHeight = '0';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
 
-            // Add floating animation to CTA buttons
-            document.querySelectorAll('.cta-button, .btn-primary').forEach(btn => {
-                btn.addEventListener('mouseover', function() {
-                    this.style.transform = 'translateY(-3px) scale(1.05)';
-                    this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.2)';
-                });
+// Testimonios slider
+let currentSlide = 0;
+const track = document.getElementById('testimonioTrack');
+const dots = document.querySelectorAll('.slider-dot');
+let autoplay;
 
-                btn.addEventListener('mouseout', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                    this.style.boxShadow = 'none';
-                });
-            });
-        });
+function goToSlide(n) {
+  currentSlide = n;
+  track.style.transform = `translateX(-${n * 100}%)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === n));
+}
+dots.forEach(d => d.addEventListener('click', () => {
+  clearInterval(autoplay);
+  goToSlide(parseInt(d.dataset.index));
+  startAutoplay();
+}));
+function startAutoplay() {
+  autoplay = setInterval(() => {
+    goToSlide((currentSlide + 1) % dots.length);
+  }, 4500);
+}f
+startAutoplay();
 
-        // Form field focus animations
-        document.querySelectorAll('.form-group input, .form-group textarea').forEach(field => {
-            field.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'scale(1.02)';
-                this.style.boxShadow = '0 0 0 3px rgba(59, 130, 246, 0.1)';
-            });
+// Form WhatsApp submit
+document.querySelector('form[name="consulta-legal"]').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const nombre = this.nombre_completo.value;
+  const telefono = this.telefono.value;
+  const area = this.area_legal.value;
+  const mensaje = this.mensaje.value;
+  const text = `Hola, me llamo *${nombre}*. Mi teléfono es ${telefono}. Necesito asesoramiento en *${area || 'derecho'}*. ${mensaje}`;
+  window.open(`https://wa.me/5491112345678?text=${encodeURIComponent(text)}`, '_blank');
+});
+</script>
 
-            field.addEventListener('blur', function() {
-                this.parentElement.style.transform = 'scale(1)';
-                this.style.boxShadow = 'none';
-            });
-        });
 
-        // Testimonials Slider
-        let currentTestimonial = 0;
-        const testimonialTrack = document.getElementById('testimonialTrack');
-        const dots = document.querySelectorAll('.dot');
-        const totalTestimonials = document.querySelectorAll('.testimonial-item').length;
-
-        function showTestimonial(index) {
-            // Update track position
-            testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
-            
-            // Update dots
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[index].classList.add('active');
-        }
-
-        function nextTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
-            showTestimonial(currentTestimonial);
-        }
-
-        // Auto-play slider every 5 seconds
-        setInterval(nextTestimonial, 5000);
-
-        // Dot navigation
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentTestimonial = index;
-                showTestimonial(currentTestimonial);
-            });
-        });
-
-        // FAQ Accordion functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                const isActive = faqItem.classList.contains('active');
-
-                // Close all FAQ items
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-
-                // If this item wasn't active, open it
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                }
-            });
-        });
-
-        // Enhanced testimonials section animation
-        const testimonialsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.3 });
-
-        // Initialize testimonials and FAQ animations
-        document.addEventListener('DOMContentLoaded', () => {
-            // Animate testimonials section
-            document.querySelectorAll('.testimonial-item, .faq-item').forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
-                testimonialsObserver.observe(el);
-            });
-        });  
-		
-				// Icono whastapp
-		      // Efecto de entrada al cargar la página
-        window.addEventListener('load', function() {
-            const btn = document.getElementById('whatsappBtn');
-            btn.style.transform = 'scale(0)';
-            btn.style.opacity = '0';
-            
-            setTimeout(function() {
-                btn.style.transition = 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
-                btn.style.transform = 'scale(1)';
-                btn.style.opacity = '1';
-            }, 500);
-        });
-
-        // Efecto de shake al hacer click
-        document.getElementById('whatsappBtn').addEventListener('click', function(e) {
-            this.style.animation = 'none';
-            setTimeout(() => {
-                this.style.animation = 'pulse 2s infinite';
-            }, 10);
-        });
-
-        // Efecto adicional al scroll (opcional)
-        let lastScroll = 0;
-        window.addEventListener('scroll', function() {
-            const btn = document.getElementById('whatsappBtn');
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > lastScroll) {
-                btn.style.transform = 'scale(0.9)';
-            } else {
-                btn.style.transform = 'scale(1)';
-            }
-            
-            lastScroll = currentScroll;
-        });
-				
-// Script para el Slider Infinito
-const logoTrack = document.getElementById('logoTrack');
-const logos = logoTrack.innerHTML;
-
-// Clonamos el contenido de los logos para crear el efecto de bucle infinito
-logoTrack.innerHTML += logos;
-
-// Nota: Al duplicar el contenido, el CSS puede desplazar el track 
-// continuamente sin que el usuario note el salto al reiniciar.
-    </script>
-</body>
-</html>
+</body></html>
