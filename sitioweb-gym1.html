@@ -1786,7 +1786,35 @@
         });
 
         // Animación al hacer scroll
+       const observerOptions = {
+         threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animated');
+                        
+                        // Añadir diferentes animaciones según el elemento
+                        if (entry.target.classList.contains('feature-card')) {
+                            entry.target.style.animationName = 'fadeInUp';
+                        } else if (entry.target.classList.contains('service-card')) {
+                            entry.target.style.animationName = 'scaleIn';
+                        } else if (entry.target.classList.contains('pricing-card')) {
+                            entry.target.style.animationName = 'fadeInUp';
+                        } else if (entry.target.classList.contains('trainer-card')) {
+                            entry.target.style.animationName = 'fadeInUp';
+                        } else if (entry.target.classList.contains('gallery-item')) {
+                            entry.target.style.animationName = 'scaleIn';
+                        } else {
+                            entry.target.style.animationName = 'fadeInUp';
+                        }
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
 
         // Observar todos los elementos con la clase animate-on-scroll
         document.addEventListener('DOMContentLoaded', () => {
