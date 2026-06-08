@@ -1,0 +1,1945 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYMP - Transforma Tu Cuerpo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+        }
+
+        .animate-on-scroll.animated {
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .logo span {
+            color: #ff6b35;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6b35;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .social-icons a:hover {
+            color: #e74c3c;
+            transform: translateY(-3px);
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            width: 30px;
+            height: 25px;
+            position: relative;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+            position: absolute;
+            left: 0;
+        }
+
+        .menu-toggle span:nth-child(1) {
+            top: 0;
+        }
+
+        .menu-toggle span:nth-child(2) {
+            top: 11px;
+        }
+
+        .menu-toggle span:nth-child(3) {
+            bottom: 0;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            top: 11px;
+            transform: rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            bottom: 11px;
+            transform: rotate(-45deg);
+        }
+
+        .whatsapp-contact-btn {
+            background-color: #25D366;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+		
+	
+        .whatsapp-contact-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .whatsapp-contact-btn:hover {
+            background-color: #20BA5A;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-contact-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin-top: 60px;
+        }
+
+        .hero-subtitle {
+            color: #ff6b35;
+            font-size: 14px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            animation: fadeInDown 1s ease 0.3s both;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            font-weight: 900;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .hero h1 span {
+            color: #ff6b35;
+        }
+
+        .cta-button {
+            background-color: #ff6b35;
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            animation: fadeInUp 1s ease 0.7s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            background-color: #ff8555;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 5%;
+            background-color: #0a0a0a;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            color: #ff6b35;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+                 }
+
+     
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .feature-card p {
+            color: #888;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 5%;
+            background-color: #0f0f0f;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            position: relative;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .service-card:nth-child(1) {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&q=80');
+        }
+
+        .service-card:nth-child(2) {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=800&q=80');
+        }
+
+        .service-card:nth-child(3) {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80');
+        }
+
+        .service-card:nth-child(4) {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1485727749690-d091f284ef62?w=800&q=80');
+        }
+
+        .service-card:nth-child(5) {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517438984742-1262db08379e?w=800&q=80');
+        }
+
+        .service-card:nth-child(6) {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517438984742-1262db08379e?w=800&q=80');
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.3);
+        }
+
+        .service-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-overlay {
+            background: linear-gradient(transparent, rgba(255, 107, 53, 0.9));
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Registration CTA */
+        .registration-cta {
+            padding: 100px 5%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+        }
+
+        .registration-cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .registration-cta p {
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 5%;
+            background-color: #0a0a0a;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            background-color: #1a1a1a;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .pricing-card:hover::before {
+            left: 100%;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+            border: 2px solid #ff6b35;
+        }
+
+        .pricing-card h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .price {
+            font-size: 48px;
+            color: #ff6b35;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .price-period {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .features-list li {
+            color: #888;
+            margin-bottom: 15px;
+            font-size: 14px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            color: #ff6b35;
+            position: absolute;
+            left: 0;
+        }
+
+        .pricing-button {
+            width: 100%;
+            background-color: transparent;
+            border: 2px solid #ff6b35;
+            color: #ff6b35;
+            padding: 15px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .pricing-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: #ff6b35;
+            transition: left 0.3s;
+            z-index: -1;
+        }
+
+        .pricing-button:hover::before {
+            left: 0;
+        }
+
+        .pricing-button:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 100px 5%;
+            background-color: #0f0f0f;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background-color: #222;
+            border-radius: 10px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.5);
+            z-index: 10;
+        }
+
+        .gallery-item:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800&q=80');
+        }
+
+        .gallery-item:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&q=80');
+        }
+
+        .gallery-item:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1623874514711-0f321325f318?w=800&q=80');
+        }
+
+        .gallery-item:nth-child(4) {
+            background-image: url('https://images.unsplash.com/photo-1520877880798-5ee004e3f11e?w=800&q=80');
+        }
+
+        .gallery-item:nth-child(5) {
+            background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80');
+        }
+
+        .gallery-item:nth-child(6) {
+            background-image: url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=800&q=80');
+        }
+
+        /* Trainers */
+        .trainers {
+            padding: 100px 5%;
+            background-color: #0a0a0a;
+        }
+
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .trainer-card {
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .trainer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+        }
+
+        .trainer-image {
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .trainer-card:hover .trainer-image {
+            transform: scale(1.1);
+        }
+
+        .trainer-card:nth-child(1) .trainer-image {
+            background-image: url('https://res.cloudinary.com/dliredzt9/image/upload/v1744048939/staff1_qit83z.png');
+        }
+
+        .trainer-card:nth-child(2) .trainer-image {
+            background-image: url('https://res.cloudinary.com/dliredzt9/image/upload/v1744048940/staff2_tvwr04.png');
+        }
+
+        .trainer-card:nth-child(3) .trainer-image {
+            background-image: url('https://res.cloudinary.com/dliredzt9/image/upload/v1744048939/satff3_myumbf.png');
+        }
+
+        .trainer-info {
+            padding: 30px;
+        }
+
+        .trainer-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .trainer-info p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Testimonials Section - MEJORADO RESPONSIVE */
+        .testimonials {
+            padding: 100px 5%;
+            background-color: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-slider {
+            position: relative;
+            max-width: 1000px;
+            margin: 60px auto 0;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .testimonials-container {
+            position: relative;
+            width: 100%;
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .testimonial-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            padding: 40px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            opacity: 0;
+            transform: translateX(100px) scale(0.9);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .testimonial-card.active {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+            pointer-events: all;
+            visibility: visible;
+            z-index: 2;
+        }
+
+        .testimonial-card.prev {
+            opacity: 0;
+            transform: translateX(-100px) scale(0.9);
+            visibility: hidden;
+        }
+
+        .testimonial-image {
+            min-width: 150px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            border: 5px solid #ff6b35;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .testimonial-content {
+            flex: 1;
+        }
+
+        .stars {
+            color: #ff6b35;
+            font-size: 24px;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+        }
+
+        .testimonial-text {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-name {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            color: #ff6b35;
+            font-size: 14px;
+        }
+
+        .slider-btn {
+            background-color: #ff6b35;
+            color: #fff;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            background-color: #ff8555;
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.5);
+        }
+
+        .slider-btn:active {
+            transform: scale(0.95);
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot:hover {
+            background-color: #666;
+        }
+
+        .dot.active {
+            background-color: #ff6b35;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 5%;
+            background-color: #0f0f0f;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            background-color: #1a1a1a;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.2);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #222;
+        }
+
+        .faq-question h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            padding-right: 20px;
+        }
+
+        .faq-icon {
+            font-size: 28px;
+            color: #ff6b35;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 30px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 30px 25px 30px;
+        }
+
+        .faq-answer p {
+            color: #888;
+            line-height: 1.8;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* Reservation Form */
+        .reservation-form {
+            padding: 100px 5%;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-content {
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 50px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-form {
+            margin-top: 40px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            width: 100%;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            background-color: #0f0f0f;
+            border: 2px solid #333;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #666;
+        }
+
+        .form-group select {
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .form-group select option {
+            background-color: #0f0f0f;
+            color: #fff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            font-size: 16px;
+        }
+
+        .whatsapp-icon {
+            font-size: 24px;
+        }
+
+        .submit-btn:hover .whatsapp-icon {
+            animation: pulse 0.5s ease;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            padding: 60px 5%;
+            background-color: #0f0f0f;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #ff6b35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: rotate(360deg);
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.6);
+        }
+
+        .contact-text {
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Contact Section with Map */
+        .contact-section {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr;
+            min-height: 600px;
+        }
+
+        .map-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .map-container iframe {
+            filter: grayscale(100%) invert(92%) contrast(83%);
+        }
+
+        .contact-info {
+            position: relative;
+            z-index: 2;
+            padding: 60px 5%;
+            background: linear-gradient(to right, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.85) 100%);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-text h4 {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #888;
+        }
+
+        .contact-text p {
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 5%;
+            background-color: #0a0a0a;
+            border-top: 1px solid #222;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background-color: #0a0a0a;
+                padding: 30px 5%;
+                transition: left 0.3s;
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .whatsapp-contact-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .features-grid,
+            .services-grid,
+            .pricing-grid,
+            .trainers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-content {
+                padding: 30px 20px;
+            }
+
+            /* TESTIMONIALS RESPONSIVE MEJORADO */
+            .testimonials {
+                padding: 60px 0;
+            }
+
+            .testimonials-slider {
+                flex-direction: column;
+                gap: 20px;
+                margin: 40px 0 0;
+                padding: 0;
+            }
+
+            .testimonials-container {
+                min-height: 520px;
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .testimonial-card {
+                flex-direction: column;
+                padding: 30px 20px;
+                text-align: center;
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 0;
+            }
+
+            .testimonial-image {
+                min-width: 100px;
+                width: 100px;
+                height: 100px;
+                border-width: 3px;
+            }
+
+            .testimonial-content {
+                width: 100%;
+            }
+
+            .stars {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .testimonial-text {
+                font-size: 14px;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+
+            .testimonial-name {
+                font-size: 18px;
+            }
+
+            .testimonial-role {
+                font-size: 13px;
+            }
+
+            .slider-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 24px;
+            }
+
+            .slider-dots {
+                margin-top: 30px;
+            }
+
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+
+            .dot.active {
+                width: 25px;
+            }
+
+            .contact-section {
+                min-height: auto;
+            }
+
+            .map-container {
+                position: relative;
+                height: 300px;
+            }
+
+            .contact-info {
+                background: rgba(10, 10, 10, 0.98);
+            }
+        }
+		
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">GYMP <span><img src="logo-gym.png" style="width:24px; height:24px;"></span></div>
+        <nav id="nav">
+            <ul>
+                <li><a href="#home">INICIO</a></li>
+                <li><a href="#about">NOSOTROS</a></li>
+                <li><a href="#classes">SERVICIOS</a></li>
+                <li><a href="#services">LUGAR</a></li>
+                <li><a href="#contact">STAFF</a></li>
+                <button class="whatsapp-contact-btn" onclick="openWhatsApp()">
+                    <span>RESERVA</span>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                </button>
+            </ul>
+        </nav>
+        <div class="social-icons">
+		        <a href="https://www.facebook.com/chulengos.fanpage"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                <a href="https://www.youtube.com/@ChulengosOficial"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                <a href="https://www.instagram.com/chulengos.oficial"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></a>
+         
+        </div>
+        <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="hero-subtitle">TRANSFORMA TU CUERPO</p>
+            <h1>SÉ <span>FUERTE</span><br>ENTRENA DURO</h1>
+            <button class="cta-button">COMENZAR AHORA</button>
+        </div>
+    </section>
+	 <!-- Services Section -->
+    <section class="services" id="classes">
+        <div class="section-title animate-on-scroll">
+            <p class="section-subtitle">¿QUÉ HACEMOS?</p>
+            <h2>LO QUE PODEMOS OFRECERTE</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="service-overlay">
+                    <h3>LEVANTAMIENTO DE PESAS</h3>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-overlay">
+                    <h3>BOXEO</h3>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-overlay">
+                    <h3>ESPACIO PERSONAL</h3>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-overlay">
+                    <h3>CICLISMO CARDIO</h3>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-overlay">
+                    <h3>ENTRENAMIENTO FUNCIONAL</h3>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-overlay">
+                    <h3>YOGA & PILATES</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="about">
+        <div class="section-title animate-on-scroll">
+            <p class="section-subtitle">¿POR QUÉ ELEGIRNOS?</p>
+            <h2>SUPERA TUS LÍMITES</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><img src="logo-gym.png" style="width:24px; height:24px;"></div>
+                <h3>Equipamiento moderno</h3>
+                <p>Contamos con la última tecnología en equipamiento deportivo para que alcances tus objetivos de manera eficiente y segura.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><img src="logo-gym.png" style="width:24px; height:24px;"></div>
+                <h3>Plan de nutrición saludable</h3>
+                <p>Diseñamos planes nutricionales personalizados que complementan tu entrenamiento para maximizar resultados.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><img src="logo-gym.png" style="width:24px; height:24px;"></div>
+                <h3>Plan de entrenamiento profesional</h3>
+                <p>Programas de ejercicios diseñados por expertos certificados adaptados a tu nivel y metas específicas.</p>
+            </div>
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon"><img src="logo-gym.png" style="width:24px; height:24px;"></div>
+                <h3>Único para tus necesidades</h3>
+                <p>Cada programa se personaliza completamente según tus objetivos, capacidades y estilo de vida.</p>
+            </div>
+        </div>
+    </section>
+
+   	
+
+    <!-- Registration CTA -->
+    <section class="registration-cta">
+        <h2>REGÍSTRATE AHORA Y OBTÉN MÁS BENEFICIOS</h2>
+        <p>DONDE LA SALUD, BELLEZA Y FITNESS SE ENCUENTRAN.</p>
+        <button class="cta-button">AGENDAR CITA</button>
+    </section>
+	
+	  <!-- Gallery -->
+    <section class="gallery">
+        <div class="gallery-grid">
+            <div class="gallery-item animate-on-scroll"></div>
+            <div class="gallery-item animate-on-scroll"></div>
+            <div class="gallery-item animate-on-scroll"></div>
+            <div class="gallery-item animate-on-scroll"></div>
+            <div class="gallery-item animate-on-scroll"></div>
+            <div class="gallery-item animate-on-scroll"></div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="section-title animate-on-scroll">
+            <p class="section-subtitle">PLAN DE PRECIOS</p>
+            <h2>ELIGE TU PLAN IDEAL</h2>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card animate-on-scroll">
+                <h3>Clase Individual</h3>
+                <div class="price">$ 39.0</div>
+                <p class="price-period">CLASE ÚNICA</p>
+                <ul class="features-list">
+                    <li>Entrada libre</li>
+                    <li>Equipamiento ilimitado</li>
+                    <li>Entrenador personal</li>
+                    <li>Clases de pérdida de peso</li>
+                    <li>Mes a mes</li>
+                    <li>Sin restricción de tiempo</li>
+                </ul>
+                <button class="pricing-button">INSCRIBIRSE AHORA</button>
+            </div>
+            <div class="pricing-card animate-on-scroll">
+                <h3>12 Meses Ilimitado</h3>
+                <div class="price">$ 99.0</div>
+                <p class="price-period">MEMBRESÍA ANUAL</p>
+                <ul class="features-list">
+                    <li>Entrada libre</li>
+                    <li>Equipamiento ilimitado</li>
+                    <li>Entrenador personal</li>
+                    <li>Clases de pérdida de peso</li>
+                    <li>Acceso prioritario</li>
+                    <li>Sin restricción de tiempo</li>
+                </ul>
+                <button class="pricing-button">INSCRIBIRSE AHORA</button>
+            </div>
+            <div class="pricing-card animate-on-scroll">
+                <h3>6 Meses Ilimitado</h3>
+                <div class="price">$ 59.0</div>
+                <p class="price-period">MEMBRESÍA SEMESTRAL</p>
+                <ul class="features-list">
+                    <li>Entrada libre</li>
+                    <li>Equipamiento ilimitado</li>
+                    <li>Entrenador personal</li>
+                    <li>Clases de pérdida de peso</li>
+                    <li>Mes a mes</li>
+                    <li>Sin restricción de tiempo</li>
+                </ul>
+                <button class="pricing-button">INSCRIBIRSE AHORA</button>
+            </div>
+        </div>
+    </section>
+
+      <!-- Trainers -->
+    <section class="trainers">
+        <div class="section-title animate-on-scroll">
+            <p class="section-subtitle">NUESTRO EQUIPO</p>
+            <h2>ENTRENA CON EXPERTOS</h2>
+        </div>
+        <div class="trainers-grid">
+            <div class="trainer-card animate-on-scroll">
+			
+                <div class="trainer-image"></div>
+				
+                <div class="trainer-info">
+                    <h3>CARLOS MENDOZA</h3>
+                    <p>Entrenador Personal</p>
+                </div>
+            </div>
+            <div class="trainer-card animate-on-scroll">
+                <div class="trainer-image"></div>
+                <div class="trainer-info">
+                    <h3>LAURA GARCÍA</h3>
+                    <p>Instructora de Yoga</p>
+                </div>
+            </div>
+            <div class="trainer-card animate-on-scroll">
+                <div class="trainer-image"></div>
+                <div class="trainer-info">
+                    <h3>MIGUEL TORRES</h3>
+                    <p>Entrenador de Boxeo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="section-title animate-on-scroll">
+            <p class="section-subtitle">TESTIMONIOS</p>
+            <h2>LO QUE DICEN NUESTROS CLIENTES</h2>
+        </div>
+        <div class="testimonials-slider">
+            <button class="slider-btn prev-btn" onclick="changeSlide(-1)">‹</button>
+            <div class="testimonials-container">
+                <div class="testimonial-card active">
+                    <div class="testimonial-image" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80')"></div>
+                    <div class="testimonial-content">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Desde que me uní a GYMP mi vida cambió completamente. Bajé 15 kilos en 4 meses y me siento con mucha más energía. Los entrenadores son increíbles y el ambiente es muy motivador. ¡100% recomendado!"</p>
+                        <h4 class="testimonial-name">María González</h4>
+                        <p class="testimonial-role">Miembro desde 2023</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-image" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80')"></div>
+                    <div class="testimonial-content">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"El mejor gimnasio de Buenos Aires sin dudas. Las instalaciones son de primera, siempre limpias y con equipamiento moderno. Carlos, mi entrenador personal, es un crack. Logré aumentar mi masa muscular en tiempo récord."</p>
+                        <h4 class="testimonial-name">Javier Martínez</h4>
+                        <p class="testimonial-role">Miembro desde 2022</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-image" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80')"></div>
+                    <div class="testimonial-content">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Como madre de dos hijos, encontrar tiempo para entrenar era imposible. GYMP tiene horarios súper flexibles y una guardería increíble. Ahora entreno 4 veces por semana y me siento fenomenal. ¡Gracias equipo!"</p>
+                        <h4 class="testimonial-name">Laura Fernández</h4>
+                        <p class="testimonial-role">Miembro desde 2024</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-image" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80')"></div>
+                    <div class="testimonial-content">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Tenía problemas de espalda crónicos por el trabajo de oficina. El programa de entrenamiento funcional y las clases de yoga me ayudaron enormemente. Ya no tengo dolores y mi postura mejoró un montón. Súper agradecido."</p>
+                        <h4 class="testimonial-name">Roberto Silva</h4>
+                        <p class="testimonial-role">Miembro desde 2023</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-image" style="background-image: url('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80')"></div>
+                    <div class="testimonial-content">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Después de probar varios gimnasios, finalmente encontré mi lugar. La comunidad es increíble, todos se apoyan mutuamente. Las clases de boxeo con Miguel son mis favoritas. Este es mi segundo hogar."</p>
+                        <h4 class="testimonial-name">Sofía Romero</h4>
+                        <p class="testimonial-role">Miembro desde 2023</p>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-btn next-btn" onclick="changeSlide(1)">›</button>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+            <span class="dot" onclick="goToSlide(3)"></span>
+            <span class="dot" onclick="goToSlide(4)"></span>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="section-title animate-on-scroll">
+            <p class="section-subtitle">PREGUNTAS FRECUENTES</p>
+            <h2>¿TIENES DUDAS?</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    <h3>¿Necesito experiencia previa para unirme al gimnasio?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No es necesario tener experiencia previa. Nuestros entrenadores profesionales están capacitados para trabajar con personas de todos los niveles, desde principiantes hasta atletas avanzados. Diseñamos programas personalizados adaptados a tu condición física actual.</p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    <h3>¿Qué incluye la membresía?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Todas nuestras membresías incluyen acceso ilimitado al gimnasio, uso de todos los equipos, vestuarios con duchas, y clases grupales básicas. Los planes superiores incluyen entrenador personal, plan nutricional personalizado y acceso prioritario a clases especiales.</p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    <h3>¿Cuál es el horario de atención?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Estamos abiertos de lunes a sábado de 6:00 AM a 10:00 PM. Los domingos permanecemos cerrados para mantenimiento de instalaciones. Algunos planes premium incluyen acceso 24/7 con llave electrónica.</p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    <h3>¿Puedo cancelar mi membresía en cualquier momento?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, puedes cancelar tu membresía con 30 días de anticipación. Las membresías anuales y semestrales tienen condiciones especiales. Contáctanos para más información sobre políticas de cancelación específicas según tu plan.</p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    <h3>¿Ofrecen clases de prueba gratuitas?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>¡Absolutamente! Ofrecemos una clase de prueba gratuita para que conozcas nuestras instalaciones, entrenadores y ambiente. También incluye una evaluación física inicial sin costo. Reserva tu clase usando el formulario de contacto.</p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    <h3>¿Tienen estacionamiento disponible?</h3>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, contamos con estacionamiento gratuito para todos nuestros miembros con espacios suficientes. También tenemos bicicleteros seguros si prefieres venir en bicicleta. La ubicación es de fácil acceso con transporte público.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Reservation Form -->
+    <section class="reservation-form">
+        <div class="form-container">
+            <div class="form-content animate-on-scroll">
+                <div class="section-title">
+                    <p class="section-subtitle">RESERVA TU CLASE</p>
+                    <h2>¡COMIENZA HOY!</h2>
+                    <p style="color: #888; margin-top: 15px;">Completa el formulario y te contactaremos por WhatsApp</p>
+                </div>
+                <form id="reservationForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Teléfono (WhatsApp)" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" required>
+                                <option value="">Selecciona un servicio</option>
+                                <option value="Levantamiento de Pesas">Levantamiento de Pesas</option>
+                                <option value="Boxeo">Boxeo</option>
+                                <option value="Espacio Personal">Espacio Personal</option>
+                                <option value="Ciclismo Cardio">Ciclismo Cardio</option>
+                                <option value="Entrenamiento Funcional">Entrenamiento Funcional</option>
+                                <option value="Clase de Prueba">Clase de Prueba</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Mensaje (opcional)"></textarea>
+                    </div>
+                    <button type="submit" class="cta-button submit-btn">
+                        <span>ENVIAR POR WHATSAPP</span>
+                        <span class="whatsapp-icon">    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- Contact Info with Map -->
+    <section class="contact-section" id="contact">
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168878383846!2d-58.38375908477052!3d-34.60373098045989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccaceb9f8fd1f%3A0x8e38b0c63a8a5c6e!2sObelisco!5e0!3m2!1ses!2sar!4v1234567890123!5m2!1ses!2sar" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <div class="contact-info">
+        <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-text">
+                <h4>Av. Libertador 1234, CABA,</h4>
+                <p>Buenos Aires, Argentina</p>
+            </div>
+        </div>
+        <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-text">
+                <h4>+54 11 1234-5678 | +54 11 8765-4321</h4>
+                <p>soporte.gym@gmail.com</p>
+            </div>
+        </div>
+        <div class="contact-item">
+            <div class="contact-icon">⏰</div>
+            <div class="contact-text">
+                <h4>Lun – Sáb: 6:00 am – 10:00 pm</h4>
+                <p>Domingo – Cerrado</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo"><span><img src="logo-gym.png" style="width:24px; height:24px;"></span> GYMP</div>
+                <p style="margin-top: 20px;">Somos tu mejor opción para alcanzar tus metas fitness. Con instalaciones de primer nivel y entrenadores certificados, te ayudamos a transformar tu vida.</p>
+                <div class="social-icons" style="margin-top: 20px;">
+                     <a href="https://www.facebook.com/chulengos.fanpage"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                <a href="https://www.youtube.com/@ChulengosOficial"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                <a href="https://www.instagram.com/chulengos.oficial"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></a>
+         
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces útiles</h3>
+                <a href="#">Acerca de</a>
+                <a href="#">Blog</a>
+                <a href="#">Clases</a>
+                <a href="#">Contacto</a>
+            </div>
+            <div class="footer-section">
+                <h3>Soporte</h3>
+                <a href="#">Iniciar sesión</a>
+                <a href="#">Mi cuenta</a>
+                <a href="#">Suscribirse</a>
+                <a href="#">Contacto</a>
+            </div>
+            <div class="footer-section">
+                <h3>Consejos y Guías</h3>
+                <a href="#">El fitness físico es primordial</a>
+                <a href="#">Cómo mantenerte motivado</a>
+                <a href="#">Tu tiempo es limitado</a>
+                <a href="#">Tips que cambiarán tu vida</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright ©2024 Todos los derechos reservados | Esta plantilla está hecha con ♥ por Colorlib</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('nav');
+            const menuToggle = document.getElementById('menuToggle');
+            nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('nav').classList.remove('active');
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                header.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+
+        // Animación al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animated');
+                        
+                        // Añadir diferentes animaciones según el elemento
+                        if (entry.target.classList.contains('feature-card')) {
+                            entry.target.style.animationName = 'fadeInUp';
+                        } else if (entry.target.classList.contains('service-card')) {
+                            entry.target.style.animationName = 'scaleIn';
+                        } else if (entry.target.classList.contains('pricing-card')) {
+                            entry.target.style.animationName = 'fadeInUp';
+                        } else if (entry.target.classList.contains('trainer-card')) {
+                            entry.target.style.animationName = 'fadeInUp';
+                        } else if (entry.target.classList.contains('gallery-item')) {
+                            entry.target.style.animationName = 'scaleIn';
+                        } else {
+                            entry.target.style.animationName = 'fadeInUp';
+                        }
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        // Observar todos los elementos con la clase animate-on-scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Cerrar todos los items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Abrir el clickeado si no estaba activo
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Formulario de Reserva - WhatsApp
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Número de WhatsApp del gimnasio (cambia este número por el tuyo)
+            const whatsappNumber = '5491112345678'; // Formato: código país + código área + número
+            
+            // Crear el mensaje
+            let whatsappMessage = `¡Hola! Me gustaría reservar una clase.%0A%0A`;
+            whatsappMessage += `*Nombre:* ${name}%0A`;
+            whatsappMessage += `*Teléfono:* ${phone}%0A`;
+            whatsappMessage += `*Email:* ${email}%0A`;
+            whatsappMessage += `*Servicio:* ${service}%0A`;
+            if (message) {
+                whatsappMessage += `*Mensaje:* ${message}%0A`;
+            }
+            
+            // Abrir WhatsApp
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Limpiar formulario
+            this.reset();
+        });
+
+        // Testimonials Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.testimonial-card');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+        let autoplayInterval;
+
+        function showSlide(n) {
+            // Asegurar que el índice esté en el rango correcto
+            if (n >= totalSlides) {
+                currentSlide = 0;
+            } else if (n < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = n;
+            }
+
+            // Remover clases activas
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev');
+                if (index < currentSlide) {
+                    slide.classList.add('prev');
+                }
+            });
+
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // Activar slide y dot actual
+            if (slides[currentSlide]) {
+                slides[currentSlide].classList.add('active');
+            }
+            if (dots[currentSlide]) {
+                dots[currentSlide].classList.add('active');
+            }
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+            resetAutoplay();
+        }
+
+        function goToSlide(n) {
+            showSlide(n);
+            resetAutoplay();
+        }
+
+        function resetAutoplay() {
+            clearInterval(autoplayInterval);
+            startAutoplay();
+        }
+
+        function startAutoplay() {
+            autoplayInterval = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+        }
+
+        // Inicializar slider cuando el DOM esté listo
+        if (slides.length > 0) {
+            showSlide(0);
+            startAutoplay();
+        }
+
+        // Pausar autoplay cuando el usuario interactúa
+        document.querySelectorAll('.slider-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+            btn.addEventListener('mouseleave', () => startAutoplay());
+        });
+    </script>
+</body>
+</html>
